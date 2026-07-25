@@ -94,8 +94,12 @@
 }
 
 /* Phones — pull the tangle toward the right edge and fade harder so stacked
-   text stays readable. */
+   text stays readable. Bigger vertical breathing room so the block reads
+   with comparable weight to the neighbouring What We Diagnose section. */
 @media (max-width: 767px) {
+  .block {
+    gap: var(--space-4);
+  }
   .bgImg {
     object-position: 88% center;
     opacity: 0.4;
