@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import LegalPageLayout from "@/components/layout/LegalPageLayout";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";

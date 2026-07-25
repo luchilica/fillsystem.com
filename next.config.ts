@@ -17,6 +17,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2592000,
+  },
   async headers() {
     if (process.env.SITE_MODE === "production") {
       return [{ source: "/:path*", headers: securityHeaders }];

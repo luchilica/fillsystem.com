@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -33,9 +33,8 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-// metadataBase lets relative OG/Twitter images and canonical URLs resolve to
-// absolute HTTPS URLs. Page-level metadata (homepage, legal pages) overrides
-// these defaults.
+export const viewport: Viewport = { themeColor: "#2551D2" };
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {

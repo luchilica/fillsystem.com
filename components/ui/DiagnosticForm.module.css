@@ -3,7 +3,7 @@
    parent form cluster. Specs: docs/design.md → "Forms". No Tailwind. */
 
 .microcopy {
-  color: black;
+  color: var(--ink-900);
   margin-bottom: var(--space-3);
   max-width: var(--text-max);
   font-size: 14px;
