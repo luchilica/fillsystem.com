@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import LegalPageLayout from "@/components/layout/LegalPageLayout";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
@@ -29,6 +30,8 @@ export default async function CookiePolicy({
   const { locale } = await params;
   setRequestLocale(locale);
   return (
+    <>
+    <BreadcrumbJsonLd title="Cookie Policy" path="/cookie-policy" />
     <LegalPageLayout title="Cookie Policy" lastUpdated="June 13, 2026">
       <p>
         This Cookie Policy explains how Opsfield Systems uses cookies and similar
@@ -126,5 +129,6 @@ export default async function CookiePolicy({
         the Main Challenge field with <code>Privacy Request</code>.
       </p>
     </LegalPageLayout>
+    </>
   );
 }

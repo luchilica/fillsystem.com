@@ -79,10 +79,11 @@ function rangeLabel(locale: Locale, low: number, high: number): string {
 type Service = {
   id: string;
   image: string;
-  badge?: string; // top-left pill; only the free diagnostic carries one
+  blur: string;
+  badge?: string;
   title: string;
-  base?: number; // floor price at ≤25 people, scales with the calculator
-  fixed?: number; // per-case price, does not scale (O-1)
+  base?: number;
+  fixed?: number;
   free?: boolean;
   lede: string;
   context: string;
@@ -101,6 +102,7 @@ const SERVICES: Service[] = [
   {
     id: "primary-diagnostic",
     image: "/services/diagnostic.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDERIiMmGR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJukYYKLRmDyrtBOKGrfERB//9k=",
     badge: "Start here",
     title: "Primary Diagnostic",
     free: true,
@@ -120,6 +122,7 @@ const SERVICES: Service[] = [
   {
     id: "advisory-power-hour",
     image: "/services/advisory.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAcEAEAAgIDAQAAAAAAAAAAAAABAAIDEQQhMXH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCWe5ja5SzZT5tjXIe60NPm0iISP//Z",
     title: "Advisory Power Hour",
     fixed: 200,
     lede: "Bring one concrete problem. Leave with a clear, expert answer in 60 minutes.",
@@ -138,6 +141,7 @@ const SERVICES: Service[] = [
   {
     id: "extended-diagnostic",
     image: "/services/extended.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAID/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECEQMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AiJqsqX5l5ho+NtvtAEH/2Q==",
     title: "Extended Diagnostic",
     base: 1200,
     lede: "Go deeper: a documented diagnosis for when you need to be sure before you invest.",
@@ -156,6 +160,7 @@ const SERVICES: Service[] = [
   {
     id: "addon-tool",
     image: "/services/addon.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEE/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAECAxESMlH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMcZwtljba8wvKreqABT/9k=",
     title: "Add-on Tool Build",
     base: 900,
     lede: "Pick one quick win: a Telegram bot, a landing page, or an email campaign. We build it.",
@@ -174,6 +179,7 @@ const SERVICES: Service[] = [
   {
     id: "it-risk",
     image: "/services/security.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAME/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEREhMhIv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDFl5SjROzAA//Z",
     title: "IT Risk & Security",
     base: 1900,
     lede: "See where your data, access, and systems put the business at risk.",
@@ -192,6 +198,7 @@ const SERVICES: Service[] = [
   {
     id: "process-operations",
     image: "/services/process.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAHBAAAwABBQAAAAAAAAAAAAAAAAECEQMEITFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AhbiFoSn2pXGDOrDpv0AMpY//2Q==",
     title: "Process & Operations",
     base: 3500,
     lede: "Redesign the handoffs, approvals, and ownership that slow a growing team down.",
@@ -210,6 +217,7 @@ const SERVICES: Service[] = [
   {
     id: "automation",
     image: "/services/automation.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAGRABAAIDAAAAAAAAAAAAAAAAAAIhAROR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDMnHXWeooDRH//2Q==",
     title: "AI & Process Automation",
     base: 3900,
     lede: "Remove the manual, repetitive work, but only where it actually pays off.",
@@ -228,6 +236,7 @@ const SERVICES: Service[] = [
   {
     id: "revops",
     image: "/services/revops.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAdEAACAgIDAQAAAAAAAAAAAAABAgADBBESIVFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCcuVahPC11B8Ou5bosdsesliSVBJ38iII//9k=",
     title: "RevOps: CRM, Data & Reporting",
     base: 4900,
     lede: "Make your CRM, pipeline, and reporting tell the truth again.",
@@ -246,6 +255,7 @@ const SERVICES: Service[] = [
   {
     id: "o1-readiness",
     image: "/services/o1.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAYEAADAQEAAAAAAAAAAAAAAAAAARFBYf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlJqaKugFH//Z",
     title: "O-1 Readiness Support",
     fixed: 2500,
     lede: "Structure the evidence behind an O-1 extraordinary-ability case the right way.",
@@ -338,6 +348,8 @@ function ServiceCard({
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={styles.img}
           priority={priority}
+          placeholder="blur"
+          blurDataURL={service.blur}
         />
         {service.badge && (
           <span className={styles.category}>{t(service.badge)}</span>

@@ -5,7 +5,7 @@ import { test, expect } from "@playwright/test";
 
 const TITLE = "Diagnostic-First IT & Business Consulting | Opsfield Systems";
 const DESCRIPTION =
-  "B2B companies with 50–250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
+  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
 const LEGAL_PAGES = ["/privacy-policy", "/terms-of-use", "/cookie-policy"];
 
 test("homepage title matches texts.md", async ({ page }) => {

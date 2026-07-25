@@ -27,6 +27,7 @@ const ROLES = [
     subtitle: "Operating model & diagnostic lead",
     tone: "paper",
     art: "/photos/role-mp.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAfEAABBAEFAQAAAAAAAAAAAAABAAIDBBESITJBUZH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AWxcMRc0bnrKnmaUknU76ms8ijwPEH//Z",
     responsibilities: [
       { Icon: Boxes, text: "Operating model design" },
       { Icon: Workflow, text: "Diagnostic methodology" },
@@ -40,6 +41,7 @@ const ROLES = [
     subtitle: "CRM / RevOps & data flow",
     tone: "paper",
     art: "/photos/role-sa.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIREiQlFSof/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDAqkpZrgWrt6T2CToD/9k=",
     responsibilities: [
       { Icon: Database, text: "CRM architecture" },
       { Icon: GitBranch, text: "RevOps pipeline design" },
@@ -80,7 +82,7 @@ export default async function DeliveryModel() {
         </p>
 
         <div className={styles.roles}>
-          {ROLES.map(({ title, initials, subtitle, responsibilities, art }) => (
+          {ROLES.map(({ title, initials, subtitle, responsibilities, art, blur }) => (
             <Card key={title} tone="paper" soft hover={false}>
               {/* Duotone corner watermark — abstract, no faces (role-only ethos):
                   MP = structure/architecture, SA = data/systems. */}
@@ -90,6 +92,8 @@ export default async function DeliveryModel() {
                   alt=""
                   fill
                   sizes="(min-width: 768px) 300px, 60vw"
+                  placeholder="blur"
+                  blurDataURL={blur}
                   className={styles.cardArtImg}
                 />
               </span>
