@@ -1,0 +1,247 @@
+/* Services hub — central page linking to all service areas.
+   2-column card grid (desktop), 1-column (mobile), three-step process strip,
+   CTA. Uses existing design tokens from globals.css. No Tailwind. */
+
+/* ----- Hero intro ----- */
+.heroSection {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-5);
+}
+
+.lead {
+  max-width: var(--text-max);
+  margin-top: var(--space-2);
+}
+
+/* ----- Service card grid ----- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
+}
+
+.cardHighlight {
+  border-color: var(--blue-200);
+  box-shadow: var(--ring), var(--shadow-sm);
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink-900);
+}
+
+.price {
+  flex-shrink: 0;
+  margin-top: 1px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-tint);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  color: var(--blue-600);
+  white-space: nowrap;
+}
+
+.priceFree {
+  background: var(--blue-500);
+  color: var(--paper);
+}
+
+.cardDesc {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--stone-500);
+  flex: 1 1 auto;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--blue-600);
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.cardLink:hover,
+.cardLink:focus-visible {
+  text-decoration: underline;
+  color: var(--blue-700);
+}
+
+/* ----- How it works steps ----- */
+.stepsSection {
+  margin-top: var(--space-2);
+}
+
+.stepsTitle {
+  margin-bottom: var(--space-4);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .steps {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--space-3);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+}
+
+.stepName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--stone-500);
+}
+
+.stepsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-3);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+.stepsLink:hover,
+.stepsLink:focus-visible {
+  text-decoration: underline;
+  color: var(--blue-700);
+}
+
+/* ----- CTA section ----- */
+.ctaSection {
+  text-align: center;
+}
+
+.ctaText {
+  max-width: var(--text-max);
+  margin-inline: auto;
+  margin-top: var(--space-3);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .ctaActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+/* ----- Mobile compaction ----- */
+@media (max-width: 767px) {
+  .heroSection {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-4);
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+}
