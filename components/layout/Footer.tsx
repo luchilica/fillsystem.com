@@ -19,7 +19,6 @@ const GET_STARTED_LINKS = [
   { label: "Request Diagnostic", href: "/#diagnostic-request-form" },
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
   { label: "Pricing", href: "/#areas-of-work" },
-  { label: "O-1 Visa Readiness", href: "/o1-visa-readiness" },
   { label: "FAQ", href: "/#faq" },
 ];
 
