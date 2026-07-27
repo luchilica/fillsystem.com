@@ -15,7 +15,7 @@ export default async function FinalCTA() {
       <div className={styles.bg} aria-hidden="true">
         <Image
           src="/photos/final-cta.jpg"
-          alt=""
+          alt="Business team planning next steps after diagnostic"
           fill
           sizes="100vw"
           placeholder="blur"

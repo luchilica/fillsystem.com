@@ -80,6 +80,7 @@ type Service = {
   id: string;
   image: string;
   blur: string;
+  imageAlt?: string;
   badge?: string;
   title: string;
   base?: number;
@@ -103,6 +104,7 @@ const SERVICES: Service[] = [
     id: "primary-diagnostic",
     image: "/services/diagnostic.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDERIiMmGR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJukYYKLRmDyrtBOKGrfERB//9k=",
+    imageAlt: "Free B2B diagnostic - 30-minute process and IT review",
     badge: "Start here",
     title: "Primary Diagnostic",
     free: true,
@@ -142,6 +144,7 @@ const SERVICES: Service[] = [
     id: "extended-diagnostic",
     image: "/services/extended.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAID/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECEQMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AiJqsqX5l5ho+NtvtAEH/2Q==",
+    imageAlt: "Extended diagnostic - documented process and systems audit",
     title: "Extended Diagnostic",
     base: 1200,
     lede: "Go deeper: a documented diagnosis for when you need to be sure before you invest.",
@@ -343,7 +346,7 @@ function ServiceCard({
       <div className={styles.media}>
         <Image
           src={service.image}
-          alt={t(service.title)}
+          alt={t(service.imageAlt ?? service.title)}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={styles.img}

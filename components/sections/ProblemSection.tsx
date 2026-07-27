@@ -17,7 +17,7 @@ export default async function ProblemSection() {
       <div className={styles.bg} aria-hidden="true">
         <Image
           src="/photos/problem.jpg"
-          alt=""
+          alt="B2B team reviewing operational bottlenecks"
           fill
           sizes="(min-width: 1200px) 1200px, 100vw"
           priority

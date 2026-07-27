@@ -28,6 +28,12 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         founder: { "@id": `${home}#igor-saevets` },
         sameAs: ["https://linkedin.com/in/igorsaevets"],
         areaServed: { "@type": "Country", name: "United States" },
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: "opsfieldsystems@gmail.com",
+          contactType: "customer service",
+          availableLanguage: ["English"],
+        },
         address: {
           "@type": "PostalAddress",
           addressRegion: "CA",
@@ -185,6 +191,8 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         "@id": `${home}#igor-saevets`,
         name: "Igor Saevets",
         jobTitle: "Managing Partner",
+        description:
+          "Serial entrepreneur and IT operations advisor with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
         worksFor: { "@id": organizationId },
         url: "https://linkedin.com/in/igorsaevets",
         sameAs: ["https://linkedin.com/in/igorsaevets"],

@@ -26,6 +26,7 @@ const ROLES = [
     linkedin: "https://linkedin.com/in/igorsaevets" as string | undefined,
     initials: "IS",
     subtitle: "Operating model & diagnostic lead",
+    bio: "Serial entrepreneur, 10+ companies founded. EB-1A green card holder. Leads diagnostic methodology and operating model design." as string | undefined,
     tone: "paper",
     art: "/photos/role-mp.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAfEAABBAEFAQAAAAAAAAAAAAABAAIDBBESITJBUZH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AWxcMRc0bnrKnmaUknU76ms8ijwPEH//Z",
@@ -42,6 +43,7 @@ const ROLES = [
     linkedin: undefined as string | undefined,
     initials: "SA",
     subtitle: "CRM / RevOps & data flow",
+    bio: undefined as string | undefined,
     tone: "paper",
     art: "/photos/role-sa.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIREiQlFSof/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDAqkpZrgWrt6T2CToD/9k=",
@@ -84,14 +86,14 @@ export default async function DeliveryModel() {
         </p>
 
         <div className={styles.roles}>
-          {ROLES.map(({ title, name, linkedin, initials, subtitle, responsibilities, art, blur }) => (
+          {ROLES.map(({ title, name, linkedin, initials, subtitle, bio, responsibilities, art, blur }) => (
             <Card key={title} tone="paper" soft hover={false}>
               {/* Duotone corner watermark — abstract, no faces:
                   MP = structure/architecture, SA = data/systems. */}
               <span className={styles.cardArt} aria-hidden="true">
                 <Image
                   src={art}
-                  alt=""
+                  alt={name ? `${name} - ${t(title)} at Opsfield Systems` : `${t(title)} at Opsfield Systems`}
                   fill
                   sizes="(min-width: 768px) 300px, 60vw"
                   placeholder="blur"
@@ -130,6 +132,7 @@ export default async function DeliveryModel() {
                       <h3 className={styles.roleTitle}>{t(title)}</h3>
                     )}
                     <p className={styles.roleSub}>{t(subtitle)}</p>
+                    {bio && <p className={styles.roleSub}>{t(bio)}</p>}
                   </div>
                 </div>
 
