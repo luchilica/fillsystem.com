@@ -59,7 +59,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <p>
         Pipeline leakage is one of those problems that stays invisible until
         someone finally measures it. You can have strong reps, a good product,
-        and a healthy top-of-funnel &mdash; and still watch revenue targets slip
+        and a healthy top-of-funnel - and still watch revenue targets slip
         quarter after quarter.
       </p>
       <p>
@@ -71,7 +71,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
       <p>
         Pipeline leakage is the revenue that exists in your CRM but never
-        converts &mdash; not because the deals were unwinnable, but because
+        converts - not because the deals were unwinnable, but because
         your system failed to move them forward. It is the difference between
         a sales problem and a systems problem. And it is almost always
         fixable once you know where to look.
@@ -106,7 +106,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         <li>
           <strong>Revenue that lives in the pipeline but never closes.</strong>{" "}
           The forecast says $2M. Leadership plans on $2M. But $600K of that
-          is zombie pipeline &mdash; deals with no activity in 45+ days, stale
+          is zombie pipeline - deals with no activity in 45+ days, stale
           close dates pushed forward three times, or contacts who stopped
           responding weeks ago.
         </li>
@@ -129,13 +129,13 @@ export default async function CrmPipelineLeakingRevenuePage({
       <h2>{t("1. Leads Sit in \"New\" Stage for More Than 48 Hours")}</h2>
       <p>
         Pull a report on the average time a lead spends in your first
-        pipeline stage &mdash; the one labeled &ldquo;New&rdquo; or
+        pipeline stage - the one labeled &ldquo;New&rdquo; or
         &ldquo;Incoming&rdquo; or whatever you call it. If the median is
         above 48 hours, you have a pickup problem.
       </p>
       <p>
         This is one of the most common leaks we find. Leads arrive from the
-        website, from events, from outbound sequences &mdash; and they sit.
+        website, from events, from outbound sequences - and they sit.
         Nobody picks them up because there are no assignment rules. There is
         no SLA. There is no alert. The lead decays in silence.
       </p>
@@ -166,7 +166,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         Ask your reps a simple question: &ldquo;Where do you actually track
         your deals?&rdquo; If the answer involves Excel, Google Sheets, a
         Notion board, or a sticky-note system, your CRM has a usability
-        problem &mdash; and your data has an accuracy problem.
+        problem - and your data has an accuracy problem.
       </p>
       <p>
         Reps don&rsquo;t use spreadsheets because they love spreadsheets.
@@ -178,14 +178,14 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
       <p>
         When reps maintain a parallel tracking system, two things happen.
-        First, the CRM data goes stale &mdash; deals get updated in the
+        First, the CRM data goes stale - deals get updated in the
         spreadsheet but not in the system. Second, management reports based
         on CRM data become fiction. You are making forecast decisions on
         information that is days or weeks behind reality.
       </p>
       <p>
         <strong>What to check:</strong> Look at CRM adoption rate and
-        last-login dates for each rep. Check export frequency &mdash; if
+        last-login dates for each rep. Check export frequency - if
         multiple reps export their pipeline to CSV every Monday, that is a
         red flag. Ask directly: &ldquo;Do you track anything outside the
         CRM?&rdquo;
@@ -194,7 +194,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         <strong>Fix direction:</strong> Simplify CRM views ruthlessly. Reduce
         required fields to the minimum that actually drives reporting. Match
         stage definitions to how your reps describe their own sales process
-        &mdash; not how the VP of Sales imagines it should work. If the CRM
+        - not how the VP of Sales imagines it should work. If the CRM
         is harder to use than a spreadsheet, the spreadsheet will always win.
       </p>
 
@@ -224,8 +224,8 @@ export default async function CrmPipelineLeakingRevenuePage({
       <p>
         <strong>What to check:</strong> Ask marketing and sales to
         independently write down what &ldquo;qualified&rdquo; means. Compare
-        the two documents. If they don&rsquo;t match &mdash; or if no
-        document exists at all &mdash; that is the root of your conversion
+        the two documents. If they don&rsquo;t match - or if no
+        document exists at all - that is the root of your conversion
         problem. Also check: do you have a lead scoring model? When was the
         last time it was calibrated?
       </p>
@@ -241,9 +241,9 @@ export default async function CrmPipelineLeakingRevenuePage({
       <h2>{t("4. Deals Stall in the Same Pipeline Stage")}</h2>
       <p>
         Open your pipeline and look at stage distribution. If one stage
-        holds a disproportionate number of deals &mdash; say, 40% of your
+        holds a disproportionate number of deals - say, 40% of your
         total pipeline value sits in &ldquo;Proposal Sent&rdquo; or
-        &ldquo;Evaluation&rdquo; &mdash; you have a bottleneck that is
+        &ldquo;Evaluation&rdquo; - you have a bottleneck that is
         silently killing revenue.
       </p>
       <p>
@@ -262,7 +262,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <p>
         <strong>What to check:</strong> Run a stage duration distribution
         report. Look at the median and 90th percentile time-in-stage for
-        each step. Then pull a deal aging report &mdash; how many deals have
+        each step. Then pull a deal aging report - how many deals have
         been static for more than 21 days? If the aging report shows a
         concentration in one stage, that stage is your bottleneck.
       </p>
@@ -270,7 +270,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         <strong>Fix direction:</strong> Split the overloaded stage into two
         or three discrete steps with clear exit criteria. Assign ownership
         for each stage transition. Set up automated alerts when a deal
-        exceeds the expected time-in-stage &mdash; for example, if your
+        exceeds the expected time-in-stage - for example, if your
         median proposal-to-close time is 14 days, flag any deal that hits
         21.
       </p>
@@ -283,7 +283,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
       <p>
         We regularly audit CRMs that have four, five, even eight pipelines
-        &mdash; half of which are duplicates or near-duplicates created by
+        - half of which are duplicates or near-duplicates created by
         different teams at different times. One was built by the original
         sales team. Another was created when the new manager joined and
         didn&rsquo;t like the old one. A third was an experiment that nobody
@@ -315,7 +315,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <h2>{t("6. Nobody Trusts the Forecast")}</h2>
       <p>
         Here is the acid test: when leadership needs the revenue forecast
-        for next quarter, do they pull it from the CRM &mdash; or do they
+        for next quarter, do they pull it from the CRM - or do they
         ask each rep to email their &ldquo;real&rdquo; numbers?
       </p>
       <p>
@@ -327,7 +327,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         The usual culprits: deal amounts entered inconsistently (some reps
         enter annual contract value, others enter monthly, others enter
         &ldquo;best guess&rdquo;). Close dates pushed forward every month
-        without consequence &mdash; a deal that was supposed to close in
+        without consequence - a deal that was supposed to close in
         March is now set for August, with no notes explaining why. Win
         probability is either not used at all, left at the default, or
         manually overridden based on gut feeling rather than stage-calibrated
@@ -349,7 +349,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <p>
         <strong>Fix direction:</strong> Enforce deal amount standards (pick
         one: ACV or TCV, and make it mandatory). Build auto-decay logic for
-        stale close dates &mdash; if a deal&rsquo;s close date passes without
+        stale close dates - if a deal&rsquo;s close date passes without
         activity, automatically push it out and flag it. Calibrate win
         probabilities by stage using your historical data, not intuition.
         Make the forecast a living number that the system maintains, not a
@@ -365,7 +365,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
       <p>
         If more than 30% of your closed-lost deals have no loss reason
-        &mdash; or a generic one &mdash; you are flying blind on why you
+        - or a generic one - you are flying blind on why you
         lose. Every closed-lost deal is a data point. In aggregate, they tell
         you whether you are losing on price, timing, competition, product
         fit, or process. Without that data, you are guessing at strategy.
@@ -423,7 +423,7 @@ export default async function CrmPipelineLeakingRevenuePage({
         </Link>{" "}
         engagements start with exactly this kind of diagnostic. We map your
         pipeline end-to-end, quantify the leakage at each stage, and deliver
-        a prioritized fix list &mdash; not a 60-page report, but an
+        a prioritized fix list - not a 60-page report, but an
         actionable plan you can start executing immediately.
       </p>
       <p>
@@ -437,7 +437,7 @@ export default async function CrmPipelineLeakingRevenuePage({
             Request a free diagnostic
           </Link>
         </strong>{" "}
-        and find out where your pipeline is leaking &mdash; and what it is
+        and find out where your pipeline is leaking - and what it is
         costing you per quarter.
       </p>
     </BlogPostLayout>

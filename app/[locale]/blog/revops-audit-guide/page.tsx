@@ -45,17 +45,17 @@ export default async function RevOpsAuditGuide({
       {/* ── Intro ────────────────────────────────────────────── */}
       <p>
         {t(
-          "A RevOps audit is a structured review of how your revenue operations actually work — not how they were designed to work, not how your CRM vendor says they should work, but how data, deals, and decisions move through your organization day to day. For B2B teams between 50 and 250 employees, this distinction matters more than you think. You are large enough that tribal knowledge has stopped scaling, but small enough that a dedicated ops team is still a luxury. The cracks show up as dashboards no one trusts, pipeline stages that mean different things to different people, and quarterly forecasts built on gut feel instead of clean data."
+          "A RevOps audit is a structured review of how your revenue operations actually work -not how they were designed to work, not how your CRM vendor says they should work, but how data, deals, and decisions move through your organization day to day. For B2B teams between 50 and 250 employees, this distinction matters more than you think. You are large enough that tribal knowledge has stopped scaling, but small enough that a dedicated ops team is still a luxury. The cracks show up as dashboards no one trusts, pipeline stages that mean different things to different people, and quarterly forecasts built on gut feel instead of clean data."
         )}
       </p>
       <p>
         {t(
-          "There are a few moments when an audit becomes urgent. After a growth spurt — when you have doubled headcount and your CRM config is still built for a team of twelve. Before a CRM migration — because migrating garbage produces expensive garbage in a new system. When your VP of Sales and your Head of Marketing cannot agree on the number of qualified leads last quarter, and both can pull a dashboard that proves their point. Or when a new operations hire arrives, opens the CRM, and the first question they ask is \"who built this and why?\""
+          "There are a few moments when an audit becomes urgent. After a growth spurt -when you have doubled headcount and your CRM config is still built for a team of twelve. Before a CRM migration -because migrating garbage produces expensive garbage in a new system. When your VP of Sales and your Head of Marketing cannot agree on the number of qualified leads last quarter, and both can pull a dashboard that proves their point. Or when a new operations hire arrives, opens the CRM, and the first question they ask is \"who built this and why?\""
         )}
       </p>
       <p>
         {t(
-          "This guide walks you through a complete RevOps audit framework. It covers the six areas you need to inspect, gives you a practical checklist you can start using today, and explains what to do with the findings. If you have ever suspected that your revenue operations are held together by a combination of Zapier, spreadsheets, and one person who remembers how things work — this is where you start."
+          "This guide walks you through a complete RevOps audit framework. It covers the six areas you need to inspect, gives you a practical checklist you can start using today, and explains what to do with the findings. If you have ever suspected that your revenue operations are held together by a combination of Zapier, spreadsheets, and one person who remembers how things work -this is where you start."
         )}
       </p>
 
@@ -73,7 +73,7 @@ export default async function RevOpsAuditGuide({
       </p>
       <p>
         {t(
-          "An audit should be led by someone who can look at the system with fresh eyes — ideally an operations person who was not the one who built the current setup, or an external advisor who has audited similar stacks before. The person who configured your CRM three years ago is not the right person to evaluate it objectively. They will defend decisions that made sense at the time but no longer serve the business. You need someone who will ask \"why does this field exist?\" without already knowing the answer."
+          "An audit should be led by someone who can look at the system with fresh eyes -ideally an operations person who was not the one who built the current setup, or an external advisor who has audited similar stacks before. The person who configured your CRM three years ago is not the right person to evaluate it objectively. They will defend decisions that made sense at the time but no longer serve the business. You need someone who will ask \"why does this field exist?\" without already knowing the answer."
         )}
       </p>
 
@@ -81,7 +81,7 @@ export default async function RevOpsAuditGuide({
       <h2>{t("The 6 Pillars of a RevOps Audit")}</h2>
       <p>
         {t(
-          "Every RevOps audit should cover six interconnected areas. Skip one and you will end up with a partial picture — fixing pipeline stages while ignoring the data model, or cleaning up automations without checking whether the handoff rules still make sense."
+          "Every RevOps audit should cover six interconnected areas. Skip one and you will end up with a partial picture -fixing pipeline stages while ignoring the data model, or cleaning up automations without checking whether the handoff rules still make sense."
         )}
       </p>
 
@@ -94,7 +94,7 @@ export default async function RevOpsAuditGuide({
       </p>
       <p>
         {t(
-          "If your HubSpot instance has 47 custom contact properties and your sales team actively uses 12 of them, the other 35 are noise. They slow down form creation, confuse new reps, and create ambiguity in reporting. Worse, some of those abandoned fields may still be referenced by workflows or integrations — they are not just clutter, they are potential failure points."
+          "If your HubSpot instance has 47 custom contact properties and your sales team actively uses 12 of them, the other 35 are noise. They slow down form creation, confuse new reps, and create ambiguity in reporting. Worse, some of those abandoned fields may still be referenced by workflows or integrations -they are not just clutter, they are potential failure points."
         )}
       </p>
       <p>
@@ -107,12 +107,12 @@ export default async function RevOpsAuditGuide({
       <h3>{t("2. Pipeline Stages and Conversion Criteria")}</h3>
       <p>
         {t(
-          "Your pipeline stages should represent clear, mutually exclusive phases of a deal lifecycle with defined entry and exit criteria. In practice, most B2B pipelines have at least one \"catch-all\" stage — usually something like \"In Progress\" or \"Nurturing\" — where deals go to stall. These stages are where pipeline accuracy goes to die."
+          "Your pipeline stages should represent clear, mutually exclusive phases of a deal lifecycle with defined entry and exit criteria. In practice, most B2B pipelines have at least one \"catch-all\" stage -usually something like \"In Progress\" or \"Nurturing\" -where deals go to stall. These stages are where pipeline accuracy goes to die."
         )}
       </p>
       <p>
         {t(
-          "Look at stage-to-stage conversion rates. If 80% of deals that enter your \"Proposal Sent\" stage eventually close, that stage is well-defined — it represents a real commitment threshold. If your \"Qualified\" stage has a 15% conversion rate to the next stage and deals sit there for an average of 90 days, that stage is not a stage. It is a parking lot."
+          "Look at stage-to-stage conversion rates. If 80% of deals that enter your \"Proposal Sent\" stage eventually close, that stage is well-defined -it represents a real commitment threshold. If your \"Qualified\" stage has a 15% conversion rate to the next stage and deals sit there for an average of 90 days, that stage is not a stage. It is a parking lot."
         )}
       </p>
       <p>
@@ -125,12 +125,12 @@ export default async function RevOpsAuditGuide({
       <h3>{t("3. Reporting and Metric Definitions")}</h3>
       <p>
         {t(
-          "Here is a test: ask your Head of Marketing and your VP of Sales to independently define \"MQL.\" If you get two different answers, your reporting infrastructure has a metric definition problem. This is more common than anyone admits. Organizations routinely operate with multiple competing definitions of core metrics — MQL, SQL, pipeline value, win rate, revenue — each embedded in different dashboards, each telling a slightly different story."
+          "Here is a test: ask your Head of Marketing and your VP of Sales to independently define \"MQL.\" If you get two different answers, your reporting infrastructure has a metric definition problem. This is more common than anyone admits. Organizations routinely operate with multiple competing definitions of core metrics -MQL, SQL, pipeline value, win rate, revenue -each embedded in different dashboards, each telling a slightly different story."
         )}
       </p>
       <p>
         {t(
-          "The audit should catalog every dashboard and report that informs a business decision. For each one, document: What data source does it pull from? What filters are applied? How are key metrics calculated? Then compare. If your marketing dashboard shows 200 MQLs last month and your sales dashboard shows 140, the gap is not a rounding error — it is a structural disagreement about what counts as qualified."
+          "The audit should catalog every dashboard and report that informs a business decision. For each one, document: What data source does it pull from? What filters are applied? How are key metrics calculated? Then compare. If your marketing dashboard shows 200 MQLs last month and your sales dashboard shows 140, the gap is not a rounding error -it is a structural disagreement about what counts as qualified."
         )}
       </p>
       <p>
@@ -143,17 +143,17 @@ export default async function RevOpsAuditGuide({
       <h3>{t("4. Data Sources and Integrations")}</h3>
       <p>
         {t(
-          "Most B2B companies between 50 and 250 employees have between 8 and 15 tools that feed data into or pull data from the CRM. Marketing automation, form builders, enrichment tools, billing systems, customer support platforms, analytics — each one has an integration, and each integration is a potential point of failure."
+          "Most B2B companies between 50 and 250 employees have between 8 and 15 tools that feed data into or pull data from the CRM. Marketing automation, form builders, enrichment tools, billing systems, customer support platforms, analytics -each one has an integration, and each integration is a potential point of failure."
         )}
       </p>
       <p>
         {t(
-          "The audit should map every integration: what tool connects, which direction data flows, what triggers the sync, and when someone last verified that it works correctly. That last question is the critical one. Zapier automations and Make scenarios can break silently. An API key expires, a field gets renamed, a picklist value changes — and the integration starts dropping records or writing to the wrong fields without anyone noticing for weeks."
+          "The audit should map every integration: what tool connects, which direction data flows, what triggers the sync, and when someone last verified that it works correctly. That last question is the critical one. Zapier automations and Make scenarios can break silently. An API key expires, a field gets renamed, a picklist value changes -and the integration starts dropping records or writing to the wrong fields without anyone noticing for weeks."
         )}
       </p>
       <p>
         {t(
-          "Check for bidirectionality problems. If your enrichment tool updates a contact record in the CRM, and the CRM syncs that change back to your marketing platform, and the marketing platform sends it back to the CRM — you have a sync loop. These create phantom activity, inflate engagement metrics, and make it nearly impossible to determine the true source of a data change."
+          "Check for bidirectionality problems. If your enrichment tool updates a contact record in the CRM, and the CRM syncs that change back to your marketing platform, and the marketing platform sends it back to the CRM -you have a sync loop. These create phantom activity, inflate engagement metrics, and make it nearly impossible to determine the true source of a data change."
         )}
       </p>
 
@@ -166,7 +166,7 @@ export default async function RevOpsAuditGuide({
       </p>
       <p>
         {t(
-          "The audit should document the ownership model at every stage of the revenue lifecycle. Who owns a lead before it is qualified? Who owns it during qualification? What happens when a deal is marked closed-lost — does it go back to marketing, sit in a graveyard, or disappear entirely? Is there a documented SLA between marketing and sales that specifies response time for new MQLs? Is there an equivalent SLA between sales and customer success for new customer onboarding?"
+          "The audit should document the ownership model at every stage of the revenue lifecycle. Who owns a lead before it is qualified? Who owns it during qualification? What happens when a deal is marked closed-lost -does it go back to marketing, sit in a graveyard, or disappear entirely? Is there a documented SLA between marketing and sales that specifies response time for new MQLs? Is there an equivalent SLA between sales and customer success for new customer onboarding?"
         )}
       </p>
       <p>
@@ -179,17 +179,17 @@ export default async function RevOpsAuditGuide({
       <h3>{t("6. Automation Rules")}</h3>
       <p>
         {t(
-          "Automation is the most dangerous part of any CRM setup. Not because automation is bad — it is essential — but because automations accumulate, interact, and conflict in ways that are nearly impossible to predict without a systematic review."
+          "Automation is the most dangerous part of any CRM setup. Not because automation is bad -it is essential -but because automations accumulate, interact, and conflict in ways that are nearly impossible to predict without a systematic review."
         )}
       </p>
       <p>
         {t(
-          "Start by building an inventory. List every active workflow, sequence, trigger, and automation rule across your entire stack — CRM, marketing automation, support platform, everything. For each one, document: what triggers it, what it does, when it was created, and who created it. You will almost certainly find automations that no one remembers building. These are not harmless relics. They are executing logic that may contradict your current processes."
+          "Start by building an inventory. List every active workflow, sequence, trigger, and automation rule across your entire stack -CRM, marketing automation, support platform, everything. For each one, document: what triggers it, what it does, when it was created, and who created it. You will almost certainly find automations that no one remembers building. These are not harmless relics. They are executing logic that may contradict your current processes."
         )}
       </p>
       <p>
         {t(
-          "Look for conflicts. A common example: marketing has an automation that sets lifecycle stage to \"MQL\" when a lead hits a scoring threshold, and sales has a workflow that sets lifecycle stage based on deal creation. If both fire on the same record, the result depends on timing — and timing-dependent data is unreliable data. The audit should map every automation that writes to the same fields and flag potential conflicts."
+          "Look for conflicts. A common example: marketing has an automation that sets lifecycle stage to \"MQL\" when a lead hits a scoring threshold, and sales has a workflow that sets lifecycle stage based on deal creation. If both fire on the same record, the result depends on timing -and timing-dependent data is unreliable data. The audit should map every automation that writes to the same fields and flag potential conflicts."
         )}
       </p>
       <p>
@@ -291,7 +291,7 @@ export default async function RevOpsAuditGuide({
       <p>
         <strong>{t("Stale automations running in the background.")}</strong>{" "}
         {t(
-          "Workflows that were built for a specific initiative, never turned off, and are now executing logic that conflicts with current processes. The most dangerous ones are the ones that still work — they produce incorrect data without triggering any errors, so no one notices until a forecast is off or a lead is routed to the wrong team."
+          "Workflows that were built for a specific initiative, never turned off, and are now executing logic that conflicts with current processes. The most dangerous ones are the ones that still work -they produce incorrect data without triggering any errors, so no one notices until a forecast is off or a lead is routed to the wrong team."
         )}
       </p>
       <p>
@@ -303,7 +303,7 @@ export default async function RevOpsAuditGuide({
       <p>
         <strong>{t("Shadow pipelines.")}</strong>{" "}
         {t(
-          "Spreadsheets, Notion databases, or personal Trello boards that reps use to track deals because the CRM pipeline does not match their workflow. If your reps are maintaining a separate system alongside the CRM, the CRM data is incomplete by definition. The audit should ask: do reps trust the pipeline enough to use it as their primary deal tracker? If the answer is no, fixing the CRM is not enough — you need to understand why they built a shadow system and address the root cause."
+          "Spreadsheets, Notion databases, or personal Trello boards that reps use to track deals because the CRM pipeline does not match their workflow. If your reps are maintaining a separate system alongside the CRM, the CRM data is incomplete by definition. The audit should ask: do reps trust the pipeline enough to use it as their primary deal tracker? If the answer is no, fixing the CRM is not enough -you need to understand why they built a shadow system and address the root cause."
         )}
       </p>
 
@@ -311,7 +311,7 @@ export default async function RevOpsAuditGuide({
       <h2>{t("What to Do After the Audit")}</h2>
       <p>
         {t(
-          "An audit produces findings. Findings are not a fix. The most common mistake teams make after an audit is trying to fix everything at once — rewriting the data model, rebuilding automations, migrating to new tools, and redesigning the pipeline all in the same quarter. This is how audit projects stall and die."
+          "An audit produces findings. Findings are not a fix. The most common mistake teams make after an audit is trying to fix everything at once -rewriting the data model, rebuilding automations, migrating to new tools, and redesigning the pipeline all in the same quarter. This is how audit projects stall and die."
         )}
       </p>
       <p>
@@ -321,7 +321,7 @@ export default async function RevOpsAuditGuide({
       </p>
       <p>
         {t(
-          "Medium-impact findings that require significant effort — like restructuring your pipeline stages or rebuilding your integration layer — should be scoped as dedicated projects with timelines, owners, and success criteria. Do not try to squeeze them into someone's spare cycles."
+          "Medium-impact findings that require significant effort -like restructuring your pipeline stages or rebuilding your integration layer -should be scoped as dedicated projects with timelines, owners, and success criteria. Do not try to squeeze them into someone's spare cycles."
         )}
       </p>
       <p>
@@ -331,7 +331,7 @@ export default async function RevOpsAuditGuide({
       </p>
       <p>
         {t(
-          "If your team does not have the bandwidth or the specialized knowledge to execute the remediation plan, that is a legitimate finding in itself. A clean diagnosis with a clear priority list is more valuable than an incomplete fix. Consider bringing in an external partner who specializes in RevOps implementation — someone who can take the audit findings and turn them into a configured, tested, documented system."
+          "If your team does not have the bandwidth or the specialized knowledge to execute the remediation plan, that is a legitimate finding in itself. A clean diagnosis with a clear priority list is more valuable than an incomplete fix. Consider bringing in an external partner who specializes in RevOps implementation -someone who can take the audit findings and turn them into a configured, tested, documented system."
         )}
       </p>
       <p>
@@ -339,7 +339,7 @@ export default async function RevOpsAuditGuide({
           {t("Learn more about our RevOps and CRM consulting services")}
         </Link>
         {t(
-          " — we help B2B teams turn audit findings into working systems."
+          " -we help B2B teams turn audit findings into working systems."
         )}
       </p>
 
@@ -353,30 +353,30 @@ export default async function RevOpsAuditGuide({
       <p>
         <strong>{t("When your team built the system.")}</strong>{" "}
         {t(
-          "The people who configured the CRM, designed the pipeline, and built the automations are the worst people to audit their own work. Not because they are incompetent — because they are too close. They will unconsciously defend past decisions, overlook workarounds they have internalized, and underestimate the severity of problems they have been living with. An external auditor has no history with the system and no ego invested in its current state."
+          "The people who configured the CRM, designed the pipeline, and built the automations are the worst people to audit their own work. Not because they are incompetent -because they are too close. They will unconsciously defend past decisions, overlook workarounds they have internalized, and underestimate the severity of problems they have been living with. An external auditor has no history with the system and no ego invested in its current state."
         )}
       </p>
       <p>
         <strong>{t("When a migration is on the table.")}</strong>{" "}
         {t(
-          "If you are considering moving from Salesforce to HubSpot, from HubSpot to Salesforce, or from either to something else — audit first, migrate second. A pre-migration audit tells you what is worth bringing over, what should be left behind, and what needs to be redesigned rather than replicated. Migrating without an audit means you are paying to move problems from one platform to another."
+          "If you are considering moving from Salesforce to HubSpot, from HubSpot to Salesforce, or from either to something else -audit first, migrate second. A pre-migration audit tells you what is worth bringing over, what should be left behind, and what needs to be redesigned rather than replicated. Migrating without an audit means you are paying to move problems from one platform to another."
         )}
       </p>
       <p>
         <strong>{t("When leadership has lost trust in the numbers.")}</strong>{" "}
         {t(
-          "If your executive team no longer trusts the dashboards, that erosion of confidence is itself a business problem. It means decisions are being made on intuition instead of data, forecasts are treated as fiction, and the ops team is constantly fielding \"where did you get that number?\" questions instead of doing strategic work. An external audit provides a credible, independent assessment that can restore trust — or confirm that the distrust is warranted and quantify the gap."
+          "If your executive team no longer trusts the dashboards, that erosion of confidence is itself a business problem. It means decisions are being made on intuition instead of data, forecasts are treated as fiction, and the ops team is constantly fielding \"where did you get that number?\" questions instead of doing strategic work. An external audit provides a credible, independent assessment that can restore trust -or confirm that the distrust is warranted and quantify the gap."
         )}
       </p>
       <p>
         <strong>{t("When you need a decision framework, not just a list of problems.")}</strong>{" "}
         {t(
-          "Internal teams often struggle with prioritization after an audit because every finding feels urgent to the person who sits closest to it. An external auditor brings pattern recognition from working across multiple companies — they know which findings are genuinely critical and which ones can wait, because they have seen the consequences of both."
+          "Internal teams often struggle with prioritization after an audit because every finding feels urgent to the person who sits closest to it. An external auditor brings pattern recognition from working across multiple companies -they know which findings are genuinely critical and which ones can wait, because they have seen the consequences of both."
         )}
       </p>
       <p>
         {t(
-          "If any of this sounds like your situation, start with a free diagnostic. We will review your current setup, identify the highest-impact issues, and tell you whether a full audit is warranted — no commitment, no sales pitch."
+          "If any of this sounds like your situation, start with a free diagnostic. We will review your current setup, identify the highest-impact issues, and tell you whether a full audit is warranted -no commitment, no sales pitch."
         )}
       </p>
     </BlogPostLayout>

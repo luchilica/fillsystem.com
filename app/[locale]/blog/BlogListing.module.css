@@ -1,61 +1,22 @@
-/* BlogListing — dark-ink hero + white cards on dark, brand-blue CTA.
-   Matches Services / About design language. No Tailwind. */
+/* BlogListing — clean cards on white, dark-ink CTA.
+   Mirrors About page team-card styling. No Tailwind. */
 
-/* ----- Hero (dark ink with bg image) ----- */
+/* ----- Hero ----- */
 .heroSection {
-  position: relative;
-  overflow: hidden;
   padding-top: var(--space-7);
-  padding-bottom: var(--space-6);
-  background:
-    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
-    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
-  color: var(--text-on-dark);
+  padding-bottom: var(--space-5);
 }
 
-.heroBg {
-  position: absolute;
-  inset: 0;
-}
-
-.heroBgImg {
-  object-fit: cover;
-  object-position: center;
-  filter: grayscale(0.6) contrast(1.05) brightness(0.8);
-  opacity: 0.12;
-  mix-blend-mode: luminosity;
-}
-
-.heroHeading {
-  color: var(--paper);
-}
-
-.heroLead {
+.lead {
   max-width: var(--text-max);
   margin-top: var(--space-2);
-  color: rgba(255, 255, 255, 0.78);
 }
 
-.heroPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
-.heroPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
-
-/* ----- Dark ink section (cards) ----- */
-.darkSection {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.15) 0%, rgba(37, 81, 210, 0) 55%),
-    linear-gradient(180deg, var(--ink-900) 0%, #101223 100%) !important;
-  color: var(--text-on-dark);
-}
-.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.18); pointer-events: none; }
-.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.1); pointer-events: none; }
-
-/* ----- Card grid ----- */
+/* ----- Card grid (2-col, like About team) ----- */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 @media (min-width: 768px) {
@@ -64,23 +25,15 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ----- White card on dark ----- */
+/* ----- Card ----- */
 .card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-3) var(--space-3) var(--space-4);
+  padding: var(--space-4);
   border: 1px solid var(--border-hair);
   border-radius: var(--radius-lg);
   background: var(--surface-card);
   box-shadow: var(--shadow-sm);
-  text-decoration: none;
-  color: inherit;
   transition: transform var(--dur-med) var(--ease-out),
     box-shadow var(--dur-med) var(--ease-out),
     border-color var(--dur-med) var(--ease-out);
@@ -92,52 +45,29 @@
   border-color: var(--blue-200);
 }
 
-.cardHead {
+/* ----- Card content ----- */
+.cardMeta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.category {
-  display: inline-flex;
-  align-items: center;
   gap: 6px;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  background: var(--accent-tint);
-  font-family: var(--font-mono-fallback);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--blue-600);
-}
-
-.category::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue-500);
-  flex-shrink: 0;
-}
-
-.readTime {
   font-size: 13px;
   color: var(--stone-400);
-  white-space: nowrap;
+  margin-bottom: 12px;
+}
+
+.metaDot {
+  color: var(--stone-300);
+  user-select: none;
 }
 
 .cardTitle {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-family: var(--font-display);
   font-size: 21px;
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
   line-height: 1.25;
-  color: #111122;
+  color: var(--ink-900);
 }
 
 .cardTitleLink {
@@ -152,7 +82,7 @@
 }
 
 .cardDesc {
-  margin: 0 0 16px;
+  margin: 0;
   font-size: 14.5px;
   line-height: 1.55;
   color: var(--stone-500);
@@ -166,33 +96,21 @@
 /* ----- Card footer ----- */
 .cardFooter {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: auto;
+  margin-top: var(--space-3);
   padding-top: var(--space-2);
   border-top: 1px solid var(--stone-100);
 }
 
-.cardMeta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
+.authorName {
   font-size: 13px;
-  color: var(--stone-400);
-}
-
-.metaDot {
-  color: var(--stone-300);
-  user-select: none;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
 }
 
 .readLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: var(--fw-semibold);
@@ -206,22 +124,17 @@
   color: var(--blue-700);
 }
 
-/* ----- Brand blue CTA ----- */
-.brandSection {
+/* ----- CTA (dark ink — matches About) ----- */
+.ctaDark {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
-    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
-  color: var(--paper);
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+  text-align: center;
 }
-.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
-.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
-
-.ctaHeading {
-  color: var(--paper);
-}
-
+.ctaHeading { color: var(--paper); }
 .ctaLead {
   max-width: var(--text-max);
   margin-inline: auto;
@@ -229,12 +142,21 @@
   color: rgba(255, 255, 255, 0.78);
   line-height: var(--lh-body);
 }
-
 .ctaActions {
   display: flex;
-  justify-content: center;
-  margin-top: var(--space-4);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
 }
+@media (min-width: 768px) {
+  .ctaActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.ctaPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.ctaPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
 
 /* ----- Reduced motion ----- */
 @media (prefers-reduced-motion: reduce) {
@@ -250,13 +172,13 @@
     padding-bottom: var(--space-4);
   }
 
-  .cardTitle {
-    font-size: 18px;
-  }
-
   .card {
     padding: var(--space-3);
   }
 
-  .heroPlusTop, .heroPlusBottom, .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .ctaPlusTop, .ctaPlusBottom { display: none; }
 }
