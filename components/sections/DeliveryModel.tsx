@@ -73,11 +73,10 @@ export default async function DeliveryModel() {
       <PlusMark size={120} className={styles.plusBottom} />
 
       <div className={styles.inner}>
-        <p className={styles.badge}>{t("DELIVERY MODEL")}</p>
-        <h2 className={styles.intro}>{t("Senior attention without a handoff chain.")}</h2>
+        <h2 className={styles.intro}>{t("Our Delivery Model: Senior Advisors, No Handoff Chain")}</h2>
         <p className={`lead ${styles.text}`}>
           {t(
-            "Opsfield Systems works with 4–6 active clients at a time so senior advisors remain involved from problem framing through scope and delivery."
+            "Opsfield Systems works with 4-6 active clients at a time so senior advisors remain involved from problem framing through scope and delivery."
           )}
         </p>
 

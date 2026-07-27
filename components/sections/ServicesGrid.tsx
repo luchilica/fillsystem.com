@@ -451,8 +451,7 @@ export default function ServicesGrid() {
 
   return (
     <div className="container">
-      <p className={styles.badge}>{t("AREAS OF WORK")}</p>
-      <h2 className={styles.intro}>{t("What we do, with prices up front.")}</h2>
+      <h2 className={styles.intro}>{t("B2B Consulting Services & Pricing")}</h2>
       <p className={styles.lead}>
         {t(
           "Start free with a primary diagnostic, then move into focused implementation.",

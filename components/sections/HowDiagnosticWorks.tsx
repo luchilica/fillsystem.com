@@ -29,9 +29,8 @@ export default async function HowDiagnosticWorks() {
   const t = await getT();
   return (
     <div className="container">
-      <p className={styles.badge}>{t("HOW IT WORKS")}</p>
       <h2 className={styles.intro}>
-        {t("From operating symptoms to a clear next step.")}
+        {t("How Our B2B Diagnostic Process Works")}
       </h2>
 
       <ol className={styles.steps}>

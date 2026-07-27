@@ -2,9 +2,9 @@ import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { FAQ_ITEMS, faqAnswerText } from "@/components/sections/faqData";
 
-const HOME_TITLE = "Diagnostic-First IT & Business Consulting | Opsfield Systems";
+const HOME_TITLE = "B2B IT & Operations Consulting | Opsfield Systems";
 const HOME_DESCRIPTION =
-  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
+  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
 
 export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
   const home = siteConfig.url;

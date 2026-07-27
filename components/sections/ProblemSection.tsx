@@ -28,9 +28,8 @@ export default async function ProblemSection() {
       </div>
 
       <div className={styles.block}>
-        <p className={styles.eyebrow}>{t("THE PROBLEM")}</p>
         <h2 className={styles.heading}>
-          {t("Your business may not have a technology problem first.")}
+          {t("Why B2B Operations Stall Before the Tools Do")}
         </h2>
         <p className={`lead ${styles.text}`}>
           {t(

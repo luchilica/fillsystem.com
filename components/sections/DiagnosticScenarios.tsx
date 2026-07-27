@@ -33,7 +33,7 @@ const SCENARIOS: Scenario[] = [
         {t(
           "Handoff process reduced from 5 steps to 2. Single ownership assigned per lead stage. Estimated revenue at risk from dropped handoffs:",
         )}{" "}
-        <span className={styles.metric}>$180K–$240K</span>{" "}
+        <span className={styles.metric}>$180K-$240K</span>{" "}
         {t("annually. 30-day cleanup priority list adopted by both teams.")}
       </>
     ),
@@ -105,9 +105,8 @@ export default function DiagnosticScenarios() {
 
   return (
     <div className="container">
-      <p className={styles.badge}>{t("DIAGNOSTIC SCENARIOS")}</p>
       <h2 className={styles.intro}>
-        {t("Representative diagnostic scenarios.")}
+        {t("Diagnostic Results: B2B Case Examples")}
       </h2>
 
       <div className={styles.switcher}>

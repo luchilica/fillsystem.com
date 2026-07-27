@@ -36,15 +36,14 @@ export default function BusinessITDiagnostic() {
 
   return (
     <div className="container">
-      <p className={styles.badge}>{t("THE DIAGNOSTIC")}</p>
       <h2 className={styles.intro}>
         {t(
-          "A structured first step before another tool, hire, or implementation project."
+          "Request a Business & IT Diagnostic"
         )}
       </h2>
       <p className={`lead ${styles.lead}`}>
         {t(
-          "The first diagnostic conversation is a complimentary 30–45 minute fit review to frame the problem and identify likely bottleneck areas. Paid engagements begin only after a separate written proposal with defined scope and pricing."
+          "The first diagnostic conversation is a complimentary 30-45 minute fit review to frame the problem and identify likely bottleneck areas. Paid engagements begin only after a separate written proposal with defined scope and pricing."
         )}
       </p>
 
@@ -139,7 +138,7 @@ export default function BusinessITDiagnostic() {
                 {t("Diagnostic Request")}
               </span>
               <span className={styles.formBadge}>
-                {t("Complimentary 30–45 min fit review")}
+                {t("Complimentary 30-45 min fit review")}
               </span>
             </div>
             <div className={styles.formBody}>

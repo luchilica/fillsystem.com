@@ -45,10 +45,9 @@ export default async function WhatWeDiagnose() {
   const t = await getT();
   return (
     <div className="container">
-      <p className={styles.badge}>{t("WHAT WE DIAGNOSE")}</p>
       <h2 className={styles.intro}>
         {t(
-          "We diagnose the gaps between how your business works and how your systems support it.",
+          "Process, CRM & IT System Diagnostics for B2B",
         )}
       </h2>
 

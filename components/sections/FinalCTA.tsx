@@ -29,7 +29,7 @@ export default async function FinalCTA() {
 
       <div className={styles.inner}>
         <h2 className={styles.heading}>
-          {t("From uncertainty to a scoped next step.")}
+          {t("Start With a Free Diagnostic")}
         </h2>
         <p className={`lead ${styles.text}`}>
           {t("Clarify the bottleneck and risk level before committing budget.")}
