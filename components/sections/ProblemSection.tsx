@@ -39,7 +39,7 @@ export default async function ProblemSection() {
         <Button
           href="#diagnostic-request-form"
           variant="on-brand"
-          icon
+         
           className={styles.cta}
           data-request-type="Business & IT Diagnostic"
         >
