@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site-config";
@@ -10,6 +11,8 @@ interface BlogPostLayoutProps {
   description: string;
   date: string;
   readTime: string;
+  heroImage?: string;
+  heroAlt?: string;
   author: {
     name: string;
     title: string;
@@ -98,6 +101,8 @@ export default function BlogPostLayout({
   description,
   date,
   readTime,
+  heroImage,
+  heroAlt,
   author,
   children,
 }: BlogPostLayoutProps) {
