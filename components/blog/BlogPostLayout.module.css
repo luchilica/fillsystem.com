@@ -1,37 +1,22 @@
 /* BlogPostLayout — clean reading experience for long-form articles.
    Tokens from globals.css. No Tailwind. */
 
-/* ----- Breadcrumb nav ----- */
-.breadcrumb {
-  display: flex;
+/* ----- Back link ----- */
+.backLink {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-mono-fallback);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--stone-400);
-}
-
-.breadcrumb a {
-  color: var(--stone-500);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--blue-600);
   text-decoration: none;
   transition: color var(--dur-med) var(--ease-out);
 }
 
-.breadcrumb a:hover,
-.breadcrumb a:focus-visible {
-  color: var(--blue-500);
-  text-decoration: none;
-}
-
-.breadcrumbSep {
-  color: var(--stone-300);
-  user-select: none;
-}
-
-.breadcrumbCurrent {
-  color: var(--stone-500);
+.backLink:hover,
+.backLink:focus-visible {
+  color: var(--blue-700);
+  text-decoration: underline;
 }
 
 /* ----- Hero image ----- */
@@ -60,7 +45,6 @@
   letter-spacing: var(--ls-display);
   line-height: var(--lh-tight);
   color: var(--text-strong);
-  max-width: 780px;
 }
 
 .meta {
@@ -136,7 +120,6 @@
 
 /* ----- Article body (prose) ----- */
 .body {
-  max-width: 680px;
   margin-top: var(--space-5);
   font-size: 1.05rem;
   line-height: 1.75;

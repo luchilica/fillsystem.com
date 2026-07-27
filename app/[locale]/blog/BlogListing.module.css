@@ -12,6 +12,18 @@
   margin-top: var(--space-2);
 }
 
+/* ----- Dark ink section (cards) ----- */
+.darkSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+}
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
 /* ----- Card grid (2-col, like About team) ----- */
 .grid {
   display: grid;
@@ -180,5 +192,5 @@
     font-size: 18px;
   }
 
-  .ctaPlusTop, .ctaPlusBottom { display: none; }
+  .darkPlusTop, .darkPlusBottom, .ctaPlusTop, .ctaPlusBottom { display: none; }
 }

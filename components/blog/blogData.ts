@@ -16,12 +16,6 @@ export interface BlogPost {
   };
 }
 
-const AUTHOR_IGOR = {
-  name: "Igor Saevets",
-  title: "Founder & CEO",
-  linkedin: "https://linkedin.com/in/igorsaevets",
-};
-
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "test-speech-recognition-real-business-calls",
@@ -31,11 +25,14 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-27",
     readTime: "15 min read",
     category: "AI",
-    heroImage: "/blog/voice-ai-real-call-benchmark.svg",
-    heroAlt: "Voice AI benchmark comparing clean audio with noisy real business calls and speaker-attribution errors.",
+    heroImage: "/blog/voice-ai.jpg",
+    heroAlt: "Professional audio recording setup with microphone and monitoring equipment.",
     seoTitle: "How to Test Speech Recognition on Real Business Calls",
     metaDescription: "Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Anna Petrov",
+      title: "Solutions Architect",
+    },
   },
   {
     slug: "choose-embedding-model-enterprise-rag",
@@ -45,11 +42,14 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-26",
     readTime: "14 min read",
     category: "AI",
-    heroImage: "/blog/enterprise-rag-embedding-decision.svg",
-    heroAlt: "Enterprise RAG pipeline comparing embedding models, vector dimensions, retrieval quality, and re-indexing risk.",
+    heroImage: "/blog/rag-pipeline.jpg",
+    heroAlt: "Server rack with network cables in a data center.",
     seoTitle: "How to Choose an Embedding Model for Enterprise RAG",
     metaDescription: "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "David Chen",
+      title: "AI & Data Lead",
+    },
   },
   {
     slug: "investor-readiness-operating-evidence",
@@ -59,11 +59,15 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-25",
     readTime: "13 min read",
     category: "Strategy",
-    heroImage: "/blog/investor-readiness-operating-evidence.svg",
-    heroAlt: "Founder reviewing revenue data, processes, systems, risks, and operating evidence before investor due diligence.",
+    heroImage: "/blog/investor-readiness.jpg",
+    heroAlt: "Business team in a modern conference room during a strategy presentation.",
     seoTitle: "Investor Readiness Checklist for Scaling B2B Companies",
     metaDescription: "Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
   },
   {
     slug: "ai-agents-are-not-automation",
@@ -73,11 +77,15 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-23",
     readTime: "11 min read",
     category: "AI",
-    heroImage: "/blog/ai-agent-readiness-framework.svg",
-    heroAlt: "AI agent readiness framework with process, data, permissions, human approval, logging, and rollback controls.",
+    heroImage: "/blog/ai-agent-readiness.jpg",
+    heroAlt: "Abstract blue glass shapes representing AI and robotic automation.",
     seoTitle: "AI Agents Are Not Automation: A B2B Readiness Framework",
     metaDescription: "Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
   },
   {
     slug: "evaluate-ai-agent-before-production",
@@ -87,11 +95,14 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-21",
     readTime: "16 min read",
     category: "AI",
-    heroImage: "/blog/ai-agent-production-evaluation.svg",
-    heroAlt: "AI agent production evaluation across normal, adversarial, tool-failure, cost, and rollback scenarios.",
+    heroImage: "/blog/ai-agent-eval.jpg",
+    heroAlt: "Programming code on a monitor representing software testing and quality assurance.",
     seoTitle: "How to Evaluate an AI Agent Before Production",
     metaDescription: "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "David Chen",
+      title: "AI & Data Lead",
+    },
   },
   {
     slug: "mcp-vs-a2a-enterprise-ai-agents",
@@ -101,11 +112,14 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-19",
     readTime: "14 min read",
     category: "AI",
-    heroImage: "/blog/mcp-vs-a2a-enterprise-architecture.svg",
-    heroAlt: "Enterprise AI architecture showing MCP connections to tools and A2A communication between specialized agents.",
+    heroImage: "/blog/mcp-a2a.jpg",
+    heroAlt: "Network cables organized in a structured networking setup.",
     seoTitle: "MCP vs. A2A for Enterprise AI Agents",
     metaDescription: "Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Anna Petrov",
+      title: "Solutions Architect",
+    },
   },
   {
     slug: "ai-governance-mid-market-b2b",
@@ -115,11 +129,15 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-17",
     readTime: "15 min read",
     category: "AI",
-    heroImage: "/blog/mid-market-ai-governance-controls.svg",
-    heroAlt: "Mid-market AI governance model with system inventory, ownership, risk tiers, testing, monitoring, and incident controls.",
+    heroImage: "/blog/ai-governance.jpg",
+    heroAlt: "Statue of Lady Justice representing governance and compliance frameworks.",
     seoTitle: "AI Governance for Mid-Market B2B Companies",
     metaDescription: "Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
   },
   {
     slug: "revops-audit-guide",
@@ -129,7 +147,11 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-14",
     readTime: "12 min read",
     category: "RevOps",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
   },
   {
     slug: "salesforce-to-hubspot-migration",
@@ -139,7 +161,10 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-10",
     readTime: "10 min read",
     category: "CRM",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Anna Petrov",
+      title: "Solutions Architect",
+    },
   },
   {
     slug: "crm-pipeline-leaking-revenue",
@@ -149,7 +174,10 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-04",
     readTime: "8 min read",
     category: "CRM",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "David Chen",
+      title: "AI & Data Lead",
+    },
   },
   {
     slug: "revops-for-small-teams",
@@ -159,7 +187,11 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-26",
     readTime: "7 min read",
     category: "RevOps",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
   },
   {
     slug: "hubspot-vs-salesforce-b2b",
@@ -169,6 +201,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-18",
     readTime: "9 min read",
     category: "CRM",
-    author: AUTHOR_IGOR,
+    author: {
+      name: "Anna Petrov",
+      title: "Solutions Architect",
+    },
   },
 ];

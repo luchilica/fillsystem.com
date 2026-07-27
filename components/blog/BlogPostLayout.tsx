@@ -150,14 +150,10 @@ export default function BlogPostLayout({
       <article>
         <section className="section">
           <div className="container">
-            {/* Visual breadcrumb */}
-            <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
-              <Link href="/blog">Blog</Link>
-              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
-              <span className={styles.breadcrumbCurrent}>{title}</span>
-            </nav>
+            {/* Back to blog */}
+            <Link href="/blog" className={styles.backLink}>
+              &larr; Back to Blog
+            </Link>
 
             {/* Hero image */}
             {heroImage && (

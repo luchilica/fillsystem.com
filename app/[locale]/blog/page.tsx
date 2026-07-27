@@ -60,8 +60,10 @@ export default async function BlogPage({
         </div>
       </section>
 
-      {/* Cards */}
-      <section className="section">
+      {/* Cards — dark ink background */}
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark size={200} className={styles.darkPlusTop} />
+        <PlusMark size={110} className={styles.darkPlusBottom} />
         <div className="container">
           <div className={styles.grid}>
             {BLOG_POSTS.map((post) => (
