@@ -333,7 +333,7 @@ export default async function AIProcessAutomation({
               {t("Assess Your Automation Opportunities")}
             </Button>
             <Link href="/services">
-              <Button variant="secondary">{t("See All Services")}</Button>
+              <Button variant="on-brand-outline">{t("See All Services")}</Button>
             </Link>
           </div>
         </div>

@@ -355,7 +355,7 @@ export default async function RevOpsCrmConsulting({
               {t("Start With a Free CRM & RevOps Diagnostic")}
             </Button>
             <Link href="/services">
-              <Button variant="secondary">{t("See All Services")}</Button>
+              <Button variant="on-brand-outline">{t("See All Services")}</Button>
             </Link>
           </div>
         </div>

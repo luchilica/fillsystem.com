@@ -321,7 +321,7 @@ export default async function ITRiskSecurity({
               {t("Start With a Free IT Risk Review")}
             </Button>
             <Link href="/services">
-              <Button variant="secondary">{t("See All Services")}</Button>
+              <Button variant="on-brand-outline">{t("See All Services")}</Button>
             </Link>
           </div>
         </div>

@@ -76,7 +76,7 @@ const SERVICES: {
     title: "Advisory Power Hour",
     description:
       "Bring one concrete problem. Leave with expert direction in 60 minutes.",
-    price: "$200",
+    price: "from $200",
     priceFree: false,
     highlight: false,
     href: "/services/advisory-power-hour",
@@ -153,7 +153,7 @@ const SERVICES: {
     title: "O-1 Readiness Support",
     description:
       "Structure the evidence behind an O-1 extraordinary-ability case.",
-    price: "$2,500",
+    price: "from $2,500",
     priceFree: false,
     highlight: false,
     href: "/o1-visa-readiness",
@@ -378,12 +378,29 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      {/* 4 — Simple CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      {/* 4 — CTA */}
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button href="/#diagnostic-request-form" variant="primary" icon>
-            {t("Request a Diagnostic")}
-          </Button>
+          <h2 className={styles.ctaHeading}>
+            {t("Start With a Free Diagnostic")}
+          </h2>
+          <p className={styles.ctaLead}>
+            {t(
+              "30-45 minutes. No commitment. You get a clear next step.",
+            )}
+          </p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon>
+              {t("Request a Diagnostic")}
+            </Button>
+            <Link href="/about">
+              <Button variant="on-brand-outline">
+                {t("About Our Team")}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

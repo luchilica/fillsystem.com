@@ -334,7 +334,7 @@ export default async function O1VisaReadiness({
               {t("Ask About O-1 Readiness")}
             </Button>
             <Link href="/services">
-              <Button variant="secondary">{t("See All Services")}</Button>
+              <Button variant="on-brand-outline">{t("See All Services")}</Button>
             </Link>
           </div>
         </div>
