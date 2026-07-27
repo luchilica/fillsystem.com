@@ -7,7 +7,6 @@ import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
-import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./RevOpsCrm.module.css";
 
@@ -312,7 +311,7 @@ export default async function RevOpsCrmConsulting({
             </p>
             <p className={styles.pricingBody}>
               {t(
-                "RevOps engagements start from $4,900 for a lean 25-50 person team. The exact scope and cost are set by the free diagnostic — you never pay before scope is agreed in writing.",
+                "RevOps engagements start from $4,900 for a lean 25-50 person team. The exact scope and cost are set by the free diagnostic - you never pay before scope is agreed in writing.",
               )}
             </p>
             <p className={styles.pricingTimeline}>
@@ -346,31 +345,14 @@ export default async function RevOpsCrmConsulting({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
-            <h2>{t("Start With a Free CRM & RevOps Diagnostic")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "The first conversation is complimentary. We review your CRM setup, data flow, and reporting to identify what needs attention.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="RevOps: CRM, Data & Reporting"
-              >
-                {t("Request a RevOps Diagnostic")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="RevOps: CRM, Data & Reporting"
+          >
+            {t("Start With a Free CRM & RevOps Diagnostic")}
+          </Button>
         </div>
       </section>
     </>

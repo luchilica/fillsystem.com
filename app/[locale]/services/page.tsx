@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { Plus } from "lucide-react";
+import {
+  Plus,
+  Stethoscope,
+  Zap,
+  FileSearch,
+  Wrench,
+  ShieldCheck,
+  Workflow,
+  Bot,
+  BarChart3,
+  Award,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { setRequestLocale } from "next-intl/server";
 import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
@@ -38,8 +50,16 @@ export async function generateMetadata({
   };
 }
 
-// Service definitions for the hub cards.
-const SERVICES = [
+const SERVICES: {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  priceFree: boolean;
+  highlight: boolean;
+  href: string;
+  Icon: LucideIcon;
+}[] = [
   {
     id: "primary-diagnostic",
     title: "Primary Diagnostic",
@@ -49,7 +69,7 @@ const SERVICES = [
     priceFree: true,
     highlight: true,
     href: "/services/business-diagnostic",
-    external: false,
+    Icon: Stethoscope,
   },
   {
     id: "advisory-power-hour",
@@ -60,7 +80,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/advisory-power-hour",
-    external: false,
+    Icon: Zap,
   },
   {
     id: "extended-diagnostic",
@@ -71,7 +91,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/business-diagnostic",
-    external: false,
+    Icon: FileSearch,
   },
   {
     id: "addon-tool",
@@ -82,7 +102,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/addon-tool-build",
-    external: false,
+    Icon: Wrench,
   },
   {
     id: "it-risk",
@@ -93,7 +113,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/it-risk-security",
-    external: false,
+    Icon: ShieldCheck,
   },
   {
     id: "process-operations",
@@ -104,7 +124,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/process-operations",
-    external: false,
+    Icon: Workflow,
   },
   {
     id: "automation",
@@ -115,7 +135,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/ai-process-automation",
-    external: false,
+    Icon: Bot,
   },
   {
     id: "revops",
@@ -126,7 +146,7 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/revops-crm-consulting",
-    external: false,
+    Icon: BarChart3,
   },
   {
     id: "o1-readiness",
@@ -137,9 +157,9 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/o1-visa-readiness",
-    external: false,
+    Icon: Award,
   },
-] as const;
+];
 
 const STEPS = [
   {
@@ -168,7 +188,6 @@ export default async function ServicesPage({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/services");
 
-  // Service JSON-LD scoped to this page.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -307,9 +326,12 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      {/* 2 — Service cards */}
-      <section className="section">
+      {/* 2 — Service cards (dark ink background) */}
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark size={200} className={styles.darkPlusTop} />
+        <PlusMark size={110} className={styles.darkPlusBottom} />
         <div className="container">
+          <h2 className={styles.sectionHeading}>{t("Our Services")}</h2>
           <div className={styles.grid}>
             {SERVICES.map((service) => (
               <article
@@ -317,6 +339,9 @@ export default async function ServicesPage({
                 className={`${styles.card} ${service.highlight ? styles.cardHighlight : ""}`}
               >
                 <div className={styles.cardHead}>
+                  <span className={styles.cardIcon} aria-hidden="true">
+                    <service.Icon size={20} />
+                  </span>
                   <h2 className={styles.cardTitle}>{t(service.title)}</h2>
                   <span
                     className={`${styles.price} ${service.priceFree ? styles.priceFree : ""}`}
@@ -335,12 +360,12 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      {/* 3 — How it works */}
-      <section className={`section ${styles.stepsSection}`}>
+      {/* 3 — How it works (brand blue) */}
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
         <div className="container">
-          <h2 className={styles.stepsTitle}>
-            {t("How Every Engagement Starts")}
-          </h2>
+          <h2>{t("How Every Engagement Starts")}</h2>
           <div className={styles.steps}>
             {STEPS.map((step, i) => (
               <div key={step.name} className={styles.step}>
@@ -350,31 +375,15 @@ export default async function ServicesPage({
               </div>
             ))}
           </div>
-          <Link href="/#how-the-diagnostic-works" className={styles.stepsLink}>
-            {t("See the full diagnostic process")}
-            <Plus size={16} aria-hidden="true" />
-          </Link>
         </div>
       </section>
 
-      {/* 4 — CTA */}
+      {/* 4 — Simple CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
-            <h2>{t("Start With a Free Diagnostic")}</h2>
-            <div className={styles.ctaActions}>
-              <Button variant="on-brand" href="/#diagnostic-request-form" icon>
-                {t("Request a Diagnostic")}
-              </Button>
-              <Link href="/about">
-                <Button variant="on-brand-outline">
-                  {t("Learn About Our Team")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button href="/#diagnostic-request-form" variant="primary" icon>
+            {t("Request a Diagnostic")}
+          </Button>
         </div>
       </section>
     </>

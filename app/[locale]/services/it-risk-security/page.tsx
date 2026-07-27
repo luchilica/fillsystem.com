@@ -7,7 +7,6 @@ import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
-import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./ITRiskSecurity.module.css";
 
@@ -83,7 +82,7 @@ const FAQ = [
   {
     question: "Is this a penetration test?",
     answer:
-      "No. This is an operational risk review focused on access, data handling, and failure points — not a technical exploitation test. If you need a pen test, we can recommend a partner.",
+      "No. This is an operational risk review focused on access, data handling, and failure points - not a technical exploitation test. If you need a pen test, we can recommend a partner.",
   },
   {
     question: "Do you handle compliance certifications?",
@@ -256,7 +255,7 @@ export default async function ITRiskSecurity({
           <div className={styles.audienceBlock}>
             <p className={styles.audienceText}>
               {t(
-                "B2B companies with 25-250 employees that have grown faster than their IT controls. You have SaaS tools, remote team members, integrations, and data flowing between systems — but no dedicated security team reviewing it.",
+                "B2B companies with 25-250 employees that have grown faster than their IT controls. You have SaaS tools, remote team members, integrations, and data flowing between systems - but no dedicated security team reviewing it.",
               )}
             </p>
             <p className={styles.audienceText}>
@@ -312,31 +311,14 @@ export default async function ITRiskSecurity({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
-            <h2>{t("Start With a Free IT Risk Review")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "The first conversation is complimentary. We review your IT environment to identify where your business is exposed.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="IT Risk & Security"
-              >
-                {t("Request an IT Risk Review")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="IT Risk & Security"
+          >
+            {t("Start With a Free IT Risk Review")}
+          </Button>
         </div>
       </section>
     </>

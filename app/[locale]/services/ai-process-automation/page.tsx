@@ -7,7 +7,6 @@ import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
-import { Link } from "@/i18n/navigation";
 import styles from "./AIAutomation.module.css";
 
 const TITLE =
@@ -75,7 +74,7 @@ const PROCESS_STEPS = [
   {
     title: "Diagnostic",
     description:
-      "We start with the business process diagnostic to identify automation opportunities — not the other way around.",
+      "We start with the business process diagnostic to identify automation opportunities - not the other way around.",
   },
   {
     title: "Opportunity shortlist",
@@ -114,7 +113,7 @@ const FAQ = [
   {
     question: "Can you automate our specific workflow?",
     answer:
-      "Probably, but we will not know until the diagnostic. Some workflows should be fixed before they are automated — automating a broken process just breaks it faster.",
+      "Probably, but we will not know until the diagnostic. Some workflows should be fixed before they are automated - automating a broken process just breaks it faster.",
   },
   {
     question: "How much time will automation actually save?",
@@ -228,7 +227,7 @@ export default async function AIProcessAutomation({
           <h1>{t("AI & Process Automation Consulting for B2B")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "Remove the manual, repetitive work — but only where it actually pays off. Starting from the diagnostic, we automate the workflows with real payback.",
+              "Remove the manual, repetitive work - but only where it actually pays off. Starting from the diagnostic, we automate the workflows with real payback.",
             )}
           </p>
         </div>
@@ -324,31 +323,14 @@ export default async function AIProcessAutomation({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
-            <h2>{t("Assess Your Automation Opportunities")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "The first conversation is complimentary. We review your processes and identify where automation will actually pay off.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="AI & Process Automation"
-              >
-                {t("Request an Automation Assessment")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="AI & Process Automation"
+          >
+            {t("Assess Your Automation Opportunities")}
+          </Button>
         </div>
       </section>
     </>

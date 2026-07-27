@@ -6,7 +6,6 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
-import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./AdvisoryHour.module.css";
@@ -14,7 +13,7 @@ import styles from "./AdvisoryHour.module.css";
 const TITLE =
   "Advisory Power Hour - $200 Expert Session | Opsfield Systems";
 const DESCRIPTION =
-  "Bring one concrete B2B problem — CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $200, no scoping, no wait.";
+  "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $200, no scoping, no wait.";
 
 export async function generateMetadata({
   params,
@@ -154,7 +153,7 @@ export default async function AdvisoryPowerHour({
         "@id": `${pageUrl}#service`,
         name: "Advisory Power Hour",
         description:
-          "Bring one concrete B2B problem — CRM, process, automation, or IT. Leave with expert direction in 60 minutes.",
+          "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes.",
         serviceType: "Expert advisory session",
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
@@ -297,29 +296,14 @@ export default async function AdvisoryPowerHour({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <h2>{t("Book a Power Hour")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "Pick a time, send your question, and get expert direction in a single session.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="Advisory Power Hour"
-              >
-                {t("Book a Power Hour")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="Advisory Power Hour"
+          >
+            {t("Book a Power Hour")}
+          </Button>
         </div>
       </section>
     </>

@@ -1,6 +1,5 @@
-/* Services hub — central page linking to all service areas.
-   2-column card grid (desktop), 1-column (mobile), three-step process strip,
-   CTA. Uses existing design tokens from globals.css. No Tailwind. */
+/* Services hub — card grid on dark ink, steps on brand blue, simple CTA.
+   Uses existing design tokens from globals.css. No Tailwind. */
 
 /* ----- Hero intro ----- */
 .heroSection {
@@ -13,17 +12,39 @@
   margin-top: var(--space-2);
 }
 
+/* ----- Dark ink section (cards grid) ----- */
+.darkSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+}
+.darkSection h2 { color: var(--paper); }
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+.sectionHeading {
+  margin-bottom: var(--space-4);
+}
+
 /* ----- Service card grid ----- */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
-  margin-top: var(--space-4);
 }
 
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -55,14 +76,26 @@
 
 .cardHead {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 8px;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--accent-tint);
+  color: var(--blue-600);
 }
 
 .cardTitle {
   margin: 0;
+  flex: 1 1 auto;
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: var(--fw-semibold);
@@ -73,7 +106,6 @@
 
 .price {
   flex-shrink: 0;
-  margin-top: 1px;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   background: var(--accent-tint);
@@ -116,19 +148,25 @@
   color: var(--blue-700);
 }
 
-/* ----- How it works steps ----- */
-.stepsSection {
-  margin-top: var(--space-2);
+/* ----- Brand blue section (steps) ----- */
+.brandSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
 }
+.brandSection h2 { color: var(--paper); }
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
 
-.stepsTitle {
-  margin-bottom: var(--space-4);
-}
-
+/* ----- Steps on brand ----- */
 .steps {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  margin-top: var(--space-4);
 }
 
 @media (min-width: 768px) {
@@ -144,9 +182,9 @@
   flex-direction: column;
   gap: 8px;
   padding: var(--space-3);
-  border: 1px solid var(--border-hair);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
-  background: var(--surface-card);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .stepNumber {
@@ -156,8 +194,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--blue-500);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--blue-600);
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: var(--fw-bold);
@@ -168,75 +206,19 @@
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: var(--fw-semibold);
-  color: var(--ink-900);
+  color: var(--paper);
 }
 
 .stepDesc {
   margin: 0;
   font-size: 14.5px;
   line-height: 1.55;
-  color: var(--stone-500);
+  color: rgba(255, 255, 255, 0.78);
 }
 
-.stepsLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: var(--space-3);
-  font-size: 14px;
-  font-weight: var(--fw-semibold);
-  color: var(--blue-600);
-  text-decoration: none;
-}
-
-.stepsLink:hover,
-.stepsLink:focus-visible {
-  text-decoration: underline;
-  color: var(--blue-700);
-}
-
-/* ----- CTA section ----- */
+/* ----- Simple CTA ----- */
 .ctaSection {
   text-align: center;
-}
-
-.ctaBlock {
-  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
-  border-radius: var(--radius-xl);
-  padding: var(--space-16) var(--space-8);
-  text-align: center;
-  color: var(--paper);
-}
-
-.ctaBlock h2 {
-  color: var(--paper);
-}
-
-.ctaBlock p {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.ctaText {
-  max-width: var(--text-max);
-  margin-inline: auto;
-  margin-top: var(--space-3);
-  line-height: var(--lh-body);
-  color: var(--text-body);
-}
-
-.ctaActions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-}
-
-@media (min-width: 768px) {
-  .ctaActions {
-    flex-direction: row;
-    justify-content: center;
-  }
 }
 
 /* ----- Reduced motion ----- */
@@ -246,7 +228,7 @@
   }
 }
 
-/* ----- Mobile compaction ----- */
+/* ----- Mobile ----- */
 @media (max-width: 767px) {
   .heroSection {
     padding-top: var(--space-6);
@@ -260,4 +242,11 @@
   .price {
     font-size: 13px;
   }
+
+  .cardIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
 }

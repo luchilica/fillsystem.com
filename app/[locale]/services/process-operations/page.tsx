@@ -6,7 +6,6 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
-import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./ProcessOps.module.css";
@@ -251,7 +250,7 @@ export default async function ProcessOperations({
           <div className={styles.audienceBlock}>
             <p className={styles.audienceText}>
               {t(
-                "B2B companies with 25–250 employees that have outgrown their original processes. You have more teams, more tools, and more complexity — but the processes were designed for a 10-person company.",
+                "B2B companies with 25–250 employees that have outgrown their original processes. You have more teams, more tools, and more complexity - but the processes were designed for a 10-person company.",
               )}
             </p>
           </div>
@@ -295,29 +294,14 @@ export default async function ProcessOperations({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <h2>{t("Request a Process Diagnostic")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "The first conversation is complimentary. We review your workflows and identify where the friction is.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="Process & Operations"
-              >
-                {t("Request a Process Diagnostic")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="Process & Operations"
+          >
+            {t("Request a Process Diagnostic")}
+          </Button>
         </div>
       </section>
     </>

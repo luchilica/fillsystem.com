@@ -242,67 +242,6 @@
   text-align: center;
 }
 
-.ctaBlock {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
-    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-8) var(--space-16);
-  text-align: center;
-  color: var(--paper);
-}
-
-.ctaBlock h2 {
-  color: var(--paper);
-}
-
-.ctaBlock p {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.ctaLead {
-  max-width: var(--text-max);
-  margin-inline: auto;
-  margin-top: var(--space-3);
-  line-height: var(--lh-body);
-}
-
-.ctaActions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .ctaActions {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-.ctaPlusTop {
-  position: absolute;
-  top: -30px;
-  right: -15px;
-  color: rgba(255, 255, 255, 0.12);
-  pointer-events: none;
-}
-.ctaPlusBottom {
-  position: absolute;
-  bottom: -10px;
-  left: 3%;
-  color: rgba(255, 255, 255, 0.08);
-  pointer-events: none;
-}
-@media (max-width: 767px) {
-  .ctaPlusTop, .ctaPlusBottom { display: none; }
-}
-
 @media (max-width: 767px) {
   .faqPlusTop,
   .faqPlusBottom {

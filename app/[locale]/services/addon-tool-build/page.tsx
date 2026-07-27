@@ -6,7 +6,6 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
-import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./AddonTool.module.css";
@@ -14,7 +13,7 @@ import styles from "./AddonTool.module.css";
 const TITLE =
   "Add-on Tool Build: Bot, Landing Page, or Email | Opsfield Systems";
 const DESCRIPTION =
-  "Pick one quick win — a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $900.";
+  "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $900.";
 
 export async function generateMetadata({
   params,
@@ -78,7 +77,7 @@ const FAQ = [
   {
     question: "What tech stack?",
     answer:
-      "It depends on your existing tools. We work with what you have — no forced migrations. We will recommend a stack during the scoping call.",
+      "It depends on your existing tools. We work with what you have - no forced migrations. We will recommend a stack during the scoping call.",
   },
 ] as const;
 
@@ -138,7 +137,7 @@ export default async function AddonToolBuild({
         "@id": `${pageUrl}#service`,
         name: "Add-on Tool Build",
         description:
-          "Pick one quick win — a Telegram bot, landing page, or email campaign. Scoped small, shipped fast.",
+          "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast.",
         serviceType: "Software tool build",
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
@@ -266,29 +265,14 @@ export default async function AddonToolBuild({
       {/* 6 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <h2>{t("Discuss a Tool Build")}</h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "Tell us what you need built. We will scope it, price it, and ship it.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="Add-on Tool Build"
-              >
-                {t("Discuss a Tool Build")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("See All Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="Add-on Tool Build"
+          >
+            {t("Discuss a Tool Build")}
+          </Button>
         </div>
       </section>
     </>

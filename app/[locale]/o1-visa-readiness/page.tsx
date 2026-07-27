@@ -6,7 +6,6 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
-import { Link } from "@/i18n/navigation";
 import { Check, X } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./O1Readiness.module.css";
@@ -88,7 +87,7 @@ const FAQ = [
   {
     question: "Are you immigration attorneys?",
     answer:
-      "No. We help structure evidence and build your professional profile. All legal work — petition drafting, filing, USCIS communication — is handled by qualified immigration attorneys.",
+      "No. We help structure evidence and build your professional profile. All legal work - petition drafting, filing, USCIS communication - is handled by qualified immigration attorneys.",
   },
   {
     question: "Can you guarantee O-1 approval?",
@@ -203,7 +202,7 @@ export default async function O1VisaReadiness({
           <h1>{t("O-1 Visa Readiness Support")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "For IT professionals and founders exploring the O-1 visa path. We help structure the evidence of extraordinary ability — publications, portfolio, recommendations, expert positioning. We work alongside qualified immigration counsel.",
+              "For IT professionals and founders exploring the O-1 visa path. We help structure the evidence of extraordinary ability - publications, portfolio, recommendations, expert positioning. We work alongside qualified immigration counsel.",
             )}
           </p>
         </div>
@@ -296,7 +295,7 @@ export default async function O1VisaReadiness({
             <p className={styles.pricingPrice}>{t("$2,500")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "O-1 Readiness Support is a fixed-price engagement at $2,500. Timeline is ongoing and case-dependent — most initial assessments take 2–3 weeks, with evidence building extending over 2–6 months depending on what needs to be created.",
+                "O-1 Readiness Support is a fixed-price engagement at $2,500. Timeline is ongoing and case-dependent - most initial assessments take 2–3 weeks, with evidence building extending over 2–6 months depending on what needs to be created.",
               )}
             </p>
           </div>
@@ -325,24 +324,14 @@ export default async function O1VisaReadiness({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <h2>{t("Ask About O-1 Readiness")}</h2>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-                data-request-type="O-1 Readiness Support"
-              >
-                {t("Discuss O-1 Readiness")}
-              </Button>
-              <Link href="/services">
-                <Button variant="on-brand-outline">
-                  {t("Back to Services")}
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Button
+            href="/#diagnostic-request-form"
+            variant="primary"
+            icon
+            data-request-type="O-1 Readiness Support"
+          >
+            {t("Ask About O-1 Readiness")}
+          </Button>
         </div>
       </section>
     </>

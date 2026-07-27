@@ -199,40 +199,6 @@
   text-align: center;
 }
 
-.ctaBlock {
-  background: var(--blue-500);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-8);
-  text-align: center;
-  color: var(--paper);
-}
-.ctaBlock h2 { color: var(--paper); }
-.ctaBlock p { color: rgba(255, 255, 255, 0.85); }
-
-.ctaLead {
-  max-width: var(--text-max);
-  margin-inline: auto;
-  margin-top: var(--space-3);
-  line-height: var(--lh-body);
-}
-
-.ctaActions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .ctaActions {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-
 /* ----- Dark section ----- */
 .darkSection {
   position: relative;

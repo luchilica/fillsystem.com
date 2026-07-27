@@ -430,30 +430,9 @@ export default async function BusinessDiagnosticPage({
       {/* Section 7 — CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
-            <h2>
-              {t("Request a Business & IT Diagnostic")}
-            </h2>
-            <p className={styles.ctaLead}>
-              {t(
-                "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted.",
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-              >
-                {t("Request a Diagnostic")}
-              </Button>
-              <Button href="/services" variant="on-brand-outline">
-                {t("See All Services")}
-              </Button>
-            </div>
-          </div>
+          <Button href="/#diagnostic-request-form" variant="primary" icon>
+            {t("Request a Business & IT Diagnostic")}
+          </Button>
         </div>
       </section>
     </>
