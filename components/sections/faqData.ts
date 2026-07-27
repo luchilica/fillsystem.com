@@ -24,12 +24,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     q: "How much does the diagnostic cost?",
     type: "text",
-    a: "The initial diagnostic conversation (30–45 minutes) is complimentary and carries no obligation. If the diagnostic identifies a clear next step, we provide a fixed-scope proposal with defined deliverables and pricing before any commitment. Paid engagements are scoped individually based on the number of systems, workflows, and stakeholders involved.",
+    a: "The initial diagnostic conversation (30-45 minutes) is complimentary and carries no obligation. If the diagnostic identifies a clear next step, we provide a fixed-scope proposal with defined deliverables and pricing before any commitment. Paid engagements are scoped individually based on the number of systems, workflows, and stakeholders involved.",
   },
   {
     q: "How long does the diagnostic process take?",
     type: "text",
-    a: "The first conversation takes 30–45 minutes. A paid audit, assessment, or roadmap usually depends on the number of systems, workflows, and stakeholders involved.",
+    a: "The first conversation takes 30-45 minutes. A paid audit, assessment, or roadmap usually depends on the number of systems, workflows, and stakeholders involved.",
   },
   {
     q: "Do you implement systems?",
@@ -49,7 +49,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     q: "Who do you work with best?",
     type: "fit",
-    intro: "Our strongest fit is a B2B company with 50–250 employees that is facing:",
+    intro: "Our strongest fit is a B2B company with 50-250 employees that is facing:",
     items: [
       "Cross-functional process or system complexity",
       "Weak visibility across CRM or SaaS tools",
@@ -74,6 +74,26 @@ export const FAQ_ITEMS: FaqItem[] = [
     q: "Do you guarantee ROI?",
     type: "text",
     a: "No. ROI requires baseline data, scope definition, adoption risk review, and implementation assumptions.",
+  },
+  {
+    q: "What industries do you specialize in?",
+    type: "text",
+    a: "We work across B2B industries including SaaS, professional services, logistics, manufacturing, and multi-location operators. The diagnostic is industry-agnostic: it focuses on process, data flow, and system architecture rather than a specific vertical.",
+  },
+  {
+    q: "Can you help migrate from Salesforce to HubSpot?",
+    type: "text",
+    a: "Yes. CRM migration is a common outcome of the RevOps diagnostic. We map your current data model, pipeline logic, and integrations before recommending a migration path. We work with both Salesforce and HubSpot environments.",
+  },
+  {
+    q: "How is a diagnostic different from a consulting engagement?",
+    type: "text",
+    a: "The diagnostic is a structured, time-boxed review that identifies what is broken and why. A consulting engagement implements the fix. We separate the two so you never pay for implementation before the problem is validated.",
+  },
+  {
+    q: "What does a typical RevOps audit include?",
+    type: "text",
+    a: "A RevOps audit covers CRM structure, pipeline stages, reporting definitions, data sources, key integrations, and automation rules. The output is a prioritized fix list with estimated effort and impact for each item.",
   },
   {
     q: "Do you handle O-1 visa petitions?",

@@ -1,0 +1,25 @@
+# Opsfield Systems
+> Diagnostic-first IT and business consulting for B2B companies (50-250 employees)
+
+## Services
+- Business & IT Diagnostic (free, 30-45 min fit review)
+- Advisory Power Hour ($200)
+- Extended Diagnostic (from $1,200)
+- Add-on Tool Build (from $900)
+- IT Risk & Security (from $1,900)
+- Process & Operations (from $3,500)
+- AI & Process Automation (from $3,900)
+- RevOps: CRM, Data & Reporting (from $4,900)
+- O-1 Readiness Support ($2,500)
+
+## Approach
+Diagnostic-first: every engagement starts with a structured review of processes, systems, and data flow before any implementation commitment.
+
+## Team
+- Igor Saevets, Managing Partner — operating model & diagnostic lead
+
+## Location
+California, USA (remote-first)
+
+## Contact
+opsfieldsystems@gmail.com
