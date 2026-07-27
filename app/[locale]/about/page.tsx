@@ -228,7 +228,7 @@ export default async function About({
             >
               {t("Request a Business & IT Diagnostic")}
             </Button>
-            <Button href="/#areas-of-work" variant="secondary">
+            <Button href="/services" variant="secondary">
               {t("See Our Services")}
             </Button>
           </div>
