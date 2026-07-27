@@ -70,7 +70,7 @@ export default async function HubSpotVsSalesforceB2B({
       <p>
         <strong>{t("Marketing-heavy teams.")}</strong>{" "}
         {t(
-          "If your growth model depends on content marketing, inbound lead generation, email nurturing, and marketing automation, HubSpot's native integration between CRM and marketing tools is a genuine advantage. Salesforce can do all of this with Pardot or Marketing Cloud, but the integration is bolted on rather than built in. HubSpot's marketing-to-sales handoff is seamless because it was designed as a single system from the start. If marketing and sales alignment is your primary operational challenge, HubSpot removes a layer of integration complexity."
+          "If your growth model depends on content marketing, inbound lead generation, email nurturing, and marketing automation, HubSpot's native integration between CRM and marketing tools is a genuine advantage. Salesforce can do all of this with Pardot or Marketing Cloud, but the integration is bolted on rather than built in. HubSpot's marketing-to-sales handoff is smooth because it was designed as a single system from the start. If marketing and sales alignment is your primary operational challenge, HubSpot removes a layer of integration complexity."
         )}
       </p>
       <p>

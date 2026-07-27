@@ -236,7 +236,7 @@ export default async function SalesforceToHubspotMigration({
       </h3>
       <p>
         {t(
-          "Your Salesforce automations were built for Salesforce's data model, trigger architecture, and execution model. Recreating them identically in HubSpot produces workflows that fight the platform instead of leveraging it. A Salesforce Flow that updates three related objects in a single transaction needs to become multiple HubSpot workflows with enrollment triggers — trying to force it into a single workflow creates fragile, hard-to-debug automation. The migration is an opportunity to simplify. Most teams find that 60% of their Salesforce automations can be consolidated into fewer, cleaner HubSpot workflows."
+          "Your Salesforce automations were built for Salesforce's data model, trigger architecture, and execution model. Recreating them identically in HubSpot produces workflows that fight the platform instead of working with it. A Salesforce Flow that updates three related objects in a single transaction needs to become multiple HubSpot workflows with enrollment triggers — trying to force it into a single workflow creates fragile, hard-to-debug automation. The migration is an opportunity to simplify. Most teams find that 60% of their Salesforce automations can be consolidated into fewer, cleaner HubSpot workflows."
         )}
       </p>
 

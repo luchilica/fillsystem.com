@@ -1,23 +1,61 @@
-/* BlogListing — card grid for the /blog index page.
-   Tokens from globals.css. No Tailwind. */
+/* BlogListing — dark-ink hero + white cards on dark, brand-blue CTA.
+   Matches Services / About design language. No Tailwind. */
 
-/* ----- Hero ----- */
+/* ----- Hero (dark ink with bg image) ----- */
 .heroSection {
+  position: relative;
+  overflow: hidden;
   padding-top: var(--space-7);
-  padding-bottom: var(--space-5);
+  padding-bottom: var(--space-6);
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
 }
 
-.lead {
+.heroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBgImg {
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(0.6) contrast(1.05) brightness(0.8);
+  opacity: 0.12;
+  mix-blend-mode: luminosity;
+}
+
+.heroHeading {
+  color: var(--paper);
+}
+
+.heroLead {
   max-width: var(--text-max);
   margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.78);
 }
+
+.heroPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.heroPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+/* ----- Dark ink section (cards) ----- */
+.darkSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.15) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, var(--ink-900) 0%, #101223 100%) !important;
+  color: var(--text-on-dark);
+}
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.18); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.1); pointer-events: none; }
 
 /* ----- Card grid ----- */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
-  margin-top: var(--space-5);
+  gap: var(--space-3);
 }
 
 @media (min-width: 768px) {
@@ -26,35 +64,80 @@
   }
 }
 
-/* ----- Card ----- */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ----- White card on dark ----- */
 .card {
-  position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
-  border: 1px solid var(--stone-200);
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  border: 1px solid var(--border-hair);
   border-radius: var(--radius-lg);
-  background: var(--paper);
-  box-shadow: var(--shadow-hard);
-  transition:
-    transform var(--dur-med) var(--ease-out),
-    box-shadow var(--dur-med) var(--ease-out);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
 }
 
-/* ----- Card content ----- */
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-tint);
+  font-family: var(--font-mono-fallback);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+}
+
+.category::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  flex-shrink: 0;
+}
+
+.readTime {
+  font-size: 13px;
+  color: var(--stone-400);
+  white-space: nowrap;
+}
+
 .cardTitle {
-  margin-top: var(--space-2);
-  font-size: var(--fs-h4);
+  margin: 0 0 8px;
   font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  letter-spacing: var(--ls-heading);
-  line-height: var(--lh-heading);
-  color: var(--text-strong);
+  font-size: 21px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #111122;
 }
 
 .cardTitleLink {
@@ -66,15 +149,14 @@
 .cardTitleLink:hover,
 .cardTitleLink:focus-visible {
   color: var(--blue-600);
-  text-decoration: none;
 }
 
-.cardDescription {
-  margin-top: var(--space-2);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: var(--text-body);
-  /* Clamp to 3 lines */
+.cardDesc {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--stone-500);
+  flex: 1 1 auto;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -89,7 +171,8 @@
   justify-content: space-between;
   gap: 8px;
   margin-top: auto;
-  padding-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--stone-100);
 }
 
 .cardMeta {
@@ -97,7 +180,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  font-size: var(--fs-sm);
+  font-size: 13px;
   color: var(--stone-400);
 }
 
@@ -109,28 +192,71 @@
 .readLink {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: var(--fs-sm);
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: var(--fw-semibold);
-  color: var(--blue-500);
-  text-decoration: none;
-  transition: color var(--dur-med) var(--ease-out);
-}
-
-.readLink:hover,
-.readLink:focus-visible {
   color: var(--blue-600);
   text-decoration: none;
 }
 
-/* ----- Mobile compaction ----- */
+.readLink:hover,
+.readLink:focus-visible {
+  text-decoration: underline;
+  color: var(--blue-700);
+}
+
+/* ----- Brand blue CTA ----- */
+.brandSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
+}
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+
+.ctaHeading {
+  color: var(--paper);
+}
+
+.ctaLead {
+  max-width: var(--text-max);
+  margin-inline: auto;
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--lh-body);
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+/* ----- Mobile ----- */
 @media (max-width: 767px) {
   .heroSection {
     padding-top: var(--space-6);
     padding-bottom: var(--space-4);
   }
 
+  .cardTitle {
+    font-size: 18px;
+  }
+
   .card {
     padding: var(--space-3);
   }
+
+  .heroPlusTop, .heroPlusBottom, .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
 }

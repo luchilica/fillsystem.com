@@ -98,7 +98,7 @@ export default async function RevOpsForSmallTeams({
       </p>
       <p>
         {t(
-          "Fixing this does not require new software. It requires a decision. Pick one system as the source of truth for pipeline data -- usually your CRM -- and make it the only system that matters for revenue reporting. Define what counts as a \"deal\" in your pipeline, what the stages mean, and when a deal is real versus aspirational. Write it down. Make sure everyone who touches pipeline data understands and follows the same definitions. This is not glamorous work, but it is the single highest-leverage thing you can do for revenue visibility."
+          "Fixing this does not require new software. It requires a decision. Pick one system as the source of truth for pipeline data -- usually your CRM -- and make it the only system that matters for revenue reporting. Define what counts as a \"deal\" in your pipeline, what the stages mean, and when a deal is real versus aspirational. Write it down. Make sure everyone who touches pipeline data understands and follows the same definitions. This is not glamorous work, but it is the single most impactful thing you can do for revenue visibility."
         )}
       </p>
 
