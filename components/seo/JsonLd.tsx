@@ -25,6 +25,8 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         foundingDate: "2021",
         description:
           "Diagnostic-first IT and business consulting for B2B companies.",
+        founder: { "@id": `${home}#igor-saevets` },
+        sameAs: ["https://linkedin.com/in/igorsaevets"],
         areaServed: { "@type": "Country", name: "United States" },
         address: {
           "@type": "PostalAddress",
@@ -177,6 +179,15 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             text: "You receive a clear next step: audit, assessment, roadmap, advisory, implementation support, pause, or no-fit.",
           },
         ],
+      },
+      {
+        "@type": "Person",
+        "@id": `${home}#igor-saevets`,
+        name: "Igor Saevets",
+        jobTitle: "Managing Partner",
+        worksFor: { "@id": organizationId },
+        url: "https://linkedin.com/in/igorsaevets",
+        sameAs: ["https://linkedin.com/in/igorsaevets"],
       },
       {
         "@type": "FAQPage",

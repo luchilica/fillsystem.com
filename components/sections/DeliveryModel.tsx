@@ -17,13 +17,14 @@ import PlusMark from "@/components/ui/PlusMark";
 import { getT } from "@/i18n/t";
 import styles from "./DeliveryModel.module.css";
 
-// Copy from docs/texts.md → "Delivery Model". Role-only cards (no names, photos,
-// or invented credentials); responsibilities are the exact terms from the Focus
-// lines. Initials tile + role subtitle + icon bullets. v2 ink block.
+// Copy from docs/texts.md → "Delivery Model". Named senior advisors where
+// applicable; initials tile + role subtitle + icon bullets. v2 ink block.
 const ROLES = [
   {
     title: "Managing Partner",
-    initials: "MP",
+    name: "Igor Saevets" as string | undefined,
+    linkedin: "https://linkedin.com/in/igorsaevets" as string | undefined,
+    initials: "IS",
     subtitle: "Operating model & diagnostic lead",
     tone: "paper",
     art: "/photos/role-mp.jpg",
@@ -37,6 +38,8 @@ const ROLES = [
   },
   {
     title: "Solution Architect",
+    name: undefined as string | undefined,
+    linkedin: undefined as string | undefined,
     initials: "SA",
     subtitle: "CRM / RevOps & data flow",
     tone: "paper",
@@ -81,9 +84,9 @@ export default async function DeliveryModel() {
         </p>
 
         <div className={styles.roles}>
-          {ROLES.map(({ title, initials, subtitle, responsibilities, art, blur }) => (
+          {ROLES.map(({ title, name, linkedin, initials, subtitle, responsibilities, art, blur }) => (
             <Card key={title} tone="paper" soft hover={false}>
-              {/* Duotone corner watermark — abstract, no faces (role-only ethos):
+              {/* Duotone corner watermark — abstract, no faces:
                   MP = structure/architecture, SA = data/systems. */}
               <span className={styles.cardArt} aria-hidden="true">
                 <Image
@@ -102,7 +105,30 @@ export default async function DeliveryModel() {
                     {initials}
                   </span>
                   <div>
-                    <h3 className={styles.roleTitle}>{t(title)}</h3>
+                    {name ? (
+                      <>
+                        <h3 className={styles.roleTitle}>
+                          {linkedin ? (
+                            <a
+                              href={linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.nameLink}
+                            >
+                              {name}
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                              </svg>
+                            </a>
+                          ) : (
+                            name
+                          )}
+                        </h3>
+                        <p className={styles.roleSub}>{t(title)}</p>
+                      </>
+                    ) : (
+                      <h3 className={styles.roleTitle}>{t(title)}</h3>
+                    )}
                     <p className={styles.roleSub}>{t(subtitle)}</p>
                   </div>
                 </div>
