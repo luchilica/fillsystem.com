@@ -74,7 +74,7 @@ export default async function AIProcessAutomation() {
         <Button
           href="#diagnostic-request-form"
           variant="on-brand"
-          icon
+      
           className={styles.cta}
           data-request-type="AI & Process Automation"
         >

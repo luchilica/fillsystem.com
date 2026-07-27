@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#101223"/>
+      <stop offset="100%" stop-color="#222335"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="85%" cy="15%" r="55%">
+      <stop offset="0%" stop-color="#2551D2" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#2551D2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- Waveform: clean signal left -->
+  <g stroke="#3B7BF7" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M80 315 Q120 280,160 315 Q200 350,240 315 Q280 280,320 315 Q360 350,400 315 Q440 280,480 315"/>
+  </g>
+  <!-- Waveform: noisy signal right -->
+  <g stroke="#3B7BF7" stroke-width="1.5" fill="none" opacity="0.35">
+    <path d="M720 315 Q740 250,760 330 Q780 220,800 340 Q820 260,840 300 Q860 350,880 270 Q900 380,920 290 Q940 320,960 280 Q980 350,1000 300 Q1020 250,1040 330 Q1060 310,1080 280 Q1100 350,1120 300"/>
+  </g>
+  <!-- Divider line -->
+  <line x1="600" y1="180" x2="600" y2="450" stroke="#3B7BF7" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
+  <!-- Diagnostic grid lines -->
+  <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+  </g>
+  <!-- Data points left -->
+  <g fill="#3B7BF7" opacity="0.5">
+    <circle cx="160" cy="315" r="4"/><circle cx="320" cy="315" r="4"/><circle cx="480" cy="315" r="4"/>
+  </g>
+  <!-- Data points right (scattered) -->
+  <g fill="#3B7BF7" opacity="0.3">
+    <circle cx="760" cy="330" r="3"/><circle cx="840" cy="300" r="3"/><circle cx="920" cy="290" r="3"/><circle cx="1000" cy="300" r="3"/><circle cx="1080" cy="280" r="3"/>
+  </g>
+  <!-- Speaker labels -->
+  <g font-family="system-ui" font-size="11" fill="rgba(255,255,255,0.25)" letter-spacing="0.08em">
+    <text x="80" y="200">CLEAN STUDIO</text>
+    <text x="720" y="200">REAL BUSINESS CALL</text>
+  </g>
+</svg>
