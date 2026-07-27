@@ -418,6 +418,9 @@
 .brandSection h2 { color: var(--paper); }
 .brandSection h3 { color: var(--paper); }
 .brandSection p { color: rgba(255, 255, 255, 0.85); }
+.brandSection .outputItem { color: rgba(255, 255, 255, 0.9); }
+.brandSection .outputBullet { background: var(--paper); }
+.brandSection .outputExtended { color: rgba(255, 255, 255, 0.6); }
 .brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
 .brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
 

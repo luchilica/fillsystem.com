@@ -88,7 +88,9 @@ export default async function About({
       </section>
 
       {/* Section 2 — Our Approach */}
-      <section className="section">
+      <section className={`section ${styles.approachSection}`}>
+        <PlusMark size={180} className={styles.approachPlusTop} />
+        <PlusMark size={100} className={styles.approachPlusBottom} />
         <div className="container">
           <div className={styles.approach}>
             <h2>{t("Diagnostic-First: Validate Before You Implement")}</h2>
@@ -185,7 +187,9 @@ export default async function About({
       </section>
 
       {/* Section 4 — By the Numbers */}
-      <section className="section">
+      <section className={`section ${styles.statsSection}`}>
+        <PlusMark size={160} className={styles.statsPlusTop} />
+        <PlusMark size={90} className={styles.statsPlusBottom} />
         <div className="container">
           <h2>{t("By the Numbers")}</h2>
 
