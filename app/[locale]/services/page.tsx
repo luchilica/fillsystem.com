@@ -47,7 +47,7 @@ const SERVICES = [
     price: "Free",
     priceFree: true,
     highlight: true,
-    href: "/#diagnostic-request-form",
+    href: "/services/business-diagnostic",
     external: false,
   },
   {
@@ -69,8 +69,7 @@ const SERVICES = [
     price: "from $1,200",
     priceFree: false,
     highlight: false,
-    // Future: /services/business-diagnostic/
-    href: "/#areas-of-work",
+    href: "/services/business-diagnostic",
     external: false,
   },
   {
@@ -125,8 +124,7 @@ const SERVICES = [
     price: "from $4,900",
     priceFree: false,
     highlight: false,
-    // Future: /services/revops-crm-consulting/
-    href: "/#areas-of-work",
+    href: "/services/revops-crm-consulting",
     external: false,
   },
 ] as const;

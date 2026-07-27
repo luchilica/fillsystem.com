@@ -1,0 +1,335 @@
+/* Business Diagnostic — flagship service page.
+   Review grid, numbered process steps, comparison cards, FAQ, CTA.
+   Uses existing design tokens from globals.css. No Tailwind. */
+
+/* ----- Hero intro ----- */
+.heroSection {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-5);
+}
+
+.lead {
+  max-width: var(--text-max);
+  margin-top: var(--space-2);
+}
+
+/* ----- Review grid (What We Review) ----- */
+.reviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .reviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviewGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reviewItem {
+  padding: var(--space-3);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.reviewItemTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.reviewItemDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--stone-500);
+}
+
+/* ----- Process steps (How It Works) ----- */
+.stepsSection {
+  background: var(--bg-band);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .steps {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--space-3);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+}
+
+.stepName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--stone-500);
+}
+
+/* ----- Diagnostic output (What You Receive) ----- */
+.outputList {
+  margin-top: var(--space-4);
+  max-width: var(--text-max);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.outputItem {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.outputBullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background: var(--blue-500);
+}
+
+.outputExtended {
+  color: var(--stone-400);
+  font-size: var(--fs-sm);
+}
+
+/* ----- Comparison cards (Free vs Extended) ----- */
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .comparisonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.comparisonCard {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.comparisonCardHighlight {
+  border-color: var(--blue-200);
+  box-shadow: var(--ring), var(--shadow-sm);
+}
+
+.comparisonHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--space-2);
+}
+
+.comparisonTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+}
+
+.comparisonPrice {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.comparisonPriceFree {
+  background: var(--blue-500);
+  color: var(--paper);
+}
+
+.comparisonPricePaid {
+  background: var(--accent-tint);
+  color: var(--blue-600);
+}
+
+.comparisonMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-3);
+}
+
+.comparisonMetaItem {
+  font-family: var(--font-mono-fallback);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+
+.comparisonFeatures {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.comparisonFeature {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.checkmark {
+  flex-shrink: 0;
+  color: var(--blue-500);
+  font-weight: var(--fw-bold);
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 3px;
+}
+
+/* ----- FAQ ----- */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  max-width: var(--text-max);
+}
+
+.faqItem {}
+
+.faqQuestion {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.faqAnswer {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+/* ----- CTA ----- */
+.ctaSection {
+  text-align: center;
+}
+
+.ctaLead {
+  max-width: var(--text-max);
+  margin-inline: auto;
+  margin-top: var(--space-3);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .ctaActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ----- Mobile compaction ----- */
+@media (max-width: 767px) {
+  .heroSection {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-4);
+  }
+
+  .stepName {
+    font-size: 16px;
+  }
+
+  .comparisonTitle {
+    font-size: 18px;
+  }
+
+  .faqQuestion {
+    font-size: 16px;
+  }
+}
