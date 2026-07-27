@@ -31,7 +31,6 @@ export default async function AIProcessAutomation() {
       <PlusMark size={120} className={styles.plusBottom} />
 
       <div className={styles.inner}>
-        <p className={styles.badge}>{t("AI & AUTOMATION")}</p>
         <h2 className={styles.heading}>
           {t("From diagnostic to implementation: AI & Process Automation.")}
         </h2>

@@ -34,13 +34,13 @@ const SERVICE_OPTIONS = [
 ];
 
 const COMPANY_SIZE_OPTIONS = [
-  "1–10",
-  "11–25",
-  "26–50",
-  "51–75",
-  "76–100",
-  "101–150",
-  "151–200",
+  "1-10",
+  "11-25",
+  "26-50",
+  "51-75",
+  "76-100",
+  "101-150",
+  "151-200",
   "200+",
 ];
 
@@ -71,7 +71,7 @@ const PAINS_OPTIONS = [
   "Something else",
 ];
 
-const TIMELINE_OPTIONS = ["ASAP", "This month", "1–3 months", "3–6 months", "Researching"];
+const TIMELINE_OPTIONS = ["ASAP", "This month", "1-3 months", "3-6 months", "Researching"];
 
 // Fallback contact shown if the form request fails. Real monitored inbox until
 // a domain + hello@ address is set up.
@@ -243,7 +243,7 @@ export default function DiagnosticForm() {
           role: values.role,
           companySize: values.companySize,
           timeline: values.timeline,
-          website: values.website, // honeypot – server double-checks
+          website: values.website, // honeypot - server double-checks
           context,
         }),
       });

@@ -29,7 +29,6 @@ export default async function WhyOpsfield() {
   const t = await getT();
   return (
     <div className="container">
-      <p className={styles.badge}>{t("THE DIFFERENCE")}</p>
       <h2 className={styles.intro}>{t("Why Opsfield Systems")}</h2>
       <p className={`lead ${styles.text}`}>
         {t(

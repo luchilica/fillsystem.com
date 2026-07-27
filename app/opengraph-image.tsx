@@ -119,20 +119,6 @@ export default async function Image() {
             </div>
           </div>
 
-          {/* Category eyebrow. */}
-          <div
-            style={{
-              fontSize: 19,
-              fontWeight: 600,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "#8FB0F5",
-              marginBottom: 20,
-            }}
-          >
-            B2B IT &amp; Operations Advisory
-          </div>
-
           {/* Selling hook (hero line). */}
           <div
             style={{

@@ -73,7 +73,7 @@ function fromLabel(locale: Locale, n: number): string {
 }
 
 function rangeLabel(locale: Locale, low: number, high: number): string {
-  return `${money(locale, low)}–${money(locale, high)}`;
+  return `${money(locale, low)}-${money(locale, high)}`;
 }
 
 type Service = {
@@ -116,7 +116,7 @@ const SERVICES: Service[] = [
       "Recommended next step",
     ],
     result: "A go / no-go, live on the call",
-    timeline: "30–45 minutes",
+    timeline: "30-45 minutes",
     cta: "Take the diagnostic",
   },
   {
@@ -154,7 +154,7 @@ const SERVICES: Service[] = [
       "Written roadmap",
     ],
     result: "A written diagnostic report and roadmap",
-    timeline: "1–2 weeks",
+    timeline: "1-2 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {
@@ -173,7 +173,7 @@ const SERVICES: Service[] = [
       "Basic analytics",
     ],
     result: "One tool, live and handed over",
-    timeline: "1–2 weeks",
+    timeline: "1-2 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {
@@ -192,7 +192,7 @@ const SERVICES: Service[] = [
       "Prioritized fix list",
     ],
     result: "A prioritized risk & fix report",
-    timeline: "1–3 weeks",
+    timeline: "1-3 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {
@@ -203,7 +203,7 @@ const SERVICES: Service[] = [
     base: 3500,
     lede: "Redesign the handoffs, approvals, and ownership that slow a growing team down.",
     context:
-      "We turn the diagnostic's process map into a working operating model: clarified ownership, documented workflows, and removed duplication, sized for a 25–50-person team, not an enterprise rollout.",
+      "We turn the diagnostic's process map into a working operating model: clarified ownership, documented workflows, and removed duplication, sized for a 25-50-person team, not an enterprise rollout.",
     includes: [
       "Target operating model",
       "Documented core workflows",
@@ -211,7 +211,7 @@ const SERVICES: Service[] = [
       "Rollout checklist",
     ],
     result: "An operating model your team actually follows",
-    timeline: "2–4 weeks",
+    timeline: "2-4 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {
@@ -230,7 +230,7 @@ const SERVICES: Service[] = [
       "Handover & documentation",
     ],
     result: "Automations that quietly save hours each week",
-    timeline: "2–5 weeks",
+    timeline: "2-5 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {
@@ -249,7 +249,7 @@ const SERVICES: Service[] = [
       "Core integrations",
     ],
     result: "A CRM and reporting setup you can trust",
-    timeline: "3–6 weeks",
+    timeline: "3-6 weeks",
     cta: "Discuss this in your diagnostic",
   },
   {

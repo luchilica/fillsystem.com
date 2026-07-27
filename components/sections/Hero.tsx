@@ -9,8 +9,6 @@ export default async function Hero() {
   return (
     <div className={`container ${styles.hero}`}>
       <div className={styles.content}>
-        <p className={styles.eyebrow}>{t("B2B IT & Operations Advisory")}</p>
-
         <h1 className={styles.headline}>
           {t("Diagnostic-First IT & Business")}{" "}
           <span className={styles.accentWord}>{t("Consulting")}</span>
@@ -40,11 +38,11 @@ export default async function Hero() {
         {/* Trust stats — reformats the boutique-advisory / ICP trust line. */}
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <p className={styles.statNum}>4–6</p>
+            <p className={styles.statNum}>4-6</p>
             <p className={styles.statCap}>{t("Active clients at a time")}</p>
           </div>
           <div className={styles.stat}>
-            <p className={styles.statNum}>50–250</p>
+            <p className={styles.statNum}>50-250</p>
             <p className={styles.statCap}>{t("Employees · best fit")}</p>
           </div>
           <div className={styles.stat}>

@@ -37,7 +37,7 @@ and respond within 2 business days.
 If you have additional context to share,
 you can reply to this email.
 
-– Opsfield Systems`,
+- Opsfield Systems`,
   "es-US": `Gracias por su solicitud de diagnóstico.
 Un asesor sénior revisará su envío
 y responderá en un plazo de 2 días hábiles.
@@ -45,7 +45,7 @@ y responderá en un plazo de 2 días hábiles.
 Si desea compartir más contexto,
 puede responder a este correo.
 
-– Opsfield Systems`,
+- Opsfield Systems`,
   "ru-US": `Спасибо за вашу заявку на диагностику.
 Старший консультант рассмотрит её
 и ответит в течение 2 рабочих дней.
@@ -53,7 +53,7 @@ puede responder a este correo.
 Если хотите добавить детали,
 просто ответьте на это письмо.
 
-– Opsfield Systems`,
+- Opsfield Systems`,
   "zh-Hans": `感谢您提交诊断请求。
 我们的资深顾问将审阅您的提交，
 并在 2 个工作日内回复。
@@ -61,7 +61,7 @@ puede responder a este correo.
 如需补充信息，
 您可以直接回复此邮件。
 
-– Opsfield Systems`,
+- Opsfield Systems`,
 };
 function pick(map: Record<string, string>, locale: unknown): string {
   const k = typeof locale === "string" && map[locale] ? locale : "en-US";
@@ -132,7 +132,7 @@ function notificationText(b: SubmitBody): string {
     "Main challenge:",
     str(b.challenge),
     "",
-    "– context –",
+    "- context -",
     line("Page", ctx.page_url),
     line("Section", ctx.page_section),
     line("CTA", ctx.cta_text),
