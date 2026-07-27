@@ -278,7 +278,6 @@ export default async function ServicesPage({
       {/* 1 — Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("Services")}</span>
           <h1>{t("B2B Consulting Services & Pricing")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -341,16 +340,18 @@ export default async function ServicesPage({
       {/* 4 — CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Start With a Free Diagnostic")}</h2>
-          <div className={styles.ctaActions}>
-            <Button variant="primary" href="/#diagnostic-request-form" icon>
-              {t("Request a Diagnostic")}
-            </Button>
-            <Link href="/about">
-              <Button variant="secondary">
-                {t("Learn About Our Team")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Start With a Free Diagnostic")}</h2>
+            <div className={styles.ctaActions}>
+              <Button variant="on-brand" href="/#diagnostic-request-form" icon>
+                {t("Request a Diagnostic")}
               </Button>
-            </Link>
+              <Link href="/about">
+                <Button variant="on-brand-outline">
+                  {t("Learn About Our Team")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

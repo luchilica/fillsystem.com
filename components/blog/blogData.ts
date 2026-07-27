@@ -23,7 +23,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "RevOps",
     author: {
       name: "Igor Saevets",
-      title: "Managing Partner",
+      title: "Director",
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },
@@ -37,7 +37,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     author: {
       name: "Igor Saevets",
-      title: "Managing Partner",
+      title: "Director",
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },
@@ -51,7 +51,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     author: {
       name: "Igor Saevets",
-      title: "Managing Partner",
+      title: "Director",
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },
@@ -65,7 +65,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "RevOps",
     author: {
       name: "Igor Saevets",
-      title: "Managing Partner",
+      title: "Director",
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },
@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     author: {
       name: "Igor Saevets",
-      title: "Managing Partner",
+      title: "Director",
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },

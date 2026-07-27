@@ -30,7 +30,7 @@ function PersonJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Igor Saevets",
-    jobTitle: "Managing Partner",
+    jobTitle: "Director",
     description:
       "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
     url: `${siteConfig.url}/about`,
@@ -116,7 +116,7 @@ export default async function About({
           <h2>{t("Team")}</h2>
 
           <div className={styles.teamGrid}>
-            {/* Igor Saevets — Managing Partner */}
+            {/* Igor Saevets — Director */}
             <article className={styles.teamCard}>
               <div className={styles.teamCardHead}>
                 <span className={styles.avatar} aria-hidden="true">
@@ -142,7 +142,7 @@ export default async function About({
                       </svg>
                     </a>
                   </h3>
-                  <p className={styles.cardRole}>{t("Managing Partner")}</p>
+                  <p className={styles.cardRole}>{t("Director")}</p>
                   <p className={styles.cardRole}>
                     {t("Operating model & diagnostic lead")}
                   </p>
@@ -214,23 +214,25 @@ export default async function About({
       {/* Section 5 — CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Start With a Free Diagnostic")}</h2>
-          <p className={styles.ctaText}>
-            {t(
-              "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted."
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-            >
-              {t("Request a Business & IT Diagnostic")}
-            </Button>
-            <Button href="/services" variant="secondary">
-              {t("See Our Services")}
-            </Button>
+          <div className={styles.ctaBlock}>
+            <h2>{t("Start With a Free Diagnostic")}</h2>
+            <p className={styles.ctaText}>
+              {t(
+                "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted."
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+              >
+                {t("Request a Business & IT Diagnostic")}
+              </Button>
+              <Button href="/services" variant="on-brand-outline">
+                {t("See Our Services")}
+              </Button>
+            </div>
           </div>
         </div>
       </section>

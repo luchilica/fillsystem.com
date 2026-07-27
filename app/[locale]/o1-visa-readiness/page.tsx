@@ -199,7 +199,6 @@ export default async function O1VisaReadiness({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("O-1 Visa Readiness")}</span>
           <h1>{t("O-1 Visa Readiness Support")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -302,14 +301,16 @@ export default async function O1VisaReadiness({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("O-1 Readiness FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("O-1 Readiness FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -317,21 +318,23 @@ export default async function O1VisaReadiness({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Ask About O-1 Readiness")}</h2>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="O-1 Readiness Support"
-            >
-              {t("Discuss O-1 Readiness")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("Back to Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Ask About O-1 Readiness")}</h2>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="O-1 Readiness Support"
+              >
+                {t("Discuss O-1 Readiness")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("Back to Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

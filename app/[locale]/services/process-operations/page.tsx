@@ -198,7 +198,6 @@ export default async function ProcessOperations({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("Process & Operations")}</span>
           <h1>{t("Process & Operations Consulting for B2B")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -272,14 +271,16 @@ export default async function ProcessOperations({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("Process & Operations FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("Process & Operations FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -287,26 +288,28 @@ export default async function ProcessOperations({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Request a Process Diagnostic")}</h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "The first conversation is complimentary. We review your workflows and identify where the friction is.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="Process & Operations"
-            >
-              {t("Request a Process Diagnostic")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("See All Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Request a Process Diagnostic")}</h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "The first conversation is complimentary. We review your workflows and identify where the friction is.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="Process & Operations"
+              >
+                {t("Request a Process Diagnostic")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("See All Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

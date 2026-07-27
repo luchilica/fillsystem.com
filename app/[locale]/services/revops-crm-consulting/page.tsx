@@ -239,7 +239,6 @@ export default async function RevOpsCrmConsulting({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("RevOps & CRM")}</span>
           <h1>{t("RevOps & CRM Consulting for B2B")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -323,14 +322,16 @@ export default async function RevOpsCrmConsulting({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("RevOps Consulting FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("RevOps Consulting FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -338,26 +339,28 @@ export default async function RevOpsCrmConsulting({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Start With a Free CRM & RevOps Diagnostic")}</h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "The first conversation is complimentary. We review your CRM setup, data flow, and reporting to identify what needs attention.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="RevOps: CRM, Data & Reporting"
-            >
-              {t("Request a RevOps Diagnostic")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("See All Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Start With a Free CRM & RevOps Diagnostic")}</h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "The first conversation is complimentary. We review your CRM setup, data flow, and reporting to identify what needs attention.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="RevOps: CRM, Data & Reporting"
+              >
+                {t("Request a RevOps Diagnostic")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("See All Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

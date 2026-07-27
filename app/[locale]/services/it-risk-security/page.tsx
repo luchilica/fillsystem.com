@@ -203,7 +203,6 @@ export default async function ITRiskSecurity({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("IT Risk & Security")}</span>
           <h1>{t("IT Risk & Security Audit for B2B")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -289,14 +288,16 @@ export default async function ITRiskSecurity({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("IT Security Audit FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("IT Security Audit FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -304,26 +305,28 @@ export default async function ITRiskSecurity({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Start With a Free IT Risk Review")}</h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "The first conversation is complimentary. We review your IT environment to identify where your business is exposed.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="IT Risk & Security"
-            >
-              {t("Request an IT Risk Review")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("See All Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Start With a Free IT Risk Review")}</h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "The first conversation is complimentary. We review your IT environment to identify where your business is exposed.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="IT Risk & Security"
+              >
+                {t("Request an IT Risk Review")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("See All Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

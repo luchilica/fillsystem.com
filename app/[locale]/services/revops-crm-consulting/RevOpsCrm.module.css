@@ -201,9 +201,32 @@
   color: var(--text-body);
 }
 
+/* ----- FAQ section background ----- */
+.faqSection {
+  background: var(--stone-50);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+}
+
 /* ----- CTA section ----- */
 .ctaSection {
   text-align: center;
+}
+
+.ctaBlock {
+  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+  color: var(--paper);
+}
+
+.ctaBlock h2 {
+  color: var(--paper);
+}
+
+.ctaBlock p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ctaLead {
@@ -211,7 +234,6 @@
   margin-inline: auto;
   margin-top: var(--space-3);
   line-height: var(--lh-body);
-  color: var(--text-body);
 }
 
 .ctaActions {

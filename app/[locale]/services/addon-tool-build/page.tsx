@@ -183,7 +183,6 @@ export default async function AddonToolBuild({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("Add-on Build")}</span>
           <h1>{t("Add-on Tool Build")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -243,14 +242,16 @@ export default async function AddonToolBuild({
       {/* 5 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("Add-on Build FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("Add-on Build FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -258,26 +259,28 @@ export default async function AddonToolBuild({
       {/* 6 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Discuss a Tool Build")}</h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "Tell us what you need built. We will scope it, price it, and ship it.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="Add-on Tool Build"
-            >
-              {t("Discuss a Tool Build")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("See All Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Discuss a Tool Build")}</h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "Tell us what you need built. We will scope it, price it, and ship it.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="Add-on Tool Build"
+              >
+                {t("Discuss a Tool Build")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("See All Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

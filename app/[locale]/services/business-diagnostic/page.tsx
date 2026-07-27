@@ -236,7 +236,6 @@ export default async function BusinessDiagnosticPage({
       {/* Section 1 — Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("Diagnostic")}</span>
           <h1>
             {t("Business & IT Diagnostic for B2B Teams")}
           </h1>
@@ -405,16 +404,18 @@ export default async function BusinessDiagnosticPage({
       {/* Section 6 — FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("Diagnostic FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ_ITEMS.map((faq) => (
-              <div key={faq.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>
-                  {t(faq.question)}
-                </h3>
-                <p className={styles.faqAnswer}>{t(faq.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("Diagnostic FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ_ITEMS.map((faq) => (
+                <div key={faq.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>
+                    {t(faq.question)}
+                  </h3>
+                  <p className={styles.faqAnswer}>{t(faq.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -422,25 +423,27 @@ export default async function BusinessDiagnosticPage({
       {/* Section 7 — CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>
-            {t("Request a Business & IT Diagnostic")}
-          </h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-            >
-              {t("Request a Diagnostic")}
-            </Button>
-            <Button href="/services" variant="secondary">
-              {t("See All Services")}
-            </Button>
+          <div className={styles.ctaBlock}>
+            <h2>
+              {t("Request a Business & IT Diagnostic")}
+            </h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+              >
+                {t("Request a Diagnostic")}
+              </Button>
+              <Button href="/services" variant="on-brand-outline">
+                {t("See All Services")}
+              </Button>
+            </div>
           </div>
         </div>
       </section>

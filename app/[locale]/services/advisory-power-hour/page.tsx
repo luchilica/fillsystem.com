@@ -196,7 +196,6 @@ export default async function AdvisoryPowerHour({
       {/* 1 -- Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <span className="kicker">{t("Advisory")}</span>
           <h1>{t("Advisory Power Hour")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
@@ -274,14 +273,16 @@ export default async function AdvisoryPowerHour({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <h2>{t("Power Hour FAQ")}</h2>
-          <div className={styles.faqList}>
-            {FAQ.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                <p className={styles.faqAnswer}>{t(item.answer)}</p>
-              </div>
-            ))}
+          <div className={styles.faqSection}>
+            <h2>{t("Power Hour FAQ")}</h2>
+            <div className={styles.faqList}>
+              {FAQ.map((item) => (
+                <div key={item.question} className={styles.faqItem}>
+                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
+                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -289,26 +290,28 @@ export default async function AdvisoryPowerHour({
       {/* 7 -- CTA */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
-          <h2>{t("Book a Power Hour")}</h2>
-          <p className={styles.ctaLead}>
-            {t(
-              "Pick a time, send your question, and get expert direction in a single session.",
-            )}
-          </p>
-          <div className={styles.ctaActions}>
-            <Button
-              href="/#diagnostic-request-form"
-              variant="primary"
-              icon
-              data-request-type="Advisory Power Hour"
-            >
-              {t("Book a Power Hour")}
-            </Button>
-            <Link href="/services">
-              <Button variant="secondary">
-                {t("See All Services")}
+          <div className={styles.ctaBlock}>
+            <h2>{t("Book a Power Hour")}</h2>
+            <p className={styles.ctaLead}>
+              {t(
+                "Pick a time, send your question, and get expert direction in a single session.",
+              )}
+            </p>
+            <div className={styles.ctaActions}>
+              <Button
+                href="/#diagnostic-request-form"
+                variant="on-brand"
+                icon
+                data-request-type="Advisory Power Hour"
+              >
+                {t("Book a Power Hour")}
               </Button>
-            </Link>
+              <Link href="/services">
+                <Button variant="on-brand-outline">
+                  {t("See All Services")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@
 Diagnostic-first: every engagement starts with a structured review of processes, systems, and data flow before any implementation commitment.
 
 ## Team
-- Igor Saevets, Managing Partner — operating model & diagnostic lead — /about
+- Igor Saevets, Director — operating model & diagnostic lead — /about
 
 ## Blog
 - The Complete RevOps Audit Guide for B2B Teams — /blog/revops-audit-guide
