@@ -92,7 +92,7 @@ export default function BusinessITDiagnostic() {
               aria-controls="before-you-commit-details"
               onClick={() => setDetailsOpen((o) => !o)}
             >
-              {detailsOpen ? t("Hide details") : t("See review details →")}
+              {detailsOpen ? t("Hide details") : t("See review details +")}
             </button>
 
             {/* Collapsed by default — stays in the DOM (max-height:0) for SEO. */}

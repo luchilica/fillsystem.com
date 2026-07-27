@@ -163,22 +163,34 @@ export default async function About({
               </p>
             </article>
 
-            {/* Solution Architect (unnamed) */}
+            {/* GrowCluster — Technology Partner */}
             <article className={styles.teamCard}>
               <div className={styles.teamCardHead}>
                 <span className={styles.avatar} aria-hidden="true">
-                  SA
+                  GC
                 </span>
                 <div>
-                  <h3 className={styles.cardName}>{t("Solution Architect")}</h3>
+                  <h3 className={styles.cardName}>
+                    <a
+                      href="https://growcluster.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.nameLink}
+                    >
+                      GrowCluster
+                    </a>
+                  </h3>
                   <p className={styles.cardRole}>
-                    {t("CRM / RevOps & data flow")}
+                    {t("Technology Partner")}
+                  </p>
+                  <p className={styles.cardRole}>
+                    {t("International Association of IT Specialists")}
                   </p>
                 </div>
               </div>
               <p className={styles.cardBio}>
                 {t(
-                  "Responsible for CRM architecture, RevOps pipeline design, data flow mapping, integrations, automation design, and implementation risk review."
+                  "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and advisory engagements."
                 )}
               </p>
             </article>

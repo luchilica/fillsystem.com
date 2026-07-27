@@ -18,6 +18,9 @@ Diagnostic-first: every engagement starts with a structured review of processes,
 ## Team
 - Igor Saevets, Founder & CEO — operating model & diagnostic lead — /about
 
+## Partners
+- GrowCluster (International Association of IT Specialists) — certified IT talent, mentorship, industry expertise — https://growcluster.com/
+
 ## Blog
 - The Complete RevOps Audit Guide for B2B Teams — /blog/revops-audit-guide
 - How to Migrate from Salesforce to HubSpot — /blog/salesforce-to-hubspot-migration
