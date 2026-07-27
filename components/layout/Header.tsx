@@ -11,22 +11,21 @@ import styles from "./Header.module.css";
 
 // Labels + targets from docs/texts.md and docs/sitemap.md → "Header".
 const NAV_LINKS = [
-  { label: "Services", href: "#what-we-diagnose" },
-  { label: "Pricing", href: "#areas-of-work" },
-  { label: "How It Works", href: "#how-the-diagnostic-works" },
-  { label: "Results", href: "#proof-examples" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Services", href: "/services/" },
+  { label: "How It Works", href: "/#how-the-diagnostic-works" },
+  { label: "Results", href: "/#proof-examples" },
+  { label: "About", href: "/about/" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
 const DRAWER_LINKS = [
-  { label: "Services", href: "#what-we-diagnose" },
-  { label: "Pricing", href: "#areas-of-work" },
-  { label: "AI & Automation", href: "#ai-process-automation" },
-  { label: "How It Works", href: "#how-the-diagnostic-works" },
-  { label: "Results", href: "#proof-examples" },
-  { label: "Why Opsfield", href: "#why-opsfield-systems" },
-  { label: "Team", href: "#delivery-model" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Services", href: "/services/" },
+  { label: "Pricing", href: "/#areas-of-work" },
+  { label: "How It Works", href: "/#how-the-diagnostic-works" },
+  { label: "Results", href: "/#proof-examples" },
+  { label: "About", href: "/about/" },
+  { label: "Team", href: "/about/" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
 const CTA_LABEL = "Request Diagnostic";
@@ -123,10 +122,10 @@ export default function Header() {
         <nav className={styles.desktopNav} aria-label="Primary">
           <ul className={styles.navList}>
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className={styles.navLink}>
+              <li key={link.label}>
+                <Link href={link.href} className={styles.navLink}>
                   {t(link.label)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -202,14 +201,14 @@ export default function Header() {
         <nav aria-label="Mobile primary">
           <ul className={styles.drawerNavList}>
             {DRAWER_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
+              <li key={link.label}>
+                <Link
                   href={link.href}
                   className={styles.drawerLink}
                   onClick={closeDrawer}
                 >
                   {t(link.label)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -7,18 +7,18 @@ import { getT } from "@/i18n/t";
 import styles from "./Footer.module.css";
 
 // Copy, labels and targets from docs/texts.md + docs/sitemap.md → "Footer".
-// Note: "Team" → #delivery-model (NOT #team).
 const COMPANY_LINKS = [
-  { label: "Team", href: "#delivery-model" },
-  { label: "Services", href: "#what-we-diagnose" },
-  { label: "Results", href: "#proof-examples" },
-  { label: "Contact", href: "#diagnostic-request-form" },
+  { label: "About", href: "/about/" },
+  { label: "Services", href: "/services/" },
+  { label: "Results", href: "/#proof-examples" },
+  { label: "Contact", href: "/#diagnostic-request-form" },
 ];
 
 const GET_STARTED_LINKS = [
-  { label: "Request Diagnostic", href: "#diagnostic-request-form" },
-  { label: "How It Works", href: "#how-the-diagnostic-works" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Request Diagnostic", href: "/#diagnostic-request-form" },
+  { label: "How It Works", href: "/#how-the-diagnostic-works" },
+  { label: "Pricing", href: "/#areas-of-work" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 // Legal links are real page routes, not anchors.
@@ -87,8 +87,8 @@ export default async function Footer() {
 
         {/* Link groups */}
         <div className={styles.columns}>
-          <LinkGroup title="Company" links={COMPANY_LINKS} t={t} />
-          <LinkGroup title="Get Started" links={GET_STARTED_LINKS} t={t} />
+          <LinkGroup title="Company" links={COMPANY_LINKS} t={t} hrefPrefix={prefix} />
+          <LinkGroup title="Get Started" links={GET_STARTED_LINKS} t={t} hrefPrefix={prefix} />
           <LinkGroup
             title="Legal"
             links={LEGAL_LINKS}
