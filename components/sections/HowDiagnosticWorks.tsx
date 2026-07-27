@@ -62,7 +62,7 @@ export default async function HowDiagnosticWorks() {
       <Button
         href="#diagnostic-request-form"
         variant="primary"
-        icon
+        
         className={styles.cta}
       >
         {t("Start With a Diagnostic")}
