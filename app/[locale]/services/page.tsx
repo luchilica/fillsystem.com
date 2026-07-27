@@ -8,6 +8,7 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
+import PlusMark from "@/components/ui/PlusMark";
 import styles from "./ServicesHub.module.css";
 
 const TITLE = "B2B Consulting Services & Pricing | Opsfield Systems";
@@ -125,6 +126,17 @@ const SERVICES = [
     priceFree: false,
     highlight: false,
     href: "/services/revops-crm-consulting",
+    external: false,
+  },
+  {
+    id: "o1-readiness",
+    title: "O-1 Readiness Support",
+    description:
+      "Structure the evidence behind an O-1 extraordinary-ability case.",
+    price: "$2,500",
+    priceFree: false,
+    highlight: false,
+    href: "/o1-visa-readiness",
     external: false,
   },
 ] as const;
@@ -262,6 +274,14 @@ export default async function ServicesPage({
             description:
               "Make your CRM, pipeline, and reporting trustworthy again.",
           },
+          {
+            "@type": "Offer",
+            name: "O-1 Readiness Support",
+            price: "2500",
+            priceCurrency: "USD",
+            description:
+              "Evidence structuring for O-1 extraordinary-ability visa cases.",
+          },
         ],
       },
     ],
@@ -341,6 +361,8 @@ export default async function ServicesPage({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
+            <PlusMark size={180} className={styles.ctaPlusTop} />
+            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Start With a Free Diagnostic")}</h2>
             <div className={styles.ctaActions}>
               <Button variant="on-brand" href="/#diagnostic-request-form" icon>

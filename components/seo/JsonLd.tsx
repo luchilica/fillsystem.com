@@ -190,7 +190,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         "@type": "Person",
         "@id": `${home}#igor-saevets`,
         name: "Igor Saevets",
-        jobTitle: "Director",
+        jobTitle: "Founder & CEO",
         description:
           "Serial entrepreneur and IT operations advisor with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
         worksFor: { "@id": organizationId },

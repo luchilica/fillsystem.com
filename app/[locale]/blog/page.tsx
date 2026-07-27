@@ -65,8 +65,6 @@ export default async function BlogPage({
           <div className={styles.grid}>
             {BLOG_POSTS.map((post) => (
               <article key={post.slug} className={styles.card}>
-                <span className={styles.badge}>{post.category}</span>
-
                 <h2 className={styles.cardTitle}>
                   <Link
                     href={`/blog/${post.slug}`}

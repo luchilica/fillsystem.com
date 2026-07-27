@@ -46,32 +46,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* ----- Category badge ----- */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  padding: 3px 10px;
-  border: 1px solid var(--stone-200);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-mono-fallback);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-500);
-}
-
-.badge::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--blue-500);
-  margin-right: 6px;
-}
-
 /* ----- Card content ----- */
 .cardTitle {
   margin-top: var(--space-2);

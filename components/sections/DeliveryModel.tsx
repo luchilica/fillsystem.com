@@ -21,7 +21,7 @@ import styles from "./DeliveryModel.module.css";
 // applicable; initials tile + role subtitle + icon bullets. v2 ink block.
 const ROLES = [
   {
-    title: "Director",
+    title: "Founder & CEO",
     name: "Igor Saevets" as string | undefined,
     linkedin: "https://linkedin.com/in/igorsaevets" as string | undefined,
     initials: "IS",

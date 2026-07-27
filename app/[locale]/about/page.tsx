@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import PlusMark from "@/components/ui/PlusMark";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
@@ -30,7 +31,7 @@ function PersonJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Igor Saevets",
-    jobTitle: "Director",
+    jobTitle: "Founder & CEO",
     description:
       "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
     url: `${siteConfig.url}/about`,
@@ -116,7 +117,7 @@ export default async function About({
           <h2>{t("Team")}</h2>
 
           <div className={styles.teamGrid}>
-            {/* Igor Saevets — Director */}
+            {/* Igor Saevets — Founder & CEO */}
             <article className={styles.teamCard}>
               <div className={styles.teamCardHead}>
                 <span className={styles.avatar} aria-hidden="true">
@@ -142,7 +143,7 @@ export default async function About({
                       </svg>
                     </a>
                   </h3>
-                  <p className={styles.cardRole}>{t("Director")}</p>
+                  <p className={styles.cardRole}>{t("Founder & CEO")}</p>
                   <p className={styles.cardRole}>
                     {t("Operating model & diagnostic lead")}
                   </p>
