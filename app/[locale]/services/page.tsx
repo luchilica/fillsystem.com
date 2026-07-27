@@ -91,7 +91,7 @@ const SERVICES = [
     price: "from $1,900",
     priceFree: false,
     highlight: false,
-    href: "/#areas-of-work",
+    href: "/services/it-risk-security",
     external: false,
   },
   {
@@ -113,7 +113,7 @@ const SERVICES = [
     price: "from $3,900",
     priceFree: false,
     highlight: false,
-    href: "/#areas-of-work",
+    href: "/services/ai-process-automation",
     external: false,
   },
   {
