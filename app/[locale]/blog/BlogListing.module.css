@@ -1,0 +1,162 @@
+/* BlogListing — card grid for the /blog index page.
+   Tokens from globals.css. No Tailwind. */
+
+/* ----- Hero ----- */
+.heroSection {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-5);
+}
+
+.lead {
+  max-width: var(--text-max);
+  margin-top: var(--space-2);
+}
+
+/* ----- Card grid ----- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----- Card ----- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 1px solid var(--stone-200);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ----- Category badge ----- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 3px 10px;
+  border: 1px solid var(--stone-200);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono-fallback);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-500);
+}
+
+.badge::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  margin-right: 6px;
+}
+
+/* ----- Card content ----- */
+.cardTitle {
+  margin-top: var(--space-2);
+  font-size: var(--fs-h4);
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-heading);
+  color: var(--text-strong);
+}
+
+.cardTitleLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.cardTitleLink:hover,
+.cardTitleLink:focus-visible {
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+.cardDescription {
+  margin-top: var(--space-2);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ----- Card footer ----- */
+.cardFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  color: var(--stone-400);
+}
+
+.metaDot {
+  color: var(--stone-300);
+  user-select: none;
+}
+
+.readLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--blue-500);
+  text-decoration: none;
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.readLink:hover,
+.readLink:focus-visible {
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+/* ----- Mobile compaction ----- */
+@media (max-width: 767px) {
+  .heroSection {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-4);
+  }
+
+  .card {
+    padding: var(--space-3);
+  }
+}
