@@ -250,7 +250,9 @@ export default async function RevOpsCrmConsulting({
       </section>
 
       {/* 2 -- The Problem */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark size={160} className={styles.darkPlusTop} />
+        <PlusMark size={90} className={styles.darkPlusBottom} />
         <div className="container">
           <h2>{t("Common CRM & RevOps Problems We Diagnose")}</h2>
           <div className={styles.problemGrid}>
@@ -285,7 +287,9 @@ export default async function RevOpsCrmConsulting({
       </section>
 
       {/* 4 -- Environments */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
         <div className="container">
           <h2>{t("CRM Environments We Work With")}</h2>
           <div className={styles.envTags}>

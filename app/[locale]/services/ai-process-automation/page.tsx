@@ -235,7 +235,9 @@ export default async function AIProcessAutomation({
       </section>
 
       {/* 2 -- What We Automate */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark size={160} className={styles.darkPlusTop} />
+        <PlusMark size={90} className={styles.darkPlusBottom} />
         <div className="container">
           <h2>{t("What We Automate")}</h2>
           <div className={styles.automateGrid}>
@@ -265,7 +267,9 @@ export default async function AIProcessAutomation({
       </section>
 
       {/* 4 -- Tools & Environments */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
         <div className="container">
           <h2>{t("Tools We Work With")}</h2>
           <div className={styles.envTags}>

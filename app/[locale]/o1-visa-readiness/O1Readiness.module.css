@@ -348,6 +348,11 @@
   .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
 }
 
+/* Preserve card-interior text inside dark / brand sections */
+.scopeCard .scopeTitle { color: var(--ink-900); }
+.stepCard .stepLabel { color: var(--ink-900); }
+.stepCard .stepDesc { color: var(--stone-500); }
+
 /* ----- Mobile compaction ----- */
 @media (max-width: 767px) {
   .heroSection {

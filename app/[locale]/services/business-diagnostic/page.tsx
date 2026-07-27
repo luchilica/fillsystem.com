@@ -249,7 +249,9 @@ export default async function BusinessDiagnosticPage({
       </section>
 
       {/* Section 2 — What We Review */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark size={160} className={styles.darkPlusTop} />
+        <PlusMark size={90} className={styles.darkPlusBottom} />
         <div className="container">
           <h2>{t("What We Review")}</h2>
           <div className={styles.reviewGrid}>
@@ -286,7 +288,9 @@ export default async function BusinessDiagnosticPage({
       </section>
 
       {/* Section 4 — Diagnostic Output */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
         <div className="container">
           <h2>{t("Diagnostic Output")}</h2>
           <ul className={styles.outputList}>
