@@ -205,7 +205,7 @@ export default function DiagnosticScenarios() {
       <div className={styles.cta}>
         <a href="#diagnostic-request-form" className={styles.textLink}>
           {t("Request a Diagnostic for Your Team")}
-         
+          <Plus size={20} aria-hidden="true" />
         </a>
       </div>
     </div>

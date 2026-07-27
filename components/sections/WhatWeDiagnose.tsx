@@ -86,7 +86,7 @@ export default async function WhatWeDiagnose() {
       <div className={styles.cta}>
         <a href="#how-the-diagnostic-works" className={styles.textLink}>
           {t("See How the Diagnostic Works")}
-          
+          <Plus size={20} aria-hidden="true" />
         </a>
       </div>
     </div>

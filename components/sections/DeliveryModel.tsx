@@ -167,7 +167,7 @@ export default async function DeliveryModel() {
         <div className={styles.cta}>
           <a href="#areas-of-work" className={styles.textLink}>
             {t("Book a Senior Advisory Session")}
-            
+            <Plus size={20} aria-hidden="true" />
           </a>
         </div>
       </div>

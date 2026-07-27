@@ -65,7 +65,7 @@ export default async function WhyOpsfield() {
         <Button
           href="#diagnostic-request-form"
           variant="primary"
-          
+          icon
           data-request-type="Business & IT Diagnostic"
         >
           {t("Validate the Decision Before You Implement")}
