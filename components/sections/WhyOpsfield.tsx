@@ -8,19 +8,19 @@ import styles from "./WhyOpsfield.module.css";
 // CTA → form with data-request-type "Business & IT Diagnostic" per sitemap.md.
 const PAIRS = [
   {
-    others: "SaaS integrator + picks a platform",
+    others: "SaaS integrator → picks a platform",
     opsfield: "Maps your process and data flow",
   },
   {
-    others: "Automation agency + automates existing workflow",
+    others: "Automation agency → automates existing workflow",
     opsfield: "Checks if the workflow should exist",
   },
   {
-    others: "Internal hire + builds what is requested",
+    others: "Internal hire → builds what is requested",
     opsfield: "Diagnoses what is actually needed",
   },
   {
-    others: "Dev agency + writes code to spec",
+    others: "Dev agency → writes code to spec",
     opsfield: "Reviews whether the spec solves the problem",
   },
 ];

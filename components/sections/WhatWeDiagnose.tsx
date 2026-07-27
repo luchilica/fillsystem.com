@@ -6,7 +6,7 @@ import {
   Shield,
   BarChart3,
   Compass,
-  ArrowRight,
+  Plus,
 } from "lucide-react";
 import Card from "@/components/ui/Card";
 import { getT } from "@/i18n/t";
@@ -86,7 +86,7 @@ export default async function WhatWeDiagnose() {
       <div className={styles.cta}>
         <a href="#how-the-diagnostic-works" className={styles.textLink}>
           {t("See How the Diagnostic Works")}
-          <ArrowRight size={20} aria-hidden="true" />
+          <Plus size={20} aria-hidden="true" />
         </a>
       </div>
     </div>

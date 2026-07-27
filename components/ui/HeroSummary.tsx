@@ -19,7 +19,7 @@ const ROWS = [
   },
   {
     label: "03 · Delivered",
-    text: "5 steps + single owner per stage",
+    text: "5 steps → single owner per stage",
     Icon: CheckCircle2,
   },
 ] as const;

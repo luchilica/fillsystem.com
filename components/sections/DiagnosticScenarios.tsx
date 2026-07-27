@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import type { ReactNode } from "react";
-import { ArrowRight, Info, Search, CheckCircle2 } from "lucide-react";
+import { Plus, Info, Search, CheckCircle2 } from "lucide-react";
 import { useT } from "@/i18n/useT";
 import styles from "./DiagnosticScenarios.module.css";
 
@@ -205,7 +205,7 @@ export default function DiagnosticScenarios() {
       <div className={styles.cta}>
         <a href="#diagnostic-request-form" className={styles.textLink}>
           {t("Request a Diagnostic for Your Team")}
-          <ArrowRight size={20} aria-hidden="true" />
+          <Plus size={20} aria-hidden="true" />
         </a>
       </div>
     </div>

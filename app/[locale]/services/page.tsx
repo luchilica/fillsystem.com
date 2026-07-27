@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight } from "lucide-react";
+import { Plus } from "lucide-react";
 import { setRequestLocale } from "next-intl/server";
 import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
@@ -327,7 +327,7 @@ export default async function ServicesPage({
                 <p className={styles.cardDesc}>{t(service.description)}</p>
                 <Link href={service.href} className={styles.cardLink}>
                   {t(service.priceFree ? "Request a diagnostic" : "Learn more")}
-                  <ArrowRight size={16} aria-hidden="true" />
+                  <Plus size={16} aria-hidden="true" />
                 </Link>
               </article>
             ))}
@@ -352,7 +352,7 @@ export default async function ServicesPage({
           </div>
           <Link href="/#how-the-diagnostic-works" className={styles.stepsLink}>
             {t("See the full diagnostic process")}
-            <ArrowRight size={16} aria-hidden="true" />
+            <Plus size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>

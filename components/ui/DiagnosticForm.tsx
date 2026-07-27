@@ -7,7 +7,7 @@ import {
   useState,
   type FormEvent,
 } from "react";
-import { ChevronDown, ChevronUp, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Plus, CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useLocale } from "next-intl";
 import { trackEvent } from "@/lib/analytics";
@@ -278,7 +278,7 @@ export default function DiagnosticForm() {
         </p>
         <a href="#how-the-diagnostic-works" className={styles.textLink}>
           {t("See How the Diagnostic Works")}
-          <ArrowRight size={20} aria-hidden="true" />
+          <Plus size={20} aria-hidden="true" />
         </a>
       </div>
     );

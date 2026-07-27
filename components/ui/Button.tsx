@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { Plus } from "lucide-react";
 import styles from "./Button.module.css";
 
 type ButtonVariant =
@@ -51,7 +51,7 @@ export default function Button({
   const content = (
     <>
       {children}
-      {icon && <ArrowRight size={20} className={styles.icon} aria-hidden="true" />}
+      {icon && <Plus size={20} className={styles.icon} aria-hidden="true" />}
     </>
   );
 

@@ -17,7 +17,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { Plus, ArrowRight, Check } from "lucide-react";
+import { Plus, Check } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { useT } from "@/i18n/useT";
 import type { Locale } from "@/i18n/locales";
@@ -447,7 +447,7 @@ function ServiceCard({
             data-request-type={service.free ? undefined : service.title}
           >
             {t(service.cta)}
-            <ArrowRight size={18} aria-hidden="true" />
+            <Plus size={18} aria-hidden="true" />
           </a>
         </div>
       </div>
