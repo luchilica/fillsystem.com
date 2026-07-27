@@ -210,7 +210,9 @@ export default async function O1VisaReadiness({
       </section>
 
       {/* 2 -- What We Do vs. What We Don't */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark className={styles.darkPlusTop} size={120} />
+        <PlusMark className={styles.darkPlusBottom} size={80} />
         <div className="container">
           <h2>{t("What This Service Covers")}</h2>
           <div className={styles.scopeGrid}>
@@ -269,7 +271,9 @@ export default async function O1VisaReadiness({
       </section>
 
       {/* 4 -- How It Works */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark className={styles.brandPlusTop} size={120} />
+        <PlusMark className={styles.brandPlusBottom} size={80} />
         <div className="container">
           <h2>{t("How O-1 Readiness Works")}</h2>
           <div className={styles.stepsGrid}>
@@ -322,8 +326,6 @@ export default async function O1VisaReadiness({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Ask About O-1 Readiness")}</h2>
             <div className={styles.ctaActions}>
               <Button

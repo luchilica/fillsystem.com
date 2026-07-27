@@ -207,7 +207,9 @@ export default async function AdvisoryPowerHour({
       </section>
 
       {/* 2 -- How It Works */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark className={styles.darkPlusTop} size={120} />
+        <PlusMark className={styles.darkPlusBottom} size={80} />
         <div className="container">
           <h2>{t("How the Power Hour Works")}</h2>
           <div className={styles.stepsGrid}>
@@ -240,7 +242,9 @@ export default async function AdvisoryPowerHour({
       </section>
 
       {/* 4 -- What You Receive */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark className={styles.brandPlusTop} size={120} />
+        <PlusMark className={styles.brandPlusBottom} size={80} />
         <div className="container">
           <h2>{t("What You Receive")}</h2>
           <ul className={styles.deliverablesList}>
@@ -294,8 +298,6 @@ export default async function AdvisoryPowerHour({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Book a Power Hour")}</h2>
             <p className={styles.ctaLead}>
               {t(

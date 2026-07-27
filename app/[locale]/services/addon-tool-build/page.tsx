@@ -194,7 +194,9 @@ export default async function AddonToolBuild({
       </section>
 
       {/* 2 -- What We Build */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark className={styles.darkPlusTop} size={120} />
+        <PlusMark className={styles.darkPlusBottom} size={80} />
         <div className="container">
           <h2>{t("Choose One")}</h2>
           <div className={styles.buildGrid}>
@@ -226,7 +228,9 @@ export default async function AddonToolBuild({
       </section>
 
       {/* 4 -- Pricing */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark className={styles.brandPlusTop} size={120} />
+        <PlusMark className={styles.brandPlusBottom} size={80} />
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
@@ -263,8 +267,6 @@ export default async function AddonToolBuild({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Discuss a Tool Build")}</h2>
             <p className={styles.ctaLead}>
               {t(

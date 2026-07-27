@@ -35,7 +35,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.problemTitle {
+.problemCard .problemTitle {
   margin: 0 0 8px;
   font-family: var(--font-display);
   font-size: 17px;
@@ -44,7 +44,7 @@
   color: var(--ink-900);
 }
 
-.problemDesc {
+.problemCard .problemDesc {
   margin: 0;
   font-size: var(--fs-sm);
   line-height: var(--lh-body);
@@ -200,24 +200,14 @@
 }
 
 .ctaBlock {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
-    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%);
+  background: var(--blue-500);
   border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-8) var(--space-16);
+  padding: var(--space-12) var(--space-8);
   text-align: center;
   color: var(--paper);
 }
-
-.ctaBlock h2 {
-  color: var(--paper);
-}
-
-.ctaBlock p {
-  color: rgba(255, 255, 255, 0.85);
-}
+.ctaBlock h2 { color: var(--paper); }
+.ctaBlock p { color: rgba(255, 255, 255, 0.85); }
 
 .ctaLead {
   max-width: var(--text-max);
@@ -242,22 +232,39 @@
   }
 }
 
-.ctaPlusTop {
-  position: absolute;
-  top: -30px;
-  right: -15px;
-  color: rgba(255, 255, 255, 0.12);
-  pointer-events: none;
+
+/* ----- Dark section ----- */
+.darkSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
 }
-.ctaPlusBottom {
-  position: absolute;
-  bottom: -10px;
-  left: 3%;
-  color: rgba(255, 255, 255, 0.08);
-  pointer-events: none;
+.darkSection h2 { color: var(--paper); }
+.darkSection h3 { color: var(--paper); }
+.darkSection p { color: rgba(255, 255, 255, 0.82); }
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+/* ----- Brand section ----- */
+.brandSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
 }
+.brandSection h2 { color: var(--paper); }
+.brandSection h3 { color: var(--paper); }
+.brandSection p { color: rgba(255, 255, 255, 0.85); }
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+
 @media (max-width: 767px) {
-  .ctaPlusTop, .ctaPlusBottom { display: none; }
+  .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
 }
 
 /* ----- Mobile compaction ----- */

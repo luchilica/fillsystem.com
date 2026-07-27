@@ -209,7 +209,9 @@ export default async function ProcessOperations({
       </section>
 
       {/* 2 -- Common Process Problems */}
-      <section className="section">
+      <section className={`section ${styles.darkSection}`}>
+        <PlusMark className={styles.darkPlusTop} size={120} />
+        <PlusMark className={styles.darkPlusBottom} size={80} />
         <div className="container">
           <h2>{t("Common Process Problems")}</h2>
           <div className={styles.problemGrid}>
@@ -241,7 +243,9 @@ export default async function ProcessOperations({
       </section>
 
       {/* 4 -- Who It's For */}
-      <section className="section">
+      <section className={`section ${styles.brandSection}`}>
+        <PlusMark className={styles.brandPlusTop} size={120} />
+        <PlusMark className={styles.brandPlusBottom} size={80} />
         <div className="container">
           <h2>{t("Who This Is For")}</h2>
           <div className={styles.audienceBlock}>
@@ -292,8 +296,6 @@ export default async function ProcessOperations({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
-            <PlusMark size={180} className={styles.ctaPlusTop} />
-            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Request a Process Diagnostic")}</h2>
             <p className={styles.ctaLead}>
               {t(
