@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
   { label: "Results", href: "/#proof-examples" },
   { label: "About", href: "/about/" },
+  { label: "Blog", href: "/blog/" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
 
@@ -24,7 +25,7 @@ const DRAWER_LINKS = [
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
   { label: "Results", href: "/#proof-examples" },
   { label: "About", href: "/about/" },
-  { label: "Team", href: "/about/" },
+  { label: "Blog", href: "/blog/" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
 
