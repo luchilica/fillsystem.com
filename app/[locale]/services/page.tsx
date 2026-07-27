@@ -58,7 +58,7 @@ const SERVICES = [
     price: "$200",
     priceFree: false,
     highlight: false,
-    href: "/#areas-of-work",
+    href: "/services/advisory-power-hour",
     external: false,
   },
   {
@@ -80,7 +80,7 @@ const SERVICES = [
     price: "from $900",
     priceFree: false,
     highlight: false,
-    href: "/#areas-of-work",
+    href: "/services/addon-tool-build",
     external: false,
   },
   {
@@ -102,7 +102,7 @@ const SERVICES = [
     price: "from $3,500",
     priceFree: false,
     highlight: false,
-    href: "/#areas-of-work",
+    href: "/services/process-operations",
     external: false,
   },
   {
