@@ -2,11 +2,26 @@ import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
+import {
+  Stethoscope,
+  ShieldCheck,
+  FileCheck,
+  Boxes,
+  Workflow,
+  Map,
+  Compass,
+  Users,
+  Award,
+  Globe,
+  GraduationCap,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import styles from "./About.module.css";
 
 export async function generateMetadata({
@@ -25,7 +40,6 @@ export async function generateMetadata({
   };
 }
 
-// Person JSON-LD for Igor Saevets — richer than the homepage snippet.
 function PersonJsonLd() {
   const person = {
     "@context": "https://schema.org",
@@ -61,6 +75,84 @@ function PersonJsonLd() {
   );
 }
 
+const PRINCIPLES: {
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+}[] = [
+  {
+    Icon: Stethoscope,
+    title: "Diagnosis Before Action",
+    description:
+      "We map how your business operates - processes, data flow, systems, handoffs - before recommending any changes.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Protect Your Budget",
+    description:
+      "The diagnostic gives you a bottleneck map, priority matrix, and roadmap - a decision framework, not a sales pitch.",
+  },
+  {
+    Icon: FileCheck,
+    title: "No-Fit Is Valid",
+    description:
+      "If the diagnostic shows no engagement is needed, we say so. A no-fit decision is a valid outcome.",
+  },
+];
+
+const TEAM: {
+  name: string;
+  initials: string;
+  title: string;
+  subtitle: string;
+  link: string;
+  isLinkedIn: boolean;
+  bio: string;
+  bioExtended: string | null;
+  responsibilities: { Icon: LucideIcon; text: string }[];
+}[] = [
+  {
+    name: "Igor Saevets",
+    initials: "IS",
+    title: "Founder & CEO",
+    subtitle: "Operating model & diagnostic lead",
+    link: "https://linkedin.com/in/igorsaevets",
+    isLinkedIn: true,
+    bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Opsfield Systems.",
+    bioExtended:
+      "Before Opsfield, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. His background spans enterprise software, cloud migrations, and cross-border digital transformation.",
+    responsibilities: [
+      { Icon: Boxes, text: "Operating model design" },
+      { Icon: Workflow, text: "Diagnostic methodology" },
+      { Icon: Map, text: "Roadmap prioritization" },
+      { Icon: Compass, text: "Executive decision support" },
+    ],
+  },
+  {
+    name: "GrowCluster",
+    initials: "GC",
+    title: "Technology Partner",
+    subtitle: "International Association of IT Specialists",
+    link: "https://growcluster.com/",
+    isLinkedIn: false,
+    bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and advisory engagements.",
+    bioExtended: null,
+    responsibilities: [
+      { Icon: Users, text: "Certified IT talent network" },
+      { Icon: Award, text: "Professional standards & vetting" },
+      { Icon: Globe, text: "Cross-border tech expertise" },
+      { Icon: GraduationCap, text: "Mentorship & training programs" },
+    ],
+  },
+];
+
+const STATS = [
+  { num: "10+", label: "Companies founded" },
+  { num: "150+", label: "Entrepreneurs mentored" },
+  { num: "4-6", label: "Active clients at a time" },
+  { num: "50-250", label: "Employees · best fit" },
+];
+
 export default async function About({
   params,
 }: {
@@ -75,181 +167,145 @@ export default async function About({
       <BreadcrumbJsonLd title="About" path="/about" />
       <PersonJsonLd />
 
-      {/* Section 1 — Hero / Intro */}
+      {/* 1 - Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
           <h1>{t("About Opsfield Systems")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "Diagnostic-first IT and business consulting for B2B companies navigating process, CRM, data flow, and automation complexity."
+              "Diagnostic-first IT and business consulting for B2B companies navigating process, CRM, data flow, and automation complexity.",
             )}
           </p>
         </div>
       </section>
 
-      {/* Section 2 — Our Approach */}
+      {/* 2 - Approach (dark ink, principle cards) */}
       <section className={`section ${styles.approachSection}`}>
-        <PlusMark size={180} className={styles.approachPlusTop} />
-        <PlusMark size={100} className={styles.approachPlusBottom} />
+        <PlusMark size={180} className={styles.darkPlusTop} />
+        <PlusMark size={100} className={styles.darkPlusBottom} />
         <div className="container">
-          <div className={styles.approach}>
-            <h2>{t("Diagnostic-First: Validate Before You Implement")}</h2>
-            <p>
-              {t(
-                "Most consulting starts with a solution. We start with a diagnosis. Before recommending tools, hires, or implementation projects, we map how your business actually operates — processes, data flow, systems, handoffs — and identify where execution breaks down."
-              )}
-            </p>
-            <p>
-              {t(
-                "This approach protects you from committing budget to the wrong problem. The diagnostic output — bottleneck map, priority matrix, risk notes, roadmap — gives you a decision framework, not a sales pitch."
-              )}
-            </p>
-            <p>
-              {t(
-                "If the diagnostic shows no engagement is needed, we say so. A no-fit decision is a valid outcome."
-              )}
-            </p>
+          <h2>{t("Our Diagnostic-First Approach")}</h2>
+          <div className={styles.principleGrid}>
+            {PRINCIPLES.map((p) => (
+              <div key={p.title} className={styles.principleCard}>
+                <span className={styles.principleIcon} aria-hidden="true">
+                  <p.Icon size={20} />
+                </span>
+                <h3 className={styles.principleTitle}>{t(p.title)}</h3>
+                <p className={styles.principleDesc}>{t(p.description)}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 3 — Team */}
+      {/* 3 - Team */}
       <section className="section">
         <div className="container">
           <h2>{t("Team")}</h2>
-
           <div className={styles.teamGrid}>
-            {/* Igor Saevets — Founder & CEO */}
-            <article className={styles.teamCard}>
-              <div className={styles.teamCardHead}>
-                <span className={styles.avatar} aria-hidden="true">
-                  IS
-                </span>
-                <div>
-                  <h3 className={styles.cardName}>
-                    <a
-                      href="https://linkedin.com/in/igorsaevets"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.nameLink}
-                    >
-                      Igor Saevets
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
+            {TEAM.map((member) => (
+              <article key={member.initials} className={styles.teamCard}>
+                <div className={styles.teamCardHead}>
+                  <span className={styles.avatar} aria-hidden="true">
+                    {member.initials}
+                  </span>
+                  <div>
+                    <h3 className={styles.cardName}>
+                      <a
+                        href={member.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.nameLink}
                       >
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                    </a>
-                  </h3>
-                  <p className={styles.cardRole}>{t("Founder & CEO")}</p>
-                  <p className={styles.cardRole}>
-                    {t("Operating model & diagnostic lead")}
-                  </p>
+                        {member.name}
+                        {member.isLinkedIn && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                          </svg>
+                        )}
+                      </a>
+                    </h3>
+                    <p className={styles.cardRole}>{t(member.title)}</p>
+                    <p className={styles.cardRole}>{t(member.subtitle)}</p>
+                  </div>
                 </div>
-              </div>
-              <p className={styles.cardBio}>
-                {t(
-                  "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Opsfield Systems."
-                )}
-              </p>
-              <p className={styles.cardBioExtended}>
-                {t(
-                  "Before Opsfield, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. His background spans enterprise software, cloud migrations, and cross-border digital transformation."
-                )}
-              </p>
-            </article>
 
-            {/* GrowCluster — Technology Partner */}
-            <article className={styles.teamCard}>
-              <div className={styles.teamCardHead}>
-                <span className={styles.avatar} aria-hidden="true">
-                  GC
-                </span>
-                <div>
-                  <h3 className={styles.cardName}>
-                    <a
-                      href="https://growcluster.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.nameLink}
-                    >
-                      GrowCluster
-                    </a>
-                  </h3>
-                  <p className={styles.cardRole}>
-                    {t("Technology Partner")}
+                <p className={styles.cardBio}>{t(member.bio)}</p>
+                {member.bioExtended && (
+                  <p className={styles.cardBioExtended}>
+                    {t(member.bioExtended)}
                   </p>
-                  <p className={styles.cardRole}>
-                    {t("International Association of IT Specialists")}
-                  </p>
-                </div>
-              </div>
-              <p className={styles.cardBio}>
-                {t(
-                  "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and advisory engagements."
                 )}
-              </p>
-            </article>
+
+                <div className={styles.respDivider}>
+                  <span className={styles.respLabel}>{t("Focus")}</span>
+                </div>
+                <ul className={styles.respList}>
+                  {member.responsibilities.map((r) => (
+                    <li key={r.text} className={styles.resp}>
+                      <span className={styles.respIcon} aria-hidden="true">
+                        <r.Icon size={14} />
+                      </span>
+                      <span>{t(r.text)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 4 — By the Numbers */}
+      {/* 4 - Stats (brand blue) */}
       <section className={`section ${styles.statsSection}`}>
-        <PlusMark size={160} className={styles.statsPlusTop} />
-        <PlusMark size={90} className={styles.statsPlusBottom} />
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
         <div className="container">
           <h2>{t("By the Numbers")}</h2>
-
           <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>10+</p>
-              <p className={styles.statLabel}>{t("Companies founded")}</p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>150+</p>
-              <p className={styles.statLabel}>{t("Entrepreneurs mentored")}</p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>4-6</p>
-              <p className={styles.statLabel}>
-                {t("Active clients at a time")}
-              </p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>50-250</p>
-              <p className={styles.statLabel}>{t("Employees — best fit")}</p>
-            </div>
+            {STATS.map((s) => (
+              <div key={s.label} className={styles.statCard}>
+                <p className={styles.statNum}>{s.num}</p>
+                <p className={styles.statLabel}>{t(s.label)}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 5 — CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      {/* 5 - CTA (dark ink, full-width) */}
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <div className={styles.ctaBlock}>
-            <h2>{t("Start With a Free Diagnostic")}</h2>
-            <p className={styles.ctaText}>
-              {t(
-                "The first diagnostic conversation is complimentary. We frame the problem, identify bottlenecks, and tell you whether a paid engagement is warranted."
-              )}
-            </p>
-            <div className={styles.ctaActions}>
-              <Button
-                href="/#diagnostic-request-form"
-                variant="on-brand"
-                icon
-              >
-                {t("Request a Business & IT Diagnostic")}
-              </Button>
-              <Button href="/services" variant="on-brand-outline">
+          <h2 className={styles.ctaHeading}>
+            {t("Start With a Free Diagnostic")}
+          </h2>
+          <p className={styles.ctaLead}>
+            {t(
+              "The first conversation is complimentary. We identify bottlenecks and tell you whether a paid engagement is warranted.",
+            )}
+          </p>
+          <div className={styles.ctaActions}>
+            <Button
+              href="/#diagnostic-request-form"
+              variant="on-brand"
+              icon
+            >
+              {t("Request a Diagnostic")}
+            </Button>
+            <Link href="/services">
+              <Button variant="on-brand-outline">
                 {t("See Our Services")}
               </Button>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

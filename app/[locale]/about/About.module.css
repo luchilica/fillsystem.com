@@ -1,7 +1,7 @@
-/* About — E-E-A-T trust page. Clean sections on paper, team cards lighter than
-   DeliveryModel's ink treatment. Stats grid echoes Hero numerals. No Tailwind. */
+/* About — trust page styled to match Services hub and homepage.
+   Uses existing design tokens from globals.css. No Tailwind. */
 
-/* ----- Hero intro ----- */
+/* ----- Hero ----- */
 .heroSection {
   padding-top: var(--space-7);
   padding-bottom: var(--space-5);
@@ -12,19 +12,68 @@
   margin-top: var(--space-2);
 }
 
-/* ----- Approach ----- */
-.approach {
-  max-width: var(--text-max);
+/* ----- Dark ink approach section ----- */
+.approachSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
 }
+.approachSection h2 { color: var(--paper); }
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
 
-.approach p {
-  margin-top: var(--space-3);
-  line-height: var(--lh-body);
-  color: var(--text-body);
-}
-
-.approach p:first-of-type {
+/* Principle glass cards on dark ink */
+.principleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
   margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .principleGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.principleCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.principleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(37, 81, 210, 0.35);
+  color: var(--blue-200);
+}
+
+.principleTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.principleDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /* ----- Team ----- */
@@ -42,16 +91,23 @@
 }
 
 .teamCard {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--stone-200);
+  border: 1px solid var(--border-hair);
   border-radius: var(--radius-lg);
-  background: var(--paper);
-  box-shadow: var(--shadow-hard);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  transition: transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
+}
+
+.teamCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
 }
 
 .teamCardHead {
@@ -99,7 +155,6 @@
 .nameLink:hover,
 .nameLink:focus-visible {
   color: var(--blue-600);
-  text-decoration: none;
 }
 
 .cardRole {
@@ -130,7 +185,71 @@
   color: var(--stone-500);
 }
 
-/* ----- Stats (By the Numbers) ----- */
+/* Responsibility list (matches DeliveryModel) */
+.respDivider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.respDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--stone-200);
+}
+
+.respLabel {
+  font-family: var(--font-mono-fallback);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+
+.respList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.resp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--stone-600);
+}
+
+.respIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md);
+  background: var(--accent-tint);
+  color: var(--blue-600);
+}
+
+/* ----- Brand blue stats section ----- */
+.statsSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
+}
+.statsSection h2 { color: var(--paper); }
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -146,10 +265,9 @@
 
 .statCard {
   padding: var(--space-3);
-  border: 1px solid var(--stone-200);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
-  background: var(--paper);
-  box-shadow: var(--shadow-xs);
+  background: rgba(255, 255, 255, 0.12);
   text-align: center;
 }
 
@@ -159,7 +277,7 @@
   font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--blue-600);
+  color: var(--paper);
 }
 
 .statLabel {
@@ -169,99 +287,56 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--stone-400);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* ----- Dark approach section ----- */
-.approachSection {
+/* ----- CTA (dark ink, full-width — matches Services) ----- */
+.ctaDark {
   position: relative;
   overflow: hidden;
   background:
     radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
     linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
   color: var(--text-on-dark);
-}
-.approachSection h2 { color: var(--paper); }
-.approachSection p { color: rgba(255, 255, 255, 0.82); }
-.approachPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
-.approachPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
-
-/* ----- Brand blue stats section ----- */
-.statsSection {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
-    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
-  color: var(--paper);
-}
-.statsSection h2 { color: var(--paper); }
-.statsSection .statCard {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.statsSection .statNum { color: var(--paper); }
-.statsSection .statLabel { color: rgba(255, 255, 255, 0.7); }
-.statsPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
-.statsPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
-
-@media (max-width: 767px) {
-  .approachPlusTop, .approachPlusBottom, .statsPlusTop, .statsPlusBottom { display: none; }
-}
-
-/* ----- CTA ----- */
-.ctaSection {
   text-align: center;
 }
-
-.ctaBlock {
-  background: var(--blue-500);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-8);
-  text-align: center;
-  color: var(--paper);
-}
-
-.ctaBlock h2 {
-  color: var(--paper);
-}
-
-.ctaBlock p {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.ctaText {
+.ctaHeading { color: var(--paper); }
+.ctaLead {
   max-width: var(--text-max);
   margin-inline: auto;
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.78);
   line-height: var(--lh-body);
 }
-
 .ctaActions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
 }
-
 @media (min-width: 768px) {
   .ctaActions {
     flex-direction: row;
     justify-content: center;
   }
 }
+.ctaPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.ctaPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
 
-/* ----- Mobile compaction ----- */
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .teamCard { transition: none; }
+}
+
+/* ----- Mobile ----- */
 @media (max-width: 767px) {
   .heroSection {
     padding-top: var(--space-6);
     padding-bottom: var(--space-4);
   }
 
-  .teamCardHead {
-    gap: 12px;
-  }
+  .teamCardHead { gap: 12px; }
 
   .avatar {
     width: 46px;
@@ -269,11 +344,11 @@
     font-size: 17px;
   }
 
-  .cardName {
-    font-size: 18px;
-  }
+  .cardName { font-size: 18px; }
+  .statNum { font-size: 26px; }
+  .respList { grid-template-columns: 1fr; }
 
-  .statNum {
-    font-size: 26px;
-  }
+  .darkPlusTop, .darkPlusBottom,
+  .brandPlusTop, .brandPlusBottom,
+  .ctaPlusTop, .ctaPlusBottom { display: none; }
 }
