@@ -2,21 +2,33 @@
 > Diagnostic-first IT and business consulting for B2B companies (50-250 employees)
 
 ## Services
-- Business & IT Diagnostic (free, 30-45 min fit review)
-- Advisory Power Hour ($200)
-- Extended Diagnostic (from $1,200)
-- Add-on Tool Build (from $900)
-- IT Risk & Security (from $1,900)
-- Process & Operations (from $3,500)
-- AI & Process Automation (from $3,900)
-- RevOps: CRM, Data & Reporting (from $4,900)
-- O-1 Readiness Support ($2,500)
+- Business & IT Diagnostic (free, 30-45 min) — /services/business-diagnostic
+- Advisory Power Hour ($200) — /services/advisory-power-hour
+- Extended Diagnostic (from $1,200) — /services/business-diagnostic
+- Add-on Tool Build (from $900) — /services/addon-tool-build
+- IT Risk & Security (from $1,900) — /services/it-risk-security
+- Process & Operations (from $3,500) — /services/process-operations
+- AI & Process Automation (from $3,900) — /services/ai-process-automation
+- RevOps: CRM, Data & Reporting (from $4,900) — /services/revops-crm-consulting
+- O-1 Readiness Support ($2,500) — /o1-visa-readiness
 
 ## Approach
 Diagnostic-first: every engagement starts with a structured review of processes, systems, and data flow before any implementation commitment.
 
 ## Team
-- Igor Saevets, Managing Partner — operating model & diagnostic lead
+- Igor Saevets, Managing Partner — operating model & diagnostic lead — /about
+
+## Blog
+- The Complete RevOps Audit Guide for B2B Teams — /blog/revops-audit-guide
+- How to Migrate from Salesforce to HubSpot — /blog/salesforce-to-hubspot-migration
+- 7 Signs Your CRM Pipeline Is Leaking Revenue — /blog/crm-pipeline-leaking-revenue
+- RevOps for 50-Person Teams: Where to Start — /blog/revops-for-small-teams
+- HubSpot vs Salesforce for B2B Services — /blog/hubspot-vs-salesforce-b2b
+
+## Pages
+- About — /about
+- Services — /services
+- Blog — /blog
 
 ## Location
 California, USA (remote-first)

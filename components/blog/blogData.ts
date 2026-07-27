@@ -55,4 +55,32 @@ export const BLOG_POSTS: BlogPost[] = [
       linkedin: "https://linkedin.com/in/igorsaevets",
     },
   },
+  {
+    slug: "revops-for-small-teams",
+    title: "RevOps for 50-Person Teams: Where to Start",
+    description:
+      "You don't need a dedicated RevOps hire to fix your revenue operations. Here's a practical starting point for small B2B teams.",
+    date: "2026-07-27",
+    readTime: "7 min read",
+    category: "RevOps",
+    author: {
+      name: "Igor Saevets",
+      title: "Managing Partner",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
+  },
+  {
+    slug: "hubspot-vs-salesforce-b2b",
+    title: "HubSpot vs Salesforce for B2B Services: An Honest Comparison",
+    description:
+      "Neither CRM is universally better. Here's how to choose based on your team size, deal complexity, and what you actually need.",
+    date: "2026-07-27",
+    readTime: "9 min read",
+    category: "CRM",
+    author: {
+      name: "Igor Saevets",
+      title: "Managing Partner",
+      linkedin: "https://linkedin.com/in/igorsaevets",
+    },
+  },
 ];
