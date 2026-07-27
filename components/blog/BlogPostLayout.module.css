@@ -34,6 +34,20 @@
   color: var(--stone-500);
 }
 
+/* ----- Hero image ----- */
+.heroImageWrap {
+  margin-top: var(--space-4);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
 /* ----- Article header ----- */
 .header {
   margin-top: var(--space-4);

@@ -159,6 +159,20 @@ export default function BlogPostLayout({
               <span className={styles.breadcrumbCurrent}>{title}</span>
             </nav>
 
+            {/* Hero image */}
+            {heroImage && (
+              <div className={styles.heroImageWrap}>
+                <Image
+                  src={heroImage}
+                  alt={heroAlt || ""}
+                  width={1200}
+                  height={630}
+                  className={styles.heroImage}
+                  priority
+                />
+              </div>
+            )}
+
             {/* Article header */}
             <header className={styles.header}>
               <h1 className={styles.title}>{title}</h1>
@@ -232,7 +246,7 @@ export default function BlogPostLayout({
               <h2>Need help with this?</h2>
               <p className={styles.ctaText}>
                 Request a free diagnostic and get a clear picture of what to fix
-                first — no commitment, no sales pitch.
+                first - no commitment, no sales pitch.
               </p>
               <div className={styles.ctaActions}>
                 <Button href="/#diagnostic-request-form" variant="primary" icon>
