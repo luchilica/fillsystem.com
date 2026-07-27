@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import {
-  Plus,
   Stethoscope,
   Zap,
   FileSearch,
@@ -352,7 +351,6 @@ export default async function ServicesPage({
                 <p className={styles.cardDesc}>{t(service.description)}</p>
                 <Link href={service.href} className={styles.cardLink}>
                   {t(service.priceFree ? "Request a diagnostic" : "Learn more")}
-                  <Plus size={16} aria-hidden="true" />
                 </Link>
               </article>
             ))}
