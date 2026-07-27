@@ -8,6 +8,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
+import PlusMark from "@/components/ui/PlusMark";
 import styles from "./AddonTool.module.css";
 
 const TITLE =
@@ -243,6 +244,8 @@ export default async function AddonToolBuild({
       <section className="section">
         <div className="container">
           <div className={styles.faqSection}>
+            <PlusMark size={160} className={styles.faqPlusTop} />
+            <PlusMark size={90} className={styles.faqPlusBottom} />
             <h2>{t("Add-on Build FAQ")}</h2>
             <div className={styles.faqList}>
               {FAQ.map((item) => (
@@ -260,6 +263,8 @@ export default async function AddonToolBuild({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
+            <PlusMark size={180} className={styles.ctaPlusTop} />
+            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Discuss a Tool Build")}</h2>
             <p className={styles.ctaLead}>
               {t(

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import PlusMark from "@/components/ui/PlusMark";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { LOCALE_META } from "@/i18n/locales";
@@ -405,6 +406,8 @@ export default async function BusinessDiagnosticPage({
       <section className="section">
         <div className="container">
           <div className={styles.faqSection}>
+            <PlusMark size={160} className={styles.faqPlusTop} />
+            <PlusMark size={90} className={styles.faqPlusBottom} />
             <h2>{t("Diagnostic FAQ")}</h2>
             <div className={styles.faqList}>
               {FAQ_ITEMS.map((faq) => (
@@ -424,6 +427,8 @@ export default async function BusinessDiagnosticPage({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
+            <PlusMark size={180} className={styles.ctaPlusTop} />
+            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>
               {t("Request a Business & IT Diagnostic")}
             </h2>

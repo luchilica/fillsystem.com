@@ -6,6 +6,7 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
+import PlusMark from "@/components/ui/PlusMark";
 import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./ITRiskSecurity.module.css";
@@ -289,6 +290,8 @@ export default async function ITRiskSecurity({
       <section className="section">
         <div className="container">
           <div className={styles.faqSection}>
+            <PlusMark size={160} className={styles.faqPlusTop} />
+            <PlusMark size={90} className={styles.faqPlusBottom} />
             <h2>{t("IT Security Audit FAQ")}</h2>
             <div className={styles.faqList}>
               {FAQ.map((item) => (
@@ -306,6 +309,8 @@ export default async function ITRiskSecurity({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
+            <PlusMark size={180} className={styles.ctaPlusTop} />
+            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Start With a Free IT Risk Review")}</h2>
             <p className={styles.ctaLead}>
               {t(

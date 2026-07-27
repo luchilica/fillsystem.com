@@ -125,7 +125,7 @@
 
 .faqItem {
   padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--border-hair);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .faqItem:last-child {
@@ -139,21 +139,46 @@
   font-size: 17px;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.01em;
-  color: var(--ink-900);
+  color: var(--paper);
 }
 
 .faqAnswer {
   margin: 0;
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  color: var(--text-body);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* ----- FAQ section background ----- */
 .faqSection {
-  background: var(--stone-50);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.18) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%);
   border-radius: var(--radius-xl);
   padding: var(--space-12) var(--space-8);
+  color: var(--text-on-dark);
+}
+
+.faqSection h2 {
+  color: var(--paper);
+}
+
+.faqPlusTop {
+  position: absolute;
+  top: -25px;
+  right: -10px;
+  color: rgba(37, 81, 210, 0.22);
+  pointer-events: none;
+}
+
+.faqPlusBottom {
+  position: absolute;
+  bottom: 20px;
+  left: 3%;
+  color: rgba(37, 81, 210, 0.14);
+  pointer-events: none;
 }
 
 /* ----- CTA section ----- */
@@ -162,9 +187,13 @@
 }
 
 .ctaBlock {
-  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%);
   border-radius: var(--radius-xl);
-  padding: var(--space-16) var(--space-8);
+  padding: var(--space-12) var(--space-8) var(--space-16);
   text-align: center;
   color: var(--paper);
 }
@@ -188,15 +217,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  gap: var(--space-3);
+  margin-top: var(--space-6);
 }
 
 @media (min-width: 768px) {
   .ctaActions {
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
   }
+}
+
+.ctaPlusTop {
+  position: absolute;
+  top: -30px;
+  right: -15px;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+.ctaPlusBottom {
+  position: absolute;
+  bottom: -10px;
+  left: 3%;
+  color: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .ctaPlusTop, .ctaPlusBottom { display: none; }
 }
 
 /* ----- Mobile compaction ----- */
@@ -220,5 +268,10 @@
 
   .faqQuestion {
     font-size: 16px;
+  }
+
+  .faqPlusTop,
+  .faqPlusBottom {
+    display: none;
   }
 }

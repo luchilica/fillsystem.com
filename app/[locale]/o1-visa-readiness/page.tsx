@@ -8,6 +8,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { Check, X } from "lucide-react";
+import PlusMark from "@/components/ui/PlusMark";
 import styles from "./O1Readiness.module.css";
 
 const TITLE =
@@ -302,6 +303,8 @@ export default async function O1VisaReadiness({
       <section className="section">
         <div className="container">
           <div className={styles.faqSection}>
+            <PlusMark size={160} className={styles.faqPlusTop} />
+            <PlusMark size={90} className={styles.faqPlusBottom} />
             <h2>{t("O-1 Readiness FAQ")}</h2>
             <div className={styles.faqList}>
               {FAQ.map((item) => (
@@ -319,6 +322,8 @@ export default async function O1VisaReadiness({
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBlock}>
+            <PlusMark size={180} className={styles.ctaPlusTop} />
+            <PlusMark size={100} className={styles.ctaPlusBottom} />
             <h2>{t("Ask About O-1 Readiness")}</h2>
             <div className={styles.ctaActions}>
               <Button
