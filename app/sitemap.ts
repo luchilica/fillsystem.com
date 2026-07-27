@@ -50,6 +50,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${siteConfig.url}/services/advisory-power-hour`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/services/addon-tool-build`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/services/process-operations`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteConfig.url}/o1-visa-readiness`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${siteConfig.url}/blog`,
       lastModified: now,
       changeFrequency: "weekly",
@@ -69,6 +93,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteConfig.url}/blog/crm-pipeline-leaking-revenue`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${siteConfig.url}/blog/revops-for-small-teams`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${siteConfig.url}/blog/hubspot-vs-salesforce-b2b`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.75,
