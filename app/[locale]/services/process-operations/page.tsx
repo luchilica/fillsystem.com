@@ -8,6 +8,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import styles from "./ProcessOps.module.css";
 
 const TITLE =
@@ -292,16 +293,20 @@ export default async function ProcessOperations({
       </section>
 
       {/* 7 -- CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button
-            href="/#diagnostic-request-form"
-            variant="primary"
-            icon
-            data-request-type="Process & Operations"
-          >
-            {t("Request a Process Diagnostic")}
-          </Button>
+          <h2 className={styles.ctaHeading}>{t("Redesign How You Work")}</h2>
+          <p className={styles.ctaLead}>{t("Clarified ownership, documented workflows, removed duplication.")}</p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon data-request-type="Process & Operations">
+              {t("Request a Process Diagnostic")}
+            </Button>
+            <Link href="/services">
+              <Button variant="secondary">{t("See All Services")}</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

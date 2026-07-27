@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { LOCALE_META } from "@/i18n/locales";
@@ -428,11 +429,20 @@ export default async function BusinessDiagnosticPage({
       </section>
 
       {/* Section 7 — CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button href="/#diagnostic-request-form" variant="primary" icon>
-            {t("Request a Business & IT Diagnostic")}
-          </Button>
+          <h2 className={styles.ctaHeading}>{t("Take the First Step")}</h2>
+          <p className={styles.ctaLead}>{t("A complimentary review to frame the problem before any commitment.")}</p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon>
+              {t("Request a Business & IT Diagnostic")}
+            </Button>
+            <Link href="/services">
+              <Button variant="secondary">{t("See All Services")}</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

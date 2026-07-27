@@ -7,6 +7,7 @@ import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./ITRiskSecurity.module.css";
 
@@ -309,16 +310,20 @@ export default async function ITRiskSecurity({
       </section>
 
       {/* 7 -- CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button
-            href="/#diagnostic-request-form"
-            variant="primary"
-            icon
-            data-request-type="IT Risk & Security"
-          >
-            {t("Start With a Free IT Risk Review")}
-          </Button>
+          <h2 className={styles.ctaHeading}>{t("Review Your IT Risk")}</h2>
+          <p className={styles.ctaLead}>{t("Access, data handling, failure points. One focused review.")}</p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon data-request-type="IT Risk & Security">
+              {t("Start With a Free IT Risk Review")}
+            </Button>
+            <Link href="/services">
+              <Button variant="secondary">{t("See All Services")}</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

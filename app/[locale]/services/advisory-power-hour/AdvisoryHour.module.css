@@ -205,11 +205,39 @@
   pointer-events: none;
 }
 
-/* ----- CTA section ----- */
-.ctaSection {
+/* ----- CTA (dark ink) ----- */
+.ctaDark {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
   text-align: center;
 }
-
+.ctaHeading { color: var(--paper); }
+.ctaLead {
+  max-width: var(--text-max);
+  margin-inline: auto;
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--lh-body);
+}
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+@media (min-width: 768px) {
+  .ctaActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.ctaPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.ctaPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
 
 /* ----- Dark section ----- */
 .darkSection {
@@ -242,7 +270,7 @@
 .brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
 
 @media (max-width: 767px) {
-  .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom { display: none; }
+  .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom, .ctaPlusTop, .ctaPlusBottom { display: none; }
 }
 
 /* Preserve card-interior text inside dark / brand sections */

@@ -8,6 +8,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check, X } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import styles from "./O1Readiness.module.css";
 
 const TITLE =
@@ -322,16 +323,20 @@ export default async function O1VisaReadiness({
       </section>
 
       {/* 7 -- CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button
-            href="/#diagnostic-request-form"
-            variant="primary"
-            icon
-            data-request-type="O-1 Readiness Support"
-          >
-            {t("Ask About O-1 Readiness")}
-          </Button>
+          <h2 className={styles.ctaHeading}>{t("Structure Your O-1 Case")}</h2>
+          <p className={styles.ctaLead}>{t("Evidence mapping, portfolio review, recommendation coordination.")}</p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon data-request-type="O-1 Readiness Support">
+              {t("Ask About O-1 Readiness")}
+            </Button>
+            <Link href="/services">
+              <Button variant="secondary">{t("See All Services")}</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

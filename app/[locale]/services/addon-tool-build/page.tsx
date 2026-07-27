@@ -8,6 +8,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import styles from "./AddonTool.module.css";
 
 const TITLE =
@@ -263,16 +264,20 @@ export default async function AddonToolBuild({
       </section>
 
       {/* 6 -- CTA */}
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={`section ${styles.ctaDark}`}>
+        <PlusMark size={180} className={styles.ctaPlusTop} />
+        <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
-          <Button
-            href="/#diagnostic-request-form"
-            variant="primary"
-            icon
-            data-request-type="Add-on Tool Build"
-          >
-            {t("Discuss a Tool Build")}
-          </Button>
+          <h2 className={styles.ctaHeading}>{t("Build Something Specific")}</h2>
+          <p className={styles.ctaLead}>{t("One deliverable. Fixed scope. No ongoing retainer.")}</p>
+          <div className={styles.ctaActions}>
+            <Button href="/#diagnostic-request-form" variant="on-brand" icon data-request-type="Add-on Tool Build">
+              {t("Discuss a Tool Build")}
+            </Button>
+            <Link href="/services">
+              <Button variant="secondary">{t("See All Services")}</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>
