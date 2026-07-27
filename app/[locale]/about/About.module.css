@@ -185,58 +185,6 @@
   color: var(--stone-500);
 }
 
-/* Responsibility list (matches DeliveryModel) */
-.respDivider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.respDivider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--stone-200);
-}
-
-.respLabel {
-  font-family: var(--font-mono-fallback);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--stone-400);
-}
-
-.respList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.resp {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--stone-600);
-}
-
-.respIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-md);
-  background: var(--accent-tint);
-  color: var(--blue-600);
-}
-
 /* ----- Brand blue stats section ----- */
 .statsSection {
   position: relative;
@@ -346,8 +294,6 @@
 
   .cardName { font-size: 18px; }
   .statNum { font-size: 26px; }
-  .respList { grid-template-columns: 1fr; }
-
   .darkPlusTop, .darkPlusBottom,
   .brandPlusTop, .brandPlusBottom,
   .ctaPlusTop, .ctaPlusBottom { display: none; }

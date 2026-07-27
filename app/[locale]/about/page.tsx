@@ -12,16 +12,7 @@ import {
   Stethoscope,
   ShieldCheck,
   FileCheck,
-  Boxes,
-  Workflow,
-  Map,
-  Compass,
-  Users,
-  Award,
-  Globe,
-  GraduationCap,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import styles from "./About.module.css";
 
 export async function generateMetadata({
@@ -76,7 +67,7 @@ function PersonJsonLd() {
 }
 
 const PRINCIPLES: {
-  Icon: LucideIcon;
+  Icon: typeof Stethoscope;
   title: string;
   description: string;
 }[] = [
@@ -100,17 +91,7 @@ const PRINCIPLES: {
   },
 ];
 
-const TEAM: {
-  name: string;
-  initials: string;
-  title: string;
-  subtitle: string;
-  link: string;
-  isLinkedIn: boolean;
-  bio: string;
-  bioExtended: string | null;
-  responsibilities: { Icon: LucideIcon; text: string }[];
-}[] = [
+const TEAM = [
   {
     name: "Igor Saevets",
     initials: "IS",
@@ -120,13 +101,7 @@ const TEAM: {
     isLinkedIn: true,
     bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Opsfield Systems.",
     bioExtended:
-      "Before Opsfield, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. His background spans enterprise software, cloud migrations, and cross-border digital transformation.",
-    responsibilities: [
-      { Icon: Boxes, text: "Operating model design" },
-      { Icon: Workflow, text: "Diagnostic methodology" },
-      { Icon: Map, text: "Roadmap prioritization" },
-      { Icon: Compass, text: "Executive decision support" },
-    ],
+      "Before Opsfield, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. He has built enterprise software, led cloud migrations, and run cross-border tech projects.",
   },
   {
     name: "GrowCluster",
@@ -135,14 +110,8 @@ const TEAM: {
     subtitle: "International Association of IT Specialists",
     link: "https://growcluster.com/",
     isLinkedIn: false,
-    bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and advisory engagements.",
-    bioExtended: null,
-    responsibilities: [
-      { Icon: Users, text: "Certified IT talent network" },
-      { Icon: Award, text: "Professional standards & vetting" },
-      { Icon: Globe, text: "Cross-border tech expertise" },
-      { Icon: GraduationCap, text: "Mentorship & training programs" },
-    ],
+    bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and consulting work.",
+    bioExtended: null as string | null,
   },
 ];
 
@@ -173,7 +142,7 @@ export default async function About({
           <h1>{t("About Opsfield Systems")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "Diagnostic-first IT and business consulting for B2B companies navigating process, CRM, data flow, and automation complexity.",
+              "Diagnostic-first IT and business consulting for B2B companies dealing with process, CRM, data flow, and automation problems.",
             )}
           </p>
         </div>
@@ -244,19 +213,6 @@ export default async function About({
                   </p>
                 )}
 
-                <div className={styles.respDivider}>
-                  <span className={styles.respLabel}>{t("Focus")}</span>
-                </div>
-                <ul className={styles.respList}>
-                  {member.responsibilities.map((r) => (
-                    <li key={r.text} className={styles.resp}>
-                      <span className={styles.respIcon} aria-hidden="true">
-                        <r.Icon size={14} />
-                      </span>
-                      <span>{t(r.text)}</span>
-                    </li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
@@ -290,7 +246,7 @@ export default async function About({
           </h2>
           <p className={styles.ctaLead}>
             {t(
-              "The first conversation is complimentary. We identify bottlenecks and tell you whether a paid engagement is warranted.",
+              "The first conversation is free. We find the bottlenecks and tell you if a paid engagement makes sense.",
             )}
           </p>
           <div className={styles.ctaActions}>
