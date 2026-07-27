@@ -341,13 +341,13 @@ export default async function ServicesPage({
                   <span className={styles.cardIcon} aria-hidden="true">
                     <service.Icon size={20} />
                   </span>
-                  <h2 className={styles.cardTitle}>{t(service.title)}</h2>
                   <span
                     className={`${styles.price} ${service.priceFree ? styles.priceFree : ""}`}
                   >
                     {t(service.price)}
                   </span>
                 </div>
+                <h2 className={styles.cardTitle}>{t(service.title)}</h2>
                 <p className={styles.cardDesc}>{t(service.description)}</p>
                 <Link href={service.href} className={styles.cardLink}>
                   {t(service.priceFree ? "Request a diagnostic" : "Learn more")}

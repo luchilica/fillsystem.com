@@ -8,6 +8,7 @@ import { LOCALE_META } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 import styles from "./BusinessDiagnostic.module.css";
 
 const TITLE =
@@ -410,21 +411,13 @@ export default async function BusinessDiagnosticPage({
       {/* Section 6 — FAQ */}
       <section className="section">
         <div className="container">
-          <div className={styles.faqSection}>
-            <PlusMark size={160} className={styles.faqPlusTop} />
-            <PlusMark size={90} className={styles.faqPlusBottom} />
-            <h2>{t("Diagnostic FAQ")}</h2>
-            <div className={styles.faqList}>
-              {FAQ_ITEMS.map((faq) => (
-                <div key={faq.question} className={styles.faqItem}>
-                  <h3 className={styles.faqQuestion}>
-                    {t(faq.question)}
-                  </h3>
-                  <p className={styles.faqAnswer}>{t(faq.answer)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2>{t("Diagnostic FAQ")}</h2>
+          <FaqAccordion
+            items={FAQ_ITEMS.map((faq) => ({
+              question: t(faq.question),
+              answer: t(faq.answer),
+            }))}
+          />
         </div>
       </section>
 

@@ -138,73 +138,6 @@
   color: var(--text-body);
 }
 
-/* ----- FAQ ----- */
-.faqList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-4);
-  max-width: var(--text-max);
-}
-
-.faqItem {
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.faqItem:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.faqQuestion {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: -0.01em;
-  color: var(--paper);
-}
-
-.faqAnswer {
-  margin: 0;
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: rgba(255, 255, 255, 0.78);
-}
-
-/* ----- FAQ section background ----- */
-.faqSection {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.18) 0%, rgba(37, 81, 210, 0) 55%),
-    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-8);
-  color: var(--text-on-dark);
-}
-
-.faqSection h2 {
-  color: var(--paper);
-}
-
-.faqPlusTop {
-  position: absolute;
-  top: -25px;
-  right: -10px;
-  color: rgba(37, 81, 210, 0.22);
-  pointer-events: none;
-}
-
-.faqPlusBottom {
-  position: absolute;
-  bottom: 20px;
-  left: 3%;
-  color: rgba(37, 81, 210, 0.14);
-  pointer-events: none;
-}
-
 /* ----- CTA (dark ink) ----- */
 .ctaDark {
   position: relative;
@@ -294,14 +227,5 @@
 
   .pricingPrice {
     font-size: 1.25rem;
-  }
-
-  .faqQuestion {
-    font-size: 16px;
-  }
-
-  .faqPlusTop,
-  .faqPlusBottom {
-    display: none;
   }
 }
