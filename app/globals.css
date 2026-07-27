@@ -115,7 +115,7 @@
   --fw-extrabold: 800;
   --fw-black: 900;
 
-  --ls-display: -0.028em;
+  --ls-display: -0.02em;
   --ls-heading: -0.015em;
   --ls-body: 0;
   --ls-eyebrow: 0.14em;
@@ -286,8 +286,8 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   Typography Scale — mobile-first. v2 Mulish, weight-driven, blocky display.
-   Headings use Mulish 900/800 with tight negative tracking; H4 uses 700.
+   Typography Scale — mobile-first. v2 Mulish, weight-driven, modern SaaS.
+   Headings use Mulish 600 (semibold) with -0.02em tracking site-wide.
    -------------------------------------------------------------------------- */
 h1,
 h2,
@@ -299,21 +299,21 @@ h4 {
 
 h1,
 h2 {
-  font-weight: var(--fw-black);
-  letter-spacing: var(--ls-display);
-  line-height: 1.02;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 h3,
 h4 {
-  font-weight: var(--fw-extrabold);
-  letter-spacing: var(--ls-heading);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
   line-height: var(--lh-heading);
 }
 
 h1 {
   font-size: var(--fs-h1);
-  line-height: var(--lh-tight);
+  line-height: 1.04;
 }
 
 h2 {
@@ -322,12 +322,10 @@ h2 {
 
 h3 {
   font-size: var(--fs-h3);
-  font-weight: var(--fw-extrabold);
 }
 
 h4 {
   font-size: var(--fs-h4);
-  font-weight: var(--fw-bold);
 }
 
 .lead {
