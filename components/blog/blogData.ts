@@ -86,7 +86,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "14 min read",
     category: "AI",
     heroImage: "/blog/rag-pipeline.jpg",
-    heroAlt: "Server rack with network cables in a data center.",
+    heroAlt: "Data visualization screens displaying analytics and information architecture.",
     seoTitle: "How to Choose an Embedding Model for Enterprise RAG",
     metaDescription: "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.",
     author: {
@@ -139,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "16 min read",
     category: "AI",
     heroImage: "/blog/ai-agent-eval.jpg",
-    heroAlt: "Programming code on a monitor representing software testing and quality assurance.",
+    heroAlt: "Analytics dashboard with charts and KPIs on a laptop screen.",
     seoTitle: "How to Evaluate an AI Agent Before Production",
     metaDescription: "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     author: {
@@ -156,7 +156,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "14 min read",
     category: "AI",
     heroImage: "/blog/mcp-a2a.jpg",
-    heroAlt: "Network cables organized in a structured networking setup.",
+    heroAlt: "Collaborative workspace with laptops and devices on a desk, representing technology integration.",
     seoTitle: "MCP vs. A2A for Enterprise AI Agents",
     metaDescription: "Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.",
     author: {
@@ -173,7 +173,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "15 min read",
     category: "AI",
     heroImage: "/blog/ai-governance.jpg",
-    heroAlt: "Statue of Lady Justice representing governance and compliance frameworks.",
+    heroAlt: "Team strategy session with organized planning notes on a whiteboard.",
     seoTitle: "AI Governance for Mid-Market B2B Companies",
     metaDescription: "Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.",
     author: {

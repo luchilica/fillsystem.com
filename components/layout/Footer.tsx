@@ -17,7 +17,6 @@ const COMPANY_LINKS = [
 const GET_STARTED_LINKS = [
   { label: "Request Diagnostic", href: "/#diagnostic-request-form" },
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
-  { label: "Pricing", href: "/#areas-of-work" },
   { label: "FAQ", href: "/#faq" },
 ];
 

@@ -10,6 +10,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import Card from "@/components/ui/Card";
 import PlusMark from "@/components/ui/PlusMark";
 import { getT } from "@/i18n/t";
@@ -165,10 +166,9 @@ export default async function DeliveryModel() {
         </div>
 
         <div className={styles.cta}>
-          <a href="#areas-of-work" className={styles.textLink}>
+          <Link href="/#areas-of-work" className={styles.textLink}>
             {t("Book a Senior Advisory Session")}
-            
-          </a>
+          </Link>
         </div>
       </div>
     </div>

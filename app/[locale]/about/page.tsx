@@ -110,7 +110,8 @@ const TEAM = [
     link: "https://growcluster.com/",
     isLinkedIn: false,
     bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and consulting work.",
-    bioExtended: null as string | null,
+    bioExtended:
+      "GrowCluster brings together 200+ vetted IT specialists across software engineering, cloud infrastructure, cybersecurity, and data engineering. Members contribute to Opsfield engagements as domain experts, implementation leads, and technical reviewers.",
   },
 ];
 
