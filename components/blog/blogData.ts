@@ -66,7 +66,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
-      linkedin: "https://linkedin.com/in/igorsaevets",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
     },
   },
   {
@@ -84,7 +84,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
-      linkedin: "https://linkedin.com/in/igorsaevets",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
     },
   },
   {
@@ -136,7 +136,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
-      linkedin: "https://linkedin.com/in/igorsaevets",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
     },
   },
   {
@@ -152,7 +152,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
-      linkedin: "https://linkedin.com/in/igorsaevets",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
     },
   },
   {
@@ -198,7 +198,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
-      linkedin: "https://linkedin.com/in/igorsaevets",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
     },
   },
   {

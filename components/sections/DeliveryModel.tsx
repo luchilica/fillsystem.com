@@ -19,7 +19,7 @@ const ROLES = [
   {
     title: "Founder & CEO",
     name: "Igor Saevets" as string | undefined,
-    link: "https://linkedin.com/in/igorsaevets" as string | undefined,
+    link: "https://www.linkedin.com/in/igorsaevets" as string | undefined,
     linkIsLinkedIn: true,
     initials: "IS",
     subtitle: "Operating model & diagnostic lead",

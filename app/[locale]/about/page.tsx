@@ -39,7 +39,7 @@ function PersonJsonLd() {
     description:
       "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
     url: `${siteConfig.url}/about`,
-    sameAs: ["https://linkedin.com/in/igorsaevets"],
+    sameAs: ["https://www.linkedin.com/in/igorsaevets"],
     worksFor: {
       "@type": "Organization",
       name: "Opsfield Systems",
@@ -96,7 +96,7 @@ const TEAM = [
     initials: "IS",
     title: "Founder & CEO",
     subtitle: "Operating model & diagnostic lead",
-    link: "https://linkedin.com/in/igorsaevets",
+    link: "https://www.linkedin.com/in/igorsaevets",
     isLinkedIn: true,
     bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Opsfield Systems.",
     bioExtended:
