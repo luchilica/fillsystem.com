@@ -12,9 +12,9 @@ import { Link } from "@/i18n/navigation";
 import styles from "./O1Readiness.module.css";
 
 const TITLE =
-  "O-1 Visa Readiness Support for IT Professionals | Opsfield Systems";
+  "O-1 Visa Readiness Support";
 const DESCRIPTION =
-  "Structure the evidence behind an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, recommendation coordination. We work alongside qualified immigration counsel.";
+  "Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination.";
 
 export async function generateMetadata({
   params,

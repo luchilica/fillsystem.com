@@ -1,10 +1,18 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { BLOG_POSTS } from "@/components/blog/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (siteConfig.isPreview) return [];
 
   const now = new Date();
+
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    lastModified: new Date(post.date + "T00:00:00"),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
 
   return [
     {
@@ -79,36 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    {
-      url: `${siteConfig.url}/blog/revops-audit-guide`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/blog/salesforce-to-hubspot-migration`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/blog/crm-pipeline-leaking-revenue`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/blog/revops-for-small-teams`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/blog/hubspot-vs-salesforce-b2b`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
+    ...blogEntries,
     {
       url: `${siteConfig.url}/privacy-policy`,
       lastModified: now,

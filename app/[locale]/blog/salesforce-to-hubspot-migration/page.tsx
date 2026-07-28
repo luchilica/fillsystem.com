@@ -19,8 +19,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title:
-      "How to Migrate from Salesforce to HubSpot Without Losing Data | Opsfield Systems",
+    title: "Salesforce to HubSpot Migration Guide | Opsfield",
     description:
       "A practical migration roadmap for B2B teams: what to map first, what to clean, what to rebuild, and the mistakes that cost months of rework.",
     alternates: alternatesFor(loc, "/blog/salesforce-to-hubspot-migration"),

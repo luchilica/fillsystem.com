@@ -18,7 +18,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   return {
     title:
-      "HubSpot vs Salesforce for B2B Services: An Honest Comparison | Opsfield Systems",
+      "HubSpot vs Salesforce for B2B: Comparison",
     description:
       "Neither CRM is universally better. How to choose between HubSpot and Salesforce based on your team size, deal complexity, and what you actually need.",
     alternates: alternatesFor(loc, "/blog/hubspot-vs-salesforce-b2b"),

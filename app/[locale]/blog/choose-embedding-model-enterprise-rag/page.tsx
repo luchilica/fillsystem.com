@@ -12,7 +12,7 @@ const SLUG = "choose-embedding-model-enterprise-rag";
 const post = BLOG_POSTS.find((p) => p.slug === SLUG)!;
 
 const TITLE =
-  "How to Choose an Embedding Model for Enterprise RAG | Opsfield Systems";
+  "Embedding Models for Enterprise RAG";
 const DESCRIPTION =
   "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.";
 

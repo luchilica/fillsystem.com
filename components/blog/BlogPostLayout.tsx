@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
 import { Link } from "@/i18n/navigation";
+import { getT } from "@/i18n/t";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import styles from "./BlogPostLayout.module.css";
 
@@ -29,15 +30,6 @@ function initials(name: string): string {
     .join("")
     .toUpperCase()
     .slice(0, 2);
-}
-
-function formatDate(iso: string): string {
-  const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
 }
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
@@ -116,7 +108,7 @@ function ArticleJsonLd({
   );
 }
 
-export default function BlogPostLayout({
+export default async function BlogPostLayout({
   slug,
   title,
   description,
@@ -127,10 +119,13 @@ export default function BlogPostLayout({
   author,
   children,
 }: BlogPostLayoutProps) {
-  const displayDate = formatDate(date);
+  const t = await getT();
+  const displayDate = new Date(date + "T00:00:00").toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
   const postIndex = BLOG_POSTS.findIndex((p) => p.slug === slug);
-  const post = BLOG_POSTS[postIndex];
-  const category = post?.category;
   const prevPost =
     postIndex < BLOG_POSTS.length - 1 ? BLOG_POSTS[postIndex + 1] : null;
   const nextPost = postIndex > 0 ? BLOG_POSTS[postIndex - 1] : null;
@@ -176,7 +171,7 @@ export default function BlogPostLayout({
             <div className={styles.articleWrap}>
               <Link href="/blog" className={styles.backLink}>
                 <ArrowIcon direction="left" />
-                Back to Blog
+                {t("Back to Blog")}
               </Link>
 
               {heroImage && (
@@ -232,7 +227,7 @@ export default function BlogPostLayout({
               {(prevPost || nextPost) && (
                 <nav
                   className={styles.pagination}
-                  aria-label="Article navigation"
+                  aria-label={t("Article navigation")}
                 >
                   {prevPost ? (
                     <Link
@@ -240,10 +235,10 @@ export default function BlogPostLayout({
                       className={styles.paginationLink}
                     >
                       <span className={styles.paginationLabel}>
-                        <ArrowIcon direction="left" /> Previous
+                        <ArrowIcon direction="left" /> {t("Previous")}
                       </span>
                       <span className={styles.paginationTitle}>
-                        {prevPost.title}
+                        {t(prevPost.title)}
                       </span>
                     </Link>
                   ) : (
@@ -255,10 +250,10 @@ export default function BlogPostLayout({
                       className={`${styles.paginationLink} ${styles.paginationNext}`}
                     >
                       <span className={styles.paginationLabel}>
-                        Next <ArrowIcon direction="right" />
+                        {t("Next")} <ArrowIcon direction="right" />
                       </span>
                       <span className={styles.paginationTitle}>
-                        {nextPost.title}
+                        {t(nextPost.title)}
                       </span>
                     </Link>
                   ) : (
@@ -282,17 +277,18 @@ export default function BlogPostLayout({
                       className={styles.authorBoxLink}
                     >
                       <LinkedInIcon size={14} />
-                      Connect on LinkedIn
+                      {t("Connect on LinkedIn")}
                     </a>
                   )}
                 </div>
               </aside>
 
               <div className={styles.cta}>
-                <h2>Need help with this?</h2>
+                <h2>{t("Need help with this?")}</h2>
                 <p className={styles.ctaText}>
-                  Request a free diagnostic and get a clear picture of what to
-                  fix first - no commitment, no sales pitch.
+                  {t(
+                    "Request a free diagnostic and get a clear picture of what to fix first - no commitment, no sales pitch."
+                  )}
                 </p>
                 <div className={styles.ctaActions}>
                   <Button
@@ -300,7 +296,7 @@ export default function BlogPostLayout({
                     variant="primary"
                     icon
                   >
-                    Request a Free Diagnostic
+                    {t("Request a Free Diagnostic")}
                   </Button>
                 </div>
               </div>

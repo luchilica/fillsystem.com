@@ -25,7 +25,7 @@ export async function generateMetadata({
   return {
     title: "About Opsfield Systems | B2B IT & Operations Consulting",
     description:
-      "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business consulting for B2B companies with 50-250 employees. Meet the team and learn our approach.",
+      "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business consulting for B2B companies with 50-250 employees.",
     alternates: alternatesFor(loc, "/about"),
     robots: robotsFor(loc),
   };

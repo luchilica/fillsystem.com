@@ -19,7 +19,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   return {
     title:
-      "How to Test Speech Recognition on Real Business Calls | Opsfield Systems",
+      "Test Speech Recognition on Real Calls",
     description:
       "Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.",
     alternates: alternatesFor(

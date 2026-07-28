@@ -20,7 +20,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   return {
     title:
-      "Investor Readiness Checklist for Scaling B2B Companies | Opsfield Systems",
+      "Investor Readiness Checklist for B2B",
     description:
       "Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.",
     alternates: alternatesFor(

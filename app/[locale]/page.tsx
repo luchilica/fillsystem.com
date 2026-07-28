@@ -26,7 +26,7 @@ import BusinessITDiagnostic from "@/components/sections/BusinessITDiagnostic";
 // supplied by app/opengraph-image.tsx + app/twitter-image.tsx (file convention).
 const TITLE = "B2B IT & Operations Consulting | Opsfield Systems";
 const DESCRIPTION =
-  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
+  "Opsfield Systems diagnoses process, CRM, data, and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires, or vendors.";
 
 export async function generateMetadata({
   params,

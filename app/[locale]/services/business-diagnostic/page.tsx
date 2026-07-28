@@ -14,7 +14,7 @@ import styles from "./BusinessDiagnostic.module.css";
 const TITLE =
   "Business & IT Diagnostic for B2B Teams | Opsfield Systems";
 const DESCRIPTION =
-  "Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data flow, and IT bottlenecks before you commit budget to tools, hires, or implementation.";
+  "Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data, and IT bottlenecks before you commit.";
 
 export async function generateMetadata({
   params,
