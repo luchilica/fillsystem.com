@@ -82,7 +82,7 @@ export default async function DeliveryModel() {
         </p>
 
         <div className={styles.roles}>
-          {ROLES.map(({ title, name, link, linkIsLinkedIn, initials, subtitle, bio, responsibilities, art, blur }) => (
+          {ROLES.map(({ title, name, link, linkIsLinkedIn, initials, subtitle, responsibilities, art, blur }) => (
             <Card key={title} tone="paper" soft hover={false}>
               <span className={styles.cardArt} aria-hidden="true">
                 <Image
@@ -130,7 +130,7 @@ export default async function DeliveryModel() {
                       <h3 className={styles.roleTitle}>{t(title)}</h3>
                     )}
                     <p className={styles.roleSub}>{t(subtitle)}</p>
-                    {bio && <p className={styles.roleSub}>{t(bio)}</p>}
+                    
                   </div>
                 </div>
 
