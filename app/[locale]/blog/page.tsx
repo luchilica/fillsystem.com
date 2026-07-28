@@ -85,8 +85,6 @@ export default async function BlogPage({
                 )}
 
                 <div className={styles.cardBody}>
-                  <span className={styles.cardCategory}>{post.category}</span>
-
                   <h2 className={styles.cardTitle}>
                     <Link
                       href={`/blog/${post.slug}`}

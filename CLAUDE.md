@@ -164,7 +164,7 @@ box-shadow: var(--shadow-sm);
 - Tailwind classes — CSS Modules only
 - Pure `#000000` — use `--ink-900`
 - Stripping PlusMark decorations or duotone imagery
-- Blog article visual changes — design in progress
+- Category badges/pills on blog cards or inside articles (AI, CRM, RevOps labels) — they look AI-generated. No tag/category UI anywhere in blog.
 
 ## Code Patterns
 

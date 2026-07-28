@@ -193,9 +193,6 @@ export default function BlogPostLayout({
               )}
 
               <header className={styles.header}>
-                {category && (
-                  <span className={styles.category}>{category}</span>
-                )}
                 <h1 className={styles.title}>{title}</h1>
                 <div className={styles.meta}>
                   <span className={styles.authorInitial} aria-hidden="true">
