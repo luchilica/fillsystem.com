@@ -21,7 +21,6 @@ const NAV_LINKS = [
 
 const DRAWER_LINKS = [
   { label: "Services", href: "/services/" },
-  { label: "Pricing", href: "/#areas-of-work" },
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
   { label: "Results", href: "/#proof-examples" },
   { label: "About", href: "/about/" },

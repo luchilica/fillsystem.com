@@ -128,9 +128,6 @@ export default async function BlogPage({
             <Button href="/#diagnostic-request-form" variant="on-brand" icon>
               {t("Request a Diagnostic")}
             </Button>
-            <Button href="/services" variant="on-brand-outline">
-              {t("See Our Services")}
-            </Button>
           </div>
         </div>
       </section>

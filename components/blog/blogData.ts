@@ -56,8 +56,8 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription:
       "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
     author: {
-      name: "Anna Petrov",
-      title: "Solutions Architect",
+      name: "Solutions Architect",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -73,8 +73,8 @@ export const BLOG_POSTS: BlogPost[] = [
     seoTitle: "How to Test Speech Recognition on Real Business Calls",
     metaDescription: "Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.",
     author: {
-      name: "Anna Petrov",
-      title: "Solutions Architect",
+      name: "Solutions Architect",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -90,8 +90,8 @@ export const BLOG_POSTS: BlogPost[] = [
     seoTitle: "How to Choose an Embedding Model for Enterprise RAG",
     metaDescription: "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.",
     author: {
-      name: "David Chen",
-      title: "AI & Data Lead",
+      name: "AI & Data Lead",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -143,8 +143,8 @@ export const BLOG_POSTS: BlogPost[] = [
     seoTitle: "How to Evaluate an AI Agent Before Production",
     metaDescription: "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     author: {
-      name: "David Chen",
-      title: "AI & Data Lead",
+      name: "AI & Data Lead",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -160,8 +160,8 @@ export const BLOG_POSTS: BlogPost[] = [
     seoTitle: "MCP vs. A2A for Enterprise AI Agents",
     metaDescription: "Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.",
     author: {
-      name: "Anna Petrov",
-      title: "Solutions Architect",
+      name: "Solutions Architect",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -209,8 +209,8 @@ export const BLOG_POSTS: BlogPost[] = [
     heroImage: "/blog/crm-migration.jpg",
     heroAlt: "Data visualization charts representing CRM data migration process.",
     author: {
-      name: "Anna Petrov",
-      title: "Solutions Architect",
+      name: "Solutions Architect",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -224,8 +224,8 @@ export const BLOG_POSTS: BlogPost[] = [
     heroImage: "/blog/crm-pipeline.jpg",
     heroAlt: "Financial charts and graphs showing sales pipeline analysis.",
     author: {
-      name: "David Chen",
-      title: "AI & Data Lead",
+      name: "AI & Data Lead",
+      title: "Opsfield Systems",
     },
   },
   {
@@ -255,8 +255,8 @@ export const BLOG_POSTS: BlogPost[] = [
     heroImage: "/blog/crm-comparison.jpg",
     heroAlt: "Person working with software interface on a laptop screen.",
     author: {
-      name: "Anna Petrov",
-      title: "Solutions Architect",
+      name: "Solutions Architect",
+      title: "Opsfield Systems",
     },
   },
 ];

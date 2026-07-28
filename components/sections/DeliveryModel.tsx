@@ -2,12 +2,8 @@ import {
   Plus,
   Boxes,
   Workflow,
-  Map,
-  Compass,
   Users,
   Award,
-  Globe,
-  GraduationCap,
 } from "lucide-react";
 import Image from "next/image";
 import Card from "@/components/ui/Card";
@@ -30,8 +26,6 @@ const ROLES = [
     responsibilities: [
       { Icon: Boxes, text: "Operating model design" },
       { Icon: Workflow, text: "Diagnostic methodology" },
-      { Icon: Map, text: "Roadmap prioritization" },
-      { Icon: Compass, text: "Executive decision support" },
     ],
   },
   {
@@ -48,8 +42,6 @@ const ROLES = [
     responsibilities: [
       { Icon: Users, text: "Certified IT talent network" },
       { Icon: Award, text: "Professional standards & vetting" },
-      { Icon: Globe, text: "Cross-border tech expertise" },
-      { Icon: GraduationCap, text: "Mentorship & training programs" },
     ],
   },
 ] as const;
