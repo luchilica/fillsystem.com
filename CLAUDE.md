@@ -210,6 +210,28 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 - Icons: `lucide-react` only
 - Images: `next/image` with `width`/`height`. Photos in `public/photos/` or `public/blog/`
 
+## SEO & Content Rules
+
+### Images
+- Every `<Image>` must have a descriptive `alt` (not empty, not the filename). Hero images: `"[Subject] - [context]"`. Decorative images: `alt=""` + `aria-hidden="true"`.
+- No duplicate images across the site. Every page/article must use a unique hero image. Check `md5sum public/blog/*.jpg public/services/*.jpg public/photos/*.jpg` before committing.
+- Blog hero images go in `public/blog/`, service photos in `public/services/`, section photos in `public/photos/`.
+- Use `next/image` with explicit `width`/`height` or `fill` + `sizes`. Always include `placeholder="blur"` with `blurDataURL` for above-the-fold images.
+
+### Blog Articles
+- Every article MUST end with a service cross-link section: 1-2 paragraphs naturally connecting the topic to the relevant `/services/[slug]` page via `<Link>`, plus a bold `<Link href="/#diagnostic-request-form">Request a free diagnostic</Link>` CTA.
+- Service mapping: AI articles → `/services/ai-process-automation`; CRM/RevOps → `/services/revops-crm-consulting`; Process/Ops → `/services/process-operations`; IT Risk → `/services/it-risk-security`; General/strategy → `/services/business-diagnostic`.
+- Register every new article in `components/blog/blogData.ts` (top of array = newest), `public/llms.txt`, and `public/llms-full.txt`.
+- `seoTitle` and `metaDescription` in blogData — keep title under 60 chars, description under 155 chars.
+- No en-dashes (–) in any user-facing text. Use hyphens (-) for ranges.
+- Wrap all article body text in `t()` for i18n.
+
+### Pages
+- Title set via layout template `"%s | Opsfield Systems"` — do NOT add the brand suffix manually.
+- Every page needs `alternates` and `robots` via `alternatesFor()` / `robotsFor()`.
+- Meta descriptions under 155 characters with a clear CTA where appropriate.
+- LinkedIn URLs always use `www.linkedin.com` (not `linkedin.com`).
+
 ## DesignSync Regressions
 
 After any DesignSync pull, verify it hasn't reverted:

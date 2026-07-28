@@ -739,7 +739,17 @@ export default async function InvestorReadiness({
       </p>
       <p>
         {t(
-          "It is to identify which parts of the story the business can already prove - and which parts still require operational work."
+          "It is to identify which parts of the story the business can already prove - and which parts still require operational work. Our"
+        )}{" "}
+        <Link href="/services/process-operations">
+          {t("Process & Operations consulting")}
+        </Link>{" "}
+        {t("and")}{" "}
+        <Link href="/services/revops-crm-consulting">
+          {t("RevOps & CRM consulting")}
+        </Link>{" "}
+        {t(
+          "help B2B teams turn operational gaps into documented, investor-ready evidence."
         )}
       </p>
       <p>
