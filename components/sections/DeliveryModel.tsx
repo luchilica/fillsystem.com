@@ -24,7 +24,7 @@ const ROLES = [
     linkIsLinkedIn: true,
     initials: "IS",
     subtitle: "Operating model & diagnostic lead",
-    bio: "Serial entrepreneur, 10+ companies founded. EB-1A green card holder. Leads diagnostic methodology and operating model design." as string | undefined,
+  
     tone: "paper",
     art: "/photos/role-mp.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAfEAABBAEFAQAAAAAAAAAAAAABAAIDBBESITJBUZH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AWxcMRc0bnrKnmaUknU76ms8ijwPEH//Z",
@@ -42,8 +42,7 @@ const ROLES = [
     linkIsLinkedIn: false,
     initials: "GC",
     subtitle: "International Association of IT Specialists",
-    bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and advisory engagements." as string | undefined,
-    tone: "paper",
+    
     art: "/photos/role-sa.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIREiQlFSof/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDAqkpZrgWrt6T2CToD/9k=",
     responsibilities: [
