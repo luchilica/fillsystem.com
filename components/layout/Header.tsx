@@ -30,7 +30,7 @@ const DRAWER_LINKS = [
 ] as const;
 
 const CTA_LABEL = "Request Diagnostic";
-const CTA_HREF = "#diagnostic-request-form";
+const CTA_HREF = "/#diagnostic-request-form";
 const DRAWER_ID = "mobile-nav-drawer";
 
 export default function Header() {

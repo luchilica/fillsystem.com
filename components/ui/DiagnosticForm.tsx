@@ -9,6 +9,7 @@ import {
 } from "react";
 import { ChevronDown, ChevronUp, Plus, CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { trackEvent } from "@/lib/analytics";
 import { useT } from "@/i18n/useT";
@@ -674,7 +675,7 @@ export default function DiagnosticForm() {
         {/* Privacy notice — directly before submit */}
         <p className={`small ${styles.privacy}`}>
           {t("By submitting this form, you acknowledge our")}{" "}
-          <a href="/privacy-policy">Privacy Policy</a>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           {t(
             ". We use your information to evaluate fit and contact you about your diagnostic request."
           )}

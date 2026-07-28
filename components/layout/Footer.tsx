@@ -72,7 +72,7 @@ export default async function Footer() {
           <p className={styles.ctaText}>
             {t("See what each engagement includes, and what it costs.")}
           </p>
-          <Button href="#areas-of-work" variant="on-brand">
+          <Button href="/#areas-of-work" variant="on-brand">
             {t("See Our Services")}
           </Button>
         </div>

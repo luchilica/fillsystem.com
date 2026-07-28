@@ -1,5 +1,6 @@
 import type { ReactNode, MouseEvent } from "react";
 import { Plus } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import styles from "./Button.module.css";
 
 type ButtonVariant =
@@ -55,16 +56,33 @@ export default function Button({
     </>
   );
 
-  // href present → render an anchor with the same styling.
   if (href) {
+    const disabledProps = disabled
+      ? { tabIndex: -1 as const, onClick: (e: MouseEvent) => e.preventDefault() }
+      : {};
+
+    const isInternal = href.startsWith("/") && !href.startsWith("//");
+
+    if (isInternal) {
+      return (
+        <Link
+          href={href}
+          className={classes}
+          aria-disabled={disabled || undefined}
+          {...disabledProps}
+          {...rest}
+        >
+          {content}
+        </Link>
+      );
+    }
+
     return (
       <a
         href={href}
         className={classes}
         aria-disabled={disabled || undefined}
-        {...(disabled
-          ? { tabIndex: -1, onClick: (e: MouseEvent) => e.preventDefault() }
-          : {})}
+        {...disabledProps}
         {...rest}
       >
         {content}
@@ -72,7 +90,6 @@ export default function Button({
     );
   }
 
-  // Otherwise render a native button.
   return (
     <button type={type} className={classes} disabled={disabled} {...rest}>
       {content}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import DiagnosticForm from "@/components/ui/DiagnosticForm";
 import PlusMark from "@/components/ui/PlusMark";
+import { Link } from "@/i18n/navigation";
 import { useT } from "@/i18n/useT";
 import styles from "./BusinessITDiagnostic.module.css";
 
@@ -120,7 +121,7 @@ export default function BusinessITDiagnostic() {
                   Policy link inside the panel. */}
               <p className={`${styles.muted} ${styles.privacyNote}`}>
                 {t("By submitting the form, you acknowledge our")}{" "}
-                <a href="/privacy-policy">Privacy Policy</a>
+                <Link href="/privacy-policy">Privacy Policy</Link>
                 {t(
                   ". We use your information to evaluate fit and contact you about your diagnostic request."
                 )}
