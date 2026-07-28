@@ -127,6 +127,12 @@ We do not provide legal advice or file immigration petitions. What we offer is O
 
 ## Blog
 
+- Process Debt Is Real: Why Growing B2B Teams Break at 50 Employees -- /blog/process-debt-growing-b2b
+  Undocumented handoffs, unclear ownership, and duplicated work compound silently as B2B teams grow. A practical guide to diagnosing process debt before it stalls execution.
+
+- The IT Risks No One Owns: What B2B Companies Must Audit Before Something Breaks -- /blog/it-risk-b2b-what-to-check
+  Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.
+
 - Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
   Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.
 

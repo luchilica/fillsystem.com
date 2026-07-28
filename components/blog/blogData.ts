@@ -18,6 +18,49 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "process-debt-growing-b2b",
+    title:
+      "Process Debt Is Real: Why Growing B2B Teams Break at 50 Employees",
+    description:
+      "Undocumented handoffs, unclear ownership, and duplicated work compound silently as B2B teams grow. Here is how to find process debt before it stalls execution.",
+    date: "2026-07-29",
+    readTime: "13 min read",
+    category: "Operations",
+    heroImage: "/blog/process-audit.jpg",
+    heroAlt:
+      "Team reviewing workflow diagrams and operational processes on a whiteboard.",
+    seoTitle:
+      "Process Debt in Growing B2B Teams: How to Find and Fix It",
+    metaDescription:
+      "Undocumented handoffs, unclear ownership, and duplicated work compound silently as B2B teams grow. A practical guide to diagnosing process debt before it stalls execution.",
+    author: {
+      name: "Igor Saevets",
+      title: "Founder & CEO",
+      linkedin: "https://www.linkedin.com/in/igorsaevets",
+    },
+  },
+  {
+    slug: "it-risk-b2b-what-to-check",
+    title:
+      "The IT Risks No One Owns: What B2B Companies Must Audit Before Something Breaks",
+    description:
+      "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
+    date: "2026-07-28",
+    readTime: "14 min read",
+    category: "IT Risk",
+    heroImage: "/blog/it-risk.jpg",
+    heroAlt:
+      "Server infrastructure with security monitoring displays in a modern office.",
+    seoTitle:
+      "IT Risk Assessment Guide for Growing B2B Companies",
+    metaDescription:
+      "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
+    author: {
+      name: "Anna Petrov",
+      title: "Solutions Architect",
+    },
+  },
+  {
     slug: "test-speech-recognition-real-business-calls",
     title: "Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls",
     description:

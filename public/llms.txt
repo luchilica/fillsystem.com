@@ -40,6 +40,8 @@ Diagnostic-first: every engagement starts with a structured review of processes,
 
 ## Blog
 
+- Process Debt Is Real: Why Growing B2B Teams Break at 50 Employees -- /blog/process-debt-growing-b2b
+- The IT Risks No One Owns: What B2B Companies Must Audit Before Something Breaks -- /blog/it-risk-b2b-what-to-check
 - Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
 - The Best Embedding Model for RAG Is the One That Wins on Your Data -- /blog/choose-embedding-model-enterprise-rag
 - Investors Don't Fund Ideas. They Fund Operating Evidence. -- /blog/investor-readiness-operating-evidence
