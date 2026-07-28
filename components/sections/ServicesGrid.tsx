@@ -9,7 +9,7 @@
 // pattern mirrors FAQ.tsx (button + aria-expanded + hidden panel, content stays
 // in HTML for SEO).
 //
-// Implementation prices are floors for a lean 25–50-person team; a team-size
+// Implementation prices are floors for a lean 25-50-person team; a team-size
 // calculator scales them live: factor = clamp(1 + (employees − 25) × 0.02, 1,
 // 2.5), rounded to $100. O-1 has a fixed price (per-case, not headcount-based).
 // The exact sum is always deferred to the free diagnostic.
@@ -18,6 +18,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { Plus, Check } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { useT } from "@/i18n/useT";
 import type { Locale } from "@/i18n/locales";
@@ -83,6 +84,7 @@ type Service = {
   imageAlt?: string;
   badge?: string;
   title: string;
+  detailHref?: string;
   base?: number;
   fixed?: number;
   free?: boolean;
@@ -102,6 +104,7 @@ type Service = {
 const SERVICES: Service[] = [
   {
     id: "primary-diagnostic",
+    detailHref: "/services/business-diagnostic",
     image: "/services/diagnostic.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDERIiMmGR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJukYYKLRmDyrtBOKGrfERB//9k=",
     imageAlt: "Free B2B diagnostic - 30-minute process and IT review",
@@ -123,6 +126,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "advisory-power-hour",
+    detailHref: "/services/advisory-power-hour",
     image: "/services/advisory.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAcEAEAAgIDAQAAAAAAAAAAAAABAAIDEQQhMXH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCWe5ja5SzZT5tjXIe60NPm0iISP//Z",
     imageAlt: "Senior advisor working session for B2B decisions",
@@ -143,6 +147,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "extended-diagnostic",
+    detailHref: "/services/business-diagnostic",
     image: "/services/extended.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAID/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECEQMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AiJqsqX5l5ho+NtvtAEH/2Q==",
     imageAlt: "Extended diagnostic - documented process and systems audit",
@@ -163,6 +168,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "addon-tool",
+    detailHref: "/services/addon-tool-build",
     image: "/services/addon.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEE/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAECAxESMlH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMcZwtljba8wvKreqABT/9k=",
     imageAlt: "Custom tool build - bot, landing page, or email campaign",
@@ -183,6 +189,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "it-risk",
+    detailHref: "/services/it-risk-security",
     image: "/services/security.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAME/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEREhMhIv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDFl5SjROzAA//Z",
     imageAlt: "IT risk and security audit for B2B operations",
@@ -203,6 +210,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "process-operations",
+    detailHref: "/services/process-operations",
     image: "/services/process.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAHBAAAwABBQAAAAAAAAAAAAAAAAECEQMEITFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AhbiFoSn2pXGDOrDpv0AMpY//2Q==",
     imageAlt: "Process and operations redesign for growing B2B teams",
@@ -223,6 +231,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "automation",
+    detailHref: "/services/ai-process-automation",
     image: "/services/automation.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAGRABAAIDAAAAAAAAAAAAAAAAAAIhAROR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDMnHXWeooDRH//2Q==",
     imageAlt: "AI and process automation for B2B workflows",
@@ -243,6 +252,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "revops",
+    detailHref: "/services/revops-crm-consulting",
     image: "/services/revops.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAdEAACAgIDAQAAAAAAAAAAAAABAgADBBESIVFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCcuVahPC11B8Ou5bosdsesliSVBJ38iII//9k=",
     imageAlt: "RevOps CRM data and reporting consulting for B2B",
@@ -263,6 +273,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "o1-readiness",
+    detailHref: "/o1-visa-readiness",
     image: "/services/o1.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAYEAADAQEAAAAAAAAAAAAAAAAAARFBYf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlJqaKugFH//Z",
     imageAlt: "O-1 visa readiness evidence preparation",
@@ -441,14 +452,21 @@ function ServiceCard({
             </p>
           )}
 
-          <a
-            href={FORM_HREF}
-            className={styles.cardCta}
-            data-request-type={service.free ? undefined : service.title}
-          >
-            {t(service.cta)}
-            <Plus size={18} aria-hidden="true" />
-          </a>
+          <div className={styles.panelActions}>
+            {service.detailHref && (
+              <Link href={service.detailHref} className={styles.detailLink}>
+                {t("View full details")}
+              </Link>
+            )}
+            <a
+              href={FORM_HREF}
+              className={styles.cardCta}
+              data-request-type={service.free ? undefined : service.title}
+            >
+              {t(service.cta)}
+              <Plus size={18} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </article>

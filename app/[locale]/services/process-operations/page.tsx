@@ -14,7 +14,7 @@ import styles from "./ProcessOps.module.css";
 const TITLE =
   "Process & Operations Consulting for B2B";
 const DESCRIPTION =
-  "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25–250 employees. From $3,500.";
+  "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,500.";
 
 export async function generateMetadata({
   params,
@@ -153,7 +153,7 @@ export default async function ProcessOperations({
         "@id": `${pageUrl}#service`,
         name: "Process & Operations Consulting",
         description:
-          "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25–250 employees.",
+          "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees.",
         serviceType: "Process and operations consulting",
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
@@ -167,7 +167,7 @@ export default async function ProcessOperations({
             priceCurrency: "USD",
           },
           description:
-            "Process & Operations engagements start from $3,500. 2–4 weeks. Scope set by the free diagnostic.",
+            "Process & Operations engagements start from $3,500. 2-4 weeks. Scope set by the free diagnostic.",
         },
       },
       {
@@ -251,7 +251,7 @@ export default async function ProcessOperations({
           <div className={styles.audienceBlock}>
             <p className={styles.audienceText}>
               {t(
-                "B2B companies with 25–250 employees that have outgrown their original processes. You have more teams, more tools, and more complexity - but the processes were designed for a 10-person company.",
+                "B2B companies with 25-250 employees that have outgrown their original processes. You have more teams, more tools, and more complexity - but the processes were designed for a 10-person company.",
               )}
             </p>
           </div>
@@ -266,7 +266,7 @@ export default async function ProcessOperations({
             <p className={styles.pricingPrice}>{t("From $3,500")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "From $3,500. 2–4 weeks. Scope set by the free diagnostic.",
+                "From $3,500. 2-4 weeks. Scope set by the free diagnostic.",
               )}
             </p>
           </div>

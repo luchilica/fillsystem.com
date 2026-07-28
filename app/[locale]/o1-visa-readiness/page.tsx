@@ -98,7 +98,7 @@ const FAQ = [
   {
     question: "Do I need to have publications already?",
     answer:
-      "Not necessarily. Part of our work is helping you develop a publication and visibility strategy. Many successful O-1 applicants start building their public profile 6–12 months before filing.",
+      "Not necessarily. Part of our work is helping you develop a publication and visibility strategy. Many successful O-1 applicants start building their public profile 6-12 months before filing.",
   },
   {
     question: "Do you recommend immigration attorneys?",
@@ -296,7 +296,7 @@ export default async function O1VisaReadiness({
             <p className={styles.pricingPrice}>{t("$2,500")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "O-1 Readiness Support is a fixed-price engagement at $2,500. Timeline is ongoing and case-dependent - most initial assessments take 2–3 weeks, with evidence building extending over 2–6 months depending on what needs to be created.",
+                "O-1 Readiness Support is a fixed-price engagement at $2,500. Timeline is ongoing and case-dependent - most initial assessments take 2-3 weeks, with evidence building extending over 2-6 months depending on what needs to be created.",
               )}
             </p>
           </div>

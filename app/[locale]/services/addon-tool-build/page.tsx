@@ -237,7 +237,7 @@ export default async function AddonToolBuild({
             <p className={styles.pricingPrice}>{t("From $900")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "From $900 for a lean team. 1–2 weeks delivery.",
+                "From $900 for a lean team. 1-2 weeks delivery.",
               )}
             </p>
           </div>

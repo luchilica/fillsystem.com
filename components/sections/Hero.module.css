@@ -132,7 +132,7 @@
   }
 }
 
-/* ----- Tablet (768px–1023px) ----- */
+/* ----- Tablet (768px-1023px) ----- */
 @media (min-width: 768px) {
   .actions {
     flex-direction: row;

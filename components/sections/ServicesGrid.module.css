@@ -446,6 +446,28 @@
   color: var(--stone-500);
 }
 
+.panelActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--stone-600);
+  text-decoration: none;
+}
+
+.detailLink:hover,
+.detailLink:focus-visible {
+  color: var(--blue-600);
+  text-decoration: underline;
+}
+
 .cardCta {
   display: inline-flex;
   align-items: center;
