@@ -36,6 +36,7 @@ export default async function AIGovernanceMidMarket({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

@@ -41,6 +41,7 @@ export default async function TestSpeechRecognition({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

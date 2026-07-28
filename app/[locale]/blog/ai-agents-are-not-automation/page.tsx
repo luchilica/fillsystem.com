@@ -36,6 +36,7 @@ export default async function AIAgentsNotAutomation({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
@@ -68,33 +69,43 @@ export default async function BlogPage({
           <div className={styles.grid}>
             {BLOG_POSTS.map((post) => (
               <article key={post.slug} className={styles.card}>
-                <div className={styles.cardMeta}>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <span className={styles.metaDot} aria-hidden="true">
-                    &middot;
-                  </span>
-                  <span>{post.readTime}</span>
-                </div>
-
-                <h2 className={styles.cardTitle}>
+                {post.heroImage && (
                   <Link
                     href={`/blog/${post.slug}`}
-                    className={styles.cardTitleLink}
+                    className={styles.cardImageLink}
                   >
-                    {t(post.title)}
+                    <Image
+                      src={post.heroImage}
+                      alt={post.heroAlt || ""}
+                      width={600}
+                      height={315}
+                      className={styles.cardImage}
+                    />
                   </Link>
-                </h2>
+                )}
 
-                <p className={styles.cardDesc}>{t(post.description)}</p>
+                <div className={styles.cardBody}>
+                  <span className={styles.cardCategory}>{post.category}</span>
 
-                <div className={styles.cardFooter}>
-                  <span className={styles.authorName}>{post.author.name}</span>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className={styles.readLink}
-                  >
-                    {t("Read article")}
-                  </Link>
+                  <h2 className={styles.cardTitle}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className={styles.cardTitleLink}
+                    >
+                      {t(post.title)}
+                    </Link>
+                  </h2>
+
+                  <p className={styles.cardDesc}>{t(post.description)}</p>
+
+                  <div className={styles.cardFooter}>
+                    <span className={styles.authorName}>
+                      {post.author.name}
+                    </span>
+                    <time className={styles.cardDate} dateTime={post.date}>
+                      {formatDate(post.date)}
+                    </time>
+                  </div>
                 </div>
               </article>
             ))}

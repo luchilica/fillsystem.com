@@ -42,6 +42,7 @@ export default async function InvestorReadiness({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

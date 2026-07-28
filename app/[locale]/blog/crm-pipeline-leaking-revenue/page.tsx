@@ -49,11 +49,14 @@ export default async function CrmPipelineLeakingRevenuePage({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
       readTime={post.readTime}
       author={post.author}
+      heroImage={post.heroImage}
+      heroAlt={post.heroAlt}
     >
       {/* ----- Intro ----- */}
       <p>

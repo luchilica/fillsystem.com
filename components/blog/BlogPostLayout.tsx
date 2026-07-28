@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site-config";
 import { Link } from "@/i18n/navigation";
+import { BLOG_POSTS } from "@/components/blog/blogData";
 import styles from "./BlogPostLayout.module.css";
 
 interface BlogPostLayoutProps {
+  slug: string;
   title: string;
   description: string;
   date: string;
@@ -21,7 +22,6 @@ interface BlogPostLayoutProps {
   children: ReactNode;
 }
 
-/** Extract initials from a full name, e.g. "Igor Saevets" -> "IS". */
 function initials(name: string): string {
   return name
     .split(/\s+/)
@@ -31,7 +31,6 @@ function initials(name: string): string {
     .slice(0, 2);
 }
 
-/** Format an ISO date string to a human-readable form, e.g. "Jul 27, 2026". */
 function formatDate(iso: string): string {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-US", {
@@ -41,7 +40,6 @@ function formatDate(iso: string): string {
   });
 }
 
-/** LinkedIn icon — inline SVG to avoid external deps. */
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
     <svg
@@ -56,17 +54,38 @@ function LinkedInIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-/** Article structured data (JSON-LD). */
+function ArrowIcon({ direction }: { direction: "left" | "right" }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={direction === "right" ? styles.arrowRight : undefined}
+    >
+      <path d="M19 12H5" />
+      <path d="m12 19-7-7 7-7" />
+    </svg>
+  );
+}
+
 function ArticleJsonLd({
   title,
   description,
   date,
   author,
+  heroImage,
 }: {
   title: string;
   description: string;
   date: string;
   author: { name: string; title: string; linkedin?: string };
+  heroImage?: string;
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -75,6 +94,7 @@ function ArticleJsonLd({
     description,
     datePublished: date,
     dateModified: date,
+    ...(heroImage ? { image: `${siteConfig.url}${heroImage}` } : {}),
     author: {
       "@type": "Person",
       name: author.name,
@@ -97,6 +117,7 @@ function ArticleJsonLd({
 }
 
 export default function BlogPostLayout({
+  slug,
   title,
   description,
   date,
@@ -107,10 +128,15 @@ export default function BlogPostLayout({
   children,
 }: BlogPostLayoutProps) {
   const displayDate = formatDate(date);
+  const postIndex = BLOG_POSTS.findIndex((p) => p.slug === slug);
+  const post = BLOG_POSTS[postIndex];
+  const category = post?.category;
+  const prevPost =
+    postIndex < BLOG_POSTS.length - 1 ? BLOG_POSTS[postIndex + 1] : null;
+  const nextPost = postIndex > 0 ? BLOG_POSTS[postIndex - 1] : null;
 
   return (
     <>
-      {/* Breadcrumb JSON-LD (3-level: Home > Blog > Article) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -130,11 +156,7 @@ export default function BlogPostLayout({
                 name: "Blog",
                 item: `${siteConfig.url}/blog`,
               },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: title,
-              },
+              { "@type": "ListItem", position: 3, name: title },
             ],
           }),
         }}
@@ -145,109 +167,145 @@ export default function BlogPostLayout({
         description={description}
         date={date}
         author={author}
+        heroImage={heroImage}
       />
 
       <article>
         <section className="section">
           <div className="container">
-            {/* Back to blog */}
-            <Link href="/blog" className={styles.backLink}>
-              &larr; Back to Blog
-            </Link>
+            <div className={styles.articleWrap}>
+              <Link href="/blog" className={styles.backLink}>
+                <ArrowIcon direction="left" />
+                Back to Blog
+              </Link>
 
-            {/* Hero image */}
-            {heroImage && (
-              <div className={styles.heroImageWrap}>
-                <Image
-                  src={heroImage}
-                  alt={heroAlt || ""}
-                  width={1200}
-                  height={630}
-                  className={styles.heroImage}
-                  priority
-                />
-              </div>
-            )}
+              {heroImage && (
+                <div className={styles.heroImageWrap}>
+                  <Image
+                    src={heroImage}
+                    alt={heroAlt || ""}
+                    width={1200}
+                    height={630}
+                    className={styles.heroImage}
+                    priority
+                  />
+                </div>
+              )}
 
-            {/* Article header */}
-            <header className={styles.header}>
-              <h1 className={styles.title}>{title}</h1>
+              <header className={styles.header}>
+                {category && (
+                  <span className={styles.category}>{category}</span>
+                )}
+                <h1 className={styles.title}>{title}</h1>
+                <div className={styles.meta}>
+                  <span className={styles.authorInitial} aria-hidden="true">
+                    {initials(author.name)}
+                  </span>
+                  <div className={styles.metaText}>
+                    <span className={styles.authorName}>
+                      {author.linkedin ? (
+                        <a
+                          href={author.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.authorNameLink}
+                        >
+                          {author.name}
+                          <LinkedInIcon />
+                        </a>
+                      ) : (
+                        author.name
+                      )}
+                    </span>
+                    <div className={styles.metaDetails}>
+                      <time dateTime={date}>{displayDate}</time>
+                      <span className={styles.metaDot} aria-hidden="true">
+                        &middot;
+                      </span>
+                      <span>{readTime}</span>
+                    </div>
+                  </div>
+                </div>
+              </header>
 
-              <div className={styles.meta}>
-                <time dateTime={date}>{displayDate}</time>
-                <span className={styles.metaDot} aria-hidden="true">
-                  &middot;
-                </span>
-                <span>{readTime}</span>
-              </div>
+              <hr className={styles.divider} />
 
-              <div className={styles.byline}>
-                <span className={styles.authorInitial} aria-hidden="true">
+              <div className={styles.body}>{children}</div>
+
+              {(prevPost || nextPost) && (
+                <nav
+                  className={styles.pagination}
+                  aria-label="Article navigation"
+                >
+                  {prevPost ? (
+                    <Link
+                      href={`/blog/${prevPost.slug}`}
+                      className={styles.paginationLink}
+                    >
+                      <span className={styles.paginationLabel}>
+                        <ArrowIcon direction="left" /> Previous
+                      </span>
+                      <span className={styles.paginationTitle}>
+                        {prevPost.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                  {nextPost ? (
+                    <Link
+                      href={`/blog/${nextPost.slug}`}
+                      className={`${styles.paginationLink} ${styles.paginationNext}`}
+                    >
+                      <span className={styles.paginationLabel}>
+                        Next <ArrowIcon direction="right" />
+                      </span>
+                      <span className={styles.paginationTitle}>
+                        {nextPost.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                </nav>
+              )}
+
+              <aside className={styles.authorBox}>
+                <span className={styles.authorBoxInitial} aria-hidden="true">
                   {initials(author.name)}
                 </span>
-                <div className={styles.authorMeta}>
-                  <span className={styles.authorName}>
-                    {author.linkedin ? (
-                      <a
-                        href={author.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.authorNameLink}
-                      >
-                        {author.name}
-                        <LinkedInIcon />
-                      </a>
-                    ) : (
-                      author.name
-                    )}
-                  </span>
-                  <span className={styles.authorTitle}>{author.title}</span>
+                <div className={styles.authorBoxContent}>
+                  <h3>{author.name}</h3>
+                  <p className={styles.authorBoxRole}>{author.title}</p>
+                  {author.linkedin && (
+                    <a
+                      href={author.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.authorBoxLink}
+                    >
+                      <LinkedInIcon size={14} />
+                      Connect on LinkedIn
+                    </a>
+                  )}
                 </div>
-              </div>
-            </header>
+              </aside>
 
-            {/* Article body */}
-            <div className={styles.body}>{children}</div>
-
-            {/* Author bio box */}
-            <aside className={styles.authorBox}>
-              <span className={styles.authorBoxInitial} aria-hidden="true">
-                {initials(author.name)}
-              </span>
-              <div className={styles.authorBoxContent}>
-                <h3>{author.name}</h3>
-                <p className={styles.authorBoxRole}>{author.title}</p>
-                <p className={styles.authorBoxBio}>
-                  {author.name} leads diagnostic methodology and operating model
-                  design at {siteConfig.name}. With 10+ companies founded across
-                  the US and Europe, he brings a systems-level perspective to
-                  every engagement.
+              <div className={styles.cta}>
+                <h2>Need help with this?</h2>
+                <p className={styles.ctaText}>
+                  Request a free diagnostic and get a clear picture of what to
+                  fix first - no commitment, no sales pitch.
                 </p>
-                {author.linkedin && (
-                  <a
-                    href={author.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.authorBoxLink}
+                <div className={styles.ctaActions}>
+                  <Button
+                    href="/#diagnostic-request-form"
+                    variant="primary"
+                    icon
                   >
-                    <LinkedInIcon size={14} />
-                    Connect on LinkedIn
-                  </a>
-                )}
-              </div>
-            </aside>
-
-            {/* Bottom CTA */}
-            <div className={styles.cta}>
-              <h2>Need help with this?</h2>
-              <p className={styles.ctaText}>
-                Request a free diagnostic and get a clear picture of what to fix
-                first - no commitment, no sales pitch.
-              </p>
-              <div className={styles.ctaActions}>
-                <Button href="/#diagnostic-request-form" variant="primary" icon>
-                  Request a Free Diagnostic
-                </Button>
+                    Request a Free Diagnostic
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

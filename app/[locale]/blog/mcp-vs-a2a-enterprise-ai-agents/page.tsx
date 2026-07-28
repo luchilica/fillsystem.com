@@ -37,6 +37,7 @@ export default async function McpVsA2a({
 
   return (
     <BlogPostLayout
+      slug={post.slug}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

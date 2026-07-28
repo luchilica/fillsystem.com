@@ -147,6 +147,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-14",
     readTime: "12 min read",
     category: "RevOps",
+    heroImage: "/blog/revops-audit.jpg",
+    heroAlt: "Business analytics dashboard with charts and data visualizations.",
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
@@ -161,6 +163,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-10",
     readTime: "10 min read",
     category: "CRM",
+    heroImage: "/blog/crm-migration.jpg",
+    heroAlt: "Data visualization charts representing CRM data migration process.",
     author: {
       name: "Anna Petrov",
       title: "Solutions Architect",
@@ -174,6 +178,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-04",
     readTime: "8 min read",
     category: "CRM",
+    heroImage: "/blog/crm-pipeline.jpg",
+    heroAlt: "Financial charts and graphs showing sales pipeline analysis.",
     author: {
       name: "David Chen",
       title: "AI & Data Lead",
@@ -187,6 +193,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-26",
     readTime: "7 min read",
     category: "RevOps",
+    heroImage: "/blog/small-team.jpg",
+    heroAlt: "Small team collaborating around a table in a modern office.",
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
@@ -201,6 +209,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-18",
     readTime: "9 min read",
     category: "CRM",
+    heroImage: "/blog/crm-comparison.jpg",
+    heroAlt: "Person working with software interface on a laptop screen.",
     author: {
       name: "Anna Petrov",
       title: "Solutions Architect",

@@ -1,5 +1,5 @@
-/* BlogListing — clean cards on white, dark-ink CTA.
-   Mirrors About page team-card styling. No Tailwind. */
+/* BlogListing — shadcn-style cards with image thumbnails on dark ink.
+   Opsfield DS tokens. No Tailwind. */
 
 /* ----- Hero ----- */
 .heroSection {
@@ -24,7 +24,7 @@
 .darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
 .darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
 
-/* ----- Card grid (2-col, like About team) ----- */
+/* ----- Card grid (2-col) ----- */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -41,11 +41,11 @@
 .card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
   border: 1px solid var(--border-hair);
   border-radius: var(--radius-lg);
   background: var(--surface-card);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
   transition: transform var(--dur-med) var(--ease-out),
     box-shadow var(--dur-med) var(--ease-out),
     border-color var(--dur-med) var(--ease-out);
@@ -57,19 +57,40 @@
   border-color: var(--blue-200);
 }
 
-/* ----- Card content ----- */
-.cardMeta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--stone-400);
-  margin-bottom: 12px;
+/* ----- Card image ----- */
+.cardImageLink {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
-.metaDot {
-  color: var(--stone-300);
-  user-select: none;
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.03);
+}
+
+/* ----- Card body ----- */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  flex: 1 1 auto;
+}
+
+.cardCategory {
+  font-family: var(--font-mono-fallback);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: 10px;
 }
 
 .cardTitle {
@@ -91,6 +112,7 @@
 .cardTitleLink:hover,
 .cardTitleLink:focus-visible {
   color: var(--blue-600);
+  text-decoration: none;
 }
 
 .cardDesc {
@@ -111,7 +133,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   padding-top: var(--space-2);
   border-top: 1px solid var(--stone-100);
 }
@@ -122,21 +144,12 @@
   color: var(--ink-900);
 }
 
-.readLink {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: var(--fw-semibold);
-  color: var(--blue-600);
-  text-decoration: none;
+.cardDate {
+  font-size: 13px;
+  color: var(--stone-400);
 }
 
-.readLink:hover,
-.readLink:focus-visible {
-  text-decoration: underline;
-  color: var(--blue-700);
-}
-
-/* ----- CTA (dark ink — matches About) ----- */
+/* ----- CTA (dark ink) ----- */
 .ctaDark {
   position: relative;
   overflow: hidden;
@@ -172,7 +185,8 @@
 
 /* ----- Reduced motion ----- */
 @media (prefers-reduced-motion: reduce) {
-  .card {
+  .card,
+  .cardImage {
     transition: none;
   }
 }
@@ -184,8 +198,8 @@
     padding-bottom: var(--space-4);
   }
 
-  .card {
-    padding: var(--space-3);
+  .cardBody {
+    padding: var(--space-2) var(--space-3) var(--space-3);
   }
 
   .cardTitle {
