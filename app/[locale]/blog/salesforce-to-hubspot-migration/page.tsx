@@ -19,11 +19,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "Salesforce to HubSpot Migration Guide | Opsfield",
+    title: "Salesforce to HubSpot Migration Guide",
     description:
       "A practical migration roadmap for B2B teams: what to map first, what to clean, what to rebuild, and the mistakes that cost months of rework.",
     alternates: alternatesFor(loc, "/blog/salesforce-to-hubspot-migration"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

@@ -23,6 +23,9 @@ export async function generateMetadata({
       "Neither CRM is universally better. How to choose between HubSpot and Salesforce based on your team size, deal complexity, and what you actually need.",
     alternates: alternatesFor(loc, "/blog/hubspot-vs-salesforce-b2b"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

@@ -1,40 +1,69 @@
 # Opsfield Systems
-> Diagnostic-first IT and business consulting for B2B companies (50-250 employees)
 
-## Services
-- Business & IT Diagnostic (free, 30-45 min) — /services/business-diagnostic
-- Advisory Power Hour ($200) — /services/advisory-power-hour
-- Extended Diagnostic (from $1,200) — /services/business-diagnostic
-- Add-on Tool Build (from $900) — /services/addon-tool-build
-- IT Risk & Security (from $1,900) — /services/it-risk-security
-- Process & Operations (from $3,500) — /services/process-operations
-- AI & Process Automation (from $3,900) — /services/ai-process-automation
-- RevOps: CRM, Data & Reporting (from $4,900) — /services/revops-crm-consulting
-- O-1 Readiness Support ($2,500) — /o1-visa-readiness
+> Diagnostic-first IT and business consulting for B2B companies with 50-250 employees.
 
-## Approach
+## Founder
+
+Igor Saevets -- EB-1A green card holder, 10+ companies founded across US and Europe. Leads diagnostic methodology and operating model design.
+
+## ICP (Ideal Customer Profile)
+
+B2B companies with 50-250 employees facing cross-functional process complexity, weak CRM/SaaS visibility, unclear automation or AI priorities, or high-impact migration decisions that need independent review.
+
+## Methodology
+
 Diagnostic-first: every engagement starts with a structured review of processes, systems, and data flow before any implementation commitment.
 
+1. **Review** -- We review workflows, systems, CRM usage, reporting, automation, and decision bottlenecks.
+2. **Map & Score** -- We map likely root causes and score fixes by impact, effort, risk, dependency, and business value.
+3. **Recommend** -- You receive a clear next step: audit, assessment, roadmap, advisory, implementation support, pause, or no-fit.
+
+## Services & Pricing
+
+- Primary Diagnostic (free) -- Complimentary 30-45 minute fit review to frame the problem and identify bottlenecks. /services/business-diagnostic
+- Advisory Power Hour (from $200) -- Bring one concrete problem. Leave with expert direction in 60 minutes. /services/advisory-power-hour
+- Extended Diagnostic (from $1,200) -- A documented diagnosis of processes, systems, and risks. /services/business-diagnostic
+- Add-on Tool Build (from $900) -- A focused build: Telegram bot, landing page, or email campaign. /services/addon-tool-build
+- IT Risk & Security (from $1,900) -- Review of accounts, access, data handling, and single points of failure. /services/it-risk-security
+- Process & Operations (from $3,500) -- Redesign handoffs, approvals, and ownership for growing teams. /services/process-operations
+- AI & Process Automation (from $3,900) -- Workflow automation where it pays off: tool connections, decision logic, documentation. /services/ai-process-automation
+- RevOps: CRM, Data & Reporting (from $4,900) -- CRM structure cleanup, reporting rules, and revenue data flow. /services/revops-crm-consulting
+- O-1 Readiness Support (from $2,500) -- Evidence structuring for O-1 extraordinary-ability visa cases. /o1-visa-readiness
+
 ## Team
-- Igor Saevets, Founder & CEO — operating model & diagnostic lead — /about
+
+- Igor Saevets, Founder & CEO -- operating model & diagnostic lead -- /about
 
 ## Partners
-- GrowCluster (International Association of IT Specialists) — certified IT talent, mentorship, industry expertise — https://growcluster.com/
+
+- GrowCluster (International Association of IT Specialists) -- certified IT talent, mentorship, industry expertise -- https://growcluster.com/
 
 ## Blog
-- The Complete RevOps Audit Guide for B2B Teams — /blog/revops-audit-guide
-- How to Migrate from Salesforce to HubSpot — /blog/salesforce-to-hubspot-migration
-- 7 Signs Your CRM Pipeline Is Leaking Revenue — /blog/crm-pipeline-leaking-revenue
-- RevOps for 50-Person Teams: Where to Start — /blog/revops-for-small-teams
-- HubSpot vs Salesforce for B2B Services — /blog/hubspot-vs-salesforce-b2b
+
+- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
+- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /blog/choose-embedding-model-enterprise-rag
+- Investors Don't Fund Ideas. They Fund Operating Evidence. -- /blog/investor-readiness-operating-evidence
+- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /blog/ai-agents-are-not-automation
+- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /blog/evaluate-ai-agent-before-production
+- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /blog/mcp-vs-a2a-enterprise-ai-agents
+- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /blog/ai-governance-mid-market-b2b
+- The Complete RevOps Audit Guide for B2B Teams -- /blog/revops-audit-guide
+- How to Migrate from Salesforce to HubSpot Without Losing Data -- /blog/salesforce-to-hubspot-migration
+- 7 Signs Your CRM Pipeline Is Leaking Revenue -- /blog/crm-pipeline-leaking-revenue
+- RevOps for 50-Person Teams: Where to Start -- /blog/revops-for-small-teams
+- HubSpot vs Salesforce for B2B Services: An Honest Comparison -- /blog/hubspot-vs-salesforce-b2b
 
 ## Pages
-- About — /about
-- Services — /services
-- Blog — /blog
+
+- About -- /about
+- Services & Pricing -- /services
+- Blog -- /blog
+- O-1 Visa Readiness -- /o1-visa-readiness
 
 ## Location
+
 California, USA (remote-first)
 
 ## Contact
-opsfieldsystems@gmail.com
+
+privacy@opsfieldsystems.com

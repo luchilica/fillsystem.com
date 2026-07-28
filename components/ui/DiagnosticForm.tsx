@@ -291,6 +291,7 @@ export default function DiagnosticForm() {
     <>
       <form
         className={styles.form}
+        aria-label={t("Business & IT Diagnostic Request")}
         onSubmit={onSubmit}
         onFocus={() => {
           if (!startedRef.current) {

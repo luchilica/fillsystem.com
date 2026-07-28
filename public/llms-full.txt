@@ -1,0 +1,182 @@
+# Opsfield Systems -- Full Reference
+
+> Diagnostic-first IT and business consulting for B2B companies with 50-250 employees.
+
+## Founder
+
+Igor Saevets -- EB-1A green card holder, serial entrepreneur with 10+ companies founded across the US and Europe. Leads diagnostic methodology and operating model design at Opsfield Systems.
+
+LinkedIn: https://linkedin.com/in/igorsaevets
+
+## ICP (Ideal Customer Profile)
+
+B2B companies with 50-250 employees. Strongest fit when facing:
+
+- Cross-functional process or system complexity
+- Weak visibility across CRM or SaaS tools
+- Unclear automation or AI priorities
+- A high-impact migration or integration decision that needs independent review
+
+Industries: SaaS, professional services, logistics, manufacturing, and multi-location operators. The diagnostic is industry-agnostic -- it focuses on process, data flow, and system architecture rather than a specific vertical.
+
+## Methodology: Diagnostic-First
+
+Every engagement starts with a structured review before any implementation commitment. The diagnostic separates problem definition from solution delivery so you never pay for implementation before the problem is validated.
+
+### Three Stages
+
+1. **Review** -- We review workflows, systems, CRM usage, reporting, automation, and decision bottlenecks.
+2. **Map & Score** -- We map likely root causes and score fixes by impact, effort, risk, dependency, and business value.
+3. **Recommend** -- You receive a clear next step: audit, assessment, roadmap, advisory, implementation support, pause, or no-fit.
+
+A no-fit decision is a valid outcome, and we will recommend a safer next step where possible.
+
+## Services -- Full Descriptions & Pricing
+
+### Primary Diagnostic -- Free
+A complimentary 30-45 minute diagnostic conversation to identify process, data, CRM, and IT system bottlenecks in B2B companies. No obligation.
+/services/business-diagnostic
+
+### Advisory Power Hour -- from $200
+A focused working session with a senior advisor on one specific decision or problem. Bring one concrete problem. Leave with expert direction in 60 minutes.
+/services/advisory-power-hour
+
+### Extended Diagnostic -- from $1,200
+A structured, documented diagnosis of processes, systems, and risks. Scope depends on the number of systems, workflows, and stakeholders involved.
+/services/business-diagnostic
+
+### Add-on Tool Build -- from $900
+A single focused build: Telegram bot, landing page, or email campaign.
+/services/addon-tool-build
+
+### IT Risk & Security -- from $1,900
+Focused review of accounts, access, data handling, and single points of failure.
+/services/it-risk-security
+
+### Process & Operations -- from $3,500
+Operating model design: clarified ownership, documented workflows, removed duplication. Redesign handoffs, approvals, and ownership for growing teams.
+/services/process-operations
+
+### AI & Process Automation -- from $3,900
+Workflow automation where it pays off: tool connections, decision logic, documentation. Remove manual, repetitive work where it actually pays off.
+/services/ai-process-automation
+
+### RevOps: CRM, Data & Reporting -- from $4,900
+CRM structure cleanup, reporting rules, and revenue data flow. Make your CRM, pipeline, and reporting trustworthy again.
+/services/revops-crm-consulting
+
+### O-1 Readiness Support -- from $2,500
+Evidence structuring for O-1 extraordinary-ability visa cases. Helps IT professionals and founders build the evidence portfolio that demonstrates extraordinary ability: publications, speaking, expert positioning, and recommendation strategy. Petition filing and legal counsel are provided by qualified immigration attorneys.
+/o1-visa-readiness
+
+## Systems We Work With
+
+HubSpot, Salesforce, Pipedrive, Asana, Monday, Notion, QuickBooks, Zapier, Make, and related business tools.
+
+## Team
+
+- Igor Saevets, Founder & CEO -- operating model & diagnostic lead
+
+## Partners
+
+- GrowCluster (International Association of IT Specialists) -- certified IT talent, mentorship, industry expertise -- https://growcluster.com/
+
+## FAQ
+
+**Is this a sales call?**
+No. It is a structured diagnostic conversation to identify likely bottlenecks and the safest next step.
+
+**How much does the diagnostic cost?**
+The initial diagnostic conversation (30-45 minutes) is complimentary and carries no obligation. If the diagnostic identifies a clear next step, we provide a fixed-scope proposal with defined deliverables and pricing before any commitment. Paid engagements are scoped individually based on the number of systems, workflows, and stakeholders involved.
+
+**How long does the diagnostic process take?**
+The first conversation takes 30-45 minutes. A paid audit, assessment, or roadmap usually depends on the number of systems, workflows, and stakeholders involved.
+
+**Do you implement systems?**
+Yes, when the diagnostic, audit, assessment, roadmap, or architecture review validates the scope.
+
+**Do you work remotely or on-site?**
+Most diagnostic and advisory work is remote-first. On-site work in California is available when the scope requires it.
+
+**What systems do you work with?**
+We work with environments using HubSpot, Salesforce, Pipedrive, Asana, Monday, Notion, QuickBooks, Zapier, Make, and related business tools.
+
+**Who do you work with best?**
+Our strongest fit is a B2B company with 50-250 employees that is facing: cross-functional process or system complexity; weak visibility across CRM or SaaS tools; unclear automation or AI priorities; a high-impact migration or integration decision that needs independent review.
+
+**When are you not the right fit?**
+We are usually not the right fit for: hourly staff augmentation; basic tool setup without process or data complexity; a predetermined tool-first project that excludes problem definition; requests for guaranteed ROI before baseline analysis. A no-fit decision is a valid outcome, and we will recommend a safer next step where possible.
+
+**Do you guarantee ROI?**
+No. ROI requires baseline data, scope definition, adoption risk review, and implementation assumptions.
+
+**What industries do you specialize in?**
+We work across B2B industries including SaaS, professional services, logistics, manufacturing, and multi-location operators. The diagnostic is industry-agnostic: it focuses on process, data flow, and system architecture rather than a specific vertical.
+
+**Can you help migrate from Salesforce to HubSpot?**
+Yes. CRM migration is a common outcome of the RevOps diagnostic. We map your current data model, pipeline logic, and integrations before recommending a migration path. We work with both Salesforce and HubSpot environments.
+
+**How is a diagnostic different from a consulting engagement?**
+The diagnostic is a structured, time-boxed review that identifies what is broken and why. A consulting engagement implements the fix. We separate the two so you never pay for implementation before the problem is validated.
+
+**What does a typical RevOps audit include?**
+A RevOps audit covers CRM structure, pipeline stages, reporting definitions, data sources, key integrations, and automation rules. The output is a prioritized fix list with estimated effort and impact for each item.
+
+**Do you handle O-1 visa petitions?**
+We do not provide legal advice or file immigration petitions. What we offer is O-1 readiness support: helping IT professionals and founders build the evidence portfolio that demonstrates extraordinary ability: publications, speaking, expert positioning, and recommendation strategy. Petition filing and legal counsel are provided by qualified immigration attorneys we coordinate with.
+
+## Blog
+
+- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
+  Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.
+
+- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /blog/choose-embedding-model-enterprise-rag
+  Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.
+
+- Investors Don't Fund Ideas. They Fund Operating Evidence. -- /blog/investor-readiness-operating-evidence
+  Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.
+
+- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /blog/ai-agents-are-not-automation
+  Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.
+
+- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /blog/evaluate-ai-agent-before-production
+  Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.
+
+- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /blog/mcp-vs-a2a-enterprise-ai-agents
+  Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.
+
+- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /blog/ai-governance-mid-market-b2b
+  Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.
+
+- The Complete RevOps Audit Guide for B2B Teams -- /blog/revops-audit-guide
+  A step-by-step framework for auditing your CRM, pipeline, reporting, and data flow. Includes a checklist you can use today.
+
+- How to Migrate from Salesforce to HubSpot Without Losing Data -- /blog/salesforce-to-hubspot-migration
+  A practical migration roadmap: what to map first, what to clean, what to rebuild, and the mistakes that cost B2B teams months.
+
+- 7 Signs Your CRM Pipeline Is Leaking Revenue -- /blog/crm-pipeline-leaking-revenue
+  Most B2B teams lose deals not because of bad sales, but because of CRM pipeline gaps. Here are the 7 patterns we find in every audit.
+
+- RevOps for 50-Person Teams: Where to Start -- /blog/revops-for-small-teams
+  You don't need a dedicated RevOps hire to fix your revenue operations. A practical starting point for small B2B teams.
+
+- HubSpot vs Salesforce for B2B Services: An Honest Comparison -- /blog/hubspot-vs-salesforce-b2b
+  Neither CRM is universally better. How to choose based on your team size, deal complexity, and what you actually need.
+
+## Pages
+
+- About -- /about
+- Services & Pricing -- /services
+- Blog -- /blog
+- O-1 Visa Readiness -- /o1-visa-readiness
+- Terms of Use -- /terms-of-use
+- Privacy Policy -- /privacy-policy
+- Cookie Policy -- /cookie-policy
+
+## Location
+
+California, USA (remote-first)
+
+## Contact
+
+privacy@opsfieldsystems.com

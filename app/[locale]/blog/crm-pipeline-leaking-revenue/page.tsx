@@ -11,7 +11,7 @@ import { Link } from "@/i18n/navigation";
 const SLUG = "crm-pipeline-leaking-revenue";
 const post = BLOG_POSTS.find((p) => p.slug === SLUG)!;
 
-const TITLE = "7 Signs Your CRM Pipeline Is Leaking Revenue | Opsfield Systems";
+const TITLE = "7 Signs Your CRM Pipeline Is Leaking Revenue";
 const DESCRIPTION =
   "Most B2B teams lose deals not because of bad sales, but because of CRM pipeline gaps. Here are the 7 patterns we find in every RevOps audit.";
 

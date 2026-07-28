@@ -27,10 +27,30 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     if (process.env.SITE_MODE === "production") {
-      return [{ source: "/:path*", headers: securityHeaders }];
+      return [
+        {
+          source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        { source: "/:path*", headers: securityHeaders },
+      ];
     }
 
     return [
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         source: "/:path*",
         headers: [

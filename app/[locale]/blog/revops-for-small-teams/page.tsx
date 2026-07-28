@@ -17,11 +17,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "RevOps for 50-Person Teams: Where to Start | Opsfield Systems",
+    title: "RevOps for 50-Person Teams: Where to Start",
     description:
       "You don't need a dedicated RevOps hire to fix your revenue operations. A practical starting point for small B2B teams with 50 or fewer employees.",
     alternates: alternatesFor(loc, "/blog/revops-for-small-teams"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

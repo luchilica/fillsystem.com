@@ -67,21 +67,27 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
 }
 
 function ArticleJsonLd({
+  slug,
   title,
   description,
   date,
   author,
   heroImage,
 }: {
+  slug: string;
   title: string;
   description: string;
   date: string;
   author: { name: string; title: string; linkedin?: string };
   heroImage?: string;
 }) {
+  const articleUrl = `${siteConfig.url}/blog/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${articleUrl}#article`,
+    url: articleUrl,
+    mainEntityOfPage: { "@id": articleUrl },
     headline: title,
     description,
     datePublished: date,
@@ -93,11 +99,7 @@ function ArticleJsonLd({
       jobTitle: author.title,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
     },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
+    publisher: { "@id": `${siteConfig.url}#organization` },
   };
 
   return (
@@ -158,6 +160,7 @@ export default async function BlogPostLayout({
       />
 
       <ArticleJsonLd
+        slug={slug}
         title={title}
         description={description}
         date={date}

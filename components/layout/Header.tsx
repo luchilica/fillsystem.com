@@ -173,8 +173,8 @@ export default function Header() {
         ref={drawerRef}
         id={DRAWER_ID}
         className={`${styles.drawer} ${open ? styles.drawerOpen : ""}`}
-        role="dialog"
-        aria-modal="true"
+        role={open ? "dialog" : undefined}
+        aria-modal={open ? "true" : undefined}
         aria-label={t("Site navigation")}
       >
         <div className={styles.drawerHeader}>
@@ -182,6 +182,7 @@ export default function Header() {
             type="button"
             className={styles.menuButton}
             aria-label={t("Close menu")}
+            aria-controls={DRAWER_ID}
             onClick={closeDrawer}
           >
             <X size={24} aria-hidden="true" />

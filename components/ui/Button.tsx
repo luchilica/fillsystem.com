@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, MouseEvent } from "react";
 import { Plus } from "lucide-react";
 import styles from "./Button.module.css";
 
@@ -62,6 +62,9 @@ export default function Button({
         href={href}
         className={classes}
         aria-disabled={disabled || undefined}
+        {...(disabled
+          ? { tabIndex: -1, onClick: (e: MouseEvent) => e.preventDefault() }
+          : {})}
         {...rest}
       >
         {content}

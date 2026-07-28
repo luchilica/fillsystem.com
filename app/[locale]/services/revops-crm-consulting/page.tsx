@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -12,7 +11,7 @@ import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./RevOpsCrm.module.css";
 
-const TITLE = "RevOps & CRM Consulting for B2B | Opsfield Systems";
+const TITLE = "RevOps & CRM Consulting for B2B";
 const DESCRIPTION =
   "CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $4,900.";
 
@@ -229,7 +228,6 @@ export default async function RevOpsCrmConsulting({
 
   return (
     <>
-      <BreadcrumbJsonLd title="RevOps & CRM Consulting" path="/services/revops-crm-consulting" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

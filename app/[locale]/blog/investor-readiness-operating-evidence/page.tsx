@@ -28,6 +28,9 @@ export async function generateMetadata({
       "/blog/investor-readiness-operating-evidence"
     ),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

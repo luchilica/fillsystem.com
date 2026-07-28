@@ -12,7 +12,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import styles from "./BusinessDiagnostic.module.css";
 
 const TITLE =
-  "Business & IT Diagnostic for B2B Teams | Opsfield Systems";
+  "Business & IT Diagnostic for B2B Teams";
 const DESCRIPTION =
   "Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data, and IT bottlenecks before you commit.";
 

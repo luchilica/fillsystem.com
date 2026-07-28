@@ -18,11 +18,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "MCP vs. A2A for Enterprise AI Agents | Opsfield Systems",
+    title: "MCP vs. A2A for Enterprise AI Agents",
     description:
       "Learn how MCP and A2A connect AI agents to tools and other agents - and what identity, permissions, approvals, and controls enterprises must design themselves.",
     alternates: alternatesFor(loc, "/blog/mcp-vs-a2a-enterprise-ai-agents"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

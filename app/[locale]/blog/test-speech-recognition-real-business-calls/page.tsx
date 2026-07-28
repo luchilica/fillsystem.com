@@ -27,6 +27,9 @@ export async function generateMetadata({
       "/blog/test-speech-recognition-real-business-calls"
     ),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

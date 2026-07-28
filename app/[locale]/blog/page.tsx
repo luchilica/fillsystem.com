@@ -19,7 +19,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "Blog | Opsfield Systems",
+    title: "B2B Operations & IT Consulting Blog",
     description:
       "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Opsfield Systems team.",
     alternates: alternatesFor(loc, "/blog"),
@@ -52,7 +52,7 @@ export default async function BlogPage({
       {/* Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <h1>{t("Blog")}</h1>
+          <h1>{t("B2B Operations & IT Consulting Blog")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
               "Practical guides on RevOps, CRM, and IT diagnostics for B2B teams."
@@ -128,11 +128,9 @@ export default async function BlogPage({
             <Button href="/#diagnostic-request-form" variant="on-brand" icon>
               {t("Request a Diagnostic")}
             </Button>
-            <Link href="/services">
-              <Button variant="on-brand-outline">
-                {t("See Our Services")}
-              </Button>
-            </Link>
+            <Button href="/services" variant="on-brand-outline">
+              {t("See Our Services")}
+            </Button>
           </div>
         </div>
       </section>

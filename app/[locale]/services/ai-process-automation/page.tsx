@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -12,7 +11,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./AIAutomation.module.css";
 
 const TITLE =
-  "AI & Process Automation Consulting for B2B | Opsfield Systems";
+  "AI & Process Automation Consulting for B2B";
 const DESCRIPTION =
   "Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $3,900.";
 
@@ -214,7 +213,6 @@ export default async function AIProcessAutomation({
 
   return (
     <>
-      <BreadcrumbJsonLd title="AI & Process Automation" path="/services/ai-process-automation" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

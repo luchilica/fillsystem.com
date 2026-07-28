@@ -12,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./O1Readiness.module.css";
 
 const TITLE =
-  "O-1 Visa Readiness Support";
+  "O-1 Visa Readiness for IT Professionals & Founders";
 const DESCRIPTION =
   "Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination.";
 

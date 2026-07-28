@@ -22,9 +22,9 @@ import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./ServicesHub.module.css";
 
-const TITLE = "B2B Consulting Services & Pricing | Opsfield Systems";
+const TITLE = "B2B Consulting Services & Pricing";
 const DESCRIPTION =
-  "IT diagnostics, RevOps consulting, CRM audits, AI automation, and process optimization for B2B companies with 50-250 employees. Transparent pricing, diagnostic-first approach.";
+  "IT diagnostics, RevOps, CRM audits, AI automation & process optimization for B2B companies (50-250 employees). Transparent pricing.";
 
 export async function generateMetadata({
   params,
@@ -393,11 +393,9 @@ export default async function ServicesPage({
             <Button href="/#diagnostic-request-form" variant="on-brand" icon>
               {t("Request a Diagnostic")}
             </Button>
-            <Link href="/about">
-              <Button variant="on-brand-outline">
-                {t("About Our Team")}
-              </Button>
-            </Link>
+            <Button href="/about" variant="on-brand-outline">
+              {t("About Our Team")}
+            </Button>
           </div>
         </div>
       </section>

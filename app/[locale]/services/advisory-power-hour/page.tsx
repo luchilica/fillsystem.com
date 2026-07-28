@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
@@ -13,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./AdvisoryHour.module.css";
 
 const TITLE =
-  "Advisory Power Hour - $200 Expert Session | Opsfield Systems";
+  "Advisory Power Hour - $200 Expert Session";
 const DESCRIPTION =
   "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $200, no scoping, no wait.";
 
@@ -186,7 +185,6 @@ export default async function AdvisoryPowerHour({
 
   return (
     <>
-      <BreadcrumbJsonLd title="Advisory Power Hour" path="/services/advisory-power-hour" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

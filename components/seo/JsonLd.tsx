@@ -26,7 +26,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         description:
           "Diagnostic-first IT and business consulting for B2B companies.",
         founder: { "@id": `${home}#igor-saevets` },
-        sameAs: ["https://linkedin.com/in/igorsaevets"],
+        sameAs: ["https://www.linkedin.com/in/igorsaevets"],
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",
@@ -66,7 +66,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         serviceType: "Diagnostic-first IT and business consulting",
         provider: { "@id": organizationId },
         areaServed: { "@type": "Country", name: "United States" },
-        url: serviceUrl,
+        url: `${home}/services/business-diagnostic`,
         offers: [
           {
             "@type": "Offer",
@@ -194,8 +194,8 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         description:
           "Serial entrepreneur and IT operations advisor with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
         worksFor: { "@id": organizationId },
-        url: "https://linkedin.com/in/igorsaevets",
-        sameAs: ["https://linkedin.com/in/igorsaevets"],
+        url: "https://www.linkedin.com/in/igorsaevets",
+        sameAs: ["https://www.linkedin.com/in/igorsaevets"],
       },
       {
         "@type": "FAQPage",

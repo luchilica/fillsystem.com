@@ -6,7 +6,7 @@
   --footer-text: #ffffff;
   --footer-link: #ffffff;
   --footer-link-hover: var(--blue-300);
-  --footer-muted: rgba(255, 255, 255, 0.66);
+  --footer-muted: rgba(255, 255, 255, 0.75);
   --footer-divider: rgba(255, 255, 255, 0.15);
 
   background: var(--footer-bg);

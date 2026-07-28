@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
@@ -23,7 +22,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "About Opsfield Systems | B2B IT & Operations Consulting",
+    title: "About Us — B2B IT & Operations Consulting",
     description:
       "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business consulting for B2B companies with 50-250 employees.",
     alternates: alternatesFor(loc, "/about"),
@@ -257,11 +256,9 @@ export default async function About({
             >
               {t("Request a Diagnostic")}
             </Button>
-            <Link href="/services">
-              <Button variant="on-brand-outline">
-                {t("See Our Services")}
-              </Button>
-            </Link>
+            <Button href="/services" variant="on-brand-outline">
+              {t("See Our Services")}
+            </Button>
           </div>
         </div>
       </section>

@@ -17,11 +17,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "AI Governance for Mid-Market B2B Companies | Opsfield Systems",
+    title: "AI Governance for Mid-Market B2B Companies",
     description:
       "Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes - without enterprise bureaucracy.",
     alternates: alternatesFor(loc, "/blog/ai-governance-mid-market-b2b"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

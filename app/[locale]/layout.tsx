@@ -14,12 +14,12 @@ import { siteConfig } from "@/lib/site-config";
 import { routing } from "@/i18n/routing";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 
-// v2 brand face — Mulish, weight-driven hierarchy (900 display/wordmark, 800
-// sub-heads, 700 UI, 600 emphasis, 400–500 body). Self-hosted by next/font
-// (no third-party font requests). Exposed as --font-sans.
+// v2 brand face — Mulish, weight-driven hierarchy (600 headings/emphasis,
+// 500 lead text, 400 body). Self-hosted by next/font (no third-party font
+// requests). Exposed as --font-sans.
 const mulish = Mulish({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -35,26 +35,36 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const viewport: Viewport = { themeColor: "#2551D2" };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "Opsfield Systems",
-    template: "%s | Opsfield Systems",
-  },
-  description: "Diagnostic-first IT & business consulting.",
-  // Sitewide share-preview image. Declared explicitly (not left to the
-  // opengraph-image.tsx file convention alone) because pages that set their own
-  // `openGraph`/`twitter` in generateMetadata were shipping HTML with no
-  // og:image tag — so Telegram/Slack/LinkedIn had nothing to render. metadataBase
-  // resolves "/opengraph-image" to an absolute HTTPS URL.
-  openGraph: {
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/opengraph-image"],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: "Opsfield Systems",
+      template: "%s | Opsfield Systems",
+    },
+    description: "Diagnostic-first IT & business consulting.",
+    // Sitewide share-preview image. Declared explicitly (not left to the
+    // opengraph-image.tsx file convention alone) because pages that set their own
+    // `openGraph`/`twitter` in generateMetadata were shipping HTML with no
+    // og:image tag — so Telegram/Slack/LinkedIn had nothing to render. metadataBase
+    // resolves "/opengraph-image" to an absolute HTTPS URL.
+    openGraph: {
+      siteName: siteConfig.name,
+      locale: LOCALE_META[locale as Locale]?.ogLocale || "en_US",
+      type: "website",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
+    },
+  };
+}
 
 // Statically render all known locales.
 export function generateStaticParams() {

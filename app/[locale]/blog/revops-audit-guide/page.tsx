@@ -17,11 +17,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "The Complete RevOps Audit Guide for B2B Teams | Opsfield Systems",
+    title: "The Complete RevOps Audit Guide for B2B Teams",
     description:
       "A step-by-step framework for auditing your CRM, pipeline, reporting, and data flow. Includes a practical checklist for B2B teams with 50-250 employees.",
     alternates: alternatesFor(loc, "/blog/revops-audit-guide"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

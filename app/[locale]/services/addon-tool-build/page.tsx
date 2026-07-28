@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
@@ -13,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./AddonTool.module.css";
 
 const TITLE =
-  "Add-on Tool Build: Bot, Landing Page, or Email | Opsfield Systems";
+  "Add-on Tool Build: Bot, Landing Page, or Email";
 const DESCRIPTION =
   "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $900.";
 
@@ -173,7 +172,6 @@ export default async function AddonToolBuild({
 
   return (
     <>
-      <BreadcrumbJsonLd title="Add-on Tool Build" path="/services/addon-tool-build" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

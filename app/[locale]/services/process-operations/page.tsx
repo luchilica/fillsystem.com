@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
@@ -13,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./ProcessOps.module.css";
 
 const TITLE =
-  "Process & Operations Consulting for B2B | Opsfield Systems";
+  "Process & Operations Consulting for B2B";
 const DESCRIPTION =
   "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25–250 employees. From $3,500.";
 
@@ -188,7 +187,6 @@ export default async function ProcessOperations({
 
   return (
     <>
-      <BreadcrumbJsonLd title="Process & Operations" path="/services/process-operations" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

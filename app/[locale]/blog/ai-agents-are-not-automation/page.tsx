@@ -22,6 +22,9 @@ export async function generateMetadata({
       "Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.",
     alternates: alternatesFor(loc, "/blog/ai-agents-are-not-automation"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 

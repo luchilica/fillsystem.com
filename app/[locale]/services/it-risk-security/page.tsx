@@ -4,7 +4,6 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -12,7 +11,7 @@ import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./ITRiskSecurity.module.css";
 
-const TITLE = "IT Risk & Security Audit for Small Business | Opsfield Systems";
+const TITLE = "IT Risk & Security Audit for B2B Companies";
 const DESCRIPTION =
   "Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $1,900.";
 
@@ -193,7 +192,6 @@ export default async function ITRiskSecurity({
 
   return (
     <>
-      <BreadcrumbJsonLd title="IT Risk & Security" path="/services/it-risk-security" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

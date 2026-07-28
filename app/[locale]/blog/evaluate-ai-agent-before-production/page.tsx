@@ -16,11 +16,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "How to Evaluate an AI Agent Before Production | Opsfield Systems",
+    title: "How to Evaluate an AI Agent Before Production",
     description:
       "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     alternates: alternatesFor(loc, "/blog/evaluate-ai-agent-before-production"),
     robots: robotsFor(loc),
+    openGraph: {
+      type: "article",
+    },
   };
 }
 
