@@ -78,7 +78,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
           {
             "@type": "Offer",
             name: "Advisory Power Hour",
-            price: "200",
+            price: "350",
             priceCurrency: "USD",
             description:
               "A focused working session with a senior advisor on one specific decision or problem.",
@@ -88,7 +88,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "Extended Diagnostic",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "1200",
+              minPrice: "1400",
               priceCurrency: "USD",
             },
             description:
@@ -99,7 +99,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "Add-on Tool Build",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "900",
+              minPrice: "1100",
               priceCurrency: "USD",
             },
             description:
@@ -110,7 +110,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "IT Risk & Security",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "1900",
+              minPrice: "2100",
               priceCurrency: "USD",
             },
             description:
@@ -121,7 +121,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "Process & Operations",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "3500",
+              minPrice: "3700",
               priceCurrency: "USD",
             },
             description:
@@ -132,7 +132,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "AI & Process Automation",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "3900",
+              minPrice: "4100",
               priceCurrency: "USD",
             },
             description:
@@ -143,7 +143,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
             name: "RevOps: CRM, Data & Reporting",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "4900",
+              minPrice: "5100",
               priceCurrency: "USD",
             },
             description:
@@ -152,7 +152,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
           {
             "@type": "Offer",
             name: "O-1 Readiness Support",
-            price: "2500",
+            price: "2700",
             priceCurrency: "USD",
             description:
               "Evidence structuring for O-1 extraordinary-ability visa cases.",

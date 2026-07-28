@@ -14,7 +14,7 @@ import styles from "./ProcessOps.module.css";
 const TITLE =
   "Process & Operations Consulting for B2B";
 const DESCRIPTION =
-  "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,500.";
+  "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,700.";
 
 export async function generateMetadata({
   params,
@@ -163,11 +163,11 @@ export default async function ProcessOperations({
           name: "Process & Operations Consulting",
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: "3500",
+            minPrice: "3700",
             priceCurrency: "USD",
           },
           description:
-            "Process & Operations engagements start from $3,500. 2-4 weeks. Scope set by the free diagnostic.",
+            "Process & Operations engagements start from $3,700. 2-4 weeks. Scope set by the free diagnostic.",
         },
       },
       {
@@ -263,10 +263,10 @@ export default async function ProcessOperations({
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
-            <p className={styles.pricingPrice}>{t("From $3,500")}</p>
+            <p className={styles.pricingPrice}>{t("From $3,700")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "From $3,500. 2-4 weeks. Scope set by the free diagnostic.",
+                "From $3,700. 2-4 weeks. Scope set by the free diagnostic.",
               )}
             </p>
           </div>

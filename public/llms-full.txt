@@ -37,35 +37,35 @@ A no-fit decision is a valid outcome, and we will recommend a safer next step wh
 A complimentary 30-45 minute diagnostic conversation to identify process, data, CRM, and IT system bottlenecks in B2B companies. No obligation.
 /services/business-diagnostic
 
-### Advisory Power Hour -- from $200
+### Advisory Power Hour -- from $350
 A focused working session with a senior advisor on one specific decision or problem. Bring one concrete problem. Leave with expert direction in 60 minutes.
 /services/advisory-power-hour
 
-### Extended Diagnostic -- from $1,200
+### Extended Diagnostic -- from $1,400
 A structured, documented diagnosis of processes, systems, and risks. Scope depends on the number of systems, workflows, and stakeholders involved.
 /services/business-diagnostic
 
-### Add-on Tool Build -- from $900
+### Add-on Tool Build -- from $1,100
 A single focused build: Telegram bot, landing page, or email campaign.
 /services/addon-tool-build
 
-### IT Risk & Security -- from $1,900
+### IT Risk & Security -- from $2,100
 Focused review of accounts, access, data handling, and single points of failure.
 /services/it-risk-security
 
-### Process & Operations -- from $3,500
+### Process & Operations -- from $3,700
 Operating model design: clarified ownership, documented workflows, removed duplication. Redesign handoffs, approvals, and ownership for growing teams.
 /services/process-operations
 
-### AI & Process Automation -- from $3,900
+### AI & Process Automation -- from $4,100
 Workflow automation where it pays off: tool connections, decision logic, documentation. Remove manual, repetitive work where it actually pays off.
 /services/ai-process-automation
 
-### RevOps: CRM, Data & Reporting -- from $4,900
+### RevOps: CRM, Data & Reporting -- from $5,100
 CRM structure cleanup, reporting rules, and revenue data flow. Make your CRM, pipeline, and reporting trustworthy again.
 /services/revops-crm-consulting
 
-### O-1 Readiness Support -- from $2,500
+### O-1 Readiness Support -- from $2,700
 Evidence structuring for O-1 extraordinary-ability visa cases. Helps IT professionals and founders build the evidence portfolio that demonstrates extraordinary ability: publications, speaking, expert positioning, and recommendation strategy. Petition filing and legal counsel are provided by qualified immigration attorneys.
 /o1-visa-readiness
 

@@ -13,7 +13,7 @@ import styles from "./AIAutomation.module.css";
 const TITLE =
   "AI & Process Automation Consulting for B2B";
 const DESCRIPTION =
-  "Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $3,900.";
+  "Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $4,100.";
 
 export async function generateMetadata({
   params,
@@ -189,11 +189,11 @@ export default async function AIProcessAutomation({
           name: "AI & Process Automation Engagement",
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: "3900",
+            minPrice: "4100",
             priceCurrency: "USD",
           },
           description:
-            "AI & Process Automation engagements start from $3,900 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
+            "AI & Process Automation engagements start from $4,100 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
         },
       },
       {
@@ -287,10 +287,10 @@ export default async function AIProcessAutomation({
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
-            <p className={styles.pricingPrice}>{t("From $3,900")}</p>
+            <p className={styles.pricingPrice}>{t("From $4,100")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "AI & Process Automation engagements start from $3,900 for a lean 25-50 person team. Scope and pricing are always set by the free diagnostic first.",
+                "AI & Process Automation engagements start from $4,100 for a lean 25-50 person team. Scope and pricing are always set by the free diagnostic first.",
               )}
             </p>
             <p className={styles.pricingTimeline}>

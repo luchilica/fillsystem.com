@@ -192,7 +192,7 @@ export default async function BusinessDiagnosticPage({
         name: "Extended Diagnostic",
         priceSpecification: {
           "@type": "PriceSpecification",
-          minPrice: "1200",
+          minPrice: "1400",
           priceCurrency: "USD",
         },
         description:
@@ -369,7 +369,7 @@ export default async function BusinessDiagnosticPage({
                 <span
                   className={`${styles.comparisonPrice} ${styles.comparisonPricePaid}`}
                 >
-                  {t("from $1,200")}
+                  {t("from $1,400")}
                 </span>
               </div>
               <div className={styles.comparisonMeta}>

@@ -13,7 +13,7 @@ import styles from "./ITRiskSecurity.module.css";
 
 const TITLE = "IT Risk & Security Audit for B2B Companies";
 const DESCRIPTION =
-  "Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $1,900.";
+  "Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $2,100.";
 
 export async function generateMetadata({
   params,
@@ -168,11 +168,11 @@ export default async function ITRiskSecurity({
           name: "IT Risk & Security Audit",
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: "1900",
+            minPrice: "2100",
             priceCurrency: "USD",
           },
           description:
-            "IT Risk & Security audits start from $1,900 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
+            "IT Risk & Security audits start from $2,100 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
         },
       },
       {
@@ -274,11 +274,11 @@ export default async function ITRiskSecurity({
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
             <p className={styles.pricingPrice}>
-              {t("From $1,900")}
+              {t("From $2,100")}
             </p>
             <p className={styles.pricingBody}>
               {t(
-                "IT Risk & Security audits start from $1,900 for a lean 25-50 person team. The exact scope is set by the free diagnostic.",
+                "IT Risk & Security audits start from $2,100 for a lean 25-50 person team. The exact scope is set by the free diagnostic.",
               )}
             </p>
             <p className={styles.pricingTimeline}>

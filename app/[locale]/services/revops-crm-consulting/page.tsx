@@ -13,7 +13,7 @@ import styles from "./RevOpsCrm.module.css";
 
 const TITLE = "RevOps & CRM Consulting for B2B";
 const DESCRIPTION =
-  "CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $4,900.";
+  "CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $5,100.";
 
 export async function generateMetadata({
   params,
@@ -204,11 +204,11 @@ export default async function RevOpsCrmConsulting({
           name: "RevOps Engagement",
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: "4900",
+            minPrice: "5100",
             priceCurrency: "USD",
           },
           description:
-            "RevOps engagements start from $4,900 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
+            "RevOps engagements start from $5,100 for a lean 25-50 person team. Scope and cost set by the free diagnostic.",
         },
       },
       {
@@ -308,11 +308,11 @@ export default async function RevOpsCrmConsulting({
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
             <p className={styles.pricingPrice}>
-              {t("From $4,900")}
+              {t("From $5,100")}
             </p>
             <p className={styles.pricingBody}>
               {t(
-                "RevOps engagements start from $4,900 for a lean 25-50 person team. The exact scope and cost are set by the free diagnostic - you never pay before scope is agreed in writing.",
+                "RevOps engagements start from $5,100 for a lean 25-50 person team. The exact scope and cost are set by the free diagnostic - you never pay before scope is agreed in writing.",
               )}
             </p>
             <p className={styles.pricingTimeline}>

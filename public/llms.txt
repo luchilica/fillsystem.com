@@ -21,14 +21,14 @@ Diagnostic-first: every engagement starts with a structured review of processes,
 ## Services & Pricing
 
 - Primary Diagnostic (free) -- Complimentary 30-45 minute fit review to frame the problem and identify bottlenecks. /services/business-diagnostic
-- Advisory Power Hour (from $200) -- Bring one concrete problem. Leave with expert direction in 60 minutes. /services/advisory-power-hour
-- Extended Diagnostic (from $1,200) -- A documented diagnosis of processes, systems, and risks. /services/business-diagnostic
-- Add-on Tool Build (from $900) -- A focused build: Telegram bot, landing page, or email campaign. /services/addon-tool-build
-- IT Risk & Security (from $1,900) -- Review of accounts, access, data handling, and single points of failure. /services/it-risk-security
-- Process & Operations (from $3,500) -- Redesign handoffs, approvals, and ownership for growing teams. /services/process-operations
-- AI & Process Automation (from $3,900) -- Workflow automation where it pays off: tool connections, decision logic, documentation. /services/ai-process-automation
-- RevOps: CRM, Data & Reporting (from $4,900) -- CRM structure cleanup, reporting rules, and revenue data flow. /services/revops-crm-consulting
-- O-1 Readiness Support (from $2,500) -- Evidence structuring for O-1 extraordinary-ability visa cases. /o1-visa-readiness
+- Advisory Power Hour (from $350) -- Bring one concrete problem. Leave with expert direction in 60 minutes. /services/advisory-power-hour
+- Extended Diagnostic (from $1,400) -- A documented diagnosis of processes, systems, and risks. /services/business-diagnostic
+- Add-on Tool Build (from $1,100) -- A focused build: Telegram bot, landing page, or email campaign. /services/addon-tool-build
+- IT Risk & Security (from $2,100) -- Review of accounts, access, data handling, and single points of failure. /services/it-risk-security
+- Process & Operations (from $3,700) -- Redesign handoffs, approvals, and ownership for growing teams. /services/process-operations
+- AI & Process Automation (from $4,100) -- Workflow automation where it pays off: tool connections, decision logic, documentation. /services/ai-process-automation
+- RevOps: CRM, Data & Reporting (from $5,100) -- CRM structure cleanup, reporting rules, and revenue data flow. /services/revops-crm-consulting
+- O-1 Readiness Support (from $2,700) -- Evidence structuring for O-1 extraordinary-ability visa cases. /o1-visa-readiness
 
 ## Team
 

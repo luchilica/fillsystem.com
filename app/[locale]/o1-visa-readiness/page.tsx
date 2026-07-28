@@ -165,7 +165,7 @@ export default async function O1VisaReadiness({
         offers: {
           "@type": "Offer",
           name: "O-1 Readiness Support",
-          price: "2500",
+          price: "2700",
           priceCurrency: "USD",
           description:
             "Fixed-price engagement for O-1 visa evidence preparation and portfolio building.",
@@ -293,10 +293,10 @@ export default async function O1VisaReadiness({
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
-            <p className={styles.pricingPrice}>{t("$2,500")}</p>
+            <p className={styles.pricingPrice}>{t("$2,700")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "O-1 Readiness Support is a fixed-price engagement at $2,500. Timeline is ongoing and case-dependent - most initial assessments take 2-3 weeks, with evidence building extending over 2-6 months depending on what needs to be created.",
+                "O-1 Readiness Support is a fixed-price engagement at $2,700. Timeline is ongoing and case-dependent - most initial assessments take 2-3 weeks, with evidence building extending over 2-6 months depending on what needs to be created.",
               )}
             </p>
           </div>

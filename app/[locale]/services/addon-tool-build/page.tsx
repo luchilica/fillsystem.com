@@ -14,7 +14,7 @@ import styles from "./AddonTool.module.css";
 const TITLE =
   "Add-on Tool Build: Bot, Landing Page, or Email";
 const DESCRIPTION =
-  "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $900.";
+  "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $1,100.";
 
 export async function generateMetadata({
   params,
@@ -148,11 +148,11 @@ export default async function AddonToolBuild({
           name: "Add-on Tool Build",
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: "900",
+            minPrice: "1100",
             priceCurrency: "USD",
           },
           description:
-            "Add-on tool builds start from $900 for a lean team. 1-2 weeks delivery.",
+            "Add-on tool builds start from $1,100 for a lean team. 1-2 weeks delivery.",
         },
       },
       {
@@ -234,10 +234,10 @@ export default async function AddonToolBuild({
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
-            <p className={styles.pricingPrice}>{t("From $900")}</p>
+            <p className={styles.pricingPrice}>{t("From $1,100")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "From $900 for a lean team. 1-2 weeks delivery.",
+                "From $1,100 for a lean team. 1-2 weeks delivery.",
               )}
             </p>
           </div>

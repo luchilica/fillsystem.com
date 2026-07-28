@@ -75,7 +75,7 @@ const SERVICES: {
     title: "Advisory Power Hour",
     description:
       "Bring one concrete problem. Leave with expert direction in 60 minutes.",
-    price: "from $200",
+    price: "from $350",
     priceFree: false,
     highlight: false,
     href: "/services/advisory-power-hour",
@@ -86,7 +86,7 @@ const SERVICES: {
     title: "Extended Diagnostic",
     description:
       "A documented diagnosis of processes, systems, and risks.",
-    price: "from $1,200",
+    price: "from $1,400",
     priceFree: false,
     highlight: false,
     href: "/services/business-diagnostic",
@@ -97,7 +97,7 @@ const SERVICES: {
     title: "Add-on Tool Build",
     description:
       "A focused build: Telegram bot, landing page, or email campaign.",
-    price: "from $900",
+    price: "from $1,100",
     priceFree: false,
     highlight: false,
     href: "/services/addon-tool-build",
@@ -108,7 +108,7 @@ const SERVICES: {
     title: "IT Risk & Security",
     description:
       "Review of accounts, access, data handling, and single points of failure.",
-    price: "from $1,900",
+    price: "from $2,100",
     priceFree: false,
     highlight: false,
     href: "/services/it-risk-security",
@@ -119,7 +119,7 @@ const SERVICES: {
     title: "Process & Operations",
     description:
       "Redesign handoffs, approvals, and ownership for growing teams.",
-    price: "from $3,500",
+    price: "from $3,700",
     priceFree: false,
     highlight: false,
     href: "/services/process-operations",
@@ -130,7 +130,7 @@ const SERVICES: {
     title: "AI & Process Automation",
     description:
       "Remove manual, repetitive work where it actually pays off.",
-    price: "from $3,900",
+    price: "from $4,100",
     priceFree: false,
     highlight: false,
     href: "/services/ai-process-automation",
@@ -141,7 +141,7 @@ const SERVICES: {
     title: "RevOps: CRM, Data & Reporting",
     description:
       "Make your CRM, pipeline, and reporting trustworthy again.",
-    price: "from $4,900",
+    price: "from $5,100",
     priceFree: false,
     highlight: false,
     href: "/services/revops-crm-consulting",
@@ -152,7 +152,7 @@ const SERVICES: {
     title: "O-1 Readiness Support",
     description:
       "Structure the evidence behind an O-1 extraordinary-ability case.",
-    price: "from $2,500",
+    price: "from $2,700",
     priceFree: false,
     highlight: false,
     href: "/o1-visa-readiness",
@@ -221,7 +221,7 @@ export default async function ServicesPage({
           {
             "@type": "Offer",
             name: "Advisory Power Hour",
-            price: "200",
+            price: "350",
             priceCurrency: "USD",
             description:
               "Bring one concrete problem. Leave with expert direction in 60 minutes.",
@@ -231,7 +231,7 @@ export default async function ServicesPage({
             name: "Extended Diagnostic",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "1200",
+              minPrice: "1400",
               priceCurrency: "USD",
             },
             description:
@@ -242,7 +242,7 @@ export default async function ServicesPage({
             name: "Add-on Tool Build",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "900",
+              minPrice: "1100",
               priceCurrency: "USD",
             },
             description:
@@ -253,7 +253,7 @@ export default async function ServicesPage({
             name: "IT Risk & Security",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "1900",
+              minPrice: "2100",
               priceCurrency: "USD",
             },
             description:
@@ -264,7 +264,7 @@ export default async function ServicesPage({
             name: "Process & Operations",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "3500",
+              minPrice: "3700",
               priceCurrency: "USD",
             },
             description:
@@ -275,7 +275,7 @@ export default async function ServicesPage({
             name: "AI & Process Automation",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "3900",
+              minPrice: "4100",
               priceCurrency: "USD",
             },
             description:
@@ -286,7 +286,7 @@ export default async function ServicesPage({
             name: "RevOps: CRM, Data & Reporting",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: "4900",
+              minPrice: "5100",
               priceCurrency: "USD",
             },
             description:
@@ -295,7 +295,7 @@ export default async function ServicesPage({
           {
             "@type": "Offer",
             name: "O-1 Readiness Support",
-            price: "2500",
+            price: "2700",
             priceCurrency: "USD",
             description:
               "Evidence structuring for O-1 extraordinary-ability visa cases.",

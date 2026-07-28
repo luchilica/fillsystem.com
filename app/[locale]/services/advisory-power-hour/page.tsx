@@ -12,9 +12,9 @@ import { Link } from "@/i18n/navigation";
 import styles from "./AdvisoryHour.module.css";
 
 const TITLE =
-  "Advisory Power Hour - $200 Expert Session";
+  "Advisory Power Hour - $350 Expert Session";
 const DESCRIPTION =
-  "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $200, no scoping, no wait.";
+  "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $350, no scoping, no wait.";
 
 export async function generateMetadata({
   params,
@@ -162,10 +162,10 @@ export default async function AdvisoryPowerHour({
         offers: {
           "@type": "Offer",
           name: "Advisory Power Hour",
-          price: "200",
+          price: "350",
           priceCurrency: "USD",
           description:
-            "$200 per session. 60 minutes. No long-term commitment.",
+            "$350 per session. 60 minutes. No long-term commitment.",
         },
       },
       {
@@ -265,10 +265,10 @@ export default async function AdvisoryPowerHour({
         <div className="container">
           <h2>{t("Pricing")}</h2>
           <div className={styles.pricingCard}>
-            <p className={styles.pricingPrice}>{t("$200")}</p>
+            <p className={styles.pricingPrice}>{t("$350")}</p>
             <p className={styles.pricingBody}>
               {t(
-                "$200 per session. 60 minutes. No long-term commitment.",
+                "$350 per session. 60 minutes. No long-term commitment.",
               )}
             </p>
           </div>
