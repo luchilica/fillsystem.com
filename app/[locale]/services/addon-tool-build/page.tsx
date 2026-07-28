@@ -173,6 +173,7 @@ export default async function AddonToolBuild({
 
   return (
     <>
+      <BreadcrumbJsonLd title="Add-on Tool Build" path="/services/addon-tool-build" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

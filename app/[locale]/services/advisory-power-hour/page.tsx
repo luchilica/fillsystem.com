@@ -186,6 +186,7 @@ export default async function AdvisoryPowerHour({
 
   return (
     <>
+      <BreadcrumbJsonLd title="Advisory Power Hour" path="/services/advisory-power-hour" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

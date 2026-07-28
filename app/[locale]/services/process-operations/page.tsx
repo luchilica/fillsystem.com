@@ -188,6 +188,7 @@ export default async function ProcessOperations({
 
   return (
     <>
+      <BreadcrumbJsonLd title="Process & Operations" path="/services/process-operations" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

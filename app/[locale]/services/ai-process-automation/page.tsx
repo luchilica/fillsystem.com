@@ -214,6 +214,7 @@ export default async function AIProcessAutomation({
 
   return (
     <>
+      <BreadcrumbJsonLd title="AI & Process Automation" path="/services/ai-process-automation" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

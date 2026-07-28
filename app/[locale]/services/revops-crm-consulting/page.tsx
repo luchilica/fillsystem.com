@@ -229,6 +229,7 @@ export default async function RevOpsCrmConsulting({
 
   return (
     <>
+      <BreadcrumbJsonLd title="RevOps & CRM Consulting" path="/services/revops-crm-consulting" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

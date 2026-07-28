@@ -193,6 +193,7 @@ export default async function ITRiskSecurity({
 
   return (
     <>
+      <BreadcrumbJsonLd title="IT Risk & Security" path="/services/it-risk-security" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

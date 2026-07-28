@@ -30,7 +30,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",
-          email: "opsfieldsystems@gmail.com",
+          email: "privacy@opsfieldsystems.com",
           contactType: "customer service",
           availableLanguage: ["English"],
         },
