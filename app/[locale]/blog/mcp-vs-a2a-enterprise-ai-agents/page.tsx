@@ -5,6 +5,7 @@ import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { BLOG_POSTS } from "@/components/blog/blogData";
+import { Link } from "@/i18n/navigation";
 
 const post = BLOG_POSTS.find(
   (p) => p.slug === "mcp-vs-a2a-enterprise-ai-agents"
@@ -771,15 +772,19 @@ Orchestrating agent
         </strong>
       </p>
       <p>
-        {t(
-          "Opsfield Systems can assess the process, existing integrations, trust boundaries, and production controls through an independent"
-        )}{" "}
+        {t("Opsfield's")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>{" "}
+        {t("covers agent architecture design — from process mapping and trust boundaries to identity, permissions, and production controls — before protocols are connected to live systems.")}
+      </p>
+      <p>
         <strong>
-          {t("AI Architecture Review or IT Stack Assessment")}
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
         </strong>{" "}
-        {t(
-          "before an agent ecosystem is connected to live business systems."
-        )}
+        {t("to assess your agent integration readiness and define the operating model your architecture still needs.")}
       </p>
     </BlogPostLayout>
   );

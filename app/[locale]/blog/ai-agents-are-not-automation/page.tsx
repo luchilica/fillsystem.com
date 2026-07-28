@@ -5,6 +5,7 @@ import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { BLOG_POSTS } from "@/components/blog/blogData";
+import { Link } from "@/i18n/navigation";
 
 const post = BLOG_POSTS.find((p) => p.slug === "ai-agents-are-not-automation")!;
 
@@ -829,11 +830,19 @@ export default async function AIAgentsNotAutomation({
         </p>
       </blockquote>
       <p>
+        {t("At Opsfield, our")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>{" "}
+        {t("engagements begin with exactly this kind of readiness assessment — mapping the process, defining decision boundaries, and identifying what must be remediated before an agent can safely operate.")}
+      </p>
+      <p>
         <strong>
-          {t(
-            "Before connecting an agent to production systems, Opsfield Systems can assess the process, data, permissions, decision boundaries, and expected ROI through an AI & Process Automation Review."
-          )}
-        </strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>{" "}
+        {t("to find out whether your operations are ready for AI agents — or what needs to change first.")}
       </p>
     </BlogPostLayout>
   );

@@ -830,24 +830,20 @@ export default async function ChooseEmbeddingModel({
         )}
       </p>
 
-      {/* ── Before indexing the full corpus (CTA) ────────────── */}
-      <h2>{t("Before indexing the full corpus")}</h2>
       <p>
-        {t(
-          "Opsfield Systems evaluates the process, data sources, retrieval requirements, security constraints and expected business value before an AI architecture is committed."
-        )}
-      </p>
-      <p>
-        {t(
-          "A Business & IT Diagnostic can determine whether the next step should be a limited retrieval benchmark; an AI readiness assessment; a data and permissions review; a RAG architecture roadmap; a small controlled implementation; and or no implementation yet."
-        )}
+        {t("Through")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>
+        {t(", Opsfield evaluates retrieval requirements, data sources, security constraints, and expected business value before an embedding architecture is committed — so the model decision is grounded in your operating reality, not a leaderboard.")}
       </p>
       <p>
         <strong>
-          {t(
-            "Validate the retrieval decision before paying to embed and maintain the wrong system."
-          )}
-        </strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>{" "}
+        {t("to validate the retrieval decision before paying to embed and maintain the wrong system.")}
       </p>
     </BlogPostLayout>
   );

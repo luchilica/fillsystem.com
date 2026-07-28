@@ -5,6 +5,7 @@ import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { BLOG_POSTS } from "@/components/blog/blogData";
+import { Link } from "@/i18n/navigation";
 
 const post = BLOG_POSTS.find((p) => p.slug === "evaluate-ai-agent-before-production")!;
 
@@ -880,11 +881,19 @@ export default async function EvaluateAIAgent({
         <p>{t("Under which conditions can the company trust it to act?")}</p>
       </blockquote>
       <p>
+        {t("Opsfield's")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>{" "}
+        {t("includes structured agent evaluation — test design, trace review, acceptance criteria, rollout planning, and production monitoring setup.")}
+      </p>
+      <p>
         <strong>
-          {t(
-            "Opsfield Systems can review the process, test design, permissions, observability, failure controls, economics, and rollout plan through an Agent Production Readiness Review or Extended Diagnostic."
-          )}
-        </strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>{" "}
+        {t("to determine whether your AI agent is ready for production — or what evidence is still missing.")}
       </p>
     </BlogPostLayout>
   );

@@ -859,11 +859,23 @@ export default async function AIGovernanceMidMarket({
         )}
       </p>
       <p>
+        {t("Opsfield helps mid-market teams design practical governance through")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>{" "}
+        {t("and")}{" "}
+        <Link href="/services/it-risk-security">
+          {t("IT Risk & Security assessments")}
+        </Link>
+        {t(" — covering inventory, risk classification, ownership, data controls, evaluation criteria, and incident readiness.")}
+      </p>
+      <p>
         <strong>
-          {t(
-            "For a 50-250-person B2B company, the minimum viable governance model is an inventory, risk classification, clear ownership, controlled data and permissions, measurable evaluation, incident readiness, and disciplined change management."
-          )}
-        </strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>{" "}
+        {t("to identify which AI systems need governance controls before they reach production.")}
       </p>
     </BlogPostLayout>
   );

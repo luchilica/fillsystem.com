@@ -5,6 +5,7 @@ import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { BLOG_POSTS } from "@/components/blog/blogData";
+import { Link } from "@/i18n/navigation";
 
 const post = BLOG_POSTS.find(
   (p) => p.slug === "test-speech-recognition-real-business-calls"
@@ -793,20 +794,20 @@ export default async function TestSpeechRecognition({
         )}
       </p>
 
-      {/* -- Before deployment ------------------------------------- */}
-      <h2>{t("Before deployment")}</h2>
       <p>
-        {t(
-          "Opsfield Systems can help define the test corpus, error taxonomy, acceptance criteria, architecture, review workflow, and operating economics through a Voice AI Architecture Assessment or Business & IT Diagnostic."
-        )}
+        {t("Through our")}{" "}
+        <Link href="/services/ai-process-automation">
+          {t("AI & Process Automation consulting")}
+        </Link>
+        {t(", Opsfield can help define the test corpus, error taxonomy, acceptance criteria, and operating economics for voice AI — so the production decision is based on evidence from your calls, not vendor benchmarks.")}
       </p>
       <p>
-        {t("The objective is not to select the most impressive model.")}
-      </p>
-      <p>
-        {t(
-          "It is to validate whether the complete voice workflow is accurate, governable, and economically useful before it becomes part of production operations."
-        )}
+        <strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>{" "}
+        {t("to assess whether your voice workflow is ready for production — or where the gaps are.")}
       </p>
     </BlogPostLayout>
   );
