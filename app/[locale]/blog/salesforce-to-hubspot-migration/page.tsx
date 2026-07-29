@@ -311,6 +311,13 @@ export default async function SalesforceToHubspotMigration({
           ", or request a free diagnostic to get a clear picture of your current state before committing to any migration plan."
         )}
       </p>
+      <p>
+        <strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>
+      </p>
     </BlogPostLayout>
   );
 }

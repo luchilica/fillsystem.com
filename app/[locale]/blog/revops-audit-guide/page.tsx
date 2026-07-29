@@ -385,6 +385,13 @@ export default async function RevOpsAuditGuide({
           "If any of this sounds like your situation, start with a free diagnostic. We will review your current setup, identify the highest-impact issues, and tell you whether a full audit is warranted -no commitment, no sales pitch."
         )}
       </p>
+      <p>
+        <strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>
+      </p>
     </BlogPostLayout>
   );
 }

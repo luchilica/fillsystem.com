@@ -192,6 +192,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "RevOps",
     heroImage: "/blog/revops-audit.jpg",
     heroAlt: "Business analytics dashboard with charts and data visualizations.",
+    seoTitle: "The Complete RevOps Audit Guide for B2B Teams",
+    metaDescription: "A step-by-step framework for auditing your CRM, pipeline, reporting, and data flow. Includes a checklist you can use today.",
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
@@ -208,6 +210,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     heroImage: "/blog/crm-migration.jpg",
     heroAlt: "Data visualization charts representing CRM data migration process.",
+    seoTitle: "How to Migrate from Salesforce to HubSpot Without Losing Data",
+    metaDescription: "A practical migration roadmap: what to map first, what to clean, what to rebuild, and the mistakes that cost B2B teams months.",
     author: {
       name: "Solutions Architect",
       title: "Fill System",
@@ -223,6 +227,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     heroImage: "/blog/crm-pipeline.jpg",
     heroAlt: "Financial charts and graphs showing sales pipeline analysis.",
+    seoTitle: "7 Signs Your CRM Pipeline Is Leaking Revenue",
+    metaDescription: "Most B2B teams lose deals not because of bad sales, but because of CRM pipeline gaps. Here are the 7 patterns we find in every audit.",
     author: {
       name: "AI & Data Lead",
       title: "Fill System",
@@ -238,6 +244,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "RevOps",
     heroImage: "/blog/small-team.jpg",
     heroAlt: "Small team collaborating around a table in a modern office.",
+    seoTitle: "RevOps for 50-Person Teams: Where to Start",
+    metaDescription: "You don't need a dedicated RevOps hire to fix your revenue operations. A practical starting point for small B2B teams.",
     author: {
       name: "Igor Saevets",
       title: "Founder & CEO",
@@ -254,6 +262,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "CRM",
     heroImage: "/blog/crm-comparison.jpg",
     heroAlt: "Person working with software interface on a laptop screen.",
+    seoTitle: "HubSpot vs Salesforce for B2B Services: Honest Comparison",
+    metaDescription: "Neither CRM is universally better. How to choose based on your team size, deal complexity, and what you actually need.",
     author: {
       name: "Solutions Architect",
       title: "Fill System",

@@ -241,6 +241,13 @@ export default async function HubSpotVsSalesforceB2B({
           "The best CRM for your company is not the one with the most features or the best reviews. It is the one your team will use consistently, that produces data you can trust, and that supports the processes you actually follow. Sometimes that means HubSpot. Sometimes that means Salesforce. Sometimes that means staying where you are and fixing what is broken. The only way to know is to look at your situation honestly -- and that starts with an audit, not a vendor demo."
         )}
       </p>
+      <p>
+        <strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>
+      </p>
     </BlogPostLayout>
   );
 }

@@ -203,6 +203,13 @@ export default async function RevOpsForSmallTeams({
           "RevOps at 50 people is not complicated. It is just easy to deprioritize in favor of things that feel more urgent. But the companies that take the time to get the fundamentals right -- one source of truth, one handoff process, one person who owns data quality -- are the ones that scale without the revenue operations chaos that makes growth painful. Start small. Start now. Fix the three things that matter most, and build from there."
         )}
       </p>
+      <p>
+        <strong>
+          <Link href="/#diagnostic-request-form">
+            {t("Request a free diagnostic")}
+          </Link>
+        </strong>
+      </p>
     </BlogPostLayout>
   );
 }
