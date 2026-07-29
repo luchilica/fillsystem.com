@@ -1,4 +1,4 @@
-# Accessibility Audit — Opsfield Systems
+# Accessibility Audit — Fill System
 
 **Date:** 2026-06-30
 **Scope:** Homepage (`/`) + legal pages (`/privacy-policy`, `/terms-of-use`, `/cookie-policy`)
@@ -39,8 +39,8 @@
 ### A-003 — Insufficient text contrast on the "Others" comparison label
 - **Severity:** Serious · **WCAG:** 1.4.3 Contrast (Minimum) · **Status: FIXED**
 - **Description:** `.othersLabel` (visible 12px `<span>Others</span>`) used `--text-muted` (`#94A3B8`) ≈ **2.5:1** on the card surface — fails 4.5:1.
-- **File/selector:** `components/sections/WhyOpsfield.module.css` → `.othersLabel` (rendered in `WhyOpsfield.tsx:38`).
-- **Fix applied:** `color: var(--text-secondary)` (`#475569`, ≈ 6.9:1). Still visually subdued vs the accent "Opsfield" label, preserving the paired-contrast message. (`.opsfieldLabel` `#1E40AF` on `#DBEAFE` ≈ 6.5:1 — already passes.)
+- **File/selector:** `components/sections/WhyFill System.module.css` → `.othersLabel` (rendered in `WhyFill System.tsx:38`).
+- **Fix applied:** `color: var(--text-secondary)` (`#475569`, ≈ 6.9:1). Still visually subdued vs the accent "Fill System" label, preserving the paired-contrast message. (`.opsfieldLabel` `#1E40AF` on `#DBEAFE` ≈ 6.5:1 — already passes.)
 
 ### A-004 — Heading-order skips (h2 → h4)
 - **Severity:** Moderate · **WCAG:** 1.3.1 Info and Relationships (axe `heading-order`) · **Status: FIXED**

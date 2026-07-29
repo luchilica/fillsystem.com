@@ -79,7 +79,7 @@ export default async function Footer() {
         {/* Positioning */}
         <p className={styles.positioning}>
           {t(
-            "Opsfield Systems: senior-led IT and business advisory for B2B companies facing process, data, and system complexity."
+            "Fill System: senior-led IT and business advisory for B2B companies facing process, data, and system complexity."
           )}
         </p>
 
@@ -98,12 +98,12 @@ export default async function Footer() {
         {/* Copyright + direct contact */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2026 Opsfield Systems. California, USA.
+            © 2026 Fill System. California, USA.
           </p>
           <p className={styles.contact}>
             {t("Questions or issues?")}{" "}
-            <a href="mailto:opsfieldsystems@gmail.com" className={styles.contactLink}>
-              opsfieldsystems@gmail.com
+            <a href="mailto:hello@fillsystem.com" className={styles.contactLink}>
+              hello@fillsystem.com
             </a>
           </p>
         </div>

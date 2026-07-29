@@ -4,24 +4,24 @@ import Button from "@/components/ui/Button";
 import { getT } from "@/i18n/t";
 import styles from "./WhyOpsfield.module.css";
 
-// Copy from docs/texts.md → "Why Opsfield Systems" (comparison table).
+// Copy from docs/texts.md → "Why Fill System" (comparison table).
 // CTA → form with data-request-type "Business & IT Diagnostic" per sitemap.md.
 const PAIRS = [
   {
     others: "SaaS integrator → picks a platform",
-    opsfield: "Maps your process and data flow",
+    fillsystem: "Maps your process and data flow",
   },
   {
     others: "Automation agency → automates existing workflow",
-    opsfield: "Checks if the workflow should exist",
+    fillsystem: "Checks if the workflow should exist",
   },
   {
     others: "Internal hire → builds what is requested",
-    opsfield: "Diagnoses what is actually needed",
+    fillsystem: "Diagnoses what is actually needed",
   },
   {
     others: "Dev agency → writes code to spec",
-    opsfield: "Reviews whether the spec solves the problem",
+    fillsystem: "Reviews whether the spec solves the problem",
   },
 ];
 
@@ -29,7 +29,7 @@ export default async function WhyOpsfield() {
   const t = await getT();
   return (
     <div className="container">
-      <h2 className={styles.intro}>{t("Why Opsfield Systems")}</h2>
+      <h2 className={styles.intro}>{t("Why Fill System")}</h2>
       <p className={`lead ${styles.text}`}>
         {t(
           "The difference is what gets validated before budget, tools, or implementation are committed.",
@@ -41,7 +41,7 @@ export default async function WhyOpsfield() {
           {t("What others do first")}
         </div>
         <div className={`${styles.head} ${styles.headOpsfield}`}>
-          {t("What Opsfield does first")}
+          {t("What Fill System does first")}
         </div>
         {PAIRS.map((pair, i) => (
           <Fragment key={i}>
@@ -55,7 +55,7 @@ export default async function WhyOpsfield() {
               <span className={styles.nodeCheck} aria-hidden="true">
                 <Check size={15} strokeWidth={2.75} />
               </span>
-              <span>{t(pair.opsfield)}</span>
+              <span>{t(pair.fillsystem)}</span>
             </div>
           </Fragment>
         ))}

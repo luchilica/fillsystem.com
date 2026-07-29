@@ -113,9 +113,9 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.logo} aria-label={t("Opsfield Systems - home")}>
+        <Link href="/" className={styles.logo} aria-label={t("Fill System - home")}>
           <Logomark size={32} className={styles.logoMark} />
-          Opsfield Systems
+          Fill System
         </Link>
 
         {/* Desktop navigation */}

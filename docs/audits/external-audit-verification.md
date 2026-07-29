@@ -1,8 +1,8 @@
-# External Audit Verification — Opsfield Systems
+# External Audit Verification — Fill System
 
 **Date:** 2026-07-02
 **Verified against:** local codebase (Node v24.16.0, Next.js 16.2.9), clean `npm ci` + `npm run lint` + `npx tsc --noEmit` + `npm run build` — all pass.
-**Audited target:** `https://opsfield-systems.vercel.app/` — a **deployed preview that reflects the end of Этап 4**.
+**Audited target:** `https://fill-system.vercel.app/` — a **deployed preview that reflects the end of Этап 4**.
 
 ## ⚠️ Critical context: deployment gap
 
@@ -65,10 +65,10 @@ Homepage HTML contains all of `og:title, og:description, og:image, og:url, og:ty
 
 ### A8 — "Same meta description on all pages" → **DENIED** (fixed-but-undeployed) · Severity: HIGH (on live)
 Each page has a **unique** title + description matching `texts.md`:
-- `/` — "B2B companies with 50–250 employees use Opsfield Systems to diagnose…"
-- `/privacy-policy` — "Learn how Opsfield Systems collects, uses, protects, and retains…"
-- `/terms-of-use` — "Review the terms governing access to the Opsfield Systems website…"
-- `/cookie-policy` — "Learn how Opsfield Systems uses necessary and optional analytics cookies…"
+- `/` — "B2B companies with 50–250 employees use Fill System to diagnose…"
+- `/privacy-policy` — "Learn how Fill System collects, uses, protects, and retains…"
+- `/terms-of-use` — "Review the terms governing access to the Fill System website…"
+- `/cookie-policy` — "Learn how Fill System uses necessary and optional analytics cookies…"
 At Этап 4 all routes inherited the root default → the finding was true then. *Fix: deploy.*
 
 ### A9 — "robots.txt not found or misconfigured" → **PARTIAL** · Severity: LOW
@@ -100,10 +100,10 @@ FAQ is a client accordion but **answers are server-rendered in the raw HTML** (p
 
 ## Structure verification (Step 5)
 
-- **Sections:** exactly **11**, IDs in the sitemap order: `hero, problem-section, what-we-diagnose, ai-process-automation, how-the-diagnostic-works, proof-examples, why-opsfield-systems, delivery-model, business-it-diagnostic, faq, final-cta`. ✅
+- **Sections:** exactly **11**, IDs in the sitemap order: `hero, problem-section, what-we-diagnose, ai-process-automation, how-the-diagnostic-works, proof-examples, why-fill-system, delivery-model, business-it-diagnostic, faq, final-cta`. ✅
 - **Headings:** exactly **one `<h1>`**; sequence `h1 → h2 → h3` throughout — **no level skips**. ✅ (Footer group titles are the trailing `h2`s.)
 - **Header nav:** Services / How It Works / Results / FAQ / Request Diagnostic — all present and resolve. ✅
-- **Footer + copyright:** matches sitemap.md; copyright exact `© 2026 Opsfield Systems. California, USA.` ✅
+- **Footer + copyright:** matches sitemap.md; copyright exact `© 2026 Fill System. California, USA.` ✅
 - **CTA anchors:** all `href="#…"` resolve to existing IDs (contract + E2E). ✅
 - **Prohibited content on homepage:** no `O-1`/`O1`/`visa`/`immigration`; no `TODO`/`TBD`/`lorem ipsum`/`FIXME`; no `Clearpath`. ✅
   - Note: `immigration` appears **once site-wide**, only in the Privacy Policy's "do not submit … immigration documents" sensitive-data clause (verbatim approved `texts.md`) — a standard privacy clause, **not** an O-1/immigration-service reference. Compliant.

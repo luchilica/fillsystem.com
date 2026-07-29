@@ -24,7 +24,7 @@ export async function generateMetadata({
   return {
     title: "About Us — B2B IT & Operations Development",
     description:
-      "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
+      "Founded by Igor Saevets, Fill System delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
     alternates: alternatesFor(loc, "/about"),
     robots: robotsFor(loc),
   };
@@ -37,12 +37,12 @@ function PersonJsonLd() {
     name: "Igor Saevets",
     jobTitle: "Founder & CEO",
     description:
-      "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
+      "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Fill System.",
     url: `${siteConfig.url}/about`,
     sameAs: ["https://www.linkedin.com/in/igorsaevets"],
     worksFor: {
       "@type": "Organization",
-      name: "Opsfield Systems",
+      name: "Fill System",
       url: siteConfig.url,
     },
     knowsAbout: [
@@ -98,9 +98,9 @@ const TEAM = [
     subtitle: "Operating model & diagnostic lead",
     link: "https://www.linkedin.com/in/igorsaevets",
     isLinkedIn: true,
-    bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Opsfield Systems.",
+    bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder, recognized for extraordinary ability in business and technology. Leads diagnostic methodology and operating model design at Fill System.",
     bioExtended:
-      "Before Opsfield, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. He has built enterprise software, led cloud migrations, and run cross-border tech projects.",
+      "Before Fill System, Igor founded business incubators, startup accelerators, and prototyping centers, mentoring 150+ entrepreneurs and contributing to entrepreneurship legislation. He has built enterprise software, led cloud migrations, and run cross-border tech projects.",
   },
   {
     name: "GrowCluster",
@@ -111,7 +111,7 @@ const TEAM = [
     isLinkedIn: false,
     bio: "International IT professionals community providing certified talent, mentorship, and industry expertise for project teams and consulting work.",
     bioExtended:
-      "GrowCluster brings together 200+ vetted IT specialists across software engineering, cloud infrastructure, cybersecurity, and data engineering. Members contribute to Opsfield engagements as domain experts, implementation leads, and technical reviewers.",
+      "GrowCluster brings together 200+ vetted IT specialists across software engineering, cloud infrastructure, cybersecurity, and data engineering. Members contribute to Fill System engagements as domain experts, implementation leads, and technical reviewers.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default async function About({
       {/* 1 - Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <h1>{t("About Opsfield Systems")}</h1>
+          <h1>{t("About Fill System")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
               "Diagnostic-first IT and business development for B2B companies dealing with process, CRM, data flow, and automation problems.",

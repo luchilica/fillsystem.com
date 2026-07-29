@@ -15,7 +15,7 @@ const IMG = "public/og/glass.jpg";
 // ----------------------------------------------------------------------------
 
 export const alt =
-  "Opsfield Systems: Diagnostic-First IT & Business Advisory";
+  "Fill System: Diagnostic-First IT & Business Advisory";
 
 export const size = { width: 1200, height: 630 };
 
@@ -115,7 +115,7 @@ export default async function Image() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Opsfield Systems
+              Fill System
             </div>
           </div>
 

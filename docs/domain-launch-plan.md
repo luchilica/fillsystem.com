@@ -1,17 +1,17 @@
-# Domain Launch Plan — Opsfield Systems
+# Domain Launch Plan — Fill System
 
 > What to do after buying a domain. Ordered by dependency chain — each phase unlocks the next.
 
 ## Current state (2026-07-28)
 
-- Site live at `opsfield-systems.vercel.app` (functional, all content/SEO done)
+- Site live at `fill-system.vercel.app` (functional, all content/SEO done)
 - No custom domain, no professional email
 - `SITE_URL` resolved from `VERCEL_URL` env var (produces vercel.app URLs)
 - `metadataBase` set to `siteConfig.url` — works but triggers Next.js warnings
 - OG share cards render but point to vercel.app domain
 - GA4 wired but OFF (`ANALYTICS_ENABLED = false`, no measurement ID)
 - Cookie consent UI live, captures choice (ready for analytics activation)
-- Contact email: `opsfieldsystems@gmail.com`
+- Contact email: `fillsystem@gmail.com`
 - Resend API handles form submissions (no custom domain configured)
 
 ---
@@ -20,17 +20,17 @@
 
 ### Which domain?
 
-Legal pages and existing references use `opsfieldsystems.com`. Buying this exact domain avoids updating Terms of Use, Privacy Policy, and cookie text.
+Legal pages and existing references use `fillsystem.com`. Buying this exact domain avoids updating Terms of Use, Privacy Policy, and cookie text.
 
 **Alternative TLDs to consider:**
 | Domain | Pros | Cons |
 |--------|------|------|
-| `opsfieldsystems.com` | Matches existing legal text, professional | Generic TLD |
-| `opsfield.systems` | Short, memorable, semantic TLD | Non-standard, some corporate firewalls block |
-| `opsfield.io` | Tech-credible, short | Overused in tech, .io has sovereignty issues |
-| `opsfield.consulting` | Exact industry match | Long, unfamiliar TLD |
+| `fillsystem.com` | Matches existing legal text, professional | Generic TLD |
+| `fillsystem.com` | Short, memorable, semantic TLD | Non-standard, some corporate firewalls block |
+| `fillsystem.io` | Tech-credible, short | Overused in tech, .io has sovereignty issues |
+| `fillsystem.consulting` | Exact industry match | Long, unfamiliar TLD |
 
-**Recommendation:** `opsfieldsystems.com` as primary. Optionally buy `opsfield.systems` and redirect.
+**Recommendation:** `fillsystem.com` as primary. Optionally buy `fillsystem.com` and redirect.
 
 ### Registrar choice
 
@@ -45,9 +45,9 @@ Legal pages and existing references use `opsfieldsystems.com`. Buying this exact
 ### Brand protection (optional)
 
 Buy 2-3 adjacent domains to prevent squatters/competitors:
-- Primary: `opsfieldsystems.com`
-- Alt 1: `opsfield.systems` → 301 redirect
-- Alt 2: `opsfield.io` → 301 redirect
+- Primary: `fillsystem.com`
+- Alt 1: `fillsystem.com` → 301 redirect
+- Alt 2: `fillsystem.io` → 301 redirect
 
 Total: ~$30/year for all three via Cloudflare.
 
@@ -58,7 +58,7 @@ Total: ~$30/year for all three via Cloudflare.
 ### 1.1 Add domain to Vercel
 
 ```
-Vercel Dashboard → Project → Settings → Domains → Add "opsfieldsystems.com"
+Vercel Dashboard → Project → Settings → Domains → Add "fillsystem.com"
 ```
 
 Vercel provides:
@@ -82,7 +82,7 @@ Vercel auto-provisions Let's Encrypt certificates. No action needed — just wai
 
 ### 1.4 Redirect old URLs
 
-Vercel automatically redirects `opsfield-systems.vercel.app` → custom domain. Verify this works after setup.
+Vercel automatically redirects `fill-system.vercel.app` → custom domain. Verify this works after setup.
 
 **Hidden factor:** Any existing backlinks to vercel.app URLs will follow the redirect. But Google treats 301s as ~90% link equity transfer. The sooner you switch, the less equity you lose.
 
@@ -96,7 +96,7 @@ Set in Vercel Dashboard → Project → Settings → Environment Variables:
 
 | Variable | Value | Scope |
 |----------|-------|-------|
-| `SITE_URL` | `https://opsfieldsystems.com` | Production |
+| `SITE_URL` | `https://fillsystem.com` | Production |
 | `SITE_MODE` | `production` | Production |
 | `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | `G-XXXXXXXXXX` | Production |
 
@@ -122,7 +122,7 @@ This activates GA4 only in production with the real domain.
 
 Professional, full Gmail/Calendar/Drive. Best deliverability.
 
-1. Sign up at workspace.google.com with `opsfieldsystems.com`
+1. Sign up at workspace.google.com with `fillsystem.com`
 2. Add MX records to DNS:
 
 | Priority | Value |
@@ -140,8 +140,8 @@ Professional, full Gmail/Calendar/Drive. Best deliverability.
 
 If budget is tight for MVP:
 
-1. **Receive:** Cloudflare Email Routing (free) — forward `*@opsfieldsystems.com` → `opsfieldsystems@gmail.com`
-2. **Send:** Gmail "Send mail as" with SMTP relay — appears as `igor@opsfieldsystems.com` in recipient's inbox
+1. **Receive:** Cloudflare Email Routing (free) — forward `*@fillsystem.com` → `fillsystem@gmail.com`
+2. **Send:** Gmail "Send mail as" with SMTP relay — appears as `igor@fillsystem.com` in recipient's inbox
 3. Use ImprovMX (free tier) or Resend's SMTP if Cloudflare routing doesn't support your flow
 
 **Pros:** $0/month, works immediately
@@ -155,7 +155,7 @@ Middle ground — professional UI, custom domain, free tier.
 
 Update Footer.tsx:
 ```
-opsfieldsystems@gmail.com → hello@opsfieldsystems.com (or igor@)
+fillsystem@gmail.com → hello@fillsystem.com (or igor@)
 ```
 
 ---
@@ -184,7 +184,7 @@ The `amazonses.com` is for Resend (which uses AWS SES). Check Resend docs for cu
 
 DNS TXT record at `_dmarc`:
 ```
-v=DMARC1; p=quarantine; rua=mailto:dmarc@opsfieldsystems.com; pct=100
+v=DMARC1; p=quarantine; rua=mailto:dmarc@fillsystem.com; pct=100
 ```
 
 Start with `p=none` (monitor only) for 2 weeks, then switch to `p=quarantine`.
@@ -193,9 +193,9 @@ Start with `p=none` (monitor only) for 2 weeks, then switch to `p=quarantine`.
 
 Currently Resend sends from a generic address. After domain purchase:
 
-1. Resend Dashboard → Domains → Add `opsfieldsystems.com`
+1. Resend Dashboard → Domains → Add `fillsystem.com`
 2. Add the DNS records Resend provides (SPF, DKIM, MX for bounce handling)
-3. Update the `from` address in the API call to `noreply@opsfieldsystems.com`
+3. Update the `from` address in the API call to `noreply@fillsystem.com`
 
 **File:** `app/api/submit/route.ts` — update the `from` field.
 
@@ -217,7 +217,7 @@ Already set to `siteConfig.url` in `app/[locale]/layout.tsx:45`. Once `SITE_URL`
 
 ### 5.2 OG image URLs
 
-Currently wired in layout.tsx with explicit og:image. Once SITE_URL is correct, these resolve to `https://opsfieldsystems.com/opengraph-image` automatically.
+Currently wired in layout.tsx with explicit og:image. Once SITE_URL is correct, these resolve to `https://fillsystem.com/opengraph-image` automatically.
 
 ### 5.3 Verify share cards
 
@@ -235,7 +235,7 @@ After deploy, test with:
 ### 6.1 Verify domain ownership
 
 1. Go to search.google.com/search-console
-2. Add property → Domain → `opsfieldsystems.com`
+2. Add property → Domain → `fillsystem.com`
 3. Verify via DNS TXT record:
    ```
    google-site-verification=XXXXXXXXXXXX
@@ -244,7 +244,7 @@ After deploy, test with:
 ### 6.2 Submit sitemap
 
 ```
-https://opsfieldsystems.com/sitemap.xml
+https://fillsystem.com/sitemap.xml
 ```
 
 The sitemap is auto-generated by Next.js and includes all pages + locales.
@@ -279,8 +279,8 @@ Check weekly:
 
 ### 7.1 Create GA4 property
 
-1. analytics.google.com → Create property → "Opsfield Systems"
-2. Data stream → Web → `https://opsfieldsystems.com`
+1. analytics.google.com → Create property → "Fill System"
+2. Data stream → Web → `https://fillsystem.com`
 3. Copy Measurement ID (`G-XXXXXXXXXX`)
 4. Set as `NEXT_PUBLIC_GA4_MEASUREMENT_ID` in Vercel env vars
 
@@ -322,12 +322,12 @@ If you want analytics without cookie consent complexity:
 
 ```
 components/layout/Footer.tsx line 106-107
-opsfieldsystems@gmail.com → hello@opsfieldsystems.com
+fillsystem@gmail.com → hello@fillsystem.com
 ```
 
 ### 8.2 Legal pages
 
-If domain is `opsfieldsystems.com` — no changes needed (already referenced).
+If domain is `fillsystem.com` — no changes needed (already referenced).
 If domain is different — search and replace across:
 - `app/[locale]/terms-of-use/page.tsx`
 - `app/[locale]/privacy-policy/page.tsx`
@@ -391,7 +391,7 @@ Domain age is a minor but real Google ranking factor. Even if you're not ready t
 
 ### 10.2 LinkedIn company page
 
-Create a LinkedIn company page for Opsfield Systems with the custom domain URL. This:
+Create a LinkedIn company page for Fill System with the custom domain URL. This:
 - Creates a high-authority backlink
 - Makes the brand look legitimate
 - Enables LinkedIn ad targeting later
@@ -419,12 +419,12 @@ Republish top articles on:
 - Dev.to (for AI/tech articles)
 - Hashnode (developer audience)
 
-**Key:** Always set the canonical URL to your domain, not the syndication platform. This tells Google "the original lives at opsfieldsystems.com."
+**Key:** Always set the canonical URL to your domain, not the syndication platform. This tells Google "the original lives at fillsystem.com."
 
 ### 10.6 Link reclamation
 
 After switching from vercel.app:
-- Google any existing mentions of `opsfield-systems.vercel.app`
+- Google any existing mentions of `fill-system.vercel.app`
 - Contact sites linking to old URL and ask them to update
 - Vercel 301 handles this automatically, but direct links are stronger
 

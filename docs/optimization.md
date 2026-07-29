@@ -2,7 +2,7 @@
 
 ## Source of Truth
 
-Файл определяет SEO, accessibility, performance, analytics, privacy и технические правила реализации сайта Opsfield Systems.
+Файл определяет SEO, accessibility, performance, analytics, privacy и технические правила реализации сайта Fill System.
 
 Приоритет источников:
 
@@ -11,7 +11,7 @@
 3. `design.md` — визуальные tokens, компоненты и responsive behavior.
 4. `optimization.md` — SEO, accessibility, performance, analytics, privacy и технические запреты.
 
-**Бренд:** Opsfield Systems  
+**Бренд:** Fill System  
 **Статус бренда:** working brand. Owner-reported preliminary checks dated June 13, 2026 found no matching business in California Secretary of State Business Search and found the intended domain available at the time checked. Production clearance still requires trademark review, legal operator / DBA mapping, and domain registration and ownership.  
 **Рабочий язык сайта:** English  
 **Регион продвижения:** United States  
@@ -36,7 +36,7 @@
 
 ## Brand, Legal Entity and Domain Launch Gate
 
-`Opsfield Systems` is a working brand for design and content production. Its use in these files is not a trademark clearance opinion, a California name-availability determination, a name reservation, a DBA authorization, or proof of domain ownership.
+`Fill System` is a working brand for design and content production. Its use in these files is not a trademark clearance opinion, a California name-availability determination, a name reservation, a DBA authorization, or proof of domain ownership.
 
 ### Current preliminary status — owner reported, June 13, 2026
 
@@ -62,7 +62,7 @@ Production launch is blocked until all items below are completed and evidence is
 - Do not display `LLC`, `Inc.`, `Corp.`, `®`, or another legal / registration marker unless verified.
 - Do not claim that the brand is available, registered, protected, or legally cleared.
 - Do not purchase printed collateral or publish irreversible brand assets before owner / counsel approval.
-- The developer may build with `Opsfield Systems` as the working display name, but production deployment remains blocked by this gate.
+- The developer may build with `Fill System` as the working display name, but production deployment remains blocked by this gate.
 
 ---
 
@@ -123,7 +123,7 @@ Production launch is blocked until all items below are completed and evidence is
 #ai-process-automation
 #how-the-diagnostic-works
 #proof-examples
-#why-opsfield-systems
+#why-fill-system
 #delivery-model
 #business-it-diagnostic
 #faq
@@ -156,10 +156,10 @@ Metadata берётся только из `texts.md`. Snapshot ниже долж
 
 ```text
 Meta title:
-Diagnostic-First IT & Business Consulting | Opsfield Systems
+Diagnostic-First IT & Business Consulting | Fill System
 
 Meta description:
-B2B companies with 50–250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.
+B2B companies with 50–250 employees use Fill System to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.
 
 H1:
 Diagnostic-First IT & Business Consulting
@@ -305,7 +305,7 @@ Use only where natural and accurate:
 - business process consulting USA
 - B2B IT consulting USA
 
-Do not use `Bay Area` unless Opsfield Systems actually serves or targets that market specifically.
+Do not use `Bay Area` unless Fill System actually serves or targets that market specifically.
 
 ### O-1 Readiness Support — secondary service
 
@@ -352,7 +352,7 @@ The homepage must render exactly 11 top-level sections in the order defined by `
 - Hero: positioning, ICP, offer and CTA.
 - Problem Section: why growth slows and where symptoms appear.
 - How the Diagnostic Works: method and decision outputs; do not repeat the Hero slogan.
-- Why Opsfield Systems: comparison of operating approaches; do not restate the full positioning paragraph.
+- Why Fill System: comparison of operating approaches; do not restate the full positioning paragraph.
 - Delivery Model: who remains involved and what each role covers; do not invent biographies or credentials.
 - Final CTA: decision prompt and action; do not repeat the Hero or Problem copy verbatim.
 
@@ -395,7 +395,7 @@ JSON-LD размещается в `<head>` или в server-rendered HTML.
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://[production-domain]/#organization",
-  "name": "Opsfield Systems",
+  "name": "Fill System",
   "url": "https://[production-domain]/",
   "description": "Diagnostic-first IT and business consulting for B2B companies.",
   "foundingDate": "2021",
@@ -496,7 +496,7 @@ Rules:
 - Hero secondary CTA → `#how-the-diagnostic-works`
 - Problem CTA → `#diagnostic-request-form`
 - AI & Process Automation CTA → `#diagnostic-request-form`
-- Why Opsfield Systems CTA → `#diagnostic-request-form`
+- Why Fill System CTA → `#diagnostic-request-form`
 - Business & IT Diagnostic CTA → `#diagnostic-request-form`
 - Final primary CTA → `#diagnostic-request-form`
 - Final secondary CTA → `#how-the-diagnostic-works`
@@ -718,7 +718,7 @@ Do not replace with generic `Submit`.
 
 Send automatic confirmation within 1 minute of successful form submission.
 
-Subject: `Diagnostic request received — Opsfield Systems`
+Subject: `Diagnostic request received — Fill System`
 
 Body:
 
@@ -730,7 +730,7 @@ and respond within 2 business days.
 If you have additional context to share,
 you can reply to this email.
 
-— Opsfield Systems
+— Fill System
 ```
 
 Rules:
@@ -1334,7 +1334,7 @@ Newsletter is Phase 2 only.
 - [ ] Custom 404 page exists and links to homepage and diagnostic form.
 - [ ] 404 page is noindex.
 - [ ] 404 page uses consistent header/footer.
-- [ ] Working brand is Opsfield Systems everywhere; no unapproved alternate names remain.
+- [ ] Working brand is Fill System everywhere; no unapproved alternate names remain.
 - [ ] Comprehensive trademark clearance has been completed and evidence is archived.
 - [x] Owner-reported preliminary California Secretary of State Business Search found no matching business on June 13, 2026.
 - [ ] California legal entity / DBA mapping and public operator name are confirmed.
@@ -1438,7 +1438,7 @@ Newsletter is Phase 2 only.
 
 ## Запрещено
 
-- Самовольно менять рабочий бренд Opsfield Systems; любое переименование требует owner approval и повторной синхронизации всех четырёх source files.
+- Самовольно менять рабочий бренд Fill System; любое переименование требует owner approval и повторной синхронизации всех четырёх source files.
 - Использовать старое название компании.
 - Создавать страницы, отсутствующие в `sitemap.md`.
 - Упоминать удалённые draft page files.

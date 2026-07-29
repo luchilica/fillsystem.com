@@ -1,4 +1,4 @@
-# Pre-Launch Report — Opsfield Systems (Этап 13 Part A)
+# Pre-Launch Report — Fill System (Этап 13 Part A)
 
 **Date:** 2026-07-02
 **Scope:** Zero-budget pre-launch verification per development-plan.md → Этап 13 Part A.
@@ -25,12 +25,12 @@ Internal pre-launch asset (not commercial production). No code defects found; no
 - Homepage `<meta name="robots" content="noindex, nofollow">`.
 - No GA4 measurement ID, no `gtag`, no `googletagmanager` in any built HTML.
 - No `[production-domain]` placeholder anywhere.
-- Homepage contains no `opsfieldsystems.com`. *(Legal pages do — see Known limitations.)*
+- Homepage contains no `fillsystem.com`. *(Legal pages do — see Known limitations.)*
 
 ## 3. All 11 sections — ✅
 
 Count = 11; order exactly matches sitemap.md:
-`hero → problem-section → what-we-diagnose → ai-process-automation → how-the-diagnostic-works → proof-examples → why-opsfield-systems → delivery-model → business-it-diagnostic → faq → final-cta`. Exactly one `<h1>`.
+`hero → problem-section → what-we-diagnose → ai-process-automation → how-the-diagnostic-works → proof-examples → why-fill-system → delivery-model → business-it-diagnostic → faq → final-cta`. Exactly one `<h1>`.
 
 ## 4. CTAs — ✅
 
@@ -54,7 +54,7 @@ All in-page anchors resolve (contract test), and scroll behavior verified by E2E
 
 - Header nav: Services, How It Works, Results, FAQ, + "Request Diagnostic" CTA — all resolve.
 - Footer: Company (Team→#delivery-model, Services, Results, Contact), Get Started, Legal — all present/resolve.
-- Copyright exact: `© 2026 Opsfield Systems. California, USA.`
+- Copyright exact: `© 2026 Fill System. California, USA.`
 
 ## 8. Mobile (375×812) — ✅ (visual = owner QA)
 
@@ -85,7 +85,7 @@ Cookie consent banner does not appear (`ANALYTICS_ENABLED=false` → `CookieCons
 ## Known limitations for production (gated — not code defects)
 
 1. **Domain / canonical:** JSON-LD, canonical, OG use the preview host (`localhost` in this build). Set `SITE_URL` + `SITE_MODE=production` once the real domain is registered.
-2. **Email placeholders:** legal pages render `privacy@opsfieldsystems.com` (verbatim approved texts.md), and the form's error-state fallback references `general@opsfieldsystems.com` (renders only in the error branch, not in default HTML). Both are placeholders pending domain/inbox confirmation (brand launch gate). Not changeable here without editing approved copy.
+2. **Email placeholders:** legal pages render `privacy@fillsystem.com` (verbatim approved texts.md), and the form's error-state fallback references `general@fillsystem.com` (renders only in the error branch, not in default HTML). Both are placeholders pending domain/inbox confirmation (brand launch gate). Not changeable here without editing approved copy.
 3. **Legal provider text:** Privacy/Cookie policies name **Netlify / Cloudflare / GA4**, while the actual stack is **Vercel / Resend**. Requires a texts.md content update for counsel before production.
 4. **Form API:** submission is simulated; the real `/api/submit` + Resend integration and `RESEND_API_KEY` are not wired — email delivery is untestable until implemented.
 5. **OG image:** dynamic placeholder — replace with an approved brand asset before production.

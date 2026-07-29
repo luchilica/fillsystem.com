@@ -16,7 +16,7 @@ export async function generateMetadata({
   return {
     title: "Privacy Policy",
     description:
-      "Learn how Opsfield Systems collects, uses, protects, and retains personal information submitted through its website and diagnostic request form.",
+      "Learn how Fill System collects, uses, protects, and retains personal information submitted through its website and diagnostic request form.",
     alternates: alternatesFor(loc, "/privacy-policy"),
     robots: robotsFor(loc),
   };
@@ -34,7 +34,7 @@ export default async function PrivacyPolicy({
     <BreadcrumbJsonLd title="Privacy Policy" path="/privacy-policy" />
     <LegalPageLayout title="Privacy Policy" lastUpdated="June 13, 2026">
       <p>
-        Opsfield Systems (“Opsfield Systems,” “we,” “us,” or “our”) operates this
+        Fill System (“Fill System,” “we,” “us,” or “our”) operates this
         website and provides diagnostic-first IT and business consulting
         services. This Privacy Policy explains what personal information we
         collect through the website, how we use it, when we disclose it, and the
@@ -81,7 +81,7 @@ export default async function PrivacyPolicy({
       <p>
         We collect information directly from you, automatically from your browser
         or device, and from referral or business contacts when they introduce you
-        to Opsfield Systems. We do not purchase consumer data for the MVP
+        to Fill System. We do not purchase consumer data for the MVP
         website.
       </p>
 
@@ -103,7 +103,7 @@ export default async function PrivacyPolicy({
 
       <h2>Sale, Sharing, and Advertising</h2>
       <p>
-        Opsfield Systems does not sell personal information. The MVP website does
+        Fill System does not sell personal information. The MVP website does
         not use personal information for cross-context behavioral advertising or
         paid retargeting. If these practices change, we will update this policy
         and provide any legally required privacy choices before the change takes
@@ -164,10 +164,10 @@ export default async function PrivacyPolicy({
       </p>
       <p>
         If the California Consumer Privacy Act and California Privacy Rights Act
-        apply to Opsfield Systems, California residents may also have rights to
+        apply to Fill System, California residents may also have rights to
         know, correct, delete, opt out of sale or sharing, limit certain uses of
         sensitive personal information, and receive equal service without
-        discrimination for exercising applicable rights. Opsfield Systems does not
+        discrimination for exercising applicable rights. Fill System does not
         sell personal information and does not knowingly sell or share personal
         information of consumers under 16.
       </p>
@@ -196,7 +196,7 @@ export default async function PrivacyPolicy({
       <h2>Third-Party Links</h2>
       <p>
         The website may link to third-party services. Their privacy practices are
-        governed by their own policies, and Opsfield Systems is not responsible
+        governed by their own policies, and Fill System is not responsible
         for those practices.
       </p>
 
@@ -212,8 +212,8 @@ export default async function PrivacyPolicy({
       <h2>Contact</h2>
       <p>
         For privacy questions or requests, email{" "}
-        <a href="mailto:privacy@opsfieldsystems.com">
-          privacy@opsfieldsystems.com
+        <a href="mailto:privacy@fillsystem.com">
+          privacy@fillsystem.com
         </a>{" "}
         with enough information for us to locate the relevant inquiry. You may
         also use the website{" "}

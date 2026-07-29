@@ -16,7 +16,7 @@ export async function generateMetadata({
   return {
     title: "Terms of Use",
     description:
-      "Review the terms governing access to the Opsfield Systems website, website content, diagnostic requests, and informational materials.",
+      "Review the terms governing access to the Fill System website, website content, diagnostic requests, and informational materials.",
     alternates: alternatesFor(loc, "/terms-of-use"),
     robots: robotsFor(loc),
   };
@@ -34,14 +34,14 @@ export default async function TermsOfUse({
     <BreadcrumbJsonLd title="Terms of Use" path="/terms-of-use" />
     <LegalPageLayout title="Terms of Use" lastUpdated="June 13, 2026">
       <p>
-        These Terms of Use govern your access to and use of the Opsfield Systems
+        These Terms of Use govern your access to and use of the Fill System
         website. By using the website, you agree to these terms. If you do not
         agree, do not use the website.
       </p>
 
       <h2>Website Purpose</h2>
       <p>
-        The website provides general information about Opsfield Systems, its
+        The website provides general information about Fill System, its
         diagnostic-first consulting approach, potential services, and ways to
         request an initial fit review. Website content is informational and may
         not describe every term, limitation, dependency, or deliverable of a
@@ -60,7 +60,7 @@ export default async function TermsOfUse({
 
       <h2>No Legal, Financial, Accounting, or Tax Advice</h2>
       <p>
-        Opsfield Systems is not a law firm and does not provide legal, financial,
+        Fill System is not a law firm and does not provide legal, financial,
         accounting, or tax advice through this website. Users should consult
         appropriately licensed professionals for advice in those areas.
       </p>
@@ -76,7 +76,7 @@ export default async function TermsOfUse({
 
       <h2>Diagnostic Requests and Proposals</h2>
       <p>
-        Opsfield Systems may accept, decline, or redirect an inquiry at its
+        Fill System may accept, decline, or redirect an inquiry at its
         discretion. An initial fit review is not a full audit, implementation
         plan, legal assessment, architecture design, or guaranteed proposal. Any
         paid work requires a separate written agreement or accepted proposal.
@@ -103,22 +103,22 @@ export default async function TermsOfUse({
           use the website to infringe intellectual property, privacy, or other
           rights;
         </li>
-        <li>misrepresent an affiliation with Opsfield Systems.</li>
+        <li>misrepresent an affiliation with Fill System.</li>
       </ul>
 
       <h2>Intellectual Property</h2>
       <p>
         Unless otherwise stated, the website, brand elements, text, diagrams,
         frameworks, layouts, and downloadable materials are owned by or licensed
-        to Opsfield Systems and are protected by applicable intellectual-property
+        to Fill System and are protected by applicable intellectual-property
         laws. You may view and print limited portions for internal, noncommercial
         evaluation. No other license is granted without written permission.
       </p>
 
       <h2>User Submissions</h2>
       <p>
-        You retain ownership of information you submit. You authorize Opsfield
-        Systems and its service providers to process that information as
+        You retain ownership of information you submit. You authorize Fill
+        System and its service providers to process that information as
         reasonably necessary to review and respond to your request, maintain
         security, and comply with law. Do not submit confidential information that
         is not necessary for the initial fit review. Confidentiality obligations
@@ -128,7 +128,7 @@ export default async function TermsOfUse({
 
       <h2>Third-Party Services and Links</h2>
       <p>
-        The website may rely on or link to third-party services. Opsfield Systems
+        The website may rely on or link to third-party services. Fill System
         does not control and is not responsible for third-party content,
         availability, security, or terms. References to third-party tools do not
         imply endorsement, partnership, certification, or guaranteed
@@ -138,7 +138,7 @@ export default async function TermsOfUse({
       <h2>Disclaimer of Warranties</h2>
       <p>
         The website and its content are provided on an “as is” and “as available”
-        basis to the fullest extent permitted by law. Opsfield Systems disclaims
+        basis to the fullest extent permitted by law. Fill System disclaims
         warranties of accuracy, completeness, merchantability, fitness for a
         particular purpose, noninfringement, uninterrupted availability, and
         error-free operation. We may update or remove content without notice.
@@ -146,7 +146,7 @@ export default async function TermsOfUse({
 
       <h2>Limitation of Liability</h2>
       <p>
-        To the fullest extent permitted by law, Opsfield Systems and its owners,
+        To the fullest extent permitted by law, Fill System and its owners,
         personnel, contractors, and service providers will not be liable for
         indirect, incidental, special, consequential, exemplary, or punitive
         damages, or for lost profits, revenue, data, goodwill, or business
@@ -157,7 +157,7 @@ export default async function TermsOfUse({
 
       <h2>Indemnification</h2>
       <p>
-        You agree to indemnify and hold harmless Opsfield Systems and its owners,
+        You agree to indemnify and hold harmless Fill System and its owners,
         personnel, contractors, and service providers from claims, losses,
         liabilities, and reasonable costs arising from your unlawful use of the
         website, violation of these terms, or infringement of another person’s
@@ -189,8 +189,8 @@ export default async function TermsOfUse({
       </p>
       <p>
         For privacy questions or requests, email{" "}
-        <a href="mailto:privacy@opsfieldsystems.com">
-          privacy@opsfieldsystems.com
+        <a href="mailto:privacy@fillsystem.com">
+          privacy@fillsystem.com
         </a>{" "}
         with enough information for us to locate the relevant inquiry. You may
         also use the website{" "}

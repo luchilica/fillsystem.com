@@ -26,7 +26,7 @@ import BusinessITDiagnostic from "@/components/sections/BusinessITDiagnostic";
 // supplied by app/opengraph-image.tsx + app/twitter-image.tsx (file convention).
 const TITLE = "B2B IT & Operations Development";
 const DESCRIPTION =
-  "Opsfield Systems diagnoses process, CRM, data, and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires, or vendors.";
+  "Fill System diagnoses process, CRM, data, and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires, or vendors.";
 
 export async function generateMetadata({
   params,
@@ -54,7 +54,7 @@ export async function generateMetadata({
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "Opsfield Systems: Diagnostic-First IT & Business Development",
+          alt: "Fill System: Diagnostic-First IT & Business Development",
         },
       ],
     },
@@ -114,7 +114,7 @@ export default async function Home({
       </section>
 
       {/* 7 */}
-      <section id="why-opsfield-systems" className="section">
+      <section id="why-fill-system" className="section">
         <WhyOpsfield />
       </section>
 

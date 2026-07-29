@@ -36,7 +36,7 @@ export default async function AIProcessAutomation() {
         </h2>
         <p className={`lead ${styles.text}`}>
           {t("When the diagnostic identifies a clear automation opportunity,")}{" "}
-          Opsfield Systems{" "}
+          Fill System{" "}
           {t(
             "can help turn findings into a practical automation roadmap or limited implementation scope.",
           )}

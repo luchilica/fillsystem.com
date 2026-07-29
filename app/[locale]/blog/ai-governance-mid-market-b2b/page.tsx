@@ -859,7 +859,7 @@ export default async function AIGovernanceMidMarket({
         )}
       </p>
       <p>
-        {t("Opsfield helps mid-market teams design practical governance through")}{" "}
+        {t("Fill System helps mid-market teams design practical governance through")}{" "}
         <Link href="/services/ai-process-automation">
           {t("AI & Process Automation consulting")}
         </Link>{" "}

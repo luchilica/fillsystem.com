@@ -16,7 +16,7 @@ export async function generateMetadata({
   return {
     title: "Cookie Policy",
     description:
-      "Learn how Opsfield Systems uses necessary and optional analytics cookies and how website visitors can manage their preferences.",
+      "Learn how Fill System uses necessary and optional analytics cookies and how website visitors can manage their preferences.",
     alternates: alternatesFor(loc, "/cookie-policy"),
     robots: robotsFor(loc),
   };
@@ -34,7 +34,7 @@ export default async function CookiePolicy({
     <BreadcrumbJsonLd title="Cookie Policy" path="/cookie-policy" />
     <LegalPageLayout title="Cookie Policy" lastUpdated="June 13, 2026">
       <p>
-        This Cookie Policy explains how Opsfield Systems uses cookies and similar
+        This Cookie Policy explains how Fill System uses cookies and similar
         technologies on its website. It should be read together with the{" "}
         <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
@@ -120,8 +120,8 @@ export default async function CookiePolicy({
       <h2>Contact</h2>
       <p>
         For privacy questions or requests, email{" "}
-        <a href="mailto:privacy@opsfieldsystems.com">
-          privacy@opsfieldsystems.com
+        <a href="mailto:privacy@fillsystem.com">
+          privacy@fillsystem.com
         </a>{" "}
         with enough information for us to locate the relevant inquiry. You may
         also use the website{" "}

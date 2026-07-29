@@ -1,6 +1,6 @@
 @AGENTS.md
 
-# Opsfield Systems — Project Instructions
+# Fill System — Project Instructions
 
 Premium B2B IT & operations development site. Next.js 16 + next-intl + CSS Modules. No Tailwind.
 
@@ -227,7 +227,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 - Wrap all article body text in `t()` for i18n.
 
 ### Pages
-- Title set via layout template `"%s | Opsfield Systems"` — do NOT add the brand suffix manually.
+- Title set via layout template `"%s | Fill System"` — do NOT add the brand suffix manually.
 - Every page needs `alternates` and `robots` via `alternatesFor()` / `robotsFor()`.
 - Meta descriptions under 155 characters with a clear CTA where appropriate.
 - LinkedIn URLs always use `www.linkedin.com` (not `linkedin.com`).

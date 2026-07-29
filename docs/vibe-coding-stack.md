@@ -409,7 +409,7 @@ Rules:
 | `sitemap.md` | Add `vibe-coding-stack.md` to Final project files / Project File Map as the source of truth for stack, repository, Claude Code workflow, testing and deployment. |
 | `texts.md` and Cookie/Privacy legal drafts | At launch, list only providers actually used: Netlify, Postmark, GA4 after consent and Cloudflare in its real DNS/registrar role. Do not describe Cloudflare as content delivery/security if proxying is disabled. |
 | `action_plan_v2.md` | Mark as historical/completed after accepted changes are reflected. Correct or strike the obsolete Netlify Forms pricing/limit item so Claude does not revive it. |
-| Old `Clearpath Systems` and multipage RAG files | Move to archive or add `Status: superseded — do not use for implementation`. Do not perform a blind brand replacement because their page architecture conflicts with the current single-page Opsfield MVP. |
+| Old `Clearpath Systems` and multipage RAG files | Move to archive or add `Status: superseded — do not use for implementation`. Do not perform a blind brand replacement because their page architecture conflicts with the current single-page Fill System MVP. |
 | Active source files | Add a shared implementation-status header naming the five current source-of-truth files and explicitly excluding superseded RAG. |
 
 ## Sources

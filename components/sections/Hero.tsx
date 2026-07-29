@@ -17,7 +17,7 @@ export default async function Hero() {
         {/* Semantically a paragraph, visually a lead. */}
         <p className={`lead ${styles.subtitle}`}>
           {t(
-            "Opsfield Systems helps B2B teams find where operations, CRM, data flow, automation, and IT systems are slowing execution."
+            "Fill System helps B2B teams find where operations, CRM, data flow, automation, and IT systems are slowing execution."
           )}
         </p>
 

@@ -5,7 +5,7 @@ import styles from "./HeroSummary.module.css";
 // Hero brand panel — an illustrative diagnostic summary (mirrors Scenario 01).
 // Situation / Diagnostic found / Delivered read as a timeline (the diagnostic
 // process), capped by two headline metrics. The figures are illustrative,
-// estimate-framed — not a verified Opsfield result.
+// estimate-framed — not a verified Fill System result.
 const ROWS = [
   {
     label: "01 · Situation",

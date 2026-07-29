@@ -2,9 +2,9 @@ import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { FAQ_ITEMS, faqAnswerText } from "@/components/sections/faqData";
 
-const HOME_TITLE = "B2B IT & Operations Development | Opsfield Systems";
+const HOME_TITLE = "B2B IT & Operations Development | Fill System";
 const HOME_DESCRIPTION =
-  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
+  "B2B companies with 50-250 employees use Fill System to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
 
 export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
   const home = siteConfig.url;
@@ -30,7 +30,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",
-          email: "privacy@opsfieldsystems.com",
+          email: "privacy@fillsystem.com",
           contactType: "customer service",
           availableLanguage: ["English"],
         },
@@ -192,7 +192,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         name: "Igor Saevets",
         jobTitle: "Founder & CEO",
         description:
-          "Serial entrepreneur and IT operations advisor with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Opsfield Systems.",
+          "Serial entrepreneur and IT operations advisor with 10+ companies founded across the US and Europe. EB-1A green card holder. Leads diagnostic methodology and operating model design at Fill System.",
         worksFor: { "@id": organizationId },
         url: "https://www.linkedin.com/in/igorsaevets",
         sameAs: ["https://www.linkedin.com/in/igorsaevets"],

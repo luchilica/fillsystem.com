@@ -27,7 +27,7 @@ function normalizeUrl(url: string): string {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Opsfield Systems",
+  name: "Fill System",
   mode: SITE_MODE,
   url: normalizeUrl(resolveSiteUrl()),
   isPreview: SITE_MODE !== "production",

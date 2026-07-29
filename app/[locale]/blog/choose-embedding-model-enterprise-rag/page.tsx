@@ -835,7 +835,7 @@ export default async function ChooseEmbeddingModel({
         <Link href="/services/ai-process-automation">
           {t("AI & Process Automation consulting")}
         </Link>
-        {t(", Opsfield evaluates retrieval requirements, data sources, security constraints, and expected business value before an embedding architecture is committed — so the model decision is grounded in your operating reality, not a leaderboard.")}
+        {t(", Fill System evaluates retrieval requirements, data sources, security constraints, and expected business value before an embedding architecture is committed — so the model decision is grounded in your operating reality, not a leaderboard.")}
       </p>
       <p>
         <strong>

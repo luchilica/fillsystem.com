@@ -44,8 +44,8 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
-      default: "Opsfield Systems",
-      template: "%s | Opsfield Systems",
+      default: "Fill System",
+      template: "%s | Fill System",
     },
     description: "Diagnostic-first IT & business development.",
     // Sitewide share-preview image. Declared explicitly (not left to the

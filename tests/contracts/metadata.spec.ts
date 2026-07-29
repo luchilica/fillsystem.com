@@ -3,9 +3,9 @@ import { test, expect } from "@playwright/test";
 // Metadata invariants. Source: docs/texts.md (title/description),
 // docs/optimization.md (robots, OG/Twitter, structured data).
 
-const TITLE = "Diagnostic-First IT & Business Development | Opsfield Systems";
+const TITLE = "Diagnostic-First IT & Business Development | Fill System";
 const DESCRIPTION =
-  "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
+  "B2B companies with 50-250 employees use Fill System to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
 const LEGAL_PAGES = ["/privacy-policy", "/terms-of-use", "/cookie-policy"];
 
 test("homepage title matches texts.md", async ({ page }) => {

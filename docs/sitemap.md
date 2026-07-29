@@ -11,7 +11,7 @@ Final project files:
 - `design.md`
 - `optimization.md`
 
-**Brand:** Opsfield Systems  
+**Brand:** Fill System  
 **Brand status:** Working brand; production launch is blocked until trademark clearance, California legal-entity / DBA mapping, and final domain ownership are confirmed.  
 **Page:** Diagnostic-First IT & Business Development
 
@@ -47,7 +47,7 @@ Do not reorder sub-blocks independently of this sequence.
 
 ### Brand and domain launch gate
 
-- `Opsfield Systems` remains the working brand across copy, design, and development files.
+- `Fill System` remains the working brand across copy, design, and development files.
 - Working-brand use is not a legal clearance opinion and does not establish trademark availability.
 - Do not display `LLC`, `Inc.`, `®`, or another legal identifier until the legal operator and registration status are verified.
 - Keep production domain and email addresses as placeholders until the domain is registered in a business-controlled account.
@@ -67,7 +67,7 @@ Domain pre-purchase is operationally separate from trademark clearance. Securing
 | 4 | AI & Process Automation | `#ai-process-automation` | Показывает второй сервис как продолжение диагностики, roadmap и limited implementation. |
 | 5 | How the Diagnostic Works | `#how-the-diagnostic-works` | Объясняет метод: review → map → score → recommend next step. |
 | 6 | Diagnostic Scenarios | `#proof-examples` | Показывает anonymized scenarios без неподтверждённых logos, metrics или client identities. |
-| 7 | Why Opsfield Systems | `#why-opsfield-systems` | Объединяет differentiation и comparison против tool-first, automation-first и dev-first подходов. |
+| 7 | Why Fill System | `#why-fill-system` | Объединяет differentiation и comparison против tool-first, automation-first и dev-first подходов. |
 | 8 | Delivery Model | `#delivery-model` | Показывает senior involvement, роли Managing Partner / Solution Architect и релевантные operating environments. |
 | 9 | Business & IT Diagnostic | `#business-it-diagnostic` | Единый conversion cluster: first-step offer, Before You Commit, post-submit steps и форма `#diagnostic-request-form`. |
 | 10 | FAQ | `#faq` | Закрывает objections и содержит полный Fit / Not Fit: pricing, timeline, implementation, delivery format, systems, fit и ROI. |
@@ -81,7 +81,7 @@ Note: Section 6 "Diagnostic Scenarios" uses anchor #proof-examples and appears a
 
 | Element | Value | Target |
 |---|---|---|
-| Logo | Opsfield Systems | `/` |
+| Logo | Fill System | `/` |
 | Navigation item | Services | `#what-we-diagnose` |
 | Navigation item | Pricing | `#areas-of-work` |
 | Navigation item | How It Works | `#how-the-diagnostic-works` |
@@ -111,7 +111,7 @@ Note: Section 6 "Diagnostic Scenarios" uses anchor #proof-examples and appears a
 | Footer block | Items from `texts.md` | Target |
 |---|---|---|
 | CTA panel | Start with clarity before investing in tools or implementation. | `#diagnostic-request-form` |
-| Positioning | Opsfield Systems — senior-led IT and business advisory for B2B companies facing process, data, and system complexity. | — |
+| Positioning | Fill System — senior-led IT and business advisory for B2B companies facing process, data, and system complexity. | — |
 | Company | Team | #delivery-model |
 | Company | Services | `#what-we-diagnose` |
 | Company | Results | `#proof-examples` |
@@ -122,7 +122,7 @@ Note: Section 6 "Diagnostic Scenarios" uses anchor #proof-examples and appears a
 | Legal | Privacy Policy | `/privacy-policy` |
 | Legal | Terms of Use | `/terms-of-use` |
 | Legal | Cookie Policy | `/cookie-policy` |
-| Copyright | © 2026 Opsfield Systems. California, USA. | — |
+| Copyright | © 2026 Fill System. California, USA. | — |
 
 ---
 
@@ -138,7 +138,7 @@ Note: Section 6 "Diagnostic Scenarios" uses anchor #proof-examples and appears a
 | AI & Process Automation | Assess Automation Opportunities | `#diagnostic-request-form` |
 | How the Diagnostic Works | Start With a Diagnostic | `#diagnostic-request-form` |
 | Diagnostic Scenarios | Request a Diagnostic for Your Team | `#diagnostic-request-form` |
-| Why Opsfield Systems | Validate the Decision Before You Implement | `#diagnostic-request-form` |
+| Why Fill System | Validate the Decision Before You Implement | `#diagnostic-request-form` |
 | Delivery Model | Work With Senior Advisors | `#diagnostic-request-form` |
 | Business & IT Diagnostic | Request a Business & IT Diagnostic | `#diagnostic-request-form` |
 | Final CTA | Request a Business & IT Diagnostic | `#diagnostic-request-form` |
@@ -243,7 +243,7 @@ O-1 Readiness Support copy requires review by qualified U.S. immigration counsel
 | AI & Process Automation | `texts.md` |
 | How the Diagnostic Works | `texts.md` |
 | Diagnostic Scenarios | `texts.md` |
-| Why Opsfield Systems | `texts.md` |
+| Why Fill System | `texts.md` |
 | Delivery Model | `texts.md` |
 | Business & IT Diagnostic — offer + risk reduction + post-submit steps + form | `texts.md` |
 | FAQ | `texts.md` |
@@ -290,7 +290,7 @@ O-1 Readiness Support copy requires review by qualified U.S. immigration counsel
 - FAQ includes explicit Who We Work With Best and Where We Are Not the Right Fit criteria.
 - Header matches `texts.md`: Services / Pricing / How It Works / Results / FAQ / Request Diagnostic.
 - Footer matches `texts.md`: Company / Get Started / Legal, with `Team` linking to `#delivery-model`.
-- Working brand is Opsfield Systems everywhere; production launch requires completed brand, entity, and domain verification.
+- Working brand is Fill System everywhere; production launch requires completed brand, entity, and domain verification.
 - No previous-brand references remain.
 - No references to removed draft page files remain.
 - O-1 Readiness Support is a secondary service, limited to the What We Diagnose card, one FAQ entry, and one form request type option; it is excluded from Hero, H1, header nav, primary CTA, and metadata.

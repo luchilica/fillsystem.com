@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
-// Opsfield Systems brand mark — "Signet O".
-// A signet-weight monogram ring (the "O" of Opsfield) whose stroke flows from
+// Fill System brand mark — "Signet O".
+// A signet-weight monogram ring whose stroke flows from
 // the blue accent (top-right) smoothly into ink around the rest of the ring —
 // blue = the found insight, ink = the operational whole. A soft drop shadow +
 // a specular highlight (light from the top-left) give the ring a little volume.

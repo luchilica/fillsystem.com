@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: "B2B Operations & IT Consulting Blog",
     description:
-      "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Opsfield Systems team.",
+      "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
     alternates: alternatesFor(loc, "/blog"),
     robots: robotsFor(loc),
   };

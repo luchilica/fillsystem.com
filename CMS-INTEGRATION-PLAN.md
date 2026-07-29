@@ -1,4 +1,4 @@
-# CMS Integration Plan: Opsfield Systems
+# CMS Integration Plan: Fill System
 
 ## Зачем этот документ
 
@@ -83,7 +83,7 @@ GPT предложил использовать WP как headless CMS. Проб
 
 ### Рекомендация: Keystatic
 
-Для Opsfield Systems оптимален **Keystatic**, потому что:
+Для Fill System оптимален **Keystatic**, потому что:
 
 1. **Бесплатный и open-source** — без лицензионных расходов
 2. **Контент в Git** — версионирование, откат, нет внешних зависимостей

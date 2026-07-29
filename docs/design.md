@@ -11,7 +11,7 @@
 3. `design.md` — визуальные стили и компоненты.
 4. `optimization.md` — SEO, performance, accessibility и технические ограничения.
 
-**Бренд:** Opsfield Systems  
+**Бренд:** Fill System  
 **Статус бренда:** working brand. По ручной проверке владельца от 13 июня 2026 года совпадение в California Secretary of State Business Search не найдено, а предполагаемый домен был свободен на момент проверки. Wordmark остаётся редактируемым до trademark clearance, подтверждения legal operator / DBA и регистрации production domain в аккаунте бизнеса.  
 **Стиль:** clean B2B technology advisory + restrained enterprise SaaS + structured consulting methodology  
 **Позиционирование:** diagnostic-first, senior-led, vendor-neutral, practical, no AI hype
@@ -264,7 +264,7 @@ Easing: `--ease-out: cubic-bezier(0.22, 0.61, 0.36, 1)` (no bounce, no spring, n
 ## CSS Variable Reference
 
 The single source of truth for all design tokens in CSS is **`app/globals.css`**
-(the v2 `:root`), which mirrors the `Opsfield Systems Design System` project
+(the v2 `:root`), which mirrors the `Fill System Design System` project
 (`styles.css` → `tokens/*.css` on claude.ai/design). Token values are not restated
 here — read them from `app/globals.css` so this doc cannot drift from the build.
 
@@ -364,7 +364,7 @@ resolves to the loaded face, so mono readouts render in the brand mono.
   4. Supporting text
   5. Primary and secondary CTA (blocky)
   6. Trust stats row (3 block numerals + mono captions)
-- Right: **brand-blue diagnostic-summary card** (`HeroSummary`) — subtle 1px edge, soft brand shadow, rounded, corner `+` mark; an illustrative diagnostic report (Situation → Diagnostic found → Delivered) plus two headline metrics (`$180K+` revenue at risk, `30-day` cleanup). Figures are illustrative and estimate-framed, mirroring Scenario 01 — not verified Opsfield results.
+- Right: **brand-blue diagnostic-summary card** (`HeroSummary`) — subtle 1px edge, soft brand shadow, rounded, corner `+` mark; an illustrative diagnostic report (Situation → Diagnostic found → Delivered) plus two headline metrics (`$180K+` revenue at risk, `30-day` cleanup). Figures are illustrative and estimate-framed, mirroring Scenario 01 — not verified Fill System results.
 - Sections separate by whitespace + the background rhythm — no divider rule.
 - Primary CTA remains the strongest visual action.
 
@@ -419,7 +419,7 @@ Metrics (bottom, above a `2px` paper rule; `margin-top:auto` bottom-aligns them)
 
 Rules:
 - Figures are illustrative and estimate-framed, mirroring Scenario 01 — never
-  presented as a verified Opsfield result. The hero deliberately leads with this
+  presented as a verified Fill System result. The hero deliberately leads with this
   summary card (this reverses the earlier "abstract, no metrics in the hero" rule).
 - On mobile the card is hidden (`Hero.module.css`).
 
@@ -495,30 +495,30 @@ Rules (v2):
 - Do not invent names, logos or testimonials.
 - A real anonymized case must be supported by an internal source record and approval.
 - An illustrative composite must be labeled as illustrative and use an anonymized / generic client descriptor (e.g. `B2B services firm (≈80 employees)`), never a real or invented company name. It keeps the design-system triad row labels — Situation / Diagnostic found / **Delivered** — as structural headers; the DS `DiagnosticScenarioCard` образец retains "Delivered", so the label itself is not a factual proof claim.
-- Quantified figures must be framed as estimates or ranges — `estimated`, `revenue at risk`, `projected`, `≈`, `est.` — matching the образец; they must never read as verified realized results, actual Opsfield performance, or a guaranteed outcome, and a figure must not be styled as a standalone verified metric tile.
+- Quantified figures must be framed as estimates or ranges — `estimated`, `revenue at risk`, `projected`, `≈`, `est.` — matching the образец; they must never read as verified realized results, actual Fill System performance, or a guaranteed outcome, and a figure must not be styled as a standalone verified metric tile.
 - Realized-sounding past tense is acceptable only for structural changes the diagnostic frames (e.g. "handoff reduced from 5 steps to 2"), not for money or hours saved, which stay estimate-framed.
 
 ### Comparison Card / Table
 
 Used in:
 
-- Why Opsfield Systems
+- Why Fill System
 
 Structure:
 
 - What others do first
-- What Opsfield does first
+- What Fill System does first
 
 Rules (v2):
 
-- Bordered table (1px hairline border, `--radius-lg`, soft shadow), two columns on desktop; the winning Opsfield column carries a `--blue-50` tint
-- Ink header `What others do first` | brand header `What Opsfield does first`
-- Others rows: `X` (`--clay-500`) + muted text; Opsfield rows: `Check` (`--blue-500`) + Mulish-800 ink text
+- Bordered table (1px hairline border, `--radius-lg`, soft shadow), two columns on desktop; the winning Fill System column carries a `--blue-50` tint
+- Ink header `What others do first` | brand header `What Fill System does first`
+- Others rows: `X` (`--clay-500`) + muted text; Fill System rows: `Check` (`--blue-500`) + Mulish-800 ink text
 - Do not make competitors look deceptive; compare operating approaches
 
 ### Mobile comparison layout
 
-The two columns collapse to a single column; cells stack in order (others cell, then Opsfield cell, per row). The `X` / `Check` icon and the weight contrast keep each cell self-labeled — do not split into two separate lists. The paired contrast is the core message.
+The two columns collapse to a single column; cells stack in order (others cell, then Fill System cell, per row). The `X` / `Check` icon and the weight contrast keep each cell self-labeled — do not split into two separate lists. The paired contrast is the core message.
 
 ### Delivery Role Card
 
@@ -911,7 +911,7 @@ The order follows `sitemap.md` and `texts.md`.
 | AI & Process Automation | 3 step pills (blue → ink → green) + scope box, restrained |
 | How the Diagnostic Works | 3 numbered step cards with corner icon + title |
 | Diagnostic Scenarios | Full-width anonymized scenario / proof cards |
-| Why Opsfield Systems | Comparison table / paired cards |
+| Why Fill System | Comparison table / paired cards |
 | Delivery Model | Two senior delivery-role cards (initials tile + role subtitle + icon bullets) |
 | Business & IT Diagnostic | One composite panel: offer → risk reduction → post-submit steps → form |
 | FAQ | Accessible accordion; Fit / Not Fit answers use semantic lists |
@@ -969,7 +969,7 @@ Rules:
 - Разрешено объединять два соседних предложения.
 - Для mobile разрешены shorter heading variants, если смысл сохранён.
 - Не менять рабочий язык сайта с English.
-- Использовать Opsfield Systems как рабочий бренд; не переименовывать без owner approval.
+- Использовать Fill System как рабочий бренд; не переименовывать без owner approval.
 - Не создавать новые offers, pages, cases, metrics, logos, certifications или reviews.
 - Не использовать lorem ipsum.
 - Не переписывать diagnostic-first positioning.
@@ -979,7 +979,7 @@ Rules:
 
 ## Brand Identity Launch Rules
 
-- Использовать `Opsfield Systems` как рабочее название во всех макетах.
+- Использовать `Fill System` как рабочее название во всех макетах.
 - Не добавлять `LLC`, `Inc.`, `Corp.`, `®` или другой legal / registration marker без подтверждённого статуса.
 - Wordmark и logo lockup должны оставаться редактируемыми до завершения clearance; не переводить название в необратимые image assets.
 - Не размещать неподтверждённый production domain, email или social handle внутри макетов.
@@ -989,7 +989,7 @@ Rules:
 
 Favicon: simple `O` lettermark in `var(--accent)` on transparent, sizes `32×32` and `180×180` (Apple touch icon).
 
-OG image: `1200×630`, `var(--bg-page)` background, `Opsfield Systems` centered in `var(--text-primary)`, subtitle below in `var(--text-secondary)`.
+OG image: `1200×630`, `var(--bg-page)` background, `Fill System` centered in `var(--text-primary)`, subtitle below in `var(--text-secondary)`.
 
 Both must be replaced with approved brand assets before production deployment.
 Do not include placeholder assets in production launch.
@@ -1012,7 +1012,7 @@ Do not include placeholder assets in production launch.
 
 ## Design Acceptance Criteria
 
-- Используется рабочий бренд Opsfield Systems; предварительная California name search и проверка доступности домена отмечены как owner-reported, но logo и wordmark остаются редактируемыми до trademark clearance и регистрации домена.
+- Используется рабочий бренд Fill System; предварительная California name search и проверка доступности домена отмечены как owner-reported, но logo и wordmark остаются редактируемыми до trademark clearance и регистрации домена.
 - В логотипе и footer отсутствуют неподтверждённые `LLC`, `Inc.` и `®`.
 - Заголовки используют Mulish (900/800, tight negative tracking).
 - Body использует Mulish; eyebrows / labels / data readouts используют JetBrains Mono.

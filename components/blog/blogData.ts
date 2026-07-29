@@ -57,7 +57,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
     author: {
       name: "Solutions Architect",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -74,7 +74,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.",
     author: {
       name: "Solutions Architect",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -91,7 +91,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.",
     author: {
       name: "AI & Data Lead",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -144,7 +144,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     author: {
       name: "AI & Data Lead",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -161,7 +161,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.",
     author: {
       name: "Solutions Architect",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -210,7 +210,7 @@ export const BLOG_POSTS: BlogPost[] = [
     heroAlt: "Data visualization charts representing CRM data migration process.",
     author: {
       name: "Solutions Architect",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -225,7 +225,7 @@ export const BLOG_POSTS: BlogPost[] = [
     heroAlt: "Financial charts and graphs showing sales pipeline analysis.",
     author: {
       name: "AI & Data Lead",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
   {
@@ -256,7 +256,7 @@ export const BLOG_POSTS: BlogPost[] = [
     heroAlt: "Person working with software interface on a laptop screen.",
     author: {
       name: "Solutions Architect",
-      title: "Opsfield Systems",
+      title: "Fill System",
     },
   },
 ];

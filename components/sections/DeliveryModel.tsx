@@ -77,7 +77,7 @@ export default async function DeliveryModel() {
         <h2 className={styles.intro}>{t("Our Delivery Model: Senior Advisors, No Handoff Chain")}</h2>
         <p className={`lead ${styles.text}`}>
           {t(
-            "Opsfield Systems works with 4-6 active clients at a time so senior advisors remain involved from problem framing through scope and delivery."
+            "Fill System works with 4-6 active clients at a time so senior advisors remain involved from problem framing through scope and delivery."
           )}
         </p>
 
@@ -87,7 +87,7 @@ export default async function DeliveryModel() {
               <span className={styles.cardArt} aria-hidden="true">
                 <Image
                   src={art}
-                  alt={name ? `${name} - ${t(title)} at Opsfield Systems` : `${t(title)} at Opsfield Systems`}
+                  alt={name ? `${name} - ${t(title)} at Fill System` : `${t(title)} at Fill System`}
                   fill
                   sizes="(min-width: 768px) 300px, 60vw"
                   placeholder="blur"

@@ -15,19 +15,19 @@ const CHALLENGE_MAX = 500;
 // reach arbitrary recipients; until a domain is verified, only the Resend
 // account's own address receives.
 const RECIPIENT =
-  process.env.DIAGNOSTIC_RECIPIENT_EMAIL || "opsfieldsystems@gmail.com";
+  process.env.DIAGNOSTIC_RECIPIENT_EMAIL || "hello@fillsystem.com";
 const FROM =
-  process.env.DIAGNOSTIC_FROM_EMAIL || "Opsfield Systems <onboarding@resend.dev>";
+  process.env.DIAGNOSTIC_FROM_EMAIL || "Fill System <onboarding@resend.dev>";
 // Optional backup sink (Zapier/Make/Google Sheet webhook). If set, every valid
 // lead is mirrored here so nothing is lost even when email delivery fails.
 const LEAD_WEBHOOK_URL = process.env.LEAD_WEBHOOK_URL || "";
 
 // PII-free auto-reply, per locale. Never echoes any submitted field value.
 const AUTO_REPLY_SUBJECT: Record<string, string> = {
-  "en-US": "Diagnostic request received | Opsfield Systems",
-  "es-US": "Solicitud de diagnóstico recibida | Opsfield Systems",
-  "ru-US": "Заявка на диагностику получена | Opsfield Systems",
-  "zh-Hans": "已收到您的诊断请求 | Opsfield Systems",
+  "en-US": "Diagnostic request received | Fill System",
+  "es-US": "Solicitud de diagnóstico recibida | Fill System",
+  "ru-US": "Заявка на диагностику получена | Fill System",
+  "zh-Hans": "已收到您的诊断请求 | Fill System",
 };
 const AUTO_REPLY_BODY: Record<string, string> = {
   "en-US": `Thank you for your diagnostic request.
@@ -37,7 +37,7 @@ and respond within 2 business days.
 If you have additional context to share,
 you can reply to this email.
 
-- Opsfield Systems`,
+- Fill System`,
   "es-US": `Gracias por su solicitud de diagnóstico.
 Un asesor sénior revisará su envío
 y responderá en un plazo de 2 días hábiles.
@@ -45,7 +45,7 @@ y responderá en un plazo de 2 días hábiles.
 Si desea compartir más contexto,
 puede responder a este correo.
 
-- Opsfield Systems`,
+- Fill System`,
   "ru-US": `Спасибо за вашу заявку на диагностику.
 Старший консультант рассмотрит её
 и ответит в течение 2 рабочих дней.
@@ -53,7 +53,7 @@ puede responder a este correo.
 Если хотите добавить детали,
 просто ответьте на это письмо.
 
-- Opsfield Systems`,
+- Fill System`,
   "zh-Hans": `感谢您提交诊断请求。
 我们的资深顾问将审阅您的提交，
 并在 2 个工作日内回复。
@@ -61,7 +61,7 @@ puede responder a este correo.
 如需补充信息，
 您可以直接回复此邮件。
 
-- Opsfield Systems`,
+- Fill System`,
 };
 function pick(map: Record<string, string>, locale: unknown): string {
   const k = typeof locale === "string" && map[locale] ? locale : "en-US";

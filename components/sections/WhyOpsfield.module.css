@@ -1,5 +1,5 @@
-/* Why Opsfield Systems — comparison table. Premium surface (hairline + soft
-   shadow); muted "others" column vs bold blue "Opsfield" column. Circular icon
+/* Why Fill System — comparison table. Premium surface (hairline + soft
+   shadow); muted "others" column vs bold blue "Fill System" column. Circular icon
    nodes: red X (clay) vs solid-blue Check. Stacks on mobile.
    Copy from docs/texts.md. No Tailwind. */
 
@@ -76,7 +76,7 @@
   color: var(--paper);
 }
 
-/* The "others" side is de-emphasised (muted), so the blue Opsfield column
+/* The "others" side is de-emphasised (muted), so the blue Fill System column
    reads as the answer. */
 .headOthers {
   background: var(--stone-100);
@@ -105,7 +105,7 @@
 
 .cellOpsfield {
   /* Tinted "winning" column — comparison-table convention borrowed from the
-     compare references: the Opsfield column reads as the answer (blue-500
+     compare references: the Fill System column reads as the answer (blue-500
      header → blue-50 body = one cohesive column). */
   background: var(--accent-tint);
   color: var(--ink-900);
@@ -115,7 +115,7 @@
   letter-spacing: -0.015em;
 }
 
-/* Circular icon nodes — red X for "others", solid-blue check for Opsfield. */
+/* Circular icon nodes — red X for "others", solid-blue check for Fill System. */
 .nodeX,
 .nodeCheck {
   flex-shrink: 0;
