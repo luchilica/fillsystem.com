@@ -2,7 +2,7 @@
 
 # Opsfield Systems — Project Instructions
 
-Premium B2B IT & operations consulting site. Next.js 16 + next-intl + CSS Modules. No Tailwind.
+Premium B2B IT & operations development site. Next.js 16 + next-intl + CSS Modules. No Tailwind.
 
 ## Workflow
 

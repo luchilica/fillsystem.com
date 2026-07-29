@@ -41,7 +41,7 @@ test.describe("homepage structure", () => {
   test("H1 text matches approved copy", async ({ page }) => {
     await page.goto("/");
     const h1 = (await page.locator("h1").innerText()).trim();
-    expect(h1).toBe("Diagnostic-First IT & Business Consulting");
+    expect(h1).toBe("Diagnostic-First IT & Business Development");
   });
 });
 

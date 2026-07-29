@@ -22,7 +22,7 @@ import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./ServicesHub.module.css";
 
-const TITLE = "B2B Consulting Services & Pricing";
+const TITLE = "B2B Development Services & Pricing";
 const DESCRIPTION =
   "IT diagnostics, RevOps, CRM audits, AI automation & process optimization for B2B companies (50-250 employees). Transparent pricing.";
 
@@ -202,10 +202,10 @@ export default async function ServicesPage({
       {
         "@type": "Service",
         "@id": `${pageUrl}#services`,
-        name: "B2B Consulting Services",
+        name: "B2B Development Services",
         description:
-          "Diagnostic-first IT and business consulting for B2B companies with 50-250 employees.",
-        serviceType: "IT and business consulting",
+          "Diagnostic-first IT and business development for B2B companies with 50-250 employees.",
+        serviceType: "IT and business development",
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
         url: pageUrl,
@@ -316,7 +316,7 @@ export default async function ServicesPage({
       {/* 1 — Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <h1>{t("B2B Consulting Services & Pricing")}</h1>
+          <h1>{t("B2B Development Services & Pricing")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
               "Every engagement starts with a free diagnostic. You only pay once scope is agreed in writing.",

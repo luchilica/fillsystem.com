@@ -22,9 +22,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "About Us — B2B IT & Operations Consulting",
+    title: "About Us — B2B IT & Operations Development",
     description:
-      "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business consulting for B2B companies with 50-250 employees.",
+      "Founded by Igor Saevets, Opsfield Systems delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
     alternates: alternatesFor(loc, "/about"),
     robots: robotsFor(loc),
   };
@@ -142,7 +142,7 @@ export default async function About({
           <h1>{t("About Opsfield Systems")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "Diagnostic-first IT and business consulting for B2B companies dealing with process, CRM, data flow, and automation problems.",
+              "Diagnostic-first IT and business development for B2B companies dealing with process, CRM, data flow, and automation problems.",
             )}
           </p>
         </div>

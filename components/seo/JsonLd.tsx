@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { FAQ_ITEMS, faqAnswerText } from "@/components/sections/faqData";
 
-const HOME_TITLE = "B2B IT & Operations Consulting | Opsfield Systems";
+const HOME_TITLE = "B2B IT & Operations Development | Opsfield Systems";
 const HOME_DESCRIPTION =
   "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
 
@@ -24,7 +24,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         logo: `${home}/logo.png`,
         foundingDate: "2021",
         description:
-          "Diagnostic-first IT and business consulting for B2B companies.",
+          "Diagnostic-first IT and business development for B2B companies.",
         founder: { "@id": `${home}#igor-saevets` },
         sameAs: ["https://www.linkedin.com/in/igorsaevets"],
         areaServed: { "@type": "Country", name: "United States" },
@@ -63,7 +63,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         name: "Business & IT Diagnostic",
         description:
           "A complimentary 30-45 minute diagnostic conversation to identify process, data, CRM, and IT system bottlenecks in B2B companies.",
-        serviceType: "Diagnostic-first IT and business consulting",
+        serviceType: "Diagnostic-first IT and business development",
         provider: { "@id": organizationId },
         areaServed: { "@type": "Country", name: "United States" },
         url: `${home}/services/business-diagnostic`,

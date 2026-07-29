@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 // Metadata invariants. Source: docs/texts.md (title/description),
 // docs/optimization.md (robots, OG/Twitter, structured data).
 
-const TITLE = "Diagnostic-First IT & Business Consulting | Opsfield Systems";
+const TITLE = "Diagnostic-First IT & Business Development | Opsfield Systems";
 const DESCRIPTION =
   "B2B companies with 50-250 employees use Opsfield Systems to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation.";
 const LEGAL_PAGES = ["/privacy-policy", "/terms-of-use", "/cookie-policy"];

@@ -24,7 +24,7 @@ import BusinessITDiagnostic from "@/components/sections/BusinessITDiagnostic";
 // Homepage metadata. Title + description are verbatim from docs/texts.md →
 // "Page: Diagnostic-First IT & Business Consulting". OG/Twitter image tags are
 // supplied by app/opengraph-image.tsx + app/twitter-image.tsx (file convention).
-const TITLE = "B2B IT & Operations Consulting";
+const TITLE = "B2B IT & Operations Development";
 const DESCRIPTION =
   "Opsfield Systems diagnoses process, CRM, data, and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires, or vendors.";
 
@@ -54,7 +54,7 @@ export async function generateMetadata({
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "Opsfield Systems: Diagnostic-First IT & Business Consulting",
+          alt: "Opsfield Systems: Diagnostic-First IT & Business Development",
         },
       ],
     },
