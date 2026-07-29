@@ -11,7 +11,7 @@ export default async function Hero() {
       <div className={styles.content}>
         <h1 className={styles.headline}>
           {t("Diagnostic-First IT & Business")}{" "}
-          <span className={styles.accentWord}>{t("Consulting")}</span>
+          <span className={styles.accentWord}>{t("Development")}</span>
         </h1>
 
         {/* Semantically a paragraph, visually a lead. */}
