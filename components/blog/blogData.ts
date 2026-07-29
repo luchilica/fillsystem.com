@@ -139,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "16 min read",
     category: "AI",
     heroImage: "/blog/ai-agent-eval.jpg",
-    heroAlt: "Analytics dashboard with charts and KPIs on a laptop screen.",
+    heroAlt: "Developer reviewing code on a laptop in a dark workspace.",
     seoTitle: "How to Evaluate an AI Agent Before Production",
     metaDescription: "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     author: {
@@ -173,7 +173,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "15 min read",
     category: "AI",
     heroImage: "/blog/ai-governance.jpg",
-    heroAlt: "Team strategy session with organized planning notes on a whiteboard.",
+    heroAlt: "Developer workstation with multiple monitors and code in blue-lit environment.",
     seoTitle: "AI Governance for Mid-Market B2B Companies",
     metaDescription: "Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.",
     author: {
