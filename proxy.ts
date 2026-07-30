@@ -10,5 +10,5 @@ export default createMiddleware(routing);
 export const config = {
   // Run on all pathnames except API, Next internals, the metadata image routes
   // (opengraph-image / twitter-image), and any file with an extension.
-  matcher: "/((?!api|_next|_vercel|opengraph-image|twitter-image|.*\\..*).*)",
+  matcher: "/((?!api|_next|_vercel|opengraph-image|twitter-image|apple-icon|.*\\..*).*)",
 };
