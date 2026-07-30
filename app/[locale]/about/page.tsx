@@ -3,8 +3,8 @@ import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { setRequestLocale } from "next-intl/server";
-import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { LOCALE_META, type Locale } from "@/i18n/locales";
+import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
 import {
@@ -27,6 +27,16 @@ export async function generateMetadata({
       "Founded by Igor Saevets, Fill System delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
     alternates: alternatesFor(loc, "/about"),
     robots: robotsFor(loc),
+    openGraph: {
+      title: "About Us — B2B IT & Operations Development",
+      description:
+        "Founded by Igor Saevets, Fill System delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
+      url: localizedUrl(loc, "/about"),
+      type: "website",
+      siteName: siteConfig.name,
+      locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    },
   };
 }
 

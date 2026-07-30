@@ -17,14 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title:
-      "AI Agents Are Not Automation: B2B Readiness",
-    description:
-      "Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.",
-    alternates: alternatesFor(loc, "/blog/ai-agents-are-not-automation"),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

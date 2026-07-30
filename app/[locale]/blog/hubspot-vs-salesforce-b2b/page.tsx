@@ -17,14 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title:
-      "HubSpot vs Salesforce for B2B: Comparison",
-    description:
-      "Neither CRM is universally better. How to choose between HubSpot and Salesforce based on your team size, deal complexity, and what you actually need.",
-    alternates: alternatesFor(loc, "/blog/hubspot-vs-salesforce-b2b"),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

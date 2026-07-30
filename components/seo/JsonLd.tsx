@@ -30,7 +30,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",
-          email: "privacy@fillsystem.com",
+          email: "hello@fillsystem.com",
           contactType: "customer service",
           availableLanguage: ["English"],
         },

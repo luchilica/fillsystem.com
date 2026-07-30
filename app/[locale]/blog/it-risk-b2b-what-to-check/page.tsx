@@ -19,10 +19,11 @@ export async function generateMetadata({
   return {
     title: post.seoTitle ?? post.title,
     description: post.metaDescription ?? post.description,
-    alternates: alternatesFor(loc, "/blog/it-risk-b2b-what-to-check"),
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

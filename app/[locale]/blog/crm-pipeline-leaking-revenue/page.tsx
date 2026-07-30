@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getT } from "@/i18n/t";
-import { siteConfig } from "@/lib/site-config";
-import { LOCALE_META, type Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
+import type { Locale } from "@/i18n/locales";
+import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { Link } from "@/i18n/navigation";
 
-const SLUG = "crm-pipeline-leaking-revenue";
-const post = BLOG_POSTS.find((p) => p.slug === SLUG)!;
-
-const TITLE = "7 Signs Your CRM Pipeline Is Leaking Revenue";
-const DESCRIPTION =
-  "Most B2B teams lose deals not because of bad sales, but because of CRM pipeline gaps. Here are the 7 patterns we find in every RevOps audit.";
+const post = BLOG_POSTS.find(
+  (p) => p.slug === "crm-pipeline-leaking-revenue"
+)!;
 
 export async function generateMetadata({
   params,
@@ -23,17 +19,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: TITLE,
-    description: DESCRIPTION,
-    alternates: alternatesFor(loc, `/blog/${SLUG}`),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
-      url: localizedUrl(loc, `/blog/${SLUG}`),
       type: "article",
-      siteName: siteConfig.name,
-      locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

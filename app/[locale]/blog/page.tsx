@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
-import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { LOCALE_META, type Locale } from "@/i18n/locales";
+import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -24,6 +25,16 @@ export async function generateMetadata({
       "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
     alternates: alternatesFor(loc, "/blog"),
     robots: robotsFor(loc),
+    openGraph: {
+      title: "B2B Operations & IT Consulting Blog",
+      description:
+        "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
+      url: localizedUrl(loc, "/blog"),
+      type: "website",
+      siteName: siteConfig.name,
+      locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    },
   };
 }
 

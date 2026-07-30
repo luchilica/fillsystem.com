@@ -17,13 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "RevOps for 50-Person Teams: Where to Start",
-    description:
-      "You don't need a dedicated RevOps hire to fix your revenue operations. A practical starting point for small B2B teams with 50 or fewer employees.",
-    alternates: alternatesFor(loc, "/blog/revops-for-small-teams"),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

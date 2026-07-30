@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getT } from "@/i18n/t";
-import { siteConfig } from "@/lib/site-config";
-import { LOCALE_META, type Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
+import type { Locale } from "@/i18n/locales";
+import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { Link } from "@/i18n/navigation";
 
-const SLUG = "choose-embedding-model-enterprise-rag";
-const post = BLOG_POSTS.find((p) => p.slug === SLUG)!;
-
-const TITLE =
-  "Embedding Models for Enterprise RAG";
-const DESCRIPTION =
-  "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.";
+const post = BLOG_POSTS.find((p) => p.slug === "choose-embedding-model-enterprise-rag")!;
 
 export async function generateMetadata({
   params,
@@ -24,17 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: TITLE,
-    description: DESCRIPTION,
-    alternates: alternatesFor(loc, `/blog/${SLUG}`),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
-      url: localizedUrl(loc, `/blog/${SLUG}`),
       type: "article",
-      siteName: siteConfig.name,
-      locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

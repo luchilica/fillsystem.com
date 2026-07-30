@@ -29,8 +29,7 @@ export const BLOG_POSTS: BlogPost[] = [
     heroImage: "/blog/process-audit.jpg",
     heroAlt:
       "Team reviewing workflow diagrams and operational processes on a whiteboard.",
-    seoTitle:
-      "Process Debt in Growing B2B Teams: How to Find and Fix It",
+    seoTitle: "Process Debt in B2B: How to Find and Fix It",
     metaDescription:
       "Undocumented handoffs, unclear ownership, and duplicated work compound silently as B2B teams grow. A practical guide to diagnosing process debt before it stalls execution.",
     author: {
@@ -51,8 +50,7 @@ export const BLOG_POSTS: BlogPost[] = [
     heroImage: "/blog/it-risk.jpg",
     heroAlt:
       "Server infrastructure with security monitoring displays in a modern office.",
-    seoTitle:
-      "IT Risk Assessment Guide for Growing B2B Companies",
+    seoTitle: "IT Risk Audit Guide for B2B Companies",
     metaDescription:
       "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
     author: {

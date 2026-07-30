@@ -10,7 +10,7 @@ import { join } from "node:path";
 // filters are unreliable). Twitter card re-exports this from twitter-image.tsx.
 
 // --- Tunables ---------------------------------------------------------------
-const FOOTER = "For B2B teams · 50-250 employees";
+const FOOTER = "fillsystem.com · B2B teams · 50-250 employees";
 const IMG = "public/og/glass.jpg";
 // ----------------------------------------------------------------------------
 
@@ -145,7 +145,7 @@ export default async function Image() {
             Diagnostic-first IT, CRM, data &amp; automation advisory.
           </div>
 
-          {/* Blue rule + footer (ICP, since there's no custom domain yet). */}
+          {/* Blue rule + footer. */}
           <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 34 }}>
             <div
               style={{ width: 40, height: 4, borderRadius: 2, background: "#2551D2", display: "flex" }}

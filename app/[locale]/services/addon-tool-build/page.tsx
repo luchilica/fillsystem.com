@@ -11,8 +11,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
 import styles from "./AddonTool.module.css";
 
-const TITLE =
-  "Add-on Tool Build: Bot, Landing Page, or Email";
+const TITLE = "Add-on Tool Build: Bot, Page, or Email";
 const DESCRIPTION =
   "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $1,100.";
 
@@ -35,6 +34,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

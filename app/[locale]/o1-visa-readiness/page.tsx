@@ -11,8 +11,7 @@ import PlusMark from "@/components/ui/PlusMark";
 import { Link } from "@/i18n/navigation";
 import styles from "./O1Readiness.module.css";
 
-const TITLE =
-  "O-1 Visa Readiness for IT Professionals & Founders";
+const TITLE = "O-1 Visa Readiness for IT & Tech Founders";
 const DESCRIPTION =
   "Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination.";
 
@@ -35,6 +34,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

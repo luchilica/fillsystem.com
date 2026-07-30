@@ -19,17 +19,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title:
-      "Investor Readiness Checklist for B2B",
-    description:
-      "Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.",
-    alternates: alternatesFor(
-      loc,
-      "/blog/investor-readiness-operating-evidence"
-    ),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

@@ -26,7 +26,7 @@ import BusinessITDiagnostic from "@/components/sections/BusinessITDiagnostic";
 // supplied by app/opengraph-image.tsx + app/twitter-image.tsx (file convention).
 const TITLE = "B2B IT & Operations Development";
 const DESCRIPTION =
-  "Fill System diagnoses process, CRM, data, and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires, or vendors.";
+  "Fill System diagnoses process, CRM, data and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires or vendors.";
 
 export async function generateMetadata({
   params,

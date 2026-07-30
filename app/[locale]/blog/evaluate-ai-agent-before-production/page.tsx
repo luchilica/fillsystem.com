@@ -17,13 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "How to Evaluate an AI Agent Before Production",
-    description:
-      "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
-    alternates: alternatesFor(loc, "/blog/evaluate-ai-agent-before-production"),
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
+    alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }
