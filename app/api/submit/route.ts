@@ -220,6 +220,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: FROM,
         to: email,
+        replyTo: RECIPIENT,
         subject: pick(AUTO_REPLY_SUBJECT, locale),
         text: pick(AUTO_REPLY_BODY, locale),
       });
