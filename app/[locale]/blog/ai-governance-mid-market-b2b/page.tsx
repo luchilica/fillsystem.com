@@ -5,6 +5,7 @@ import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 
 const post = BLOG_POSTS.find((p) => p.slug === "ai-governance-mid-market-b2b")!;
@@ -23,6 +24,7 @@ export async function generateMetadata({
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      publishedTime: post.date,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
@@ -38,6 +40,8 @@ export default async function AIGovernanceMidMarket({
   const t = await getT();
 
   return (
+    <>
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} />
     <BlogPostLayout
       slug={post.slug}
       title={t(post.title)}
@@ -878,5 +882,6 @@ export default async function AIGovernanceMidMarket({
         {t("to identify which AI systems need governance controls before they reach production.")}
       </p>
     </BlogPostLayout>
+    </>
   );
 }

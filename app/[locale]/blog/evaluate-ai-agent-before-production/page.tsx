@@ -4,6 +4,7 @@ import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import { Link } from "@/i18n/navigation";
 
@@ -23,6 +24,7 @@ export async function generateMetadata({
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      publishedTime: post.date,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
@@ -38,6 +40,8 @@ export default async function EvaluateAIAgent({
   const t = await getT();
 
   return (
+    <>
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} />
     <BlogPostLayout
       slug={post.slug}
       title={t(post.title)}
@@ -896,5 +900,6 @@ export default async function EvaluateAIAgent({
         {t("to determine whether your AI agent is ready for production — or what evidence is still missing.")}
       </p>
     </BlogPostLayout>
+    </>
   );
 }

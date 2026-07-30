@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor } from "@/lib/i18n";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { Link } from "@/i18n/navigation";
 
 const post = BLOG_POSTS.find(
@@ -25,6 +26,7 @@ export async function generateMetadata({
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      publishedTime: post.date,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
@@ -40,6 +42,8 @@ export default async function CrmPipelineLeakingRevenuePage({
   const t = await getT();
 
   return (
+    <>
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} />
     <BlogPostLayout
       slug={post.slug}
       title={t(post.title)}
@@ -436,5 +440,6 @@ export default async function CrmPipelineLeakingRevenuePage({
         costing you per quarter.
       </p>
     </BlogPostLayout>
+    </>
   );
 }
