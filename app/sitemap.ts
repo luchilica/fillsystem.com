@@ -1,93 +1,73 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { BLOG_POSTS } from "@/components/blog/blogData";
+import {
+  INDEXABLE_LOCALES,
+  LOCALE_META,
+  DEFAULT_LOCALE,
+  type Locale,
+} from "@/i18n/locales";
+
+function localizedUrl(locale: Locale, path: string): string {
+  const prefix = LOCALE_META[locale].prefix;
+  if (path === "/") return prefix ? `${siteConfig.url}${prefix}` : `${siteConfig.url}`;
+  return `${siteConfig.url}${prefix}${path}`;
+}
+
+function alternatesFor(path: string): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const l of INDEXABLE_LOCALES) {
+    languages[LOCALE_META[l].htmlLang] = localizedUrl(l, path);
+  }
+  languages["x-default"] = localizedUrl(DEFAULT_LOCALE, path);
+  return languages;
+}
+
+function multilingualEntry(
+  path: string,
+  lastModified: Date,
+  changeFrequency: "monthly" | "weekly" | "yearly",
+  priority: number,
+): MetadataRoute.Sitemap {
+  return INDEXABLE_LOCALES.map((locale) => ({
+    url: localizedUrl(locale, path),
+    lastModified,
+    changeFrequency,
+    priority,
+    alternates: { languages: alternatesFor(path) },
+  }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (siteConfig.isPreview) return [];
 
   const now = new Date();
 
-  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.slug}`,
-    lastModified: new Date(post.date + "T00:00:00"),
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
-  }));
+  const pages: MetadataRoute.Sitemap = [
+    ...multilingualEntry("/", now, "monthly", 1),
+    ...multilingualEntry("/about", now, "monthly", 0.8),
+    ...multilingualEntry("/services", now, "monthly", 0.9),
+    ...multilingualEntry("/services/business-diagnostic", now, "monthly", 0.85),
+    ...multilingualEntry("/services/revops-crm-consulting", now, "monthly", 0.85),
+    ...multilingualEntry("/services/ai-process-automation", now, "monthly", 0.85),
+    ...multilingualEntry("/services/it-risk-security", now, "monthly", 0.85),
+    ...multilingualEntry("/services/advisory-power-hour", now, "monthly", 0.8),
+    ...multilingualEntry("/services/addon-tool-build", now, "monthly", 0.8),
+    ...multilingualEntry("/services/process-operations", now, "monthly", 0.85),
+    ...multilingualEntry("/o1-visa-readiness", now, "monthly", 0.7),
+    ...multilingualEntry("/blog", now, "weekly", 0.7),
+  ];
 
-  return [
-    {
-      url: siteConfig.url,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${siteConfig.url}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/services`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteConfig.url}/services/business-diagnostic`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/services/revops-crm-consulting`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/services/ai-process-automation`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/services/it-risk-security`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/services/advisory-power-hour`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/services/addon-tool-build`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/services/process-operations`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/o1-visa-readiness`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteConfig.url}/blog`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    ...blogEntries,
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) =>
+    multilingualEntry(
+      `/blog/${post.slug}`,
+      new Date(post.date + "T00:00:00"),
+      "monthly",
+      0.75,
+    ),
+  );
+
+  const legal: MetadataRoute.Sitemap = [
     {
       url: `${siteConfig.url}/privacy-policy`,
       lastModified: now,
@@ -107,4 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ];
+
+  return [...pages, ...blogEntries, ...legal];
 }
