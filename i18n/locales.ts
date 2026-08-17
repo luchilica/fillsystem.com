@@ -1,8 +1,8 @@
 // Locale registry — single source of truth for the site's languages.
 // URL slugs are decoupled from BCP-47 codes per docs/multilingual.md (e.g. the
 // "es-US" locale is served at "/es"). English is the default (served at the
-// root with no prefix) and the only indexable/published locale for now; es/ru/
-// zh ship as noindex AI-draft pilots (enabled=false until translated + reviewed).
+// root with no prefix). All locales are indexable and included in the sitemap +
+// hreflang cluster.
 export const LOCALES = ["en-US", "es-US", "ru-US", "zh-Hans"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en-US";
@@ -40,7 +40,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
     htmlLang: "es",
     ogLocale: "es_US",
     prefix: "/es",
-    indexable: false,
+    indexable: true,
     enabled: true,
   },
   "ru-US": {
@@ -49,7 +49,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
     htmlLang: "ru",
     ogLocale: "ru_RU",
     prefix: "/ru",
-    indexable: false,
+    indexable: true,
     enabled: true,
   },
   "zh-Hans": {
@@ -58,7 +58,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
     htmlLang: "zh-Hans",
     ogLocale: "zh_CN",
     prefix: "/zh-hans",
-    indexable: false,
+    indexable: true,
     enabled: true,
   },
 };

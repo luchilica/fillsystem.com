@@ -191,7 +191,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
 ### i18n Quick Ref
 
-- 4 locales: `en-US` (indexable), `es-US`, `ru-US`, `zh-Hans` (noindex)
+- 4 locales: `en-US`, `es-US`, `ru-US`, `zh-Hans` — all indexable
 - Server: `const t = await getT()` — Client: `const t = useT()`
 - Every page: `setRequestLocale(locale)` before `getT()`
 - All visible text: `t("English string")`
@@ -239,3 +239,13 @@ After any DesignSync pull, verify it hasn't reverted:
 - Mobile compaction tokens (spacing/heading overrides at <=767px)
 - Soft card shadows (back to hard 8px offset)
 - Duotone imagery and photo bands
+
+## Future Steps (post-launch)
+
+Ordered sequence — each step builds on the previous:
+
+1. **LinkedIn Company Page** — create Fill System page, link to Igor Saevets profile, post 2-3 intro posts with links to blog articles
+2. **Crunchbase** — register Organization (Fill System, 2021, California, Management Consulting), link founder, link website
+3. **Product Hunt** — submit Fill System with tagline "Diagnostic-first IT consulting for mid-market B2B"
+4. **G2** — create profile under IT Consulting / Business Process Management, solicit client reviews
+5. **Google Business Profile** — verify when possible, critical for brand entity disambiguation from fillsystems.it
