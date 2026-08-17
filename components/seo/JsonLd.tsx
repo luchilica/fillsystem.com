@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { FAQ_ITEMS, faqAnswerText } from "@/components/sections/faqData";
 
-const HOME_TITLE = "B2B IT & Operations Development | Fill System";
+const HOME_TITLE = "B2B IT & Operations Consulting - Diagnostic-First | Fill System";
 const HOME_DESCRIPTION =
   "B2B companies with 50-250 employees use Fill System to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
 
@@ -24,7 +24,9 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         logo: `${home}/logo.png`,
         foundingDate: "2021",
         description:
-          "Diagnostic-first IT and business development for B2B companies.",
+          "Diagnostic-first IT and operations consulting for B2B companies with 50-250 employees.",
+        disambiguatingDescription:
+          "B2B IT and operations consulting firm based in California, USA. Not affiliated with fillsystems.it (Italy) or Fill System HVAC (South Korea).",
         founder: { "@id": `${home}#igor-saevets` },
         sameAs: ["https://www.linkedin.com/in/igorsaevets"],
         areaServed: { "@type": "Country", name: "United States" },
@@ -32,7 +34,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
           "@type": "ContactPoint",
           email: "hello@fillsystem.com",
           contactType: "customer service",
-          availableLanguage: ["English"],
+          availableLanguage: ["English", "Russian", "Spanish"],
         },
         address: {
           "@type": "PostalAddress",
@@ -197,18 +199,22 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         url: "https://www.linkedin.com/in/igorsaevets",
         sameAs: ["https://www.linkedin.com/in/igorsaevets"],
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${home}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faqAnswerText(item),
-          },
-        })),
-      },
+      ...(locale === "en-US"
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${home}#faq`,
+              mainEntity: FAQ_ITEMS.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faqAnswerText(item),
+                },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 

@@ -195,7 +195,7 @@ const SERVICES: Service[] = [
     imageAlt: "IT risk and security audit for B2B operations",
     title: "IT Risk & Security",
     base: 2100,
-    lede: "See where your data, access, and systems put the business at risk.",
+    lede: "IT security audit for B2B: see where your data, access, and systems put the business at risk.",
     context:
       "A focused review of accounts, access, data handling, and single points of failure, with plain-language findings and a prioritized fix list, scaled to a small company.",
     includes: [
@@ -216,7 +216,7 @@ const SERVICES: Service[] = [
     imageAlt: "Process and operations redesign for growing B2B teams",
     title: "Process & Operations",
     base: 3700,
-    lede: "Redesign the handoffs, approvals, and ownership that slow a growing team down.",
+    lede: "Business process optimization: redesign the handoffs, approvals, and ownership that slow a growing team down.",
     context:
       "We turn the diagnostic's process map into a working operating model: clarified ownership, documented workflows, and removed duplication, sized for a 25-50-person team, not an enterprise rollout.",
     includes: [
@@ -237,7 +237,7 @@ const SERVICES: Service[] = [
     imageAlt: "AI and process automation for B2B workflows",
     title: "AI & Process Automation",
     base: 4100,
-    lede: "Remove the manual, repetitive work, but only where it actually pays off.",
+    lede: "Zapier, Make, and AI automation for B2B: remove the manual, repetitive work where it actually pays off.",
     context:
       "Starting from the diagnostic, we automate the workflows with real payback: connecting your tools, adding decision logic, and keeping a human where judgment matters.",
     includes: [
@@ -258,7 +258,7 @@ const SERVICES: Service[] = [
     imageAlt: "RevOps CRM data and reporting consulting for B2B",
     title: "RevOps: CRM, Data & Reporting",
     base: 5100,
-    lede: "Make your CRM, pipeline, and reporting tell the truth again.",
+    lede: "HubSpot and Salesforce RevOps consulting: make your CRM, pipeline, and reporting tell the truth again.",
     context:
       "We clean up CRM structure, reporting rules, and revenue data flow so your numbers are trustworthy and your team stops working around the system.",
     includes: [

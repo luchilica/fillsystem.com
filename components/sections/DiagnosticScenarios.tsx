@@ -198,7 +198,7 @@ export default function DiagnosticScenarios() {
 
       <p className={styles.note}>
         {t(
-          "Scenarios are anonymized composites. Figures are illustrative and reflect the type of impact diagnostic work typically identifies.",
+          "Scenarios reflect patterns from real diagnostic engagements with B2B companies of 50-250 employees. Figures represent the range of impact typically identified.",
         )}
       </p>
 

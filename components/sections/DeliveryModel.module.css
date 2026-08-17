@@ -173,6 +173,13 @@
   color: var(--stone-500);
 }
 
+.roleBio {
+  margin-top: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--stone-500);
+}
+
 /* "Focus" labelled divider above the responsibility grid. */
 .respDivider {
   display: flex;

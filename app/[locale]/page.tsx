@@ -21,12 +21,23 @@ import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import BusinessITDiagnostic from "@/components/sections/BusinessITDiagnostic";
 
-// Homepage metadata. Title + description are verbatim from docs/texts.md →
-// "Page: Diagnostic-First IT & Business Consulting". OG/Twitter image tags are
-// supplied by app/opengraph-image.tsx + app/twitter-image.tsx (file convention).
-const TITLE = "B2B IT & Operations Development";
-const DESCRIPTION =
-  "Fill System diagnoses process, CRM, data and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires or vendors.";
+const TITLES: Record<string, string> = {
+  "en-US": "B2B IT & Operations Consulting - Diagnostic-First",
+  "es-US": "Consultoría IT y Operaciones B2B - Diagnóstico Primero",
+  "ru-US": "IT-консалтинг и диагностика бизнес-процессов для B2B",
+  "zh-Hans": "B2B IT与运营咨询 - 诊断优先",
+};
+
+const DESCRIPTIONS: Record<string, string> = {
+  "en-US":
+    "Fill System diagnoses process, CRM, data and IT bottlenecks for B2B companies with 50-250 employees before you commit to tools, hires or vendors.",
+  "es-US":
+    "Fill System diagnostica cuellos de botella en procesos, CRM, datos e IT para empresas B2B de 50-250 empleados antes de elegir herramientas o proveedores.",
+  "ru-US":
+    "Fill System диагностирует процессы, CRM, данные и IT-узкие места для B2B-компаний с 50-250 сотрудниками — до выбора инструментов, найма или подрядчиков.",
+  "zh-Hans":
+    "Fill System 为拥有50-250名员工的B2B公司诊断流程、CRM、数据和IT瓶颈，帮助您在选择工具或供应商之前做出明智决策。",
+};
 
 export async function generateMetadata({
   params,
@@ -35,33 +46,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const title = TITLES[loc] ?? TITLES["en-US"];
+  const description = DESCRIPTIONS[loc] ?? DESCRIPTIONS["en-US"];
+  const ogTitle = `${title} | Fill System`;
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: ogTitle,
+      description,
       url: localizedUrl(loc, "/"),
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      // Explicit so the shared homepage always carries og:image (this object
-      // otherwise shadows the sitewide default in layout.tsx).
       images: [
         {
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "Fill System: Diagnostic-First IT & Business Development",
+          alt: "Fill System: Diagnostic-First IT & Operations Consulting",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: TITLE,
-      description: DESCRIPTION,
+      title: ogTitle,
+      description,
       images: ["/opengraph-image"],
     },
   };

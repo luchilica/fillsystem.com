@@ -16,9 +16,13 @@ export function localizedUrl(locale: Locale, path: string): string {
 }
 
 // Canonical + hreflang alternates. Only indexable (published) locales enter the
-// hreflang cluster; pilots are excluded per docs/multilingual.md. x-default →
-// English root.
+// hreflang cluster; pilots are excluded per docs/multilingual.md. Non-indexable
+// pages get a canonical but no hreflang to avoid contradicting noindex. x-default
+// → English root.
 export function alternatesFor(locale: Locale, path: string): Metadata["alternates"] {
+  if (!LOCALE_META[locale].indexable) {
+    return { canonical: localizedUrl(locale, path) };
+  }
   const languages: Record<string, string> = {};
   for (const l of INDEXABLE_LOCALES) {
     languages[LOCALE_META[l].htmlLang] = localizedUrl(l, path);

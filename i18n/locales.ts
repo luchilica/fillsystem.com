@@ -37,7 +37,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   "es-US": {
     label: "Español",
     short: "ES",
-    htmlLang: "es-US",
+    htmlLang: "es",
     ogLocale: "es_US",
     prefix: "/es",
     indexable: false,
@@ -46,7 +46,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   "ru-US": {
     label: "Русский",
     short: "RU",
-    htmlLang: "ru-US",
+    htmlLang: "ru",
     ogLocale: "ru_RU",
     prefix: "/ru",
     indexable: false,

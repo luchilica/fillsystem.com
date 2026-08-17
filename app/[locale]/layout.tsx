@@ -47,7 +47,7 @@ export async function generateMetadata({
       default: "Fill System",
       template: "%s | Fill System",
     },
-    description: "Diagnostic-first IT & business development.",
+    description: "Diagnostic-first IT & operations consulting for B2B companies with 50-250 employees.",
     // Sitewide share-preview image. Declared explicitly (not left to the
     // opengraph-image.tsx file convention alone) because pages that set their own
     // `openGraph`/`twitter` in generateMetadata were shipping HTML with no
