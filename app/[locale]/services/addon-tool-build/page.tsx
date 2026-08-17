@@ -11,10 +11,6 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
 import styles from "./AddonTool.module.css";
 
-const TITLE = "Add-on Tool Build: Bot, Page, or Email";
-const DESCRIPTION =
-  "Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $1,100.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("Add-on Tool Build: Bot, Page, or Email");
+  const description = t("Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $1,100.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/addon-tool-build"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/addon-tool-build"),
       type: "website",
       siteName: siteConfig.name,
@@ -127,8 +126,8 @@ export default async function AddonToolBuild({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("Add-on Tool Build: Bot, Page, or Email"),
+        description: t("Pick one quick win - a Telegram bot, landing page, or email campaign. Scoped small, shipped fast. From $1,100."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

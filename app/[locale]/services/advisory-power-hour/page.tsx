@@ -11,11 +11,6 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
 import styles from "./AdvisoryHour.module.css";
 
-const TITLE =
-  "Advisory Power Hour - $350 Expert Session";
-const DESCRIPTION =
-  "Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $350, no scoping, no wait.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -23,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("Advisory Power Hour - $350 Expert Session");
+  const description = t("Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $350, no scoping, no wait.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/advisory-power-hour"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/advisory-power-hour"),
       type: "website",
       siteName: siteConfig.name,
@@ -144,8 +142,8 @@ export default async function AdvisoryPowerHour({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("Advisory Power Hour - $350 Expert Session"),
+        description: t("Bring one concrete B2B problem - CRM, process, automation, or IT. Leave with expert direction in 60 minutes. $350, no scoping, no wait."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

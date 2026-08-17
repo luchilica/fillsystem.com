@@ -11,11 +11,6 @@ import { getT } from "@/i18n/t";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import styles from "./BusinessDiagnostic.module.css";
 
-const TITLE =
-  "Business & IT Diagnostic for B2B Teams";
-const DESCRIPTION =
-  "Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data, and IT bottlenecks before you commit.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -23,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("Business & IT Diagnostic for B2B Teams");
+  const description = t("Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data, and IT bottlenecks before you commit.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/business-diagnostic"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/business-diagnostic"),
       type: "website",
       siteName: siteConfig.name,
@@ -170,7 +168,7 @@ export default async function BusinessDiagnosticPage({
     "@type": "Service",
     "@id": `${pageUrl}#service`,
     name: "Business & IT Diagnostic",
-    description: DESCRIPTION,
+    description: t("Free 30-45 minute diagnostic for B2B companies with 50-250 employees. We map process, CRM, data, and IT bottlenecks before you commit."),
     serviceType: "IT and business diagnostic",
     provider: {
       "@type": "Organization",

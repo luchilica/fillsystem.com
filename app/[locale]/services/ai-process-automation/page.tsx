@@ -10,11 +10,6 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
 import styles from "./AIAutomation.module.css";
 
-const TITLE =
-  "AI & Process Automation Consulting for B2B";
-const DESCRIPTION =
-  "Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $4,100.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,14 +17,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("AI & Process Automation Consulting for B2B");
+  const description = t("Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $4,100.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/ai-process-automation"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/ai-process-automation"),
       type: "website",
       siteName: siteConfig.name,
@@ -169,8 +167,8 @@ export default async function AIProcessAutomation({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("AI & Process Automation Consulting for B2B"),
+        description: t("Workflow automation, CRM automation, document processing, and AI readiness for B2B teams. We automate only where it pays off. From $4,100."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

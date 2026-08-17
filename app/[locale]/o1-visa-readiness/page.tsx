@@ -11,10 +11,6 @@ import PlusMark from "@/components/ui/PlusMark";
 import { Link } from "@/i18n/navigation";
 import styles from "./O1Readiness.module.css";
 
-const TITLE = "O-1 Visa Readiness for IT & Tech Founders";
-const DESCRIPTION =
-  "Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("O-1 Visa Readiness for IT & Tech Founders");
+  const description = t("Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/o1-visa-readiness"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/o1-visa-readiness"),
       type: "website",
       siteName: siteConfig.name,
@@ -146,8 +145,8 @@ export default async function O1VisaReadiness({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("O-1 Visa Readiness for IT & Tech Founders"),
+        description: t("Structure evidence for an O-1 extraordinary-ability case. Publication strategy, portfolio architecture, and recommendation coordination."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

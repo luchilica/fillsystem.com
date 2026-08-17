@@ -11,10 +11,6 @@ import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./RevOpsCrm.module.css";
 
-const TITLE = "RevOps & CRM Consulting for B2B";
-const DESCRIPTION =
-  "CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $5,100.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("RevOps & CRM Consulting for B2B");
+  const description = t("CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $5,100.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/revops-crm-consulting"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/revops-crm-consulting"),
       type: "website",
       siteName: siteConfig.name,
@@ -184,8 +183,8 @@ export default async function RevOpsCrmConsulting({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("RevOps & CRM Consulting for B2B"),
+        description: t("CRM audit, pipeline optimization, reporting cleanup, and data flow architecture for B2B teams using HubSpot, Salesforce, and Pipedrive. From $5,100."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

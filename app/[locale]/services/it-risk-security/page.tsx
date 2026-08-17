@@ -11,10 +11,6 @@ import { Link } from "@/i18n/navigation";
 import { Check } from "lucide-react";
 import styles from "./ITRiskSecurity.module.css";
 
-const TITLE = "IT Risk & Security Audit for B2B Companies";
-const DESCRIPTION =
-  "Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $2,100.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("IT Risk & Security Audit for B2B Companies");
+  const description = t("Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $2,100.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/it-risk-security"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/it-risk-security"),
       type: "website",
       siteName: siteConfig.name,
@@ -148,8 +147,8 @@ export default async function ITRiskSecurity({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("IT Risk & Security Audit for B2B Companies"),
+        description: t("Focused IT risk review for B2B companies: account access, data handling, single points of failure, and a prioritized fix list. From $2,100."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,

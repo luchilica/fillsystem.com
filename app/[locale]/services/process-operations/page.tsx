@@ -11,11 +11,6 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
 import styles from "./ProcessOps.module.css";
 
-const TITLE =
-  "Process & Operations Consulting for B2B";
-const DESCRIPTION =
-  "Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,700.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -23,14 +18,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("Process & Operations Consulting for B2B");
+  const description = t("Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,700.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services/process-operations"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services/process-operations"),
       type: "website",
       siteName: siteConfig.name,
@@ -143,8 +141,8 @@ export default async function ProcessOperations({
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: t("Process & Operations Consulting for B2B"),
+        description: t("Redesign handoffs, approvals, and ownership for growing B2B teams. Operating model design sized for 25-250 employees. From $3,700."),
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,
