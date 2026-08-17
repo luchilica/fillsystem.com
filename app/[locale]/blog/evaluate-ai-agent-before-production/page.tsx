@@ -17,13 +17,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t(post.seoTitle ?? post.title);
+  const description = t(post.metaDescription ?? post.description);
   return {
-    title: post.seoTitle ?? post.title,
-    description: post.metaDescription ?? post.description,
+    title,
+    description,
     alternates: alternatesFor(loc, `/blog/${post.slug}`),
     robots: robotsFor(loc),
     openGraph: {
       type: "article",
+      title: `${title} | Fill System`,
+      description,
       publishedTime: post.date,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },

@@ -21,16 +21,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("About Us - B2B IT & Operations Consulting");
+  const description = t("Founded by Igor Saevets, Fill System delivers diagnostic-first IT and operations consulting for B2B companies with 50-250 employees.");
   return {
-    title: "About Us — B2B IT & Operations Development",
-    description:
-      "Founded by Igor Saevets, Fill System delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
+    title,
+    description,
     alternates: alternatesFor(loc, "/about"),
     robots: robotsFor(loc),
     openGraph: {
-      title: "About Us — B2B IT & Operations Development",
-      description:
-        "Founded by Igor Saevets, Fill System delivers diagnostic-first IT and business development for B2B companies with 50-250 employees.",
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/about"),
       type: "website",
       siteName: siteConfig.name,

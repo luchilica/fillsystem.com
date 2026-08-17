@@ -22,10 +22,6 @@ import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./ServicesHub.module.css";
 
-const TITLE = "B2B Development Services & Pricing";
-const DESCRIPTION =
-  "IT diagnostics, RevOps, CRM audits, AI automation & process optimization for B2B companies (50-250 employees). Transparent pricing.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -33,14 +29,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const loc = locale as Locale;
+  const t = await getT();
+  const title = t("B2B Consulting Services & Pricing");
+  const description = t("IT diagnostics, RevOps, CRM audits, AI automation & process optimization for B2B companies (50-250 employees). Transparent pricing.");
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title,
+    description,
     alternates: alternatesFor(loc, "/services"),
     robots: robotsFor(loc),
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
+      title: `${title} | Fill System`,
+      description,
       url: localizedUrl(loc, "/services"),
       type: "website",
       siteName: siteConfig.name,
@@ -188,14 +187,17 @@ export default async function ServicesPage({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/services");
 
+  const pageTitle = t("B2B Consulting Services & Pricing");
+  const pageDescription = t("IT diagnostics, RevOps, CRM audits, AI automation & process optimization for B2B companies (50-250 employees). Transparent pricing.");
+
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebPage",
         "@id": pageUrl,
-        name: TITLE,
-        description: DESCRIPTION,
+        name: pageTitle,
+        description: pageDescription,
         url: pageUrl,
         isPartOf: { "@id": `${home}#website` },
         inLanguage: LOCALE_META[loc].htmlLang,
