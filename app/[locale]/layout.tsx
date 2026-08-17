@@ -53,6 +53,9 @@ export async function generateMetadata({
     // `openGraph`/`twitter` in generateMetadata were shipping HTML with no
     // og:image tag — so Telegram/Slack/LinkedIn had nothing to render. metadataBase
     // resolves "/opengraph-image" to an absolute HTTPS URL.
+    verification: {
+      yandex: "8a581bfcb092f491",
+    },
     openGraph: {
       siteName: siteConfig.name,
       locale: LOCALE_META[locale as Locale]?.ogLocale || "en_US",
