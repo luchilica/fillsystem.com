@@ -44,7 +44,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Fill System Services - B2B IT & Operations Consulting" }],
     },
   };
 }
@@ -193,6 +193,12 @@ export default async function ServicesPage({
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${home}#organization`,
+        name: siteConfig.name,
+        url: home,
+      },
       {
         "@type": "WebPage",
         "@id": pageUrl,

@@ -8,6 +8,7 @@ import { LOCALE_META } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import styles from "./BusinessDiagnostic.module.css";
 
@@ -33,7 +34,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Business & IT Diagnostic - Fill System" }],
     },
   };
 }
@@ -136,32 +137,6 @@ export default async function BusinessDiagnosticPage({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/services/business-diagnostic");
 
-  // 3-level breadcrumb: Home > Services > Business Diagnostic
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: siteConfig.name,
-        item: home,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: localizedUrl(loc, "/services"),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Business Diagnostic",
-        item: pageUrl,
-      },
-    ],
-  };
-
   // Service JSON-LD for this specific service.
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -216,11 +191,11 @@ export default async function BusinessDiagnosticPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd),
-        }}
+      <BreadcrumbJsonLd
+        title="Business Diagnostic"
+        path="/services/business-diagnostic"
+        parent={{ title: "Services", path: "/services" }}
+        locale={locale as Locale}
       />
       <script
         type="application/ld+json"

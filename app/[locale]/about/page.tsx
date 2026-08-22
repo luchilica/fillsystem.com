@@ -37,7 +37,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Fill System - B2B IT & Operations Consulting" }],
     },
   };
 }

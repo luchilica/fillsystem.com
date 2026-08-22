@@ -116,6 +116,7 @@ function ArticleJsonLd({
         ...(heroImage ? { image: `${siteConfig.url}${heroImage}` } : {}),
         author: {
           "@type": "Person",
+          ...(author.name === "Igor Saevets" ? { "@id": `${home}#igor-saevets` } : {}),
           name: author.name,
           jobTitle: authorJobTitle,
           ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),

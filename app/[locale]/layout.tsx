@@ -60,7 +60,7 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       locale: LOCALE_META[locale as Locale]?.ogLocale || "en_US",
       type: "website",
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Fill System - Diagnostic-First IT & Operations Consulting" }],
     },
     twitter: {
       card: "summary_large_image",

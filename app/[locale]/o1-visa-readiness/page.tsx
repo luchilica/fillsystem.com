@@ -33,7 +33,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "O-1 Visa Readiness Support - Fill System" }],
     },
   };
 }
@@ -118,30 +118,16 @@ export default async function O1VisaReadiness({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/o1-visa-readiness");
 
-  // Two-level breadcrumb: Home > O-1 Visa Readiness
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: siteConfig.name,
-        item: home,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "O-1 Visa Readiness",
-        item: pageUrl,
-      },
-    ],
-  };
-
   // Service JSON-LD + FAQPage for this page.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${home}#organization`,
+        name: siteConfig.name,
+        url: home,
+      },
       {
         "@type": "WebPage",
         "@id": pageUrl,
@@ -187,9 +173,10 @@ export default async function O1VisaReadiness({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        title="O-1 Visa Readiness"
+        path="/o1-visa-readiness"
+        locale={locale as Locale}
       />
       <script
         type="application/ld+json"

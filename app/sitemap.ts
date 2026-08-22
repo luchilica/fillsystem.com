@@ -54,7 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...multilingualEntry("/services/advisory-power-hour", now, "monthly", 0.8),
     ...multilingualEntry("/services/addon-tool-build", now, "monthly", 0.8),
     ...multilingualEntry("/services/process-operations", now, "monthly", 0.85),
+    ...multilingualEntry("/services/extended-diagnostic", now, "monthly", 0.85),
     ...multilingualEntry("/o1-visa-readiness", now, "monthly", 0.7),
+    ...multilingualEntry("/contact", now, "monthly", 0.6),
     ...multilingualEntry("/blog", now, "weekly", 0.7),
   ];
 

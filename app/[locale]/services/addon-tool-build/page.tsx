@@ -6,6 +6,7 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import Button from "@/components/ui/Button";
 import { Check } from "lucide-react";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import PlusMark from "@/components/ui/PlusMark";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
@@ -33,7 +34,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Add-on Tool Build - Fill System" }],
     },
   };
 }
@@ -93,36 +94,16 @@ export default async function AddonToolBuild({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/services/addon-tool-build");
 
-  // Three-level breadcrumb: Home > Services > Add-on Tool Build
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: siteConfig.name,
-        item: home,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: localizedUrl(loc, "/services"),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Add-on Tool Build",
-        item: pageUrl,
-      },
-    ],
-  };
-
   // Service JSON-LD + FAQPage for this service page.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${home}#organization`,
+        name: siteConfig.name,
+        url: home,
+      },
       {
         "@type": "WebPage",
         "@id": pageUrl,
@@ -171,9 +152,11 @@ export default async function AddonToolBuild({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        title="Add-on Tool Build"
+        path="/services/addon-tool-build"
+        parent={{ title: "Services", path: "/services" }}
+        locale={locale as Locale}
       />
       <script
         type="application/ld+json"

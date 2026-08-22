@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import Button from "@/components/ui/Button";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import PlusMark from "@/components/ui/PlusMark";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Link } from "@/i18n/navigation";
@@ -33,7 +34,7 @@ export async function generateMetadata({
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "RevOps & CRM Consulting - Fill System" }],
     },
   };
 }
@@ -150,36 +151,16 @@ export default async function RevOpsCrmConsulting({
   const home = siteConfig.url;
   const pageUrl = localizedUrl(loc, "/services/revops-crm-consulting");
 
-  // Three-level breadcrumb: Home > Services > RevOps & CRM Consulting
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: siteConfig.name,
-        item: home,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: localizedUrl(loc, "/services"),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "RevOps & CRM Consulting",
-        item: pageUrl,
-      },
-    ],
-  };
-
   // Service JSON-LD specific to this service page.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${home}#organization`,
+        name: siteConfig.name,
+        url: home,
+      },
       {
         "@type": "WebPage",
         "@id": pageUrl,
@@ -228,9 +209,11 @@ export default async function RevOpsCrmConsulting({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        title="RevOps & CRM Consulting"
+        path="/services/revops-crm-consulting"
+        parent={{ title: "Services", path: "/services" }}
+        locale={locale as Locale}
       />
       <script
         type="application/ld+json"

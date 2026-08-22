@@ -28,7 +28,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   "en-US": {
     label: "English",
     short: "EN",
-    htmlLang: "en-US",
+    htmlLang: "en",
     ogLocale: "en_US",
     prefix: "",
     indexable: true,
