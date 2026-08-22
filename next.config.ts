@@ -40,31 +40,26 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 2592000,
   },
   async headers() {
+    const imageCache = {
+      source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    };
+    const corsApi = {
+      source: "/api/:path*",
+      headers: [
+        { key: "Access-Control-Allow-Origin", value: "https://www.fillsystem.com" },
+        { key: "Access-Control-Allow-Methods", value: "POST, OPTIONS" },
+        { key: "Access-Control-Allow-Headers", value: "Content-Type" },
+      ],
+    };
+
     if (process.env.SITE_MODE === "production") {
-      return [
-        {
-          source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
-            },
-          ],
-        },
-        { source: "/:path*", headers: securityHeaders },
-      ];
+      return [imageCache, corsApi, { source: "/:path*", headers: securityHeaders }];
     }
 
     return [
-      {
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      imageCache,
+      corsApi,
       {
         source: "/:path*",
         headers: [

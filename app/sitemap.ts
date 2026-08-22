@@ -34,28 +34,38 @@ function multilingualEntry(
   }));
 }
 
-const SITE_LAST_UPDATED = new Date("2026-08-22");
+const PAGE_DATES: Record<string, string> = {
+  "/":                                "2026-08-17",
+  "/about":                           "2026-08-22",
+  "/services":                        "2026-08-22",
+  "/services/business-diagnostic":    "2026-08-22",
+  "/services/revops-crm-consulting":  "2026-08-22",
+  "/services/ai-process-automation":  "2026-08-22",
+  "/services/it-risk-security":       "2026-08-22",
+  "/services/advisory-power-hour":    "2026-08-22",
+  "/services/addon-tool-build":       "2026-08-22",
+  "/services/process-operations":     "2026-08-22",
+  "/services/extended-diagnostic":    "2026-08-22",
+  "/o1-visa-readiness":               "2026-08-22",
+  "/contact":                         "2026-08-22",
+  "/case-studies":                    "2026-08-22",
+  "/blog":                            "2026-08-22",
+  "/privacy-policy":                  "2026-08-22",
+  "/terms-of-use":                    "2026-08-22",
+  "/cookie-policy":                   "2026-08-22",
+};
+
+function pageDate(path: string): Date {
+  const d = PAGE_DATES[path];
+  return d ? new Date(d + "T00:00:00") : new Date("2026-08-22");
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (siteConfig.isPreview) return [];
 
-  const pages: MetadataRoute.Sitemap = [
-    ...multilingualEntry("/", SITE_LAST_UPDATED),
-    ...multilingualEntry("/about", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/business-diagnostic", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/revops-crm-consulting", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/ai-process-automation", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/it-risk-security", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/advisory-power-hour", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/addon-tool-build", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/process-operations", SITE_LAST_UPDATED),
-    ...multilingualEntry("/services/extended-diagnostic", SITE_LAST_UPDATED),
-    ...multilingualEntry("/o1-visa-readiness", SITE_LAST_UPDATED),
-    ...multilingualEntry("/contact", SITE_LAST_UPDATED),
-    ...multilingualEntry("/case-studies", SITE_LAST_UPDATED),
-    ...multilingualEntry("/blog", SITE_LAST_UPDATED),
-  ];
+  const pages: MetadataRoute.Sitemap = Object.keys(PAGE_DATES).flatMap(
+    (path) => multilingualEntry(path, pageDate(path)),
+  );
 
   const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) =>
     multilingualEntry(
@@ -64,11 +74,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  const legal: MetadataRoute.Sitemap = [
-    ...multilingualEntry("/privacy-policy", SITE_LAST_UPDATED),
-    ...multilingualEntry("/terms-of-use", SITE_LAST_UPDATED),
-    ...multilingualEntry("/cookie-policy", SITE_LAST_UPDATED),
-  ];
-
-  return [...pages, ...blogEntries, ...legal];
+  return [...pages, ...blogEntries];
 }
