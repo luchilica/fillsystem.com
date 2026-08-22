@@ -34,6 +34,7 @@ export async function generateMetadata({
       publishedTime: post.date,
       modifiedTime: post.date,
       authors: [post.author.name],
+      tags: [post.category],
       images: post.heroImage
         ? [{ url: post.heroImage, width: 1200, height: 630, alt: t(post.heroAlt ?? post.title) }]
         : [{ url: "/opengraph-image", width: 1200, height: 630 }],

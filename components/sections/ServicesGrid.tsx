@@ -22,6 +22,7 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { useT } from "@/i18n/useT";
 import type { Locale } from "@/i18n/locales";
+import { SERVICE_DEFS, type ServiceDef } from "@/lib/services";
 import styles from "./ServicesGrid.module.css";
 
 const FORM_HREF = "#diagnostic-request-form";
@@ -97,6 +98,30 @@ type Service = {
   cta: string;
 };
 
+// Canonical prices, titles, and slugs come from the shared service definitions.
+// Everything else (images, copy, includes) is component-local UI data.
+const DEF = Object.fromEntries(
+  SERVICE_DEFS.map((d) => [d.id, d]),
+) as Record<string, ServiceDef>;
+
+/** Pull id, title, href, and pricing from the shared ServiceDef. */
+function shared(
+  id: string,
+): Pick<Service, "id" | "title" | "detailHref"> &
+  Partial<Pick<Service, "base" | "fixed" | "free">> {
+  const d = DEF[id];
+  return {
+    id: d.id,
+    title: d.title,
+    detailHref: d.href,
+    ...(d.free
+      ? { free: true }
+      : d.fixed
+        ? { fixed: d.basePrice }
+        : { base: d.basePrice }),
+  };
+}
+
 // Ordered as a journey: understand & advise (free → power hour → extended
 // diagnostic), then build & implement ascending in price (add-on → IT risk →
 // process → automation → RevOps), then O-1 as the special case at the very end.
@@ -104,14 +129,11 @@ type Service = {
 // diagnosis is the paid Extended Diagnostic so the team never gives it away free.
 const SERVICES: Service[] = [
   {
-    id: "primary-diagnostic",
-    detailHref: "/services/business-diagnostic",
+    ...shared("primary-diagnostic"),
     image: "/services/diagnostic.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDERIiMmGR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJukYYKLRmDyrtBOKGrfERB//9k=",
     imageAlt: "Free B2B diagnostic - 30-minute process and IT review",
     badge: "Start here",
-    title: "Primary Diagnostic",
-    free: true,
     lede: "A structured first look at where your processes and systems drift apart.",
     context:
       "The primary diagnostic is a complimentary fit call: we frame the problem, surface the likely bottlenecks, and tell you whether a paid engagement fits. No obligation. The deeper, documented diagnosis is a separate paid step.",
@@ -126,13 +148,10 @@ const SERVICES: Service[] = [
     cta: "Take the diagnostic",
   },
   {
-    id: "advisory-power-hour",
-    detailHref: "/services/advisory-power-hour",
+    ...shared("advisory-power-hour"),
     image: "/services/advisory.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAcEAEAAgIDAQAAAAAAAAAAAAABAAIDEQQhMXH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCWe5ja5SzZT5tjXIe60NPm0iISP//Z",
     imageAlt: "Senior advisor working session for B2B decisions",
-    title: "Advisory Power Hour",
-    fixed: 350,
     lede: "Bring one concrete problem. Leave with a clear, expert answer in 60 minutes.",
     context:
       "A focused, paid working session with a senior advisor on one specific decision or problem: CRM, process, automation, or IT. No scoping, no wait: practical direction you can act on the same day.",
@@ -147,13 +166,10 @@ const SERVICES: Service[] = [
     cta: "Book a session",
   },
   {
-    id: "extended-diagnostic",
-    detailHref: "/services/extended-diagnostic",
+    ...shared("extended-diagnostic"),
     image: "/services/extended.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAID/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECEQMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AiJqsqX5l5ho+NtvtAEH/2Q==",
     imageAlt: "Extended diagnostic - documented process and systems audit",
-    title: "Extended Diagnostic",
-    base: 1400,
     lede: "Go deeper: a documented diagnosis for when you need to be sure before you invest.",
     context:
       "For teams that want more certainty before committing budget: a structured, documented diagnosis of your processes, systems, and risks. The full picture the free fit call only points at.",
@@ -168,13 +184,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "addon-tool",
-    detailHref: "/services/addon-tool-build",
+    ...shared("addon-tool"),
     image: "/services/addon.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEE/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAECAxESMlH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMcZwtljba8wvKreqABT/9k=",
     imageAlt: "Custom tool build - bot, landing page, or email campaign",
-    title: "Add-on Tool Build",
-    base: 1100,
     lede: "Pick one quick win: a Telegram bot, a landing page, or an email campaign. We build it.",
     context:
       "A single, focused build to get a concrete result fast: choose a Telegram bot, a landing page, or an email flow. Scoped small, shipped quickly. A low-risk way to start working together.",
@@ -189,13 +202,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "it-risk",
-    detailHref: "/services/it-risk-security",
+    ...shared("it-risk"),
     image: "/services/security.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAME/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEREhMhIv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDFl5SjROzAA//Z",
     imageAlt: "IT risk and security audit for B2B operations",
-    title: "IT Risk & Security",
-    base: 2100,
     lede: "IT security audit for B2B: see where your data, access, and systems put the business at risk.",
     context:
       "A focused review of accounts, access, data handling, and single points of failure, with plain-language findings and a prioritized fix list, scaled to a small company.",
@@ -210,13 +220,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "process-operations",
-    detailHref: "/services/process-operations",
+    ...shared("process-operations"),
     image: "/services/process.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAHBAAAwABBQAAAAAAAAAAAAAAAAECEQMEITFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AhbiFoSn2pXGDOrDpv0AMpY//2Q==",
     imageAlt: "Process and operations redesign for growing B2B teams",
-    title: "Process & Operations",
-    base: 3700,
     lede: "Business process optimization: redesign the handoffs, approvals, and ownership that slow a growing team down.",
     context:
       "We turn the diagnostic's process map into a working operating model: clarified ownership, documented workflows, and removed duplication, sized for a 25-50-person team, not an enterprise rollout.",
@@ -231,13 +238,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "automation",
-    detailHref: "/services/ai-process-automation",
+    ...shared("automation"),
     image: "/services/automation.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAGRABAAIDAAAAAAAAAAAAAAAAAAIhAROR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDMnHXWeooDRH//2Q==",
     imageAlt: "AI and process automation for B2B workflows",
-    title: "AI & Process Automation",
-    base: 4100,
     lede: "Zapier, Make, and AI automation for B2B: remove the manual, repetitive work where it actually pays off.",
     context:
       "Starting from the diagnostic, we automate the workflows with real payback: connecting your tools, adding decision logic, and keeping a human where judgment matters.",
@@ -252,13 +256,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "revops",
-    detailHref: "/services/revops-crm-consulting",
+    ...shared("revops"),
     image: "/services/revops.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAdEAACAgIDAQAAAAAAAAAAAAABAgADBBESIVFh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCcuVahPC11B8Ou5bosdsesliSVBJ38iII//9k=",
     imageAlt: "RevOps CRM data and reporting consulting for B2B",
-    title: "RevOps: CRM, Data & Reporting",
-    base: 5100,
     lede: "HubSpot and Salesforce RevOps consulting: make your CRM, pipeline, and reporting tell the truth again.",
     context:
       "We clean up CRM structure, reporting rules, and revenue data flow so your numbers are trustworthy and your team stops working around the system.",
@@ -273,13 +274,10 @@ const SERVICES: Service[] = [
     cta: "Discuss this in your diagnostic",
   },
   {
-    id: "o1-readiness",
-    detailHref: "/o1-visa-readiness",
+    ...shared("o1-readiness"),
     image: "/services/o1.jpg",
     blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAYEAADAQEAAAAAAAAAAAAAAAAAARFBYf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlJqaKugFH//Z",
     imageAlt: "O-1 visa readiness evidence preparation",
-    title: "O-1 Readiness Support",
-    fixed: 2700,
     lede: "Structure the evidence behind an O-1 extraordinary-ability case the right way.",
     context:
       "For IT professionals and founders exploring the O-1 visa path, we help structure evidence of extraordinary ability: publication strategy, portfolio architecture, recommendation coordination, and expert profile positioning. We work alongside qualified immigration counsel. We do not provide legal advice or file petitions.",

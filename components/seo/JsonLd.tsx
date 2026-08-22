@@ -1,6 +1,7 @@
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { FAQ_ITEMS, faqAnswerText } from "@/components/sections/faqData";
+import { SERVICE_DEFS } from "@/lib/services";
 
 const HOME_TITLE = "B2B IT & Operations Consulting - Diagnostic-First | Fill System";
 const HOME_DESCRIPTION =
@@ -81,97 +82,27 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         provider: { "@id": organizationId },
         areaServed: { "@type": "Country", name: "United States" },
         url: `${home}/services/business-diagnostic`,
-        offers: [
-          {
-            "@type": "Offer",
-            name: "Primary Diagnostic",
-            price: "0",
-            priceCurrency: "USD",
-            description: "Complimentary 30-45 minute fit review",
-          },
-          {
-            "@type": "Offer",
-            name: "Advisory Power Hour",
-            price: "350",
-            priceCurrency: "USD",
-            description:
-              "A focused working session with a senior advisor on one specific decision or problem.",
-          },
-          {
-            "@type": "Offer",
-            name: "Extended Diagnostic",
+        offers: SERVICE_DEFS.map((def) => {
+          if (def.free || def.fixed) {
+            return {
+              "@type": "Offer" as const,
+              name: def.title,
+              price: String(def.basePrice),
+              priceCurrency: "USD",
+              description: def.description,
+            };
+          }
+          return {
+            "@type": "Offer" as const,
+            name: def.title,
             priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "1400",
+              "@type": "PriceSpecification" as const,
+              minPrice: String(def.basePrice),
               priceCurrency: "USD",
             },
-            description:
-              "A structured, documented diagnosis of processes, systems, and risks.",
-          },
-          {
-            "@type": "Offer",
-            name: "Add-on Tool Build",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "1100",
-              priceCurrency: "USD",
-            },
-            description:
-              "A single focused build: Telegram bot, landing page, or email campaign.",
-          },
-          {
-            "@type": "Offer",
-            name: "IT Risk & Security",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "2100",
-              priceCurrency: "USD",
-            },
-            description:
-              "Focused review of accounts, access, data handling, and single points of failure.",
-          },
-          {
-            "@type": "Offer",
-            name: "Process & Operations",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "3700",
-              priceCurrency: "USD",
-            },
-            description:
-              "Operating model design: clarified ownership, documented workflows, removed duplication.",
-          },
-          {
-            "@type": "Offer",
-            name: "AI & Process Automation",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "4100",
-              priceCurrency: "USD",
-            },
-            description:
-              "Workflow automation where it pays off: tool connections, decision logic, documentation.",
-          },
-          {
-            "@type": "Offer",
-            name: "RevOps: CRM, Data & Reporting",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "5100",
-              priceCurrency: "USD",
-            },
-            description:
-              "CRM structure cleanup, reporting rules, and revenue data flow.",
-          },
-          {
-            "@type": "Offer",
-            name: "O-1 Readiness Support",
-            price: "2700",
-            priceCurrency: "USD",
-            description:
-              "Evidence structuring for O-1 extraordinary-ability visa cases.",
-          },
-        ],
+            description: def.description,
+          };
+        }),
       },
       {
         "@type": "HowTo",

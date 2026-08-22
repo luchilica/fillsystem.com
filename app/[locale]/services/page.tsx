@@ -17,6 +17,7 @@ import { getT } from "@/i18n/t";
 import { siteConfig } from "@/lib/site-config";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
+import { SERVICE_DEFS } from "@/lib/services";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
@@ -49,116 +50,29 @@ export async function generateMetadata({
   };
 }
 
-const SERVICES: {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-  priceFree: boolean;
-  highlight: boolean;
-  href: string;
-  Icon: LucideIcon;
-}[] = [
-  {
-    id: "primary-diagnostic",
-    title: "Primary Diagnostic",
-    description:
-      "A complimentary 30-45 minute fit review to frame the problem and identify bottlenecks.",
-    price: "Free",
-    priceFree: true,
-    highlight: true,
-    href: "/services/business-diagnostic",
-    Icon: Stethoscope,
-  },
-  {
-    id: "advisory-power-hour",
-    title: "Advisory Power Hour",
-    description:
-      "Bring one concrete problem. Leave with expert direction in 60 minutes.",
-    price: "from $350",
-    priceFree: false,
-    highlight: false,
-    href: "/services/advisory-power-hour",
-    Icon: Zap,
-  },
-  {
-    id: "extended-diagnostic",
-    title: "Extended Diagnostic",
-    description:
-      "A documented diagnosis of processes, systems, and risks.",
-    price: "from $1,400",
-    priceFree: false,
-    highlight: false,
-    href: "/services/extended-diagnostic",
-    Icon: FileSearch,
-  },
-  {
-    id: "addon-tool",
-    title: "Add-on Tool Build",
-    description:
-      "A focused build: Telegram bot, landing page, or email campaign.",
-    price: "from $1,100",
-    priceFree: false,
-    highlight: false,
-    href: "/services/addon-tool-build",
-    Icon: Wrench,
-  },
-  {
-    id: "it-risk",
-    title: "IT Risk & Security",
-    description:
-      "Review of accounts, access, data handling, and single points of failure.",
-    price: "from $2,100",
-    priceFree: false,
-    highlight: false,
-    href: "/services/it-risk-security",
-    Icon: ShieldCheck,
-  },
-  {
-    id: "process-operations",
-    title: "Process & Operations",
-    description:
-      "Redesign handoffs, approvals, and ownership for growing teams.",
-    price: "from $3,700",
-    priceFree: false,
-    highlight: false,
-    href: "/services/process-operations",
-    Icon: Workflow,
-  },
-  {
-    id: "automation",
-    title: "AI & Process Automation",
-    description:
-      "Remove manual, repetitive work where it actually pays off.",
-    price: "from $4,100",
-    priceFree: false,
-    highlight: false,
-    href: "/services/ai-process-automation",
-    Icon: Bot,
-  },
-  {
-    id: "revops",
-    title: "RevOps: CRM, Data & Reporting",
-    description:
-      "Make your CRM, pipeline, and reporting trustworthy again.",
-    price: "from $5,100",
-    priceFree: false,
-    highlight: false,
-    href: "/services/revops-crm-consulting",
-    Icon: BarChart3,
-  },
-  {
-    id: "o1-readiness",
-    title: "O-1 Readiness Support",
-    description:
-      "Structure the evidence behind an O-1 extraordinary-ability case.",
-    price: "from $2,700",
-    priceFree: false,
-    highlight: false,
-    href: "/o1-visa-readiness",
-    Icon: Award,
-  },
-];
+// Service id → Lucide icon (display-only, not part of shared data).
+const ICON_MAP: Record<string, LucideIcon> = {
+  "primary-diagnostic": Stethoscope,
+  "advisory-power-hour": Zap,
+  "extended-diagnostic": FileSearch,
+  "addon-tool": Wrench,
+  "it-risk": ShieldCheck,
+  "process-operations": Workflow,
+  "automation": Bot,
+  "revops": BarChart3,
+  "o1-readiness": Award,
+};
+
+const SERVICES = SERVICE_DEFS.map((def) => ({
+  id: def.id,
+  title: def.title,
+  description: def.description,
+  price: def.free ? "Free" : `from $${def.basePrice.toLocaleString("en-US")}`,
+  priceFree: def.free,
+  highlight: def.free,
+  href: def.href,
+  Icon: ICON_MAP[def.id],
+}));
 
 const STEPS = [
   {
@@ -218,98 +132,27 @@ export default async function ServicesPage({
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
         url: pageUrl,
-        offers: [
-          {
-            "@type": "Offer",
-            name: "Primary Diagnostic",
-            price: "0",
-            priceCurrency: "USD",
-            description:
-              "Complimentary 30-45 minute fit review to frame the problem and identify bottlenecks.",
-          },
-          {
-            "@type": "Offer",
-            name: "Advisory Power Hour",
-            price: "350",
-            priceCurrency: "USD",
-            description:
-              "Bring one concrete problem. Leave with expert direction in 60 minutes.",
-          },
-          {
-            "@type": "Offer",
-            name: "Extended Diagnostic",
+        offers: SERVICE_DEFS.map((def) => {
+          if (def.free || def.fixed) {
+            return {
+              "@type": "Offer" as const,
+              name: def.title,
+              price: String(def.basePrice),
+              priceCurrency: "USD",
+              description: def.description,
+            };
+          }
+          return {
+            "@type": "Offer" as const,
+            name: def.title,
             priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "1400",
+              "@type": "PriceSpecification" as const,
+              minPrice: String(def.basePrice),
               priceCurrency: "USD",
             },
-            description:
-              "A documented diagnosis of processes, systems, and risks.",
-          },
-          {
-            "@type": "Offer",
-            name: "Add-on Tool Build",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "1100",
-              priceCurrency: "USD",
-            },
-            description:
-              "A focused build: Telegram bot, landing page, or email campaign.",
-          },
-          {
-            "@type": "Offer",
-            name: "IT Risk & Security",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "2100",
-              priceCurrency: "USD",
-            },
-            description:
-              "Review of accounts, access, data handling, and single points of failure.",
-          },
-          {
-            "@type": "Offer",
-            name: "Process & Operations",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "3700",
-              priceCurrency: "USD",
-            },
-            description:
-              "Redesign handoffs, approvals, and ownership for growing teams.",
-          },
-          {
-            "@type": "Offer",
-            name: "AI & Process Automation",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "4100",
-              priceCurrency: "USD",
-            },
-            description:
-              "Remove manual, repetitive work where it actually pays off.",
-          },
-          {
-            "@type": "Offer",
-            name: "RevOps: CRM, Data & Reporting",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              minPrice: "5100",
-              priceCurrency: "USD",
-            },
-            description:
-              "Make your CRM, pipeline, and reporting trustworthy again.",
-          },
-          {
-            "@type": "Offer",
-            name: "O-1 Readiness Support",
-            price: "2700",
-            priceCurrency: "USD",
-            description:
-              "Evidence structuring for O-1 extraordinary-ability visa cases.",
-          },
-        ],
+            description: def.description,
+          };
+        }),
       },
     ],
   };
