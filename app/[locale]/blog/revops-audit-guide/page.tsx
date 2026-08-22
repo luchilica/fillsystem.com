@@ -80,7 +80,7 @@ export default async function RevOpsAuditGuide({
       </p>
 
       {/* ── What Is a RevOps Audit? ──────────────────────────── */}
-      <h2>{t("What Is a RevOps Audit?")}</h2>
+      <h2>{t("What is a RevOps audit?")}</h2>
       <p>
         {t(
           "A RevOps audit is a systematic examination of your CRM configuration, pipeline definitions, reporting infrastructure, data integrations, ownership rules, and automation workflows. It looks at how these components interact with each other and whether they collectively produce accurate, actionable information for your revenue team."
@@ -98,7 +98,7 @@ export default async function RevOpsAuditGuide({
       </p>
 
       {/* ── The 6 Pillars of a RevOps Audit ──────────────────── */}
-      <h2>{t("The 6 Pillars of a RevOps Audit")}</h2>
+      <h2>{t("The 6 pillars of a RevOps audit")}</h2>
       <p>
         {t(
           "Every RevOps audit should cover six interconnected areas. Skip one and you will end up with a partial picture -fixing pipeline stages while ignoring the data model, or cleaning up automations without checking whether the handoff rules still make sense."
@@ -219,7 +219,7 @@ export default async function RevOpsAuditGuide({
       </p>
 
       {/* ── RevOps Audit Checklist ───────────────────────────── */}
-      <h2>{t("RevOps Audit Checklist")}</h2>
+      <h2>{t("RevOps audit checklist")}</h2>
       <p>
         {t(
           "Use this checklist as a starting point for your own audit. Each item should have a clear owner, a due date, and a documented finding."
@@ -290,7 +290,7 @@ export default async function RevOpsAuditGuide({
       </ol>
 
       {/* ── Common Findings ──────────────────────────────────── */}
-      <h2>{t("Common Findings: What Every Audit Uncovers")}</h2>
+      <h2>{t("Common findings: what every audit uncovers")}</h2>
       <p>
         {t(
           "After running audits across dozens of B2B revenue stacks, certain patterns appear so consistently that you should expect to find them. If your audit does not surface at least three of these, you probably did not look hard enough."
@@ -328,7 +328,7 @@ export default async function RevOpsAuditGuide({
       </p>
 
       {/* ── What to Do After the Audit ────────────────────────── */}
-      <h2>{t("What to Do After the Audit")}</h2>
+      <h2>{t("What to do after the audit")}</h2>
       <p>
         {t(
           "An audit produces findings. Findings are not a fix. The most common mistake teams make after an audit is trying to fix everything at once -rewriting the data model, rebuilding automations, migrating to new tools, and redesigning the pipeline all in the same quarter. This is how audit projects stall and die."
@@ -364,7 +364,7 @@ export default async function RevOpsAuditGuide({
       </p>
 
       {/* ── When to Hire an External Auditor ──────────────────── */}
-      <h2>{t("When to Hire an External Auditor")}</h2>
+      <h2>{t("When to hire an external auditor")}</h2>
       <p>
         {t(
           "Not every team needs outside help to run an audit. If you have an experienced ops person who did not build the current system and has the time to do the work thoroughly, an internal audit can work well. But there are situations where an external auditor is worth the investment."

@@ -82,7 +82,7 @@ export default async function SalesforceToHubspotMigration({
       </p>
 
       {/* -- Before You Start: The Pre-Migration Audit ------------- */}
-      <h2>{t("Before You Start: The Pre-Migration Audit")}</h2>
+      <h2>{t("Before you start: the pre-migration audit")}</h2>
       <p>
         {t(
           "The most expensive mistake in any CRM migration happens before the migration begins: teams start moving data without fully understanding what they have. A Salesforce org that has been in production for three or more years accumulates layers of configuration debt -custom fields nobody uses, automation rules that conflict with each other, reports built on objects that were deprecated two admins ago. Migrating all of this into HubSpot does not give you a clean start. It gives you someone else's mess in a new interface."
@@ -136,7 +136,7 @@ export default async function SalesforceToHubspotMigration({
       </p>
 
       {/* -- The 5-Phase Migration Roadmap ------------------------- */}
-      <h2>{t("The 5-Phase Migration Roadmap")}</h2>
+      <h2>{t("The 5-phase migration roadmap")}</h2>
       <p>
         {t(
           "With the audit complete, the migration follows five phases. Skipping or compressing any phase is how teams end up six months behind schedule with data they cannot trust."
@@ -229,7 +229,7 @@ export default async function SalesforceToHubspotMigration({
       </p>
 
       {/* -- The 5 Mistakes That Cost Teams Months ----------------- */}
-      <h2>{t("The 5 Mistakes That Cost Teams Months")}</h2>
+      <h2>{t("The 5 mistakes that cost teams months")}</h2>
       <p>
         {t(
           "After supporting CRM migrations across multiple B2B organizations, these are the five patterns that consistently turn a three-month project into a twelve-month ordeal."
@@ -274,7 +274,7 @@ export default async function SalesforceToHubspotMigration({
       </p>
 
       {/* -- When the Switch Makes Sense --------------------------- */}
-      <h2>{t("Salesforce vs. HubSpot: When the Switch Makes Sense")}</h2>
+      <h2>{t("Salesforce vs. HubSpot: when the switch makes sense")}</h2>
       <p>
         {t(
           "Not every team should migrate. The decision depends on your team's size, complexity, and operational priorities. Here is an honest breakdown."
@@ -303,7 +303,7 @@ export default async function SalesforceToHubspotMigration({
       </p>
 
       {/* -- How We Help ------------------------------------------- */}
-      <h2>{t("How We Help With CRM Migrations")}</h2>
+      <h2>{t("How we help with CRM migrations")}</h2>
       <p>
         {t(
           "At Fill System, we do not start with the migration. We start with the diagnostic. Before any data moves, we map your current Salesforce configuration -objects, fields, automations, integrations, and reporting -and deliver a structured assessment of what should migrate, what should be rebuilt, and what should be retired. This is the pre-migration audit that most teams skip and most agencies do not offer."

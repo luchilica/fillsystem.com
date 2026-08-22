@@ -80,7 +80,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- What Is Process Debt? -------------------------------- */}
-      <h2>{t("What Is Process Debt?")}</h2>
+      <h2>{t("What is process debt?")}</h2>
       <p>
         {t(
           "Process debt is the gap between how work actually flows through your organization and how it needs to flow for your current size, structure, and complexity. It is not the absence of process. It is the accumulation of workarounds, undocumented decisions, and inherited habits that made sense at a previous stage of growth but now create friction at the current one."
@@ -98,7 +98,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- The 50-Person Threshold ------------------------------ */}
-      <h2>{t("Why 50 Employees Is the Breaking Point")}</h2>
+      <h2>{t("Why 50 employees is the breaking point")}</h2>
       <p>
         {t(
           "The 50-person threshold is not arbitrary. It is the point where three things happen simultaneously. First, the company adds its second management layer: team leads who were individual contributors six months ago are now coordinating work across people, and they are making process decisions without a shared framework. Second, the number of cross-team dependencies outgrows the ability to manage them informally. Two teams can coordinate over lunch. Five teams cannot. Third, institutional knowledge starts to concentrate: the original employees carry context that newer hires do not have, and that context gap shows up as errors, delays, and repeated mistakes."
@@ -116,7 +116,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- 6 Symptoms ------------------------------------------- */}
-      <h2>{t("6 Symptoms of Process Debt in a Growing B2B Company")}</h2>
+      <h2>{t("6 symptoms of process debt in a growing B2B company")}</h2>
 
       <h3>{t("1. The Same Question Gets Answered Three Different Ways")}</h3>
       <p>
@@ -191,7 +191,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- Root Causes ------------------------------------------- */}
-      <h2>{t("Root Causes: Why Process Debt Accumulates")}</h2>
+      <h2>{t("Root causes: why process debt accumulates")}</h2>
       <p>
         {t(
           "Understanding why process debt forms is the only way to prevent it from re-accumulating after you fix it. There are three structural drivers."
@@ -217,7 +217,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- What to Do ------------------------------------------- */}
-      <h2>{t("How to Diagnose and Fix Process Debt")}</h2>
+      <h2>{t("How to diagnose and fix process debt")}</h2>
       <p>
         {t(
           "Process debt is fixable. It requires three things: a map of how work actually flows (not how it is supposed to flow), a prioritization of which gaps cost the most, and a decision about what to formalize versus what to leave flexible."
@@ -243,7 +243,7 @@ export default async function ProcessDebtGrowingB2B({
       </p>
 
       {/* -- Service Cross-Links ---------------------------------- */}
-      <h2>{t("When to Bring in Outside Help")}</h2>
+      <h2>{t("When to bring in outside help")}</h2>
       <p>
         {t(
           "Internal process audits work when the team has the time, the objectivity, and the cross-functional perspective to do them well. In practice, the people who know the processes best are the least objective about their quality, and the people with the authority to change them are the least available to map them."

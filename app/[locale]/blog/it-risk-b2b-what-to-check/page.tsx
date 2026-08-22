@@ -80,7 +80,7 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
 
       {/* -- What Counts as IT Risk -------------------------------- */}
-      <h2>{t("What IT Risk Actually Means for a B2B Company")}</h2>
+      <h2>{t("What IT risk actually means for a B2B company")}</h2>
       <p>
         {t(
           "IT risk is not the same as cybersecurity. Cybersecurity is one layer. IT risk covers everything that can disrupt your ability to operate: systems that fail, data that is lost or corrupted, access that is compromised, knowledge that is concentrated in one person, vendors that disappear, and controls that exist on paper but not in practice."
@@ -98,7 +98,7 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
 
       {/* -- 6 Areas ---------------------------------------------- */}
-      <h2>{t("6 IT Risk Areas Every Growing B2B Company Should Audit")}</h2>
+      <h2>{t("6 IT risk areas every growing B2B company should audit")}</h2>
 
       <h3>{t("1. Access and Account Sprawl")}</h3>
       <p>
@@ -203,7 +203,7 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
 
       {/* -- Priority Framework ----------------------------------- */}
-      <h2>{t("How to Prioritize IT Risk Findings")}</h2>
+      <h2>{t("How to prioritize IT risk findings")}</h2>
       <p>
         {t(
           "An IT risk audit produces a list of findings. Some are urgent. Some are important but not immediate. Some are nice-to-have improvements. The challenge is distinguishing between them without either panicking over everything or dismissing everything."
@@ -221,7 +221,7 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
 
       {/* -- Audit Checklist -------------------------------------- */}
-      <h2>{t("IT Risk Audit Quick Checklist")}</h2>
+      <h2>{t("IT risk audit quick checklist")}</h2>
       <p>
         {t(
           "Use this as a starting point. Each question should have a documented answer and a named owner."
@@ -246,7 +246,7 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
 
       {/* -- Service Cross-Links ---------------------------------- */}
-      <h2>{t("Getting Help With an IT Risk Audit")}</h2>
+      <h2>{t("Getting help with an IT risk audit")}</h2>
       <p>
         {t(
           "Internal audits can cover ground quickly when someone on the team has the time and the technical breadth to check every system, every access list, and every vendor contract. In practice, IT risk audits get deferred because the people who could run them are the same people who are busy keeping the systems running."

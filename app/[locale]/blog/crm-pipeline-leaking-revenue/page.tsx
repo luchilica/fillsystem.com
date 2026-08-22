@@ -81,7 +81,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <hr />
 
       {/* ----- What Pipeline Leakage Actually Means ----- */}
-      <h2>{t("What Pipeline Leakage Actually Means")}</h2>
+      <h2>{t("What pipeline leakage actually means")}</h2>
       <p>
         {t("Before we get into the signs, let's define what we're actually talking about. Pipeline leakage is not the same as a low win rate. A low win rate means you are losing deals you compete for. Pipeline leakage means deals that")}{" "}
         <strong>{t("should")}</strong>{" "}
@@ -113,7 +113,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <hr />
 
       {/* ----- Sign 1 ----- */}
-      <h2>{t("1. Leads Sit in \"New\" Stage for More Than 48 Hours")}</h2>
+      <h2>{t("1. Leads sit in \"New\" stage for more than 48 hours")}</h2>
       <p>
         {t("Pull a report on the average time a lead spends in your first pipeline stage - the one labeled \"New\" or \"Incoming\" or whatever you call it. If the median is above 48 hours, you have a pickup problem.")}
       </p>
@@ -133,7 +133,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 2 ----- */}
-      <h2>{t("2. Your Team Uses a Spreadsheet Alongside the CRM")}</h2>
+      <h2>{t("2. Your team uses a spreadsheet alongside the CRM")}</h2>
       <p>
         {t("Ask your reps a simple question: \"Where do you actually track your deals?\" If the answer involves Excel, Google Sheets, a Notion board, or a sticky-note system, your CRM has a usability problem - and your data has an accuracy problem.")}
       </p>
@@ -153,7 +153,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 3 ----- */}
-      <h2>{t("3. Marketing and Sales Define \"Qualified\" Differently")}</h2>
+      <h2>{t("3. Marketing and sales define \"qualified\" differently")}</h2>
       <p>
         {t("Marketing says they delivered 200 MQLs last quarter. Sales says they got maybe 40 real leads. The MQL-to-SQL conversion rate is either embarrassingly low or hotly disputed depending on who you ask. Sound familiar?")}
       </p>
@@ -173,7 +173,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 4 ----- */}
-      <h2>{t("4. Deals Stall in the Same Pipeline Stage")}</h2>
+      <h2>{t("4. Deals stall in the same pipeline stage")}</h2>
       <p>
         {t("Open your pipeline and look at stage distribution. If one stage holds a disproportionate number of deals - say, 40% of your total pipeline value sits in \"Proposal Sent\" or \"Evaluation\" - you have a bottleneck that is silently killing revenue.")}
       </p>
@@ -193,7 +193,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 5 ----- */}
-      <h2>{t("5. You Have More Than One Pipeline Doing the Same Job")}</h2>
+      <h2>{t("5. You have more than one pipeline doing the same job")}</h2>
       <p>
         {t("Go to your CRM settings and count the pipelines. Now ask: how many of them are actively used? And how many cover the same deal type?")}
       </p>
@@ -213,7 +213,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 6 ----- */}
-      <h2>{t("6. Nobody Trusts the Forecast")}</h2>
+      <h2>{t("6. Nobody trusts the forecast")}</h2>
       <p>
         {t("Here is the acid test: when leadership needs the revenue forecast for next quarter, do they pull it from the CRM - or do they ask each rep to email their \"real\" numbers?")}
       </p>
@@ -236,7 +236,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
 
       {/* ----- Sign 7 ----- */}
-      <h2>{t("7. Closed-Lost Deals Have No Reason")}</h2>
+      <h2>{t("7. Closed-lost deals have no reason")}</h2>
       <p>
         {t("Pull your closed-lost deals from the last two quarters. What percentage have a loss reason attached? And of those that do, how many say \"Other\" or \"N/A\"?")}
       </p>
@@ -258,7 +258,7 @@ export default async function CrmPipelineLeakingRevenuePage({
       <hr />
 
       {/* ----- What to Do Next ----- */}
-      <h2>{t("What to Do If You Recognized 3 or More Signs")}</h2>
+      <h2>{t("What to do if you recognized 3 or more signs")}</h2>
       <p>
         {t("If three or more of these patterns describe your team, you do not have a sales problem. You have a systems problem. And the good news about systems problems is that they are fixable without replacing your people or your CRM.")}
       </p>

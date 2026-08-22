@@ -80,7 +80,7 @@ export default async function RevOpsForSmallTeams({
       </p>
 
       {/* -- What RevOps Actually Means at 50 People --------------- */}
-      <h2>{t("What RevOps Actually Means at 50 People")}</h2>
+      <h2>{t("What RevOps actually means at 50 people")}</h2>
       <p>
         {t(
           "At enterprise scale, RevOps is a function -- a team that owns the systems, data, and processes that connect marketing, sales, and customer success. They manage the CRM, build dashboards, define pipeline stages, enforce data standards, and run the tech stack. At 50 people, you do not have that team. You might have one ops person who splits time between marketing ops and sales enablement. You might have a founder who still logs into the CRM to check pipeline. You might have no one explicitly assigned to this work at all."
@@ -103,7 +103,7 @@ export default async function RevOpsForSmallTeams({
       </p>
 
       {/* -- The 3 Things to Fix First ----------------------------- */}
-      <h2>{t("The 3 Things to Fix First")}</h2>
+      <h2>{t("The 3 things to fix first")}</h2>
       <p>
         {t(
           "You can read dozens of articles about RevOps maturity models, technology stacks, and organizational design. Most of it is written for companies ten times your size. At 50 people, your RevOps roadmap fits on a sticky note. Fix these three things first, and you will have a foundation that actually supports growth."
@@ -157,7 +157,7 @@ export default async function RevOpsForSmallTeams({
       </p>
 
       {/* -- What You Can Skip (For Now) --------------------------- */}
-      <h2>{t("What You Can Skip (For Now)")}</h2>
+      <h2>{t("What you can skip (for now)")}</h2>
       <p>
         {t(
           "One of the biggest traps for small teams is trying to implement enterprise RevOps practices before the fundamentals are in place. If you have not nailed the three basics above, none of the following will help you. In fact, they will actively hurt by consuming time and attention that should go to the foundation."
@@ -188,7 +188,7 @@ export default async function RevOpsForSmallTeams({
       </p>
 
       {/* -- When to Bring in Help --------------------------------- */}
-      <h2>{t("When to Bring in Help")}</h2>
+      <h2>{t("When to bring in help")}</h2>
       <p>
         {t(
           "Most 50-person companies can handle the three fundamentals internally -- if they have someone with the time, authority, and willingness to do the work. But there are situations where outside help makes the difference between actually fixing the problem and just talking about it for another quarter."

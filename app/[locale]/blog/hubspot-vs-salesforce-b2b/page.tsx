@@ -80,7 +80,7 @@ export default async function HubSpotVsSalesforceB2B({
       </p>
 
       {/* -- When HubSpot Wins ------------------------------------- */}
-      <h2>{t("When HubSpot Wins")}</h2>
+      <h2>{t("When HubSpot wins")}</h2>
       <p>
         {t(
           "HubSpot is the better choice in several specific scenarios. If multiple of these describe your situation, HubSpot is probably where you should be."
@@ -118,7 +118,7 @@ export default async function HubSpotVsSalesforceB2B({
       </p>
 
       {/* -- When Salesforce Wins ---------------------------------- */}
-      <h2>{t("When Salesforce Wins")}</h2>
+      <h2>{t("When Salesforce wins")}</h2>
       <p>
         {t(
           "Salesforce is the better choice in different scenarios. If multiple of these describe your situation, Salesforce is probably the right call -- even with the higher cost and complexity."
@@ -156,7 +156,7 @@ export default async function HubSpotVsSalesforceB2B({
       </p>
 
       {/* -- When Neither Is the Problem --------------------------- */}
-      <h2>{t("When Neither Is the Problem")}</h2>
+      <h2>{t("When neither is the problem")}</h2>
       <p>
         {t(
           "Here is the part most CRM comparison articles leave out: sometimes the problem is not the platform. We have worked with companies that migrated from Salesforce to HubSpot expecting their pipeline visibility issues to disappear, only to discover the same problems in the new system within six months. We have seen the reverse migration produce the same result. The CRM changed. The problems did not."
@@ -192,7 +192,7 @@ export default async function HubSpotVsSalesforceB2B({
       </p>
 
       {/* -- The Migration Decision Framework ---------------------- */}
-      <h2>{t("The Migration Decision Framework")}</h2>
+      <h2>{t("The migration decision framework")}</h2>
       <p>
         {t(
           "If you are seriously considering a switch, answer these five questions before making a decision. Write down the answers. Share them with your team. The exercise itself is often more valuable than the conclusion."
@@ -230,7 +230,7 @@ export default async function HubSpotVsSalesforceB2B({
       </p>
 
       {/* -- Our Recommendation ------------------------------------ */}
-      <h2>{t("Our Recommendation")}</h2>
+      <h2>{t("Our recommendation")}</h2>
       <p>
         {t(
           "Before you decide to switch CRMs, audit what you have. Most of the time, the problems that are driving the migration conversation -- unreliable data, poor adoption, inconsistent processes, dashboards no one trusts -- are problems that will follow you to the new platform unless you fix them first."
