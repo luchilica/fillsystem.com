@@ -111,6 +111,22 @@ export default function BusinessITDiagnostic() {
                   </li>
                 ))}
               </ul>
+              <div className={styles.downloadLinks}>
+                <a
+                  href="/downloads/sample-diagnostic-report.pdf"
+                  download
+                  className={styles.downloadLink}
+                >
+                  {t("Download sample report (PDF)")}
+                </a>
+                <a
+                  href="/downloads/diagnostic-framework.pdf"
+                  download
+                  className={styles.downloadLink}
+                >
+                  {t("Download question framework (PDF)")}
+                </a>
+              </div>
               <p className={styles.muted}>
                 {t(
                   "No full system access is required for the initial fit review. Deeper access starts only after scope and NDA are agreed."
