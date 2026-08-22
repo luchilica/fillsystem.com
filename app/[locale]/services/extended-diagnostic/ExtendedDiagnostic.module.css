@@ -1,0 +1,266 @@
+/* Extended Diagnostic — paid diagnostic service page.
+   Deliverables grid (2-col desktop), process steps, pricing callout,
+   FAQ, dark CTA. Uses globals.css tokens. No Tailwind. */
+
+/* ----- Hero intro ----- */
+.heroSection {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-5);
+}
+
+.lead {
+  max-width: var(--text-max);
+  margin-top: var(--space-2);
+}
+
+.heroPrice {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  color: var(--blue-600);
+}
+
+/* ----- Deliverables grid ----- */
+.delivGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .delivGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.delivCard {
+  padding: var(--space-3);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.delivTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.delivDesc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--stone-500);
+}
+
+/* ----- When to choose ----- */
+.whenBlock {
+  margin-top: var(--space-4);
+  max-width: var(--text-max);
+}
+
+.whenText {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.whenText + .whenText {
+  margin-top: var(--space-3);
+}
+
+/* ----- Process steps ----- */
+.stepsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: 0;
+  max-width: var(--text-max);
+  counter-reset: step;
+}
+
+.stepItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  counter-increment: step;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--blue-600);
+}
+
+.stepContent h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.stepContent p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--stone-500);
+}
+
+/* ----- Pricing callout ----- */
+.pricingCard {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--blue-50) 0%, var(--paper) 100%);
+  box-shadow: var(--shadow-hard);
+}
+
+.pricingPrice {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  color: var(--blue-600);
+  margin-bottom: var(--space-2);
+}
+
+.pricingBody {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.pricingTimeline {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--stone-500);
+}
+
+/* ----- CTA (dark ink) ----- */
+.ctaDark {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+  text-align: center;
+}
+.ctaHeading { color: var(--paper); }
+.ctaLead {
+  max-width: var(--text-max);
+  margin-inline: auto;
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--lh-body);
+}
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+@media (min-width: 768px) {
+  .ctaActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.ctaPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.ctaPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+@media (max-width: 767px) {
+  .ctaPlusTop,
+  .ctaPlusBottom {
+    display: none;
+  }
+}
+
+/* ----- Dark section ----- */
+.darkSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+}
+.darkSection h2 { color: var(--paper); }
+.darkSection h3 { color: var(--paper); }
+.darkSection p { color: rgba(255, 255, 255, 0.82); }
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+/* ----- Brand section ----- */
+.brandSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
+}
+.brandSection h2 { color: var(--paper); }
+.brandSection h3 { color: var(--paper); }
+.brandSection p { color: rgba(255, 255, 255, 0.85); }
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+
+@media (max-width: 767px) {
+  .darkPlusTop, .darkPlusBottom, .brandPlusTop, .brandPlusBottom, .ctaPlusTop, .ctaPlusBottom { display: none; }
+}
+
+/* Preserve card-interior text inside dark / brand sections */
+.delivCard .delivTitle { color: var(--ink-900); }
+.delivCard .delivDesc { color: var(--stone-500); }
+
+/* ----- Mobile compaction ----- */
+@media (max-width: 767px) {
+  .heroSection {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-4);
+  }
+
+  .heroPrice {
+    font-size: 1.25rem;
+  }
+
+  .delivTitle {
+    font-size: 16px;
+  }
+
+  .pricingCard {
+    padding: var(--space-3);
+  }
+
+  .pricingPrice {
+    font-size: 1.25rem;
+  }
+}
