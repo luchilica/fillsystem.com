@@ -31,7 +31,7 @@ export default async function CookiePolicy({
   setRequestLocale(locale);
   return (
     <>
-    <BreadcrumbJsonLd title="Cookie Policy" path="/cookie-policy" />
+    <BreadcrumbJsonLd title="Cookie Policy" path="/cookie-policy" locale={locale as Locale} />
     <LegalPageLayout title="Cookie Policy" lastUpdated="June 13, 2026">
       <p>
         This Cookie Policy explains how Fill System uses cookies and similar

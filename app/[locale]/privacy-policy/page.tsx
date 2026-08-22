@@ -31,7 +31,7 @@ export default async function PrivacyPolicy({
   setRequestLocale(locale);
   return (
     <>
-    <BreadcrumbJsonLd title="Privacy Policy" path="/privacy-policy" />
+    <BreadcrumbJsonLd title="Privacy Policy" path="/privacy-policy" locale={locale as Locale} />
     <LegalPageLayout title="Privacy Policy" lastUpdated="June 13, 2026">
       <p>
         Fill System (“Fill System,” “we,” “us,” or “our”) operates this

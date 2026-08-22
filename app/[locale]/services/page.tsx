@@ -310,7 +310,7 @@ export default async function ServicesPage({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t("Services")} path="/services" />
+      <BreadcrumbJsonLd title={t("Services")} path="/services" locale={locale as Locale} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

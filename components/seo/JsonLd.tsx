@@ -6,8 +6,14 @@ const HOME_TITLE = "B2B IT & Operations Consulting - Diagnostic-First | Fill Sys
 const HOME_DESCRIPTION =
   "B2B companies with 50-250 employees use Fill System to diagnose process, CRM, data, and IT bottlenecks before committing to tools, hires, or implementation. Request a free diagnostic.";
 
+function pageUrl(locale: Locale): string {
+  const prefix = LOCALE_META[locale].prefix;
+  return prefix ? `${siteConfig.url}${prefix}` : siteConfig.url;
+}
+
 export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
   const home = siteConfig.url;
+  const localeHome = pageUrl(locale);
   const organizationId = `${home}#organization`;
   const websiteId = `${home}#website`;
   const serviceUrl = `${home}#business-it-diagnostic`;
@@ -52,10 +58,10 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
       },
       {
         "@type": "WebPage",
-        "@id": home,
+        "@id": localeHome,
         name: HOME_TITLE,
         description: HOME_DESCRIPTION,
-        url: home,
+        url: localeHome,
         isPartOf: { "@id": websiteId },
         inLanguage: lang,
       },
@@ -199,22 +205,18 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         url: "https://www.linkedin.com/in/igorsaevets",
         sameAs: ["https://www.linkedin.com/in/igorsaevets"],
       },
-      ...(locale === "en-US"
-        ? [
-            {
-              "@type": "FAQPage",
-              "@id": `${home}#faq`,
-              mainEntity: FAQ_ITEMS.map((item) => ({
-                "@type": "Question",
-                name: item.q,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: faqAnswerText(item),
-                },
-              })),
-            },
-          ]
-        : []),
+      {
+        "@type": "FAQPage",
+        "@id": `${localeHome}#faq`,
+        mainEntity: FAQ_ITEMS.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faqAnswerText(item),
+          },
+        })),
+      },
     ],
   };
 

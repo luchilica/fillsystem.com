@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
+import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { Link } from "@/i18n/navigation";
 import { getT } from "@/i18n/t";
 import { BLOG_POSTS } from "@/components/blog/blogData";
@@ -15,6 +16,7 @@ interface BlogPostLayoutProps {
   readTime: string;
   heroImage?: string;
   heroAlt?: string;
+  locale?: string;
   author: {
     name: string;
     title: string;
@@ -73,6 +75,7 @@ function ArticleJsonLd({
   date,
   author,
   heroImage,
+  locale,
 }: {
   slug: string;
   title: string;
@@ -80,26 +83,46 @@ function ArticleJsonLd({
   date: string;
   author: { name: string; title: string; linkedin?: string };
   heroImage?: string;
+  locale?: string;
 }) {
-  const articleUrl = `${siteConfig.url}/blog/${slug}`;
+  const loc = (locale ?? "en-US") as Locale;
+  const prefix = LOCALE_META[loc]?.prefix ?? "";
+  const lang = LOCALE_META[loc]?.htmlLang ?? "en-US";
+  const articleUrl = `${siteConfig.url}${prefix}/blog/${slug}`;
+  const home = siteConfig.url;
+
+  const isRoleAsName = author.title === "Fill System" || author.title === siteConfig.name;
+  const authorJobTitle = isRoleAsName ? `${author.name} at ${siteConfig.name}` : author.title;
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": `${articleUrl}#article`,
-    url: articleUrl,
-    mainEntityOfPage: { "@id": articleUrl },
-    headline: title,
-    description,
-    datePublished: date,
-    dateModified: date,
-    ...(heroImage ? { image: `${siteConfig.url}${heroImage}` } : {}),
-    author: {
-      "@type": "Person",
-      name: author.name,
-      jobTitle: author.title,
-      ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
-    },
-    publisher: { "@id": `${siteConfig.url}#organization` },
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${home}#organization`,
+        name: siteConfig.name,
+        url: home,
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": `${articleUrl}#article`,
+        url: articleUrl,
+        mainEntityOfPage: { "@id": articleUrl },
+        headline: title,
+        description,
+        datePublished: date,
+        dateModified: date,
+        inLanguage: lang,
+        ...(heroImage ? { image: `${siteConfig.url}${heroImage}` } : {}),
+        author: {
+          "@type": "Person",
+          name: author.name,
+          jobTitle: authorJobTitle,
+          ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
+        },
+        publisher: { "@id": `${home}#organization` },
+      },
+    ],
   };
 
   return (
@@ -119,6 +142,7 @@ export default async function BlogPostLayout({
   heroImage,
   heroAlt,
   author,
+  locale,
   children,
 }: BlogPostLayoutProps) {
   const t = await getT();
@@ -134,31 +158,6 @@ export default async function BlogPostLayout({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: siteConfig.name,
-                item: siteConfig.url,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Blog",
-                item: `${siteConfig.url}/blog`,
-              },
-              { "@type": "ListItem", position: 3, name: title },
-            ],
-          }),
-        }}
-      />
-
       <ArticleJsonLd
         slug={slug}
         title={title}
@@ -166,6 +165,7 @@ export default async function BlogPostLayout({
         date={date}
         author={author}
         heroImage={heroImage}
+        locale={locale}
       />
 
       <article>

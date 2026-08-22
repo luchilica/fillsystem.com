@@ -58,7 +58,7 @@ export default async function BlogPage({
 
   return (
     <>
-      <BreadcrumbJsonLd title="Blog" path="/blog" />
+      <BreadcrumbJsonLd title="Blog" path="/blog" locale={locale as Locale} />
 
       {/* Hero */}
       <section className={`section ${styles.heroSection}`}>

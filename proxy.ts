@@ -8,6 +8,14 @@ const CANONICAL_HOST = "www.fillsystem.com";
 const intlMiddleware = createMiddleware(routing);
 
 export default function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname !== pathname.toLowerCase()) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.toLowerCase();
+    return NextResponse.redirect(url, 301);
+  }
+
   const response = intlMiddleware(request);
 
   const host = request.headers.get("host") ?? "";

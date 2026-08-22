@@ -31,7 +31,7 @@ export default async function TermsOfUse({
   setRequestLocale(locale);
   return (
     <>
-    <BreadcrumbJsonLd title="Terms of Use" path="/terms-of-use" />
+    <BreadcrumbJsonLd title="Terms of Use" path="/terms-of-use" locale={locale as Locale} />
     <LegalPageLayout title="Terms of Use" lastUpdated="June 13, 2026">
       <p>
         These Terms of Use govern your access to and use of the Fill System

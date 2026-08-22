@@ -46,9 +46,10 @@ export default async function RevOpsForSmallTeams({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
+      locale={locale}
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}

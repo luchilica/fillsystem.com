@@ -35,6 +35,6 @@ export function alternatesFor(locale: Locale, path: string): Metadata["alternate
 export function robotsFor(locale: Locale): Metadata["robots"] {
   if (siteConfig.isPreview) return { index: false, follow: false };
   return LOCALE_META[locale].indexable
-    ? { index: true, follow: true }
+    ? { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1, "max-video-preview": -1 }
     : { index: false, follow: true };
 }

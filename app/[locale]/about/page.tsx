@@ -144,7 +144,7 @@ export default async function About({
 
   return (
     <>
-      <BreadcrumbJsonLd title="About" path="/about" />
+      <BreadcrumbJsonLd title="About" path="/about" locale={locale as Locale} />
       <PersonJsonLd />
 
       {/* 1 - Hero */}
