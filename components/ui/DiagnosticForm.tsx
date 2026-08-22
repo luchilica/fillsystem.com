@@ -101,6 +101,10 @@ type Values = typeof INITIAL;
 type FieldErrors = Partial<Record<"name" | "email" | "company", string>>;
 type Status = "idle" | "loading" | "success" | "error";
 
+// Turnstile site key — widget only renders when this env var is set.
+const CF_TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_CF_TURNSTILE_SITE_KEY || "";
+
 export default function DiagnosticForm() {
   const t = useT();
   const locale = useLocale();
@@ -109,6 +113,7 @@ export default function DiagnosticForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [showOptional, setShowOptional] = useState(false);
   const [slow, setSlow] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -116,6 +121,71 @@ export default function DiagnosticForm() {
   const challengeRef = useRef<HTMLTextAreaElement>(null);
   const startedRef = useRef(false); // fire form_start only once per session
   const lastCtaRef = useRef(""); // text of the last CTA that opened/prefilled the form
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = useRef<string | null>(null);
+
+  // Load the Turnstile script and render the widget when the site key is set.
+  useEffect(() => {
+    if (!CF_TURNSTILE_SITE_KEY) return;
+
+    const SCRIPT_ID = "cf-turnstile-script";
+    let cancelled = false;
+
+    const renderWidget = () => {
+      if (
+        cancelled ||
+        !turnstileContainerRef.current ||
+        turnstileWidgetIdRef.current != null
+      )
+        return;
+      const w = window as unknown as {
+        turnstile?: {
+          render: (
+            el: HTMLElement,
+            opts: Record<string, unknown>,
+          ) => string;
+          remove: (id: string) => void;
+          reset: (id: string) => void;
+        };
+      };
+      if (!w.turnstile) return;
+      turnstileWidgetIdRef.current = w.turnstile.render(
+        turnstileContainerRef.current,
+        {
+          sitekey: CF_TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(""),
+          "error-callback": () => setTurnstileToken(""),
+        },
+      );
+    };
+
+    // If the script is already loaded (e.g. hot-reload), render immediately.
+    if (document.getElementById(SCRIPT_ID)) {
+      renderWidget();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = SCRIPT_ID;
+    script.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.onload = () => renderWidget();
+    document.head.appendChild(script);
+
+    return () => {
+      cancelled = true;
+      const w = window as unknown as {
+        turnstile?: { remove: (id: string) => void };
+      };
+      if (turnstileWidgetIdRef.current != null && w.turnstile) {
+        w.turnstile.remove(turnstileWidgetIdRef.current);
+        turnstileWidgetIdRef.current = null;
+      }
+    };
+  }, []);
 
   const set = (
     key: Exclude<keyof Values, "services" | "tools" | "pains">,
@@ -239,6 +309,7 @@ export default function DiagnosticForm() {
           companySize: values.companySize,
           timeline: values.timeline,
           website: values.website, // honeypot - server double-checks
+          ...(turnstileToken ? { cfTurnstileToken: turnstileToken } : {}),
           context,
         }),
       });
@@ -251,6 +322,14 @@ export default function DiagnosticForm() {
     } catch {
       setStatus("error");
       trackEvent("form_submit_error", { error_type: "network_error" });
+      // Reset Turnstile so the user can retry with a fresh token.
+      const w = window as unknown as {
+        turnstile?: { reset: (id: string) => void };
+      };
+      if (turnstileWidgetIdRef.current != null && w.turnstile) {
+        w.turnstile.reset(turnstileWidgetIdRef.current);
+        setTurnstileToken("");
+      }
     } finally {
       clearTimeout(slowTimer);
       setSlow(false);
@@ -685,6 +764,15 @@ export default function DiagnosticForm() {
             "Three required fields. Additional context is optional. No full system access is required for the first fit review."
           )}
         </p>
+
+        {/* Cloudflare Turnstile — only rendered when site key is configured */}
+        {CF_TURNSTILE_SITE_KEY && (
+          <div
+            ref={turnstileContainerRef}
+            className={styles.turnstile}
+            aria-hidden="true"
+          />
+        )}
 
         <div className={styles.submitRow}>
           <Button type="submit" variant="primary" disabled={loading}>

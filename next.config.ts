@@ -8,12 +8,12 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 // Production sends no such header.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com",
+  "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
   "font-src 'self'",
   "connect-src 'self' https://*.google-analytics.com https://*.googletagmanager.com",
-  "frame-src 'none'",
+  "frame-src https://challenges.cloudflare.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

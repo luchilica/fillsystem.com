@@ -10,7 +10,7 @@ const COMPANY_LINKS = [
   { label: "About", href: "/about/" },
   { label: "Services", href: "/services/" },
   { label: "Blog", href: "/blog/" },
-  { label: "Scenarios", href: "/#proof-examples" },
+  { label: "Scenarios", href: "/case-studies" },
   { label: "Contact", href: "/#diagnostic-request-form" },
 ];
 

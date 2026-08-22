@@ -13,6 +13,8 @@ import AnalyticsClickTracker from "@/components/analytics/AnalyticsClickTracker"
 import { siteConfig } from "@/lib/site-config";
 import { routing } from "@/i18n/routing";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
+import { getDictionary } from "@/i18n/getDictionary";
+import { DictionaryProvider } from "@/i18n/DictionaryProvider";
 
 // v2 brand face — Mulish, weight-driven hierarchy (600 headings/emphasis,
 // 500 lead text, 400 body). Self-hosted by next/font (no third-party font
@@ -92,17 +94,21 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
+  const dict = await getDictionary(locale as Locale);
+
   return (
     <html lang={LOCALE_META[locale as Locale].htmlLang}>
       <body className={`${mulish.variable} ${jetbrainsMono.variable} ${locale === "zh-Hans" ? notoSansSC.variable : ""}`}>
         <NextIntlClientProvider>
-          <SkipLink />
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <CookieConsent />
-          <AnalyticsProvider />
-          <AnalyticsClickTracker />
+          <DictionaryProvider dict={dict}>
+            <SkipLink />
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <CookieConsent />
+            <AnalyticsProvider />
+            <AnalyticsClickTracker />
+          </DictionaryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

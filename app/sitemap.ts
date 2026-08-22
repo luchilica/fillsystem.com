@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...multilingualEntry("/services/extended-diagnostic", SITE_LAST_UPDATED),
     ...multilingualEntry("/o1-visa-readiness", SITE_LAST_UPDATED),
     ...multilingualEntry("/contact", SITE_LAST_UPDATED),
+    ...multilingualEntry("/case-studies", SITE_LAST_UPDATED),
     ...multilingualEntry("/blog", SITE_LAST_UPDATED),
   ];
 

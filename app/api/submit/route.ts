@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const CHALLENGE_MAX = 500;
+const CHALLENGE_MAX = 200;
 
 // Override via env in the host. FROM must be on a Resend-verified domain to
 // reach arbitrary recipients; until a domain is verified, only the Resend
@@ -106,7 +106,34 @@ interface SubmitBody {
   companySize?: unknown;
   timeline?: unknown;
   website?: unknown; // honeypot
+  cfTurnstileToken?: unknown; // Cloudflare Turnstile bot verification
   context?: Record<string, unknown>;
+}
+
+// Cloudflare Turnstile server-side verification. Returns true if valid, false
+// if the token is invalid or verification fails. Skipped when no secret key.
+async function verifyTurnstile(
+  token: string,
+  ip: string,
+): Promise<boolean> {
+  try {
+    const res = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: process.env.CF_TURNSTILE_SECRET_KEY!,
+          response: token,
+          remoteip: ip,
+        }),
+      },
+    );
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
 }
 
 function notificationText(b: SubmitBody): string {
@@ -165,6 +192,15 @@ export async function POST(request: Request) {
     return json({ ok: true, delivered: false });
   }
 
+  // Cloudflare Turnstile verification — only when the secret key is configured.
+  // In dev (no key), verification is skipped so the form works without Turnstile.
+  if (process.env.CF_TURNSTILE_SECRET_KEY) {
+    const token = str(body.cfTurnstileToken);
+    if (!token || !(await verifyTurnstile(token, ip))) {
+      return json({ ok: false, error: "turnstile_failed" }, 403);
+    }
+  }
+
   // Server-side validation (mandatory) — mirrors the client rules.
   const name = str(body.name);
   const email = str(body.email);
@@ -174,8 +210,7 @@ export async function POST(request: Request) {
   if (!name) errors.name = "required";
   if (!email || !EMAIL_RE.test(email)) errors.email = "invalid";
   if (!company) errors.company = "required";
-  if (!challenge) errors.challenge = "required";
-  else if (challenge.length > CHALLENGE_MAX) errors.challenge = "too_long";
+  if (challenge.length > CHALLENGE_MAX) errors.challenge = "too_long";
   if (Object.keys(errors).length > 0) {
     return json({ ok: false, errors }, 422);
   }

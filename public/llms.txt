@@ -83,6 +83,7 @@ Prices are base prices for teams of ~50 employees. Larger teams may see adjusted
 
 - About -- /about
 - Services & Pricing -- /services
+- Case Studies -- /case-studies
 - Blog -- /blog
 - Contact -- /contact
 - O-1 Visa Readiness -- /o1-visa-readiness

@@ -13,7 +13,7 @@ import styles from "./Header.module.css";
 const NAV_LINKS = [
   { label: "Services", href: "/services/" },
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
-  { label: "Scenarios", href: "/#proof-examples" },
+  { label: "Scenarios", href: "/case-studies" },
   { label: "About", href: "/about/" },
   { label: "Blog", href: "/blog/" },
   { label: "FAQ", href: "/#faq" },
@@ -22,7 +22,7 @@ const NAV_LINKS = [
 const DRAWER_LINKS = [
   { label: "Services", href: "/services/" },
   { label: "How It Works", href: "/#how-the-diagnostic-works" },
-  { label: "Scenarios", href: "/#proof-examples" },
+  { label: "Scenarios", href: "/case-studies" },
   { label: "About", href: "/about/" },
   { label: "Blog", href: "/blog/" },
   { label: "FAQ", href: "/#faq" },

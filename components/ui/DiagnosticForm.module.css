@@ -203,6 +203,11 @@
   opacity: 0;
 }
 
+/* ----- Turnstile widget ----- */
+.turnstile {
+  min-height: 0;
+}
+
 /* ----- Privacy + submit ----- */
 .privacy {
   color: var(--stone-500);

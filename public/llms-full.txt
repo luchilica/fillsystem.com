@@ -195,6 +195,7 @@ We do not provide legal advice or file immigration petitions. What we offer is O
 
 - About -- /about
 - Services & Pricing -- /services
+- Case Studies -- /case-studies
 - Blog -- /blog
 - O-1 Visa Readiness -- /o1-visa-readiness
 - Terms of Use -- /terms-of-use
