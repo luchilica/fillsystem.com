@@ -9,8 +9,8 @@
 // pattern mirrors FAQ.tsx (button + aria-expanded + hidden panel, content stays
 // in HTML for SEO).
 //
-// Implementation prices are floors for a lean 25-50-person team; a team-size
-// calculator scales them live: factor = clamp(1 + (employees − 25) × 0.02, 1,
+// Prices are base prices for 50 employees (bottom of ICP); a team-size
+// calculator scales them live: factor = clamp(1 + (employees − 50) × 0.02, 1,
 // 2.5), rounded to $100. O-1 has a fixed price (per-case, not headcount-based).
 // The exact sum is always deferred to the free diagnostic.
 
@@ -28,11 +28,12 @@ const FORM_HREF = "#diagnostic-request-form";
 
 const EMP_MIN = 25;
 const EMP_MAX = 100;
+const EMP_DEFAULT = 50;
 const EMP_STEP = 5;
 
-// Team-size multiplier: 1.0 at ≤25 people, +2%/person, capped at 2.5 (≈100).
+// Team-size multiplier: 1.0 at ≤50 people (bottom of ICP), scales up from there.
 function sizeFactor(employees: number): number {
-  return Math.min(2.5, Math.max(1, 1 + (employees - EMP_MIN) * 0.02));
+  return Math.min(2.5, Math.max(1, 1 + (employees - EMP_DEFAULT) * 0.02));
 }
 
 function scaled(base: number, employees: number): number {
@@ -475,7 +476,7 @@ function ServiceCard({
 
 export default function ServicesGrid() {
   const t = useT();
-  const [employees, setEmployees] = useState(35);
+  const [employees, setEmployees] = useState(EMP_DEFAULT);
 
   return (
     <div className="container">

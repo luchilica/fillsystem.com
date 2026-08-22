@@ -65,19 +65,18 @@ export default async function CookiePolicy({
       <p>
         Google Analytics 4 may be used to understand aggregate website usage, such
         as page views, referral sources, device categories, and form-funnel
-        events. Analytics must remain disabled until the visitor affirmatively
-        accepts analytics cookies. The MVP configuration must not send form
-        content, names, email addresses, company names, or free-form challenge
-        text to analytics.
+        events. Analytics is disabled until the visitor affirmatively accepts
+        analytics cookies. Form content, names, email addresses, company names,
+        and free-form challenge text are never sent to analytics.
       </p>
       <p>
         Advertising personalization, Google Signals, remarketing, and ad-platform
-        cookies are not enabled for the MVP.
+        cookies are not enabled.
       </p>
 
       <h2>Consent Choices</h2>
       <p>
-        The consent banner must provide equally accessible options to accept or
+        The consent banner provides equally accessible options to accept or
         decline optional analytics. Visitors can reopen the cookie-preference
         control to withdraw or change consent. Withdrawing consent prevents future
         optional analytics collection but does not automatically delete
@@ -87,8 +86,8 @@ export default async function CookiePolicy({
       <h2>Retention</h2>
       <p>
         Consent preferences may be retained for up to 12 months so the website can
-        remember the visitor’s choice. Google Analytics event-data retention must
-        be configured for no more than 14 months for the MVP. Strictly necessary
+        remember the visitor’s choice. Google Analytics event-data retention is
+        set to no more than 14 months. Strictly necessary
         cookies and security logs may have shorter or provider-controlled
         durations based on technical requirements.
       </p>

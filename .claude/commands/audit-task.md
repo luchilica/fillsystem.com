@@ -1,6 +1,4 @@
----
-description: Execute a specific task from внести изменения/TODO.md by number or priority level. Reads the spec, implements it, verifies against the original requirement, builds, commits, and pushes.
----
+Execute a specific task from внести изменения/TODO.md by number or priority level. Reads the spec, implements it, verifies against the original requirement, builds, commits, and pushes.
 
 # /audit-task — Execute TODO items
 

@@ -1,14 +1,23 @@
 import createMiddleware from "next-intl/middleware";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { routing } from "./i18n/routing";
 
-// Next 16 renamed `middleware` → `proxy`; the file lives at the project root.
-// next-intl's proxy resolves the locale from the URL prefix (no auto-redirect,
-// since localeDetection is off) and rewrites short prefixes (/es) to the full
-// locale segment internally.
-export default createMiddleware(routing);
+const CANONICAL_HOST = "www.fillsystem.com";
+
+const intlMiddleware = createMiddleware(routing);
+
+export default function proxy(request: NextRequest) {
+  const response = intlMiddleware(request);
+
+  const host = request.headers.get("host") ?? "";
+  if (host && host !== CANONICAL_HOST) {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
+  return response;
+}
 
 export const config = {
-  // Run on all pathnames except API, Next internals, the metadata image routes
-  // (opengraph-image / twitter-image), and any file with an extension.
   matcher: "/((?!api|_next|_vercel|opengraph-image|twitter-image|apple-icon|fillsystem2026indexnow|.*\\..*).*)",
 };

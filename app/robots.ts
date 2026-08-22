@@ -1,11 +1,20 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 import { siteConfig } from "@/lib/site-config";
 
-// Dynamic robots.txt. Preview blocks all crawling and omits the sitemap;
-// production allows crawling and points to the sitemap. No static robots.txt
-// exists in /public — this is the single source.
-export default function robots(): MetadataRoute.Robots {
+const CANONICAL_HOST = "www.fillsystem.com";
+
+export default async function robots(): Promise<MetadataRoute.Robots> {
   if (siteConfig.isPreview) {
+    return {
+      rules: { userAgent: "*", disallow: "/" },
+    };
+  }
+
+  const headersList = await headers();
+  const host = headersList.get("host") ?? "";
+
+  if (host && host !== CANONICAL_HOST) {
     return {
       rules: { userAgent: "*", disallow: "/" },
     };
@@ -14,7 +23,6 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: "/api/" },
-      // AI crawlers — allow indexing for AEO (Answer Engine Optimization)
       { userAgent: "GPTBot", allow: "/", disallow: "/api/" },
       { userAgent: "ChatGPT-User", allow: "/", disallow: "/api/" },
       { userAgent: "ClaudeBot", allow: "/", disallow: "/api/" },

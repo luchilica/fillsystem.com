@@ -81,8 +81,7 @@ export default async function PrivacyPolicy({
       <p>
         We collect information directly from you, automatically from your browser
         or device, and from referral or business contacts when they introduce you
-        to Fill System. We do not purchase consumer data for the MVP
-        website.
+        to Fill System. We do not purchase consumer data.
       </p>
 
       <h2>Service Providers and Disclosures</h2>
@@ -103,10 +102,10 @@ export default async function PrivacyPolicy({
 
       <h2>Sale, Sharing, and Advertising</h2>
       <p>
-        Fill System does not sell personal information. The MVP website does
-        not use personal information for cross-context behavioral advertising or
-        paid retargeting. If these practices change, we will update this policy
-        and provide any legally required privacy choices before the change takes
+        Fill System does not sell personal information. We do not use personal
+        information for cross-context behavioral advertising or paid
+        retargeting. If these practices change, we will update this policy and
+        provide any legally required privacy choices before the change takes
         effect.
       </p>
 
@@ -115,8 +114,7 @@ export default async function PrivacyPolicy({
         The website may use strictly necessary technologies for security, form
         operation, load balancing, and consent preferences. Google Analytics 4
         may load only after you accept analytics cookies. Advertising
-        personalization and Google Signals must remain disabled for the MVP
-        unless the policy and consent flow are updated first.
+        personalization and Google Signals are not enabled.
       </p>
       <p>
         See the <Link href="/cookie-policy">Cookie Policy</Link> for additional
@@ -131,8 +129,8 @@ export default async function PrivacyPolicy({
         security investigation, legal obligation, or establishment of a client
         relationship. Website security logs are retained only for the period
         reasonably required for security and troubleshooting. Consented analytics
-        data must be configured with a maximum event-data retention period of 14
-        months for the MVP.
+        data is configured with a maximum event-data retention period of 14
+        months.
       </p>
       <p>
         When information is no longer required, we take reasonable steps to
@@ -180,7 +178,7 @@ export default async function PrivacyPolicy({
       <h2>Do Not Track and Global Privacy Control</h2>
       <p>
         Browsers may offer Do Not Track signals, but there is no uniform industry
-        response standard. The MVP website does not load optional analytics before
+        response standard. This website does not load optional analytics before
         consent. Where technically supported and legally required, a recognized
         Global Privacy Control signal will be treated as a request to keep
         nonessential analytics disabled.
