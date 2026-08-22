@@ -5,7 +5,6 @@
 // (Этап 12). Analytics must never throw into the app — all failures are silent.
 
 import { ANALYTICS_ENABLED, hasAnalyticsConsent } from "./consent";
-import { siteConfig } from "./site-config";
 
 // The only NEXT_PUBLIC_ value — gtag.js runs client-side. EMPTY in preview
 // (env var unset), which keeps the gate closed. Never hardcode an ID.
@@ -41,12 +40,13 @@ export type AnalyticsEvent =
   | "form_submit_success"
   | "form_submit_error";
 
-// All four gates must pass before GA4 may load or any event may be sent.
+// All gates must pass before GA4 may load or any event may be sent.
+// Preview check: GA4_MEASUREMENT_ID is empty in preview (env var unset),
+// so the empty-string gate handles it without needing the server-only siteConfig.
 export function isAnalyticsReady(): boolean {
   return (
     ANALYTICS_ENABLED &&
     GA4_MEASUREMENT_ID !== "" &&
-    !siteConfig.isPreview &&
     hasAnalyticsConsent()
   );
 }
