@@ -46,3 +46,6 @@ next-env.d.ts
 # scratch / throwaway scripts at repo root (screenshots, probes, etc.)
 /_*.mjs
 /_*.js
+
+.vercel
+.env*

@@ -9,6 +9,18 @@ Premium B2B IT & operations development site. Next.js 16 + next-intl + CSS Modul
 - **Auto commit + push** to `main` after every verified change. No branches, no PRs. Don't ask.
 - **Execute autonomously**. Ask only when choosing between design/approach variants.
 - **Build first**: `npm run build` must pass before any commit.
+- **Task source**: folder `внести изменения/` is the primary task backlog. Execute tasks exactly as specified there. `TODO.md` contains the prioritized list; numbered files (01-06) contain detailed specs per area.
+- **Self-verify**: after completing each change, re-check the work against the original task specification. Confirm every requirement was met before committing.
+
+## Current Development Phase (2026-08-22)
+
+Site is LIVE at `www.fillsystem.com` (Vercel). Domain, rebrand, core pages, 14 blog articles, 4 locales all done. Search engine registration complete (GSC, Bing, Yandex). Sitemap expanded to 107 multilingual URLs.
+
+**Active backlog** (`внести изменения/TODO.md`): 70 items from a comprehensive site audit, grouped by priority:
+- **P0** (today): price consistency, vercel domain noindex, analytics activation, legal cleanup
+- **P1** (this week): authors/E-E-A-T, structured data fixes, meta tags, hreflang, translations, broken links
+- **P2** (2-4 weeks): performance, security (CSP), legal/GDPR, sitemap, trust signals, form/conversion
+- **P3** (strategic): O-1 separation, AI blog series, content quality, local SEO
 
 ## Visual Verification
 
