@@ -11,10 +11,9 @@ export const CONSENT_STORAGE_KEY = "opsfield_analytics_consent";
 // the banner (an external-store subscriber) re-read it.
 export const CONSENT_CHANGE_EVENT = "opsfield:consent-change";
 
-// Master switch for ANALYTICS (GA4 loading + event tracking). While false, no
-// analytics loads. Этап 12 flips this to true (or an env-var check) at GA4
-// activation. Kept independent of the consent UI below.
-export const ANALYTICS_ENABLED = false;
+// Master switch for ANALYTICS (GA4 loading + event tracking).
+// Requires NEXT_PUBLIC_GA4_MEASUREMENT_ID to be set in Vercel env vars.
+export const ANALYTICS_ENABLED = true;
 
 // Whether the consent UI (banner + footer reopener) is shown. Decoupled from
 // ANALYTICS_ENABLED on purpose: we capture the visitor's choice now while GA4
