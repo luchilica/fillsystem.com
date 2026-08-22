@@ -89,7 +89,7 @@ const SERVICES: {
     price: "from $1,400",
     priceFree: false,
     highlight: false,
-    href: "/services/business-diagnostic",
+    href: "/services/extended-diagnostic",
     Icon: FileSearch,
   },
   {

@@ -36,6 +36,9 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         founder: { "@id": `${home}#igor-saevets` },
         sameAs: [
           "https://www.linkedin.com/in/igorsaevets",
+          "https://www.linkedin.com/company/fillsystem",
+          "https://www.crunchbase.com/organization/fillsystem",
+          "https://clutch.co/profile/fillsystem",
           "https://growcluster.com/",
         ],
         areaServed: { "@type": "Country", name: "United States" },
