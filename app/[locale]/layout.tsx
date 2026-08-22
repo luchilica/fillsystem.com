@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Mulish, JetBrains_Mono } from "next/font/google";
+import { Mulish, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
 import "../globals.css";
 import SkipLink from "@/components/layout/SkipLink";
 import Header from "@/components/layout/Header";
@@ -18,7 +18,7 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 // 500 lead text, 400 body). Self-hosted by next/font (no third-party font
 // requests). Exposed as --font-sans.
 const mulish = Mulish({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic", "latin-ext"],
   weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
@@ -30,6 +30,13 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cjk",
   display: "swap",
 });
 
@@ -87,7 +94,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={LOCALE_META[locale as Locale].htmlLang}>
-      <body className={`${mulish.variable} ${jetbrainsMono.variable}`}>
+      <body className={`${mulish.variable} ${jetbrainsMono.variable} ${locale === "zh-Hans" ? notoSansSC.variable : ""}`}>
         <NextIntlClientProvider>
           <SkipLink />
           <Header />
