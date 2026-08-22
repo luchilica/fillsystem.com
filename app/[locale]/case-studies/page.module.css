@@ -1,4 +1,5 @@
-/* Case Studies — vertical display of diagnostic scenarios.
+/* Case Studies — matches About page visual rhythm:
+   paper hero → dark ink process → paper scenarios → brand blue stats → dark CTA.
    Uses existing design tokens from globals.css. No Tailwind. */
 
 /* ----- Hero ----- */
@@ -40,11 +41,75 @@
   margin-top: var(--space-2);
 }
 
-/* ----- Scenario cards ----- */
+/* ----- Dark ink process section (matches About's approach) ----- */
+.processSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 120% at 100% 0%, rgba(37, 81, 210, 0.2) 0%, rgba(37, 81, 210, 0) 55%),
+    linear-gradient(180deg, #101223 0%, var(--ink-900) 62%) !important;
+  color: var(--text-on-dark);
+}
+.processSection h2 { color: var(--paper); }
+.darkPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(37, 81, 210, 0.22); pointer-events: none; }
+.darkPlusBottom { position: absolute; bottom: 20px; left: 3%; color: rgba(37, 81, 210, 0.14); pointer-events: none; }
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.processCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.processIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(37, 81, 210, 0.35);
+  color: var(--blue-200);
+}
+
+.processTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.processDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ----- Scenario cards (paper section) ----- */
 .scenarioList {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  margin-top: var(--space-4);
 }
 
 .scenarioCard {
@@ -66,7 +131,6 @@
   border-color: var(--blue-200);
 }
 
-/* Ghost number watermark */
 .ghostNum {
   position: absolute;
   top: -26px;
@@ -82,7 +146,6 @@
   z-index: 0;
 }
 
-/* Card header */
 .cardHeader {
   position: relative;
   z-index: 1;
@@ -109,7 +172,6 @@
   color: var(--ink-900);
 }
 
-/* Environment tags */
 .envTags {
   position: relative;
   z-index: 1;
@@ -131,7 +193,6 @@
   color: var(--stone-600);
 }
 
-/* Disclaimer */
 .disclaimer {
   position: relative;
   z-index: 1;
@@ -166,7 +227,6 @@
   padding-bottom: 0;
 }
 
-/* Connector rail between nodes */
 .step:not(:last-child)::before {
   content: "";
   position: absolute;
@@ -191,14 +251,12 @@
   z-index: 1;
 }
 
-/* Found step — subtle blue */
 .found .node {
   background: var(--blue-50);
   color: var(--blue-600);
   border-color: var(--blue-100);
 }
 
-/* Delivered step — solid blue */
 .delivered .node {
   background: var(--blue-500);
   color: var(--paper);
@@ -231,14 +289,66 @@
   color: var(--ink-900);
 }
 
-/* Metric highlight */
 .metric {
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
   color: var(--blue-600);
 }
 
-/* ----- CTA section ----- */
+/* ----- Brand blue stats section (matches About's stats) ----- */
+.statsSection {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 90% at 15% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(158deg, var(--blue-500) 0%, var(--blue-600) 100%) !important;
+  color: var(--paper);
+}
+.statsSection h2 { color: var(--paper); }
+.brandPlusTop { position: absolute; top: -30px; right: -15px; color: rgba(255, 255, 255, 0.12); pointer-events: none; }
+.brandPlusBottom { position: absolute; bottom: 10px; left: 3%; color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  padding: var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.statLabel {
+  margin-top: 8px;
+  font-family: var(--font-mono-fallback);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----- CTA (dark ink) ----- */
 .ctaSection {
   position: relative;
   overflow: hidden;
@@ -332,8 +442,13 @@
     font-size: 21px;
   }
 
-  .ctaPlusTop,
-  .ctaPlusBottom {
+  .statNum {
+    font-size: 26px;
+  }
+
+  .darkPlusTop, .darkPlusBottom,
+  .brandPlusTop, .brandPlusBottom,
+  .ctaPlusTop, .ctaPlusBottom {
     display: none;
   }
 }

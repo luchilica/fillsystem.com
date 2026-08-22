@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Info, Search, CheckCircle2 } from "lucide-react";
+import { Info, Search, CheckCircle2, Stethoscope, BarChart3, Route } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
@@ -12,8 +12,6 @@ import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import styles from "./page.module.css";
 
-// Scenario data — mirrors DiagnosticScenarios.tsx on the homepage.
-// Anonymized, illustrative. Not verified case studies or testimonials.
 type Scenario = {
   id: string;
   client: string;
@@ -88,6 +86,34 @@ const ROWS = [
   { key: "delivered", label: "Delivered", Icon: CheckCircle2 },
 ] as const;
 
+const PROCESS_STEPS = [
+  {
+    Icon: Stethoscope,
+    title: "Review",
+    description:
+      "We review workflows, systems, CRM usage, reporting, and decision bottlenecks across the organization.",
+  },
+  {
+    Icon: BarChart3,
+    title: "Map & score",
+    description:
+      "We map root causes and score fixes by impact, effort, risk, dependency, and business value.",
+  },
+  {
+    Icon: Route,
+    title: "Recommend",
+    description:
+      "You receive a clear next step: roadmap, advisory, implementation support, pause, or no-fit.",
+  },
+];
+
+const STATS = [
+  { num: "50-250", label: "Employee range" },
+  { num: "30-90", label: "Day roadmaps" },
+  { num: "$180K+", label: "Risks identified" },
+  { num: "60%", label: "Cycle reduction" },
+];
+
 const pad = (i: number) => String(i + 1).padStart(2, "0");
 
 export async function generateMetadata({
@@ -143,7 +169,7 @@ export default async function CaseStudies({
         locale={locale as Locale}
       />
 
-      {/* Hero */}
+      {/* 1 — Hero (paper) */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
@@ -163,9 +189,30 @@ export default async function CaseStudies({
         </div>
       </section>
 
-      {/* Scenario cards */}
+      {/* 2 — Process (dark ink — matches About's approach section) */}
+      <section className={`section ${styles.processSection}`}>
+        <PlusMark size={180} className={styles.darkPlusTop} />
+        <PlusMark size={100} className={styles.darkPlusBottom} />
+        <div className="container">
+          <h2>{t("How Every Diagnostic Works")}</h2>
+          <div className={styles.processGrid}>
+            {PROCESS_STEPS.map((step) => (
+              <div key={step.title} className={styles.processCard}>
+                <span className={styles.processIcon} aria-hidden="true">
+                  <step.Icon size={20} />
+                </span>
+                <h3 className={styles.processTitle}>{t(step.title)}</h3>
+                <p className={styles.processDesc}>{t(step.description)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — Scenario cards (paper) */}
       <section className="section">
         <div className="container">
+          <h2>{t("What diagnostics find")}</h2>
           <div className={styles.scenarioList}>
             {SCENARIOS.map((scenario, i) => (
               <article
@@ -181,7 +228,7 @@ export default async function CaseStudies({
                   <span className={styles.scenarioLabel}>
                     {t("Scenario")} {pad(i)}
                   </span>
-                  <h2 className={styles.clientName}>{t(scenario.client)}</h2>
+                  <h3 className={styles.clientName}>{t(scenario.client)}</h3>
                 </div>
 
                 <div className={styles.envTags}>
@@ -226,7 +273,24 @@ export default async function CaseStudies({
         </div>
       </section>
 
-      {/* CTA */}
+      {/* 4 — Stats (brand blue — matches About's stats section) */}
+      <section className={`section ${styles.statsSection}`}>
+        <PlusMark size={160} className={styles.brandPlusTop} />
+        <PlusMark size={90} className={styles.brandPlusBottom} />
+        <div className="container">
+          <h2>{t("Typical diagnostic scope")}</h2>
+          <div className={styles.statsGrid}>
+            {STATS.map((s) => (
+              <div key={s.label} className={styles.statCard}>
+                <p className={styles.statNum}>{s.num}</p>
+                <p className={styles.statLabel}>{t(s.label)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 — CTA (dark ink) */}
       <section className={`section ${styles.ctaSection}`}>
         <PlusMark size={180} className={styles.ctaPlusTop} />
         <PlusMark size={100} className={styles.ctaPlusBottom} />
