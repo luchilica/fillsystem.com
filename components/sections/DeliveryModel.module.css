@@ -122,6 +122,16 @@
   object-fit: cover;
 }
 
+.avatarLogo {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+  background: var(--paper);
+  padding: 6px;
+}
+
 .avatar {
   display: inline-flex;
   align-items: center;
@@ -355,6 +365,11 @@
   .avatarPhoto {
     width: 46px;
     height: 46px;
+  }
+  .avatarLogo {
+    width: 46px;
+    height: 46px;
+    padding: 5px;
   }
   .avatar {
     width: 46px;

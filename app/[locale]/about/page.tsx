@@ -107,6 +107,7 @@ const TEAM = [
     name: "Igor Saevets",
     initials: "IS",
     photo: "/photos/igor-saevets.jpg",
+    photoIsLogo: false,
     title: "Founder & CEO",
     subtitle: "Operating model & diagnostic lead",
     link: "https://www.linkedin.com/in/igorsaevets",
@@ -118,6 +119,8 @@ const TEAM = [
   {
     name: "GrowCluster",
     initials: "GC",
+    photo: "/photos/growcluster.png",
+    photoIsLogo: true,
     title: "Technology Partner",
     subtitle: "International Association of IT Specialists",
     link: "https://growcluster.com/",
@@ -192,10 +195,10 @@ export default async function About({
                   {member.photo ? (
                     <Image
                       src={member.photo}
-                      alt={member.name}
-                      width={56}
-                      height={56}
-                      className={styles.avatarPhoto}
+                      alt={`${member.name} - ${member.title} at Fill System`}
+                      width={member.photoIsLogo ? 182 : 56}
+                      height={member.photoIsLogo ? 55 : 56}
+                      className={member.photoIsLogo ? styles.avatarLogo : styles.avatarPhoto}
                     />
                   ) : (
                     <span className={styles.avatar} aria-hidden="true">
