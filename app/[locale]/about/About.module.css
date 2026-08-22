@@ -116,6 +116,14 @@
   gap: 15px;
 }
 
+.avatarPhoto {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
 .avatar {
   display: inline-flex;
   align-items: center;
@@ -285,6 +293,11 @@
   }
 
   .teamCardHead { gap: 12px; }
+
+  .avatarPhoto {
+    width: 46px;
+    height: 46px;
+  }
 
   .avatar {
     width: 46px;

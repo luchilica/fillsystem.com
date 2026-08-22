@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -105,6 +106,7 @@ const TEAM = [
   {
     name: "Igor Saevets",
     initials: "IS",
+    photo: "/photos/igor-saevets.jpg",
     title: "Founder & CEO",
     subtitle: "Operating model & diagnostic lead",
     link: "https://www.linkedin.com/in/igorsaevets",
@@ -187,9 +189,19 @@ export default async function About({
             {TEAM.map((member) => (
               <article key={member.initials} className={styles.teamCard}>
                 <div className={styles.teamCardHead}>
-                  <span className={styles.avatar} aria-hidden="true">
-                    {member.initials}
-                  </span>
+                  {member.photo ? (
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={56}
+                      height={56}
+                      className={styles.avatarPhoto}
+                    />
+                  ) : (
+                    <span className={styles.avatar} aria-hidden="true">
+                      {member.initials}
+                    </span>
+                  )}
                   <div>
                     <h3 className={styles.cardName}>
                       <a

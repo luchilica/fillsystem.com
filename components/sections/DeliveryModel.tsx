@@ -23,6 +23,7 @@ const ROLES = [
     link: "https://www.linkedin.com/in/igorsaevets" as string | undefined,
     linkIsLinkedIn: true,
     initials: "IS",
+    photo: "/photos/igor-saevets.jpg" as string | undefined,
     subtitle: "Operating model & diagnostic lead",
     bio: "Serial entrepreneur with 10+ companies founded across the US and Europe. EB-1A green card holder. Google mentor, FRII/Sber business tracker speaker.",
     tone: "paper",
@@ -41,6 +42,7 @@ const ROLES = [
     link: "https://growcluster.com/" as string | undefined,
     linkIsLinkedIn: false,
     initials: "GC",
+    photo: undefined as string | undefined,
     subtitle: "International Association of IT Specialists",
     bio: undefined as string | undefined,
     art: "/photos/role-sa.jpg",
@@ -82,7 +84,7 @@ export default async function DeliveryModel() {
         </p>
 
         <div className={styles.roles}>
-          {ROLES.map(({ title, name, link, linkIsLinkedIn, initials, subtitle, bio, responsibilities, art, blur }) => (
+          {ROLES.map(({ title, name, link, linkIsLinkedIn, initials, photo, subtitle, bio, responsibilities, art, blur }) => (
             <Card key={title} tone="paper" soft hover={false}>
               <span className={styles.cardArt} aria-hidden="true">
                 <Image
@@ -97,9 +99,19 @@ export default async function DeliveryModel() {
               </span>
               <div className={styles.role}>
                 <div className={styles.roleHead}>
-                  <span className={styles.avatar} aria-hidden="true">
-                    {initials}
-                  </span>
+                  {photo ? (
+                    <Image
+                      src={photo}
+                      alt={name ?? title}
+                      width={48}
+                      height={48}
+                      className={styles.avatarPhoto}
+                    />
+                  ) : (
+                    <span className={styles.avatar} aria-hidden="true">
+                      {initials}
+                    </span>
+                  )}
                   <div>
                     {name ? (
                       <>
