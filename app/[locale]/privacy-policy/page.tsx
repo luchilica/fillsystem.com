@@ -32,7 +32,7 @@ export default async function PrivacyPolicy({
   return (
     <>
     <BreadcrumbJsonLd title="Privacy Policy" path="/privacy-policy" locale={locale as Locale} />
-    <LegalPageLayout title="Privacy Policy" lastUpdated="June 13, 2026">
+    <LegalPageLayout title="Privacy Policy" lastUpdated="August 22, 2026">
       <p>
         Fill System (“Fill System,” “we,” “us,” or “our”) operates this
         website and provides diagnostic-first IT and business consulting
@@ -146,6 +146,39 @@ export default async function PrivacyPolicy({
         guaranteed to be completely secure.
       </p>
 
+      <h2>GDPR and UK GDPR</h2>
+      <p>
+        Fill System processes personal information of individuals located in the
+        European Economic Area and the United Kingdom on the following legal
+        bases: legitimate interest for reviewing and responding to business
+        inquiries, and consent for optional analytics. You may withdraw analytics
+        consent at any time through the cookie-preference control without
+        affecting the lawfulness of processing based on consent before its
+        withdrawal.
+      </p>
+      <p>
+        Under Articles 15-22 of the General Data Protection Regulation, data
+        subjects have the right to access personal data held about them, request
+        rectification of inaccurate data, request erasure of personal data,
+        request restriction of processing, receive personal data in a portable
+        format, and object to processing based on legitimate interest. To
+        exercise any of these rights, email{" "}
+        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a> with
+        the subject line "Privacy Request." We will respond within 30 days of
+        receiving a verifiable request.
+      </p>
+      <p>
+        When personal data is transferred outside the EEA or the United Kingdom,
+        Fill System relies on Standard Contractual Clauses (SCCs) approved by the
+        European Commission as the cross-border transfer mechanism.
+      </p>
+      <p>
+        Fill System is a U.S.-based company and has not appointed a
+        representative in the European Union or the United Kingdom. For any
+        GDPR-related inquiry, contact{" "}
+        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a>.
+      </p>
+
       <h2>Your Choices and Requests</h2>
       <p>
         You may ask us to provide access to, correct, or delete personal
@@ -153,21 +186,25 @@ export default async function PrivacyPolicy({
         analytics consent through the cookie-preference control.
       </p>
       <p>
-        To submit a privacy request, use the website{" "}
-        <Link href="/#diagnostic-request-form">diagnostic request form</Link> and begin
-        the Main Challenge field with <code>Privacy Request</code>. Include enough
-        information for us to identify the relevant inquiry. We may request
-        reasonable verification before completing a request and may retain limited
-        information when required by law or necessary to document the request.
+        To exercise any privacy right, email{" "}
+        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a> with
+        the subject line "Privacy Request." Include enough information for us to
+        identify the relevant inquiry. We will respond within 30 days. We may
+        request reasonable verification before completing a request and may retain
+        limited information when required by law or necessary to document the
+        request.
       </p>
       <p>
-        If the California Consumer Privacy Act and California Privacy Rights Act
-        apply to Fill System, California residents may also have rights to
-        know, correct, delete, opt out of sale or sharing, limit certain uses of
-        sensitive personal information, and receive equal service without
-        discrimination for exercising applicable rights. Fill System does not
-        sell personal information and does not knowingly sell or share personal
-        information of consumers under 16.
+        Under the California Consumer Privacy Act (CCPA) and the California
+        Privacy Rights Act (CPRA), California residents have the following
+        rights: the right to know what personal information is collected and how
+        it is used, the right to correct inaccurate personal information, the
+        right to delete personal information, the right to opt out of the sale
+        or sharing of personal information, the right to limit certain uses of
+        sensitive personal information, and the right to receive equal service
+        without discrimination for exercising these rights. Fill System does
+        not sell personal information and does not knowingly sell or share
+        personal information of consumers under 16.
       </p>
       <p>
         An authorized agent may submit a request using the same process. We may
@@ -213,10 +250,8 @@ export default async function PrivacyPolicy({
         <a href="mailto:privacy@fillsystem.com">
           privacy@fillsystem.com
         </a>{" "}
-        with enough information for us to locate the relevant inquiry. You may
-        also use the website{" "}
-        <Link href="/#diagnostic-request-form">diagnostic request form</Link> and begin
-        the Main Challenge field with <code>Privacy Request</code>.
+        with the subject line "Privacy Request" and enough information for us to
+        locate the relevant inquiry. We will respond within 30 days.
       </p>
     </LegalPageLayout>
     </>

@@ -26,14 +26,14 @@ import styles from "./ServicesGrid.module.css";
 
 const FORM_HREF = "#diagnostic-request-form";
 
-const EMP_MIN = 25;
-const EMP_MAX = 100;
-const EMP_DEFAULT = 50;
-const EMP_STEP = 5;
+const EMP_MIN = 50;
+const EMP_MAX = 250;
+const EMP_DEFAULT = 100;
+const EMP_STEP = 10;
+const EMP_ORIGIN = 50;
 
-// Team-size multiplier: 1.0 at ≤50 people (bottom of ICP), scales up from there.
 function sizeFactor(employees: number): number {
-  return Math.min(2.5, Math.max(1, 1 + (employees - EMP_DEFAULT) * 0.02));
+  return Math.min(2.5, Math.max(1, 1 + (employees - EMP_ORIGIN) * 0.004));
 }
 
 function scaled(base: number, employees: number): number {

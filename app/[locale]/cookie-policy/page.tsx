@@ -32,7 +32,7 @@ export default async function CookiePolicy({
   return (
     <>
     <BreadcrumbJsonLd title="Cookie Policy" path="/cookie-policy" locale={locale as Locale} />
-    <LegalPageLayout title="Cookie Policy" lastUpdated="June 13, 2026">
+    <LegalPageLayout title="Cookie Policy" lastUpdated="August 22, 2026">
       <p>
         This Cookie Policy explains how Fill System uses cookies and similar
         technologies on its website. It should be read together with the{" "}
@@ -56,10 +56,6 @@ export default async function CookiePolicy({
         preferences. They cannot be disabled through the website preference tool
         when they are required for the service to function.
       </p>
-      <p>
-        Current providers include Vercel for hosting and Resend for email
-        notifications. Actual cookies depend on the deployed configuration.
-      </p>
 
       <h3>Analytics</h3>
       <p>
@@ -73,6 +69,44 @@ export default async function CookiePolicy({
         Advertising personalization, Google Signals, remarketing, and ad-platform
         cookies are not enabled.
       </p>
+
+      <h3>Cookies and Storage Used</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Cookie / Storage</th>
+            <th>Provider</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NEXT_LOCALE</td>
+            <td>Fill System</td>
+            <td>Stores preferred language</td>
+            <td>Session</td>
+          </tr>
+          <tr>
+            <td>cookie-consent (localStorage)</td>
+            <td>Fill System</td>
+            <td>Records analytics consent choice</td>
+            <td>Persistent</td>
+          </tr>
+          <tr>
+            <td>_ga</td>
+            <td>Google Analytics</td>
+            <td>Distinguishes users (only after consent)</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>_ga_[ID]</td>
+            <td>Google Analytics</td>
+            <td>Maintains session state (only after consent)</td>
+            <td>2 years</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>Consent Choices</h2>
       <p>
@@ -122,10 +156,8 @@ export default async function CookiePolicy({
         <a href="mailto:privacy@fillsystem.com">
           privacy@fillsystem.com
         </a>{" "}
-        with enough information for us to locate the relevant inquiry. You may
-        also use the website{" "}
-        <Link href="/#diagnostic-request-form">diagnostic request form</Link> and begin
-        the Main Challenge field with <code>Privacy Request</code>.
+        with the subject line "Privacy Request" and enough information for us to
+        locate the relevant inquiry. We will respond within 30 days.
       </p>
     </LegalPageLayout>
     </>

@@ -32,7 +32,7 @@ export default async function TermsOfUse({
   return (
     <>
     <BreadcrumbJsonLd title="Terms of Use" path="/terms-of-use" locale={locale as Locale} />
-    <LegalPageLayout title="Terms of Use" lastUpdated="June 13, 2026">
+    <LegalPageLayout title="Terms of Use" lastUpdated="August 22, 2026">
       <p>
         These Terms of Use govern your access to and use of the Fill System
         website. By using the website, you agree to these terms. If you do not
@@ -192,10 +192,8 @@ export default async function TermsOfUse({
         <a href="mailto:privacy@fillsystem.com">
           privacy@fillsystem.com
         </a>{" "}
-        with enough information for us to locate the relevant inquiry. You may
-        also use the website{" "}
-        <Link href="/#diagnostic-request-form">diagnostic request form</Link> and begin
-        the Main Challenge field with <code>Privacy Request</code>.
+        with the subject line "Privacy Request" and enough information for us to
+        locate the relevant inquiry. We will respond within 30 days.
       </p>
     </LegalPageLayout>
     </>

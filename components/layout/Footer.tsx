@@ -10,7 +10,7 @@ const COMPANY_LINKS = [
   { label: "About", href: "/about/" },
   { label: "Services", href: "/services/" },
   { label: "Blog", href: "/blog/" },
-  { label: "Results", href: "/#proof-examples" },
+  { label: "Scenarios", href: "/#proof-examples" },
   { label: "Contact", href: "/#diagnostic-request-form" },
 ];
 
@@ -105,6 +105,9 @@ export default async function Footer() {
             <a href="mailto:hello@fillsystem.com" className={styles.contactLink}>
               hello@fillsystem.com
             </a>
+            <span className={styles.responseTime}>
+              {t("Email-only - we respond within 24 hours")}
+            </span>
           </p>
         </div>
       </div>

@@ -144,3 +144,11 @@
 .contactLink:focus-visible {
   color: var(--blue-300);
 }
+
+/* Response-time note — subtle, after the email link. */
+.responseTime {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.52);
+}

@@ -34,7 +34,10 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         disambiguatingDescription:
           "B2B IT and operations consulting firm based in California, USA. Not affiliated with fillsystems.it (Italy) or Fill System HVAC (South Korea).",
         founder: { "@id": `${home}#igor-saevets` },
-        sameAs: ["https://www.linkedin.com/in/igorsaevets"],
+        sameAs: [
+          "https://www.linkedin.com/in/igorsaevets",
+          "https://growcluster.com/",
+        ],
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",

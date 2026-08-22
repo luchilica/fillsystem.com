@@ -173,6 +173,10 @@ export default function DiagnosticScenarios() {
                   </div>
                 </div>
 
+                <p className={styles.cardDisclaimer}>
+                  {t("Illustrative scenario - not a specific client engagement")}
+                </p>
+
                 <ol className={styles.timeline}>
                   {ROWS.map((r) => (
                     <li key={r.key} className={`${styles.step} ${styles[r.key]}`}>
@@ -195,12 +199,6 @@ export default function DiagnosticScenarios() {
           })}
         </div>
       </div>
-
-      <p className={styles.note}>
-        {t(
-          "Scenarios reflect patterns from real diagnostic engagements with B2B companies of 50-250 employees. Figures represent the range of impact typically identified.",
-        )}
-      </p>
 
       <div className={styles.cta}>
         <a href="#diagnostic-request-form" className={styles.textLink}>

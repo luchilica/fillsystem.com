@@ -2,6 +2,8 @@
 
 > Diagnostic-first IT and operations consulting for B2B companies with 50-250 employees.
 
+Last updated: 2026-08-22
+
 ## Founder
 
 Igor Saevets -- EB-1A green card holder, 10+ companies founded across US and Europe. Leads diagnostic methodology and operating model design.
@@ -9,6 +11,26 @@ Igor Saevets -- EB-1A green card holder, 10+ companies founded across US and Eur
 ## ICP (Ideal Customer Profile)
 
 B2B companies with 50-250 employees facing cross-functional process complexity, weak CRM/SaaS visibility, unclear automation or AI priorities, or high-impact migration decisions that need independent review.
+
+## Not a Fit For
+
+- Pre-revenue startups or solo founders
+- Companies under 30 employees (not enough process complexity)
+- Engagements that need a full-time embedded team
+- Implementation-only work without diagnostic phase
+- Immigration legal advice (we only help structure evidence)
+
+## What We Don't Do
+
+- Legal advice of any kind
+- Guaranteed ROI projections
+- Staff augmentation or body-shop outsourcing
+- Reselling SaaS licenses
+- Building products from scratch
+
+## Why No ROI Guarantees
+
+Every engagement starts with a diagnostic because we need to understand the problem before we can estimate impact. We report what we find; the client decides what to act on. Promising specific dollar savings before diagnosis is the opposite of what we do.
 
 ## Methodology
 
@@ -20,9 +42,11 @@ Diagnostic-first: every engagement starts with a structured review of processes,
 
 ## Services & Pricing
 
+Prices are base prices for teams of ~50 employees. Larger teams may see adjusted pricing.
+
 - Primary Diagnostic (free) -- Complimentary 30-45 minute fit review to frame the problem and identify bottlenecks. /services/business-diagnostic
 - Advisory Power Hour (from $350) -- Bring one concrete problem. Leave with expert direction in 60 minutes. /services/advisory-power-hour
-- Extended Diagnostic (from $1,400) -- A documented diagnosis of processes, systems, and risks. /services/business-diagnostic
+- Extended Diagnostic (from $1,400) -- A documented diagnosis of processes, systems, and risks. /services/extended-diagnostic
 - Add-on Tool Build (from $1,100) -- A focused build: Telegram bot, landing page, or email campaign. /services/addon-tool-build
 - IT Risk & Security (from $2,100) -- Review of accounts, access, data handling, and single points of failure. /services/it-risk-security
 - Process & Operations (from $3,700) -- Redesign handoffs, approvals, and ownership for growing teams. /services/process-operations
@@ -60,7 +84,15 @@ Diagnostic-first: every engagement starts with a structured review of processes,
 - About -- /about
 - Services & Pricing -- /services
 - Blog -- /blog
+- Contact -- /contact
 - O-1 Visa Readiness -- /o1-visa-readiness
+
+## Localized Versions
+
+- English (default): /
+- Spanish: /es
+- Russian: /ru
+- Chinese (Simplified): /zh-hans
 
 ## Location
 
@@ -69,3 +101,4 @@ California, USA (remote-first)
 ## Contact
 
 hello@fillsystem.com
+Email-only -- we respond within 24 hours.

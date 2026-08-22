@@ -35,14 +35,11 @@ const SERVICE_OPTIONS = [
 ];
 
 const COMPANY_SIZE_OPTIONS = [
-  "1-10",
-  "11-25",
-  "26-50",
-  "51-75",
-  "76-100",
+  "1-49",
+  "50-100",
   "101-150",
-  "151-200",
-  "200+",
+  "151-250",
+  "250+",
 ];
 
 // Current stack — brand names pass through t() unchanged; only the last option
@@ -78,7 +75,7 @@ const TIMELINE_OPTIONS = ["ASAP", "This month", "1-3 months", "3-6 months", "Res
 // a domain + hello@ address is set up.
 const FALLBACK_EMAIL = "hello@fillsystem.com";
 
-const CHALLENGE_MAX = 500;
+const CHALLENGE_MAX = 200;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const INITIAL = {
@@ -101,7 +98,7 @@ const INITIAL = {
 };
 
 type Values = typeof INITIAL;
-type FieldErrors = Partial<Record<"name" | "email" | "company" | "challenge", string>>;
+type FieldErrors = Partial<Record<"name" | "email" | "company", string>>;
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function DiagnosticForm() {
@@ -160,8 +157,6 @@ export default function DiagnosticForm() {
       else if (!EMAIL_RE.test(v.email.trim()))
         e.email = t("Please enter a valid email address.");
       if (!v.company.trim()) e.company = t("Please enter your company.");
-      if (!v.challenge.trim())
-        e.challenge = t("Please describe your main operational challenge.");
       return e;
     },
     [t]
@@ -171,7 +166,6 @@ export default function DiagnosticForm() {
     if (e.name) nameRef.current?.focus();
     else if (e.email) emailRef.current?.focus();
     else if (e.company) companyRef.current?.focus();
-    else if (e.challenge) challengeRef.current?.focus();
   };
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -572,32 +566,21 @@ export default function DiagnosticForm() {
           <div className={styles.field}>
             <label className={styles.label} htmlFor="df-challenge">
               {t("What's your biggest operational challenge right now?")}{" "}
-              <span className={styles.req}>{t("(required)")}</span>
+              <span className={styles.req}>{t("(optional)")}</span>
             </label>
             <textarea
               ref={challengeRef}
               id="df-challenge"
               name="challenge"
-              required
               maxLength={CHALLENGE_MAX}
-              className={`${styles.textarea} ${
-                errors.challenge ? styles.inputError : ""
-              }`}
+              className={styles.textarea}
               value={values.challenge}
               onChange={(e) => set("challenge", e.target.value)}
-              aria-invalid={errors.challenge ? true : undefined}
-              aria-describedby={
-                errors.challenge ? "df-challenge-error" : "df-challenge-counter"
-              }
+              aria-describedby="df-challenge-counter"
             />
             <span id="df-challenge-counter" className={`xsmall ${styles.counter}`}>
               {remaining} {t("characters remaining")}
             </span>
-            {errors.challenge && (
-              <p id="df-challenge-error" className={`small ${styles.error}`}>
-                {errors.challenge}
-              </p>
-            )}
           </div>
 
           {/* Progressive disclosure */}
@@ -699,7 +682,7 @@ export default function DiagnosticForm() {
             docs/design.md → Form Panel ("near submit"). */}
         <p className={styles.microcopy}>
           {t(
-            "Four required fields. Additional context is optional. No full system access is required for the first fit review."
+            "Three required fields. Additional context is optional. No full system access is required for the first fit review."
           )}
         </p>
 
