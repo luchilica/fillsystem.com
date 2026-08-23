@@ -12,15 +12,19 @@ Premium B2B IT & operations development site. Next.js 16 + next-intl + CSS Modul
 - **Task source**: folder `внести изменения/` is the primary task backlog. Execute tasks exactly as specified there. `TODO.md` contains the prioritized list; numbered files (01-06) contain detailed specs per area.
 - **Self-verify**: after completing each change, re-check the work against the original task specification. Confirm every requirement was met before committing.
 
-## Current Development Phase (2026-08-22)
+## Current Development Phase (2026-08-23)
 
-Site is LIVE at `www.fillsystem.com` (Vercel). Domain, rebrand, core pages, 14 blog articles, 4 locales all done. Search engine registration complete (GSC, Bing, Yandex). Sitemap expanded to 107 multilingual URLs.
+Site is LIVE at `www.fillsystem.com` (Vercel, project name `fillsystem`). Domain, rebrand, core pages all done. Search engine registration complete (GSC, Bing, Yandex). GA4 active (`ANALYTICS_ENABLED=true`, measurement ID in Vercel env vars).
 
-**Active backlog** (`внести изменения/TODO.md`): 70 items from a comprehensive site audit, grouped by priority:
-- **P0** (today): price consistency, vercel domain noindex, analytics activation, legal cleanup
-- **P1** (this week): authors/E-E-A-T, structured data fixes, meta tags, hreflang, translations, broken links
-- **P2** (2-4 weeks): performance, security (CSP), legal/GDPR, sitemap, trust signals, form/conversion
-- **P3** (strategic): O-1 separation, AI blog series, content quality, local SEO
+**Locales:** 3 (en-US, es-US, ru-US). Chinese (zh-Hans) removed 2026-08-23. All locales indexable.
+
+**Content structure:**
+- **Blog** (`/blog/`): 8 ICP articles (RevOps, CRM, Operations, IT Risk, Strategy)
+- **Technical Resources** (`/resources/`): 6 AI articles (MCP/A2A, embeddings, agent eval, voice AI, AI governance) - separated from blog to avoid domain authority dilution
+- **Case Studies** (`/case-studies`): 3 illustrative scenarios with disclaimers per card
+- **O-1 Readiness** (`/o1-visa-readiness`): standalone page, decoupled from B2B pricing
+
+**Audit backlog** (`внести изменения/TODO.md`): P0-P2 mostly complete, P3 fully closed.
 
 ## Visual Verification
 
@@ -36,7 +40,7 @@ Or take an ad-hoc screenshot of any page/section:
 npx playwright test --project=chromium -x <<'JS'
 import { test } from "@playwright/test";
 test("screenshot", async ({ page }) => {
-  await page.goto("/en-US");
+  await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: "screenshot.png", fullPage: true });
 });
@@ -54,15 +58,19 @@ Existing visual tests: `tests/visual/homepage.spec.ts` — covers home at mobile
 | Route | What's there |
 |-------|-------------|
 | `page.tsx` | **Homepage** — 11 sections: Hero, Problem, WhatWeDiagnose, ServicesGrid, AIProcessAutomation, HowDiagnosticWorks, DiagnosticScenarios, WhyOpsfield, DeliveryModel, BusinessITDiagnostic (form), FAQ, FinalCTA |
-| `about/page.tsx` | About — hero, approach principles (dark ink), team cards, stats (brand blue), CTA |
-| `services/page.tsx` | Services hub — hero, service cards grid (dark ink), "how it works" steps (brand blue), CTA |
-| `services/[slug]/page.tsx` | 7 service detail pages (business-diagnostic, revops-crm, process-operations, ai-process-automation, it-risk-security, addon-tool-build, advisory-power-hour) |
-| `blog/page.tsx` | Blog listing — hero, cards grid (dark ink), CTA |
-| `blog/[slug]/page.tsx` | 12 blog articles (design in progress, don't change article visuals) |
-| `o1-visa-readiness/page.tsx` | O-1 visa landing page |
+| `about/page.tsx` | About — hero + origin story, approach principles (dark ink), methodology + ICP prose, team cards, stats (brand blue), CTA |
+| `services/page.tsx` | Services hub — hero + pricing context, service cards grid (dark ink), "how it works" steps (brand blue), "what to expect" prose, CTA |
+| `services/[slug]/page.tsx` | 8 service detail pages (business-diagnostic, extended-diagnostic, revops-crm, process-operations, ai-process-automation, it-risk-security, addon-tool-build, advisory-power-hour) |
+| `blog/page.tsx` | Blog listing — 8 ICP articles (uses POST_BLOG filter), cards grid (dark ink), CTA |
+| `blog/[slug]/page.tsx` | 8 blog articles with per-article CTAs and inline cross-links |
+| `resources/page.tsx` | Technical Resources listing — 6 AI articles (uses POST_RESOURCES filter) |
+| `resources/[slug]/page.tsx` | 6 AI/technical articles |
+| `case-studies/page.tsx` | Scenarios — process steps, 3 scenario cards with per-card disclaimers, stats, CTA |
+| `contact/page.tsx` | Contact page |
+| `o1-visa-readiness/page.tsx` | O-1 visa landing page (standalone, not in B2B pricing) |
 | `terms-of-use/page.tsx` | Legal — terms |
-| `privacy-policy/page.tsx` | Legal — privacy |
-| `cookie-policy/page.tsx` | Legal — cookies |
+| `privacy-policy/page.tsx` | Legal — privacy (GDPR/CCPA, LLC entity) |
+| `cookie-policy/page.tsx` | Legal — cookies (cookie table included) |
 
 ### Homepage Sections (`components/sections/`)
 
@@ -88,15 +96,16 @@ Existing visual tests: `tests/visual/homepage.spec.ts` — covers home at mobile
 | `ui/Button.tsx` | Brand button — variants: primary, secondary, dark, on-brand, on-brand-outline |
 | `ui/PlusMark.tsx` | Decorative SVG cross motif for dark/brand sections |
 | `ui/Card.tsx` | Reusable card (hairline border, radius-lg, shadow-sm) |
-| `ui/DiagnosticForm.tsx` | Contact form (client component, Resend API) |
+| `ui/DiagnosticForm.tsx` | Contact form (client component, Resend API, Cloudflare Turnstile) |
 | `ui/FaqAccordion.tsx` | Accordion (client component) |
 | `ui/Logomark.tsx` | Brand signet O (ink ring + blue arc) |
 | `ui/HeroSummary.tsx` | Timeline diagram in hero |
 | `layout/Header.tsx` | Sticky header + mobile drawer |
-| `layout/Footer.tsx` | Site footer |
-| `blog/blogData.ts` | Blog post metadata array (slugs, authors, dates) |
-| `blog/BlogPostLayout.tsx` | Article wrapper (header, body, author box, CTA) |
-| `seo/JsonLd.tsx` | Organization + Person structured data |
+| `layout/Footer.tsx` | Site footer (LLC entity, email-only contact) |
+| `layout/LanguageSwitcher.tsx` | Locale toggle (plain `<a>` tags, not next-intl Link — fixes /en-US bug) |
+| `blog/blogData.ts` | Blog + resources metadata array (slugs, authors, dates, basePath, ctaHeading, dateModified). Exports: BLOG_POSTS, POST_BLOG, POST_RESOURCES |
+| `blog/BlogPostLayout.tsx` | Article wrapper (header, body, author box, per-article CTA). Accepts `basePath` prop for /blog vs /resources |
+| `seo/JsonLd.tsx` | Organization (ProfessionalService + knowsAbout) + Person + FAQPage structured data |
 | `seo/BreadcrumbJsonLd.tsx` | Breadcrumb structured data |
 
 ### Config & i18n
@@ -105,12 +114,23 @@ Existing visual tests: `tests/visual/homepage.spec.ts` — covers home at mobile
 |------|---------|
 | `app/globals.css` | ALL design tokens, base typography, section rhythm, mobile compaction |
 | `app/[locale]/layout.tsx` | Root layout — Mulish + JetBrains Mono font loading, providers |
-| `i18n/dictionary.ts` | Translation map (en/es/ru/zh). ~257KB |
+| `i18n/getDictionary.ts` | Dynamic import per locale (es-US, ru-US). EN returns undefined (strings are keys) |
 | `i18n/t.ts` | Server: `const t = await getT()` |
 | `i18n/useT.ts` | Client: `const t = useT()` |
-| `i18n/routing.ts` | Locale config — en-US default, es/ru/zh-hans prefixed |
+| `i18n/routing.ts` | Locale config — en-US default (no prefix), es-US `/es`, ru-US `/ru` |
+| `i18n/locales.ts` | Locale registry. Exports: LOCALES, LOCALE_META, ENABLED_LOCALES, INDEXABLE_LOCALES, BLOG_LOCALES |
+| `lib/services.ts` | Single source of truth for service definitions and prices. `standalone` flag excludes O-1 from B2B context |
 | `lib/site-config.ts` | Site name, URL, mode (server-only) |
-| `playwright.config.ts` | Test config — runs against `npm run build && next start` on :3000 |
+| `lib/i18n.ts` | SEO helpers: alternatesFor, blogAlternatesFor, robotsFor (supports `{blog:true}` option), localizedUrl |
+| `proxy.ts` | Middleware: lowercase redirect, next-intl routing, X-Robots-Tag for non-canonical hosts, 301 redirects from /blog/[ai-slug] to /resources/[ai-slug] |
+| `app/sitemap.ts` | Sitemap with per-page lastmod dates. Blog uses POST_BLOG + BLOG_LOCALES, resources uses POST_RESOURCES + BLOG_LOCALES |
+
+### Lead Magnet
+
+| File | Purpose |
+|------|---------|
+| `public/downloads/diagnostic-preview.pdf` | Combined lead magnet: methodology, 10 questions, sample scorecard, sample finding, priority matrix, roadmap (8 pages, 87KB) |
+| `public/downloads/diagnostic-preview.html` | Source HTML for the PDF (regenerate via Playwright) |
 
 ## Design System
 
@@ -138,6 +158,7 @@ Fonts: **Mulish** everywhere. **JetBrains Mono** for eyebrow badges only.
 | `--blue-500` | `#2551D2` | Sole accent. Buttons, links, brand sections |
 | `--ink-900` | `#222335` | Headings, dark section bg. Never pure #000 |
 | `--stone-700` | `#2C2E38` | Body text (`--text-body`) |
+| `--stone-500` | `#676B77` | Muted text, labels (min 4.5:1 contrast on white) |
 | `--stone-200` | `#E5E6EA` | Borders (`--border-hair`) |
 | `--paper` | `#FFFFFF` | Card/page background |
 
@@ -177,6 +198,8 @@ box-shadow: var(--shadow-sm);
 - Pure `#000000` — use `--ink-900`
 - Stripping PlusMark decorations or duotone imagery
 - Category badges/pills on blog cards or inside articles (AI, CRM, RevOps labels) — they look AI-generated. No tag/category UI anywhere in blog.
+- AI writing patterns: no em-dashes, no arrows, no triadic lists ("X, Y, and Z"), no "delve/leverage/robust/seamless"
+- `--stone-400` for text on white backgrounds — fails WCAG contrast. Use `--stone-500` minimum.
 
 ## Code Patterns
 
@@ -201,13 +224,18 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 }
 ```
 
+### Blog/Resource Page
+
+Same as above but use `blogAlternatesFor` and `robotsFor(loc, { blog: true })` for SEO metadata.
+
 ### i18n Quick Ref
 
-- 4 locales: `en-US`, `es-US`, `ru-US`, `zh-Hans` — all indexable
+- 3 locales: `en-US` (default, no URL prefix), `es-US` (`/es`), `ru-US` (`/ru`)
 - Server: `const t = await getT()` — Client: `const t = useT()`
 - Every page: `setRequestLocale(locale)` before `getT()`
 - All visible text: `t("English string")`
 - `params` is `Promise` — always `await params`
+- Language switcher uses plain `<a>` tags with LOCALE_META.prefix (NOT next-intl Link — it generates `/en-US` instead of `/`)
 
 ### CSS Module
 
@@ -222,6 +250,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 - Icons: `lucide-react` only
 - Images: `next/image` with `width`/`height`. Photos in `public/photos/` or `public/blog/`
 
+### Services Architecture
+
+- `lib/services.ts` is the single source of truth for prices and service definitions
+- `ServiceDef.standalone = true` excludes a service from the B2B pricing grid, JSON-LD offers, form chips, and /services page
+- O-1 Readiness Support is standalone — has its own page at `/o1-visa-readiness` with separate JSON-LD
+- `BlogPost.basePath` determines whether an article lives at `/blog/` or `/resources/`
+- `BlogPostLayout` accepts `basePath` prop — controls JSON-LD URL, back link, prev/next navigation
+
 ## SEO & Content Rules
 
 ### Images
@@ -235,12 +271,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 - Service mapping: AI articles → `/services/ai-process-automation`; CRM/RevOps → `/services/revops-crm-consulting`; Process/Ops → `/services/process-operations`; IT Risk → `/services/it-risk-security`; General/strategy → `/services/business-diagnostic`.
 - Register every new article in `components/blog/blogData.ts` (top of array = newest), `public/llms.txt`, and `public/llms-full.txt`.
 - `seoTitle` and `metaDescription` in blogData — keep title under 60 chars, description under 155 chars.
-- No en-dashes (–) in any user-facing text. Use hyphens (-) for ranges.
+- No en-dashes or em-dashes in any user-facing text. Use hyphens (-) for ranges.
 - Wrap all article body text in `t()` for i18n.
+- Each article has a unique `ctaHeading` (not "Need help with this?") and a `dateModified` field.
+- Blog articles include inline cross-links to related articles (1-4 per article, varying count).
 
 ### Pages
 - Title set via layout template `"%s | Fill System"` — do NOT add the brand suffix manually.
 - Every page needs `alternates` and `robots` via `alternatesFor()` / `robotsFor()`.
+- Blog/resource pages use `blogAlternatesFor()` and `robotsFor(loc, { blog: true })`.
 - Meta descriptions under 155 characters with a clear CTA where appropriate.
 - LinkedIn URLs always use `www.linkedin.com` (not `linkedin.com`).
 
