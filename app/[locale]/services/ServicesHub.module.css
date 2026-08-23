@@ -217,6 +217,77 @@
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* ----- O-1 standalone card ----- */
+.o1Section {
+  background: var(--paper);
+}
+
+.o1Card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .o1Card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.o1Content {
+  flex: 1;
+}
+
+.o1Badge {
+  display: inline-block;
+  padding: 4px 11px;
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono-fallback);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: var(--space-2);
+}
+
+.o1Title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+}
+
+.o1Desc {
+  max-width: var(--text-max);
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.o1Price {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  color: var(--blue-600);
+}
+
+.o1Actions {
+  flex-shrink: 0;
+}
+
 /* ----- CTA (dark ink) ----- */
 .ctaDark {
   position: relative;

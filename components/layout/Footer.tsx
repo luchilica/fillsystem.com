@@ -12,6 +12,7 @@ const COMPANY_LINKS = [
   { label: "Blog", href: "/blog/" },
   { label: "Technical Resources", href: "/resources/" },
   { label: "Scenarios", href: "/case-studies" },
+  { label: "O-1 Visa Readiness", href: "/o1-visa-readiness" },
   { label: "Contact", href: "/#diagnostic-request-form" },
 ];
 
