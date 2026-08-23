@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -100,6 +100,11 @@ export default async function ITRiskB2BWhatToCheck({
 
       {/* -- 6 Areas ---------------------------------------------- */}
       <h2>{t("6 IT risk areas every growing B2B company should audit")}</h2>
+      <p>
+        {t(
+          "Across our security reviews, the most common finding is admin-level accounts belonging to people who left the company months ago. In most B2B companies between 50 and 200 employees, we find at least one critical system where a single person holds the only credentials."
+        )}
+      </p>
 
       <h3>{t("1. Access and Account Sprawl")}</h3>
       <p>

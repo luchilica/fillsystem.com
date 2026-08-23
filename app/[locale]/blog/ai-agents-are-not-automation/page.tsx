@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,

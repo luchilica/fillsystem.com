@@ -3,6 +3,7 @@ import {
   LOCALE_META,
   DEFAULT_LOCALE,
   INDEXABLE_LOCALES,
+  BLOG_LOCALES,
   type Locale,
 } from "@/i18n/locales";
 import { siteConfig } from "@/lib/site-config";
@@ -32,9 +33,24 @@ export function alternatesFor(locale: Locale, path: string): Metadata["alternate
 }
 
 // index only when this is a published locale and not a preview deployment.
-export function robotsFor(locale: Locale): Metadata["robots"] {
+export function robotsFor(locale: Locale, options?: { blog?: boolean }): Metadata["robots"] {
   if (siteConfig.isPreview) return { index: false, follow: false };
+  if (options?.blog && LOCALE_META[locale].blogIndexable === false) {
+    return { index: false, follow: true };
+  }
   return LOCALE_META[locale].indexable
     ? { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1, "max-video-preview": -1 }
     : { index: false, follow: true };
+}
+
+export function blogAlternatesFor(locale: Locale, path: string): Metadata["alternates"] {
+  if (LOCALE_META[locale].blogIndexable === false || !LOCALE_META[locale].indexable) {
+    return { canonical: localizedUrl(locale, path) };
+  }
+  const languages: Record<string, string> = {};
+  for (const l of BLOG_LOCALES) {
+    languages[LOCALE_META[l].htmlLang] = localizedUrl(l, path);
+  }
+  languages["x-default"] = localizedUrl(DEFAULT_LOCALE, path);
+  return { canonical: localizedUrl(locale, path), languages };
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -77,6 +77,11 @@ export default async function HubSpotVsSalesforceB2B({
       <p>
         {t(
           "We have helped companies migrate in both directions -- from Salesforce to HubSpot and from HubSpot to Salesforce -- and we have also helped companies realize that they did not need to migrate at all. Here is the framework we use."
+        )}
+      </p>
+      <p>
+        {t(
+          "In most CRM evaluations we participate in, the decision comes down to three factors: current team size, deal complexity, and the volume of custom reporting that leadership relies on for decisions."
         )}
       </p>
 

@@ -27,7 +27,6 @@ const AUTO_REPLY_SUBJECT: Record<string, string> = {
   "en-US": "Diagnostic request received | Fill System",
   "es-US": "Solicitud de diagnóstico recibida | Fill System",
   "ru-US": "Заявка на диагностику получена | Fill System",
-  "zh-Hans": "已收到您的诊断请求 | Fill System",
 };
 const AUTO_REPLY_BODY: Record<string, string> = {
   "en-US": `Thank you for your diagnostic request.
@@ -52,14 +51,6 @@ puede responder a este correo.
 
 Если хотите добавить детали,
 просто ответьте на это письмо.
-
-- Fill System`,
-  "zh-Hans": `感谢您提交诊断请求。
-我们的资深顾问将审阅您的提交，
-并在 2 个工作日内回复。
-
-如需补充信息，
-您可以直接回复此邮件。
 
 - Fill System`,
 };

@@ -8,8 +8,6 @@ export async function getDictionary(
       return (await import("./dictionaries/es-US")).default;
     case "ru-US":
       return (await import("./dictionaries/ru-US")).default;
-    case "zh-Hans":
-      return (await import("./dictionaries/zh-Hans")).default;
     default:
       return undefined;
   }

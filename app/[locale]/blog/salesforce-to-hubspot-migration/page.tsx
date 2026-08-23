@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -25,8 +25,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -95,6 +95,11 @@ export default async function SalesforceToHubspotMigration({
         )}{" "}
         <Link href="/blog/revops-audit-guide">{t("RevOps audit guide")}</Link>
         {t(" provides a six-pillar framework and a checklist that applies directly to pre-migration analysis. Here is what it covers.")}
+      </p>
+      <p>
+        {t(
+          "In most Salesforce-to-HubSpot transitions we review, at least 20 percent of contact records have duplicates or conflicting field values that only surface after the move. Cleaning the source system first saves weeks of post-migration troubleshooting."
+        )}
       </p>
 
       <h3>{t("Map Your Current Salesforce Data Model")}</h3>

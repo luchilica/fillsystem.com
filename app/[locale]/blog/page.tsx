@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { LOCALE_META, type Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
@@ -23,8 +23,8 @@ export async function generateMetadata({
     title: "B2B Operations & IT Consulting Blog",
     description:
       "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
-    alternates: alternatesFor(loc, "/blog"),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, "/blog"),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       title: "B2B Operations & IT Consulting Blog",
       description:

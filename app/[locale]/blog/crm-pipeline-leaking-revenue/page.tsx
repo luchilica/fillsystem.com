@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getT } from "@/i18n/t";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -25,8 +25,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -262,6 +262,11 @@ export default async function CrmPipelineLeakingRevenuePage({
 
       {/* ----- What to Do Next ----- */}
       <h2>{t("What to do if you recognized 3 or more signs")}</h2>
+      <p>
+        {t(
+          "In most CRM audits we conduct, teams recognize three or more of these patterns but have never mapped them to a single root cause. The signs feel like separate problems - a reporting issue here, a training gap there - but they usually trace back to the same structural gap in the pipeline."
+        )}
+      </p>
       <p>
         {t("If three or more of these patterns describe your team, you do not have a sales problem. You have a systems problem. And the good news about systems problems is that they are fixable without replacing your people or your CRM.")}
       </p>

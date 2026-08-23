@@ -25,7 +25,6 @@ const TITLES: Record<string, string> = {
   "en-US": "B2B IT & Operations Consulting - Diagnostic-First",
   "es-US": "Consultoría IT y Operaciones B2B - Diagnóstico Primero",
   "ru-US": "IT-консалтинг и диагностика бизнес-процессов для B2B",
-  "zh-Hans": "B2B IT与运营咨询 - 诊断优先",
 };
 
 const DESCRIPTIONS: Record<string, string> = {
@@ -35,8 +34,6 @@ const DESCRIPTIONS: Record<string, string> = {
     "Fill System diagnostica cuellos de botella en procesos, CRM, datos e IT para empresas B2B de 50-250 empleados antes de elegir herramientas o proveedores.",
   "ru-US":
     "Fill System диагностирует процессы, CRM, данные и IT-узкие места для B2B-компаний с 50-250 сотрудниками — до выбора инструментов, найма или подрядчиков.",
-  "zh-Hans":
-    "Fill System 为拥有50-250名员工的B2B公司诊断流程、CRM、数据和IT瓶颈，帮助您在选择工具或供应商之前做出明智决策。",
 };
 
 export async function generateMetadata({
@@ -88,7 +85,7 @@ export default async function Home({
   setRequestLocale(locale);
   return (
     <>
-      <JsonLd locale={locale as "en-US" | "es-US" | "ru-US" | "zh-Hans"} />
+      <JsonLd locale={locale as "en-US" | "es-US" | "ru-US"} />
 
       {/* 1 */}
       <section id="hero" className="section">

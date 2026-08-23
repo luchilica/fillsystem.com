@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Mulish, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
+import { Mulish, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import SkipLink from "@/components/layout/SkipLink";
 import Header from "@/components/layout/Header";
@@ -32,13 +32,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-mono",
-  display: "swap",
-});
-
-const notoSansSC = Noto_Sans_SC({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-cjk",
   display: "swap",
 });
 
@@ -98,7 +91,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={LOCALE_META[locale as Locale].htmlLang}>
-      <body className={`${mulish.variable} ${jetbrainsMono.variable} ${locale === "zh-Hans" ? notoSansSC.variable : ""}`}>
+      <body className={`${mulish.variable} ${jetbrainsMono.variable} `}>
         <NextIntlClientProvider>
           <DictionaryProvider dict={dict}>
             <SkipLink />

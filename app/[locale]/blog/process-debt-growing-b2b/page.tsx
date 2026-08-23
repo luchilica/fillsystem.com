@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -118,6 +118,11 @@ export default async function ProcessDebtGrowingB2B({
 
       {/* -- 6 Symptoms ------------------------------------------- */}
       <h2>{t("6 symptoms of process debt in a growing B2B company")}</h2>
+      <p>
+        {t(
+          "In our diagnostic work with companies at this stage, the most common pattern is a workflow that was documented two years ago and has been modified informally at least four times since. The documentation exists, but it describes a process that no longer matches reality."
+        )}
+      </p>
 
       <h3>{t("1. The Same Question Gets Answered Three Different Ways")}</h3>
       <p>

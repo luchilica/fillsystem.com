@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -305,6 +305,11 @@ export default async function RevOpsAuditGuide({
       <p>
         {t(
           "After running audits across dozens of B2B revenue stacks, certain patterns appear so consistently that you should expect to find them. If your audit does not surface at least three of these, you probably did not look hard enough."
+        )}
+      </p>
+      <p>
+        {t(
+          "In most CRM environments we review, between 15 and 40 percent of deals sit in pipeline stages that no longer match the actual sales process. The stages were built for how the team sold two years ago, and nobody rebuilt them as the process evolved."
         )}
       </p>
       <p>

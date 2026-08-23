@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -108,6 +108,11 @@ export default async function RevOpsForSmallTeams({
       <p>
         {t(
           "You can read dozens of articles about RevOps maturity models, technology stacks, and organizational design. Most of it is written for companies ten times your size. At 50 people, your RevOps roadmap fits on a sticky note. Fix these three things first, and you will have a foundation that actually supports growth."
+        )}
+      </p>
+      <p>
+        {t(
+          "The most common starting point we recommend for teams at this stage: assign one person to own CRM hygiene for 30 minutes a day. Not a full RevOps hire - just one person who reviews new records, cleans duplicates, and flags data issues before they compound."
         )}
       </p>
 

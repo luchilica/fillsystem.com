@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 import { BLOG_POSTS } from "@/components/blog/blogData";
 import {
   INDEXABLE_LOCALES,
+  BLOG_LOCALES,
   LOCALE_META,
   DEFAULT_LOCALE,
   type Locale,
@@ -14,9 +15,9 @@ function localizedUrl(locale: Locale, path: string): string {
   return `${siteConfig.url}${prefix}${path}`;
 }
 
-function alternatesFor(path: string): Record<string, string> {
+function alternatesFor(path: string, locales = INDEXABLE_LOCALES): Record<string, string> {
   const languages: Record<string, string> = {};
-  for (const l of INDEXABLE_LOCALES) {
+  for (const l of locales) {
     languages[LOCALE_META[l].htmlLang] = localizedUrl(l, path);
   }
   languages["x-default"] = localizedUrl(DEFAULT_LOCALE, path);
@@ -26,11 +27,12 @@ function alternatesFor(path: string): Record<string, string> {
 function multilingualEntry(
   path: string,
   lastModified: Date,
+  locales = INDEXABLE_LOCALES,
 ): MetadataRoute.Sitemap {
-  return INDEXABLE_LOCALES.map((locale) => ({
+  return locales.map((locale) => ({
     url: localizedUrl(locale, path),
     lastModified,
-    alternates: { languages: alternatesFor(path) },
+    alternates: { languages: alternatesFor(path, locales) },
   }));
 }
 
@@ -70,7 +72,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) =>
     multilingualEntry(
       `/blog/${post.slug}`,
-      new Date(post.date + "T00:00:00"),
+      new Date((post.dateModified ?? post.date) + "T00:00:00"),
+      BLOG_LOCALES,
     ),
   );
 

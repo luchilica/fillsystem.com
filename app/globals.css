@@ -196,14 +196,6 @@
   --edge-padding: 20px;
 }
 
-/* CJK: when Noto Sans SC is loaded (zh-Hans locale), prepend it to the
-   font stacks so Chinese text renders with a proper typeface instead of
-   falling back to system fonts. --font-cjk is set by next/font on the body. */
-html[lang="zh-Hans"] {
-  --font-display: var(--font-cjk, "Noto Sans SC"), var(--font-sans, "Mulish"), system-ui, -apple-system, sans-serif;
-  --font-body: var(--font-cjk, "Noto Sans SC"), var(--font-sans, "Mulish"), system-ui, -apple-system, sans-serif;
-}
-
 /* Mobile compaction — headings and section rhythm are noticeably smaller on
    phones so blocks don't take several screens to scroll. Systemic: only the
    design tokens change (body text stays 16px for readability / no iOS zoom),

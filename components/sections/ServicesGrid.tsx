@@ -51,7 +51,6 @@ const GROUPING: Record<Locale, string> = {
   "en-US": "en-US",
   "es-US": "en-US",
   "ru-US": "ru-RU",
-  "zh-Hans": "zh-CN",
 };
 
 function money(locale: Locale, n: number): string {
@@ -66,8 +65,6 @@ function fromLabel(locale: Locale, n: number): string {
       return `от ${m}`;
     case "es-US":
       return `desde ${m}`;
-    case "zh-Hans":
-      return `${m} 起`;
     default:
       return `from ${m}`;
   }

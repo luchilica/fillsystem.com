@@ -89,7 +89,6 @@ Prices are base prices for teams of ~50 employees. Larger teams may see adjusted
 - English (default): /
 - Spanish: /es
 - Russian: /ru
-- Chinese (Simplified): /zh-hans
 
 ## Location
 

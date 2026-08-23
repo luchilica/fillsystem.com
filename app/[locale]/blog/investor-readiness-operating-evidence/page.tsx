@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
-import { alternatesFor, robotsFor } from "@/lib/i18n";
+import { blogAlternatesFor, robotsFor } from "@/lib/i18n";
 import { getT } from "@/i18n/t";
 import { Link } from "@/i18n/navigation";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
@@ -25,8 +25,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: alternatesFor(loc, `/blog/${post.slug}`),
-    robots: robotsFor(loc),
+    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
       title: `${title} | Fill System`,
@@ -179,6 +179,11 @@ export default async function InvestorReadiness({
 
       {/* -- Revenue quality, not only revenue growth --------------- */}
       <h2>{t("Revenue quality, not only revenue growth")}</h2>
+      <p>
+        {t(
+          "In pre-investment reviews, the most common gap we find is between the revenue numbers the founder presents in the deck and what the CRM data actually shows. Investors who do operational due diligence start here."
+        )}
+      </p>
       <p>
         {t(
           "A growing top-line number can conceal weak operating visibility."
