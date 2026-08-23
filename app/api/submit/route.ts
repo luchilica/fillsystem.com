@@ -15,7 +15,7 @@ const CHALLENGE_MAX = 200;
 // reach arbitrary recipients; until a domain is verified, only the Resend
 // account's own address receives.
 const RECIPIENT =
-  process.env.DIAGNOSTIC_RECIPIENT_EMAIL || "hello@fillsystem.com";
+  process.env.DIAGNOSTIC_RECIPIENT_EMAIL || "oxfordconstruction.ca@gmail.com";
 const FROM =
   process.env.DIAGNOSTIC_FROM_EMAIL || "Fill System <onboarding@resend.dev>";
 // Optional backup sink (Zapier/Make/Google Sheet webhook). If set, every valid

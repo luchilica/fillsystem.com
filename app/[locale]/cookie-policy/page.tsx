@@ -153,8 +153,8 @@ export default async function CookiePolicy({
       <h2>Contact</h2>
       <p>
         For privacy questions or requests, email{" "}
-        <a href="mailto:privacy@fillsystem.com">
-          privacy@fillsystem.com
+        <a href="mailto:oxfordconstruction.ca@gmail.com">
+          oxfordconstruction.ca@gmail.com
         </a>{" "}
         with the subject line "Privacy Request" and enough information for us to
         locate the relevant inquiry. We will respond within 30 days.

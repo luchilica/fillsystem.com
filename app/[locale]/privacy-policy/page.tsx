@@ -163,7 +163,7 @@ export default async function PrivacyPolicy({
         request restriction of processing, receive personal data in a portable
         format, and object to processing based on legitimate interest. To
         exercise any of these rights, email{" "}
-        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a> with
+        <a href="mailto:oxfordconstruction.ca@gmail.com">oxfordconstruction.ca@gmail.com</a> with
         the subject line "Privacy Request." We will respond within 30 days of
         receiving a verifiable request.
       </p>
@@ -176,7 +176,7 @@ export default async function PrivacyPolicy({
         Fill System is a U.S.-based company and has not appointed a
         representative in the European Union or the United Kingdom. For any
         GDPR-related inquiry, contact{" "}
-        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a>.
+        <a href="mailto:oxfordconstruction.ca@gmail.com">oxfordconstruction.ca@gmail.com</a>.
       </p>
 
       <h2>Your Choices and Requests</h2>
@@ -187,7 +187,7 @@ export default async function PrivacyPolicy({
       </p>
       <p>
         To exercise any privacy right, email{" "}
-        <a href="mailto:privacy@fillsystem.com">privacy@fillsystem.com</a> with
+        <a href="mailto:oxfordconstruction.ca@gmail.com">oxfordconstruction.ca@gmail.com</a> with
         the subject line "Privacy Request." Include enough information for us to
         identify the relevant inquiry. We will respond within 30 days. We may
         request reasonable verification before completing a request and may retain
@@ -247,8 +247,8 @@ export default async function PrivacyPolicy({
       <h2>Contact</h2>
       <p>
         For privacy questions or requests, email{" "}
-        <a href="mailto:privacy@fillsystem.com">
-          privacy@fillsystem.com
+        <a href="mailto:oxfordconstruction.ca@gmail.com">
+          oxfordconstruction.ca@gmail.com
         </a>{" "}
         with the subject line "Privacy Request" and enough information for us to
         locate the relevant inquiry. We will respond within 30 days.

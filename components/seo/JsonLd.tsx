@@ -54,7 +54,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         areaServed: { "@type": "Country", name: "United States" },
         contactPoint: {
           "@type": "ContactPoint",
-          email: "hello@fillsystem.com",
+          email: "oxfordconstruction.ca@gmail.com",
           contactType: "customer service",
           availableLanguage: ["English", "Russian", "Spanish"],
         },

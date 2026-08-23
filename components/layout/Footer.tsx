@@ -140,8 +140,8 @@ export default async function Footer() {
           </p>
           <p className={styles.contact}>
             {t("Questions or issues?")}{" "}
-            <a href="mailto:hello@fillsystem.com" className={styles.contactLink}>
-              hello@fillsystem.com
+            <a href="mailto:oxfordconstruction.ca@gmail.com" className={styles.contactLink}>
+              oxfordconstruction.ca@gmail.com
             </a>
             <span className={styles.responseTime}>
               {t("Email-only - we respond within 24 hours")}

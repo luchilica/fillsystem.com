@@ -42,14 +42,14 @@ const CONTACT_CHANNELS = [
   {
     Icon: Mail,
     title: "Email",
-    detail: "hello@fillsystem.com",
-    href: "mailto:hello@fillsystem.com",
+    detail: "oxfordconstruction.ca@gmail.com",
+    href: "mailto:oxfordconstruction.ca@gmail.com",
   },
   {
     Icon: Shield,
     title: "Privacy Requests",
-    detail: "privacy@fillsystem.com",
-    href: "mailto:privacy@fillsystem.com",
+    detail: "oxfordconstruction.ca@gmail.com",
+    href: "mailto:oxfordconstruction.ca@gmail.com",
   },
   {
     Icon: ExternalLink,
