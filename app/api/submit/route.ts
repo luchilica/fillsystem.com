@@ -1,66 +1,17 @@
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/site-config";
 
-// Diagnostic request handler. Server-side validation is mandatory. Captures the
-// lead to an optional backup webhook, then sends an internal notification + a
-// PII-free, locale-aware auto-reply via Resend. Delivery is gated on
-// RESEND_API_KEY (not SITE_MODE) so leads can be captured on a noindex deploy.
-
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CHALLENGE_MAX = 200;
 
-// Override via env in the host. FROM must be on a Resend-verified domain to
-// reach arbitrary recipients; until a domain is verified, only the Resend
-// account's own address receives.
 const RECIPIENT =
   process.env.DIAGNOSTIC_RECIPIENT_EMAIL || "oxfordconstruction.ca@gmail.com";
 const FROM =
   process.env.DIAGNOSTIC_FROM_EMAIL || "Fill System <onboarding@resend.dev>";
-// Optional backup sink (Zapier/Make/Google Sheet webhook). If set, every valid
-// lead is mirrored here so nothing is lost even when email delivery fails.
 const LEAD_WEBHOOK_URL = process.env.LEAD_WEBHOOK_URL || "";
 
-// PII-free auto-reply, per locale. Never echoes any submitted field value.
-const AUTO_REPLY_SUBJECT: Record<string, string> = {
-  "en-US": "Diagnostic request received | Fill System",
-  "es-US": "Solicitud de diagnóstico recibida | Fill System",
-  "ru-US": "Заявка на диагностику получена | Fill System",
-};
-const AUTO_REPLY_BODY: Record<string, string> = {
-  "en-US": `Thank you for your diagnostic request.
-A senior advisor will review your submission
-and respond within 2 business days.
-
-If you have additional context to share,
-you can reply to this email.
-
-- Fill System`,
-  "es-US": `Gracias por su solicitud de diagnóstico.
-Un asesor sénior revisará su envío
-y responderá en un plazo de 2 días hábiles.
-
-Si desea compartir más contexto,
-puede responder a este correo.
-
-- Fill System`,
-  "ru-US": `Спасибо за вашу заявку на диагностику.
-Старший консультант рассмотрит её
-и ответит в течение 2 рабочих дней.
-
-Если хотите добавить детали,
-просто ответьте на это письмо.
-
-- Fill System`,
-};
-function pick(map: Record<string, string>, locale: unknown): string {
-  const k = typeof locale === "string" && map[locale] ? locale : "en-US";
-  return map[k];
-}
-
-// Best-effort in-memory rate limit per IP. NOTE: on serverless this only covers
-// a single warm instance — for real protection use Vercel KV / Upstash.
 const RATE = new Map<string, { n: number; t: number }>();
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX = 5;
@@ -83,6 +34,14 @@ function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
+function esc(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 interface SubmitBody {
   name?: unknown;
   email?: unknown;
@@ -96,13 +55,11 @@ interface SubmitBody {
   role?: unknown;
   companySize?: unknown;
   timeline?: unknown;
-  website?: unknown; // honeypot
-  cfTurnstileToken?: unknown; // Cloudflare Turnstile bot verification
+  website?: unknown;
+  cfTurnstileToken?: unknown;
   context?: Record<string, unknown>;
 }
 
-// Cloudflare Turnstile server-side verification. Returns true if valid, false
-// if the token is invalid or verification fails. Skipped when no secret key.
 async function verifyTurnstile(
   token: string,
   ip: string,
@@ -127,43 +84,222 @@ async function verifyTurnstile(
   }
 }
 
+function notificationHtml(b: SubmitBody): string {
+  const ctx = (b.context ?? {}) as Record<string, unknown>;
+
+  const row = (label: string, v: unknown) => {
+    const s = str(v);
+    if (!s) return "";
+    return `<tr>
+      <td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;font-size:13px;white-space:nowrap;vertical-align:top">${esc(label)}</td>
+      <td style="padding:8px 12px;border-bottom:1px solid #eee;color:#222;font-size:14px">${esc(s)}</td>
+    </tr>`;
+  };
+
+  const contactRows = [
+    row("Name", b.name),
+    row("Email", b.email),
+    row("Company", b.company),
+    row("Role", b.role),
+    row("Website", b.companyWebsite),
+    row("Team size", b.companySize),
+  ].filter(Boolean).join("");
+
+  const requestRows = [
+    row("Services", b.requestType),
+    row("Current tools", b.tools),
+    row("Pain points", b.pains),
+    row("Timeline", b.timeline),
+    row("Already tried", b.alreadyTried),
+  ].filter(Boolean).join("");
+
+  const challenge = str(b.challenge);
+  const challengeBlock = challenge
+    ? `<div style="margin:20px 0;padding:16px;background:#f8f9fa;border-left:3px solid #2551D2;border-radius:0 6px 6px 0">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#666;margin-bottom:8px">Main challenge</div>
+        <div style="font-size:14px;color:#222;line-height:1.5">${esc(challenge)}</div>
+      </div>`
+    : "";
+
+  const utmParts = [
+    str(ctx.utm_source) ? `source=${esc(str(ctx.utm_source))}` : "",
+    str(ctx.utm_medium) ? `medium=${esc(str(ctx.utm_medium))}` : "",
+    str(ctx.utm_campaign) ? `campaign=${esc(str(ctx.utm_campaign))}` : "",
+  ].filter(Boolean).join(", ");
+
+  const contextRows = [
+    row("Language", ctx.locale),
+    row("Page", ctx.page_url),
+    row("CTA clicked", ctx.cta_text),
+    row("Referrer", ctx.referrer),
+    utmParts ? row("UTM", utmParts) : "",
+    row("Submitted", ctx.timestamp),
+  ].filter(Boolean).join("");
+
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f5f7">
+<div style="max-width:600px;margin:0 auto;padding:24px">
+
+  <div style="background:#222335;color:#fff;padding:20px 24px;border-radius:8px 8px 0 0">
+    <div style="font-size:18px;font-weight:600">New diagnostic request</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:4px">${esc(str(b.company))} - ${esc(str(b.name))}</div>
+  </div>
+
+  <div style="background:#fff;padding:24px;border-radius:0 0 8px 8px;border:1px solid #e5e6ea;border-top:none">
+
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#2551D2;font-weight:600;margin-bottom:12px">Contact</div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+      ${contactRows}
+    </table>
+
+    ${requestRows ? `
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#2551D2;font-weight:600;margin-bottom:12px">Request details</div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+      ${requestRows}
+    </table>` : ""}
+
+    ${challengeBlock}
+
+    ${contextRows ? `
+    <details style="margin-top:24px">
+      <summary style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#999;cursor:pointer;margin-bottom:8px">Tracking context</summary>
+      <table style="width:100%;border-collapse:collapse">
+        ${contextRows}
+      </table>
+    </details>` : ""}
+
+  </div>
+
+  <div style="text-align:center;padding:16px;font-size:11px;color:#999">
+    Fill System - Diagnostic Request Notification
+  </div>
+
+</div>
+</body></html>`;
+}
+
 function notificationText(b: SubmitBody): string {
   const ctx = (b.context ?? {}) as Record<string, unknown>;
   const line = (label: string, v: unknown) =>
     str(v) ? `${label}: ${str(v)}` : null;
   return [
-    "New diagnostic request",
+    `New diagnostic request: ${str(b.company)}`,
     "",
+    "--- Contact ---",
     line("Name", b.name),
-    line("Work email", b.email),
+    line("Email", b.email),
     line("Company", b.company),
-    line("Request type", b.requestType),
-    line("Tools", b.tools),
-    line("Slowing them down", b.pains),
-    line("Already tried", b.alreadyTried),
-    line("Company website", b.companyWebsite),
     line("Role", b.role),
-    line("Company size", b.companySize),
+    line("Website", b.companyWebsite),
+    line("Team size", b.companySize),
+    "",
+    "--- Request ---",
+    line("Services", b.requestType),
+    line("Current tools", b.tools),
+    line("Pain points", b.pains),
     line("Timeline", b.timeline),
+    line("Already tried", b.alreadyTried),
+    "",
+    "--- Main challenge ---",
+    str(b.challenge) || "(not provided)",
+    "",
+    "--- Context ---",
     line("Language", ctx.locale),
-    "",
-    "Main challenge:",
-    str(b.challenge),
-    "",
-    "- context -",
     line("Page", ctx.page_url),
-    line("Section", ctx.page_section),
     line("CTA", ctx.cta_text),
     line("Referrer", ctx.referrer),
     line("utm_source", ctx.utm_source),
     line("utm_medium", ctx.utm_medium),
     line("utm_campaign", ctx.utm_campaign),
-    line("utm_content", ctx.utm_content),
-    line("utm_term", ctx.utm_term),
     line("Timestamp", ctx.timestamp),
   ]
     .filter((l) => l !== null)
     .join("\n");
+}
+
+const AUTO_REPLY: Record<string, { subject: string; heading: string; body: string; next: string; sign: string }> = {
+  "en-US": {
+    subject: "We received your diagnostic request | Fill System",
+    heading: "Your request is confirmed",
+    body: "Thank you for reaching out. A senior advisor will review your submission and respond within 2 business days with one of three outcomes: a fit confirmation and proposed next step, a recommendation to a better-suited resource, or a no-fit decision with an honest explanation.",
+    next: "If you have additional context to share before the review, reply to this email.",
+    sign: "Fill System",
+  },
+  "es-US": {
+    subject: "Recibimos su solicitud de diagnostico | Fill System",
+    heading: "Su solicitud esta confirmada",
+    body: "Gracias por comunicarse. Un asesor senior revisara su solicitud y respondera dentro de 2 dias habiles con uno de tres resultados: una confirmacion de compatibilidad y el siguiente paso propuesto, una recomendacion a un recurso mas adecuado, o una decision de no compatibilidad con una explicacion honesta.",
+    next: "Si desea compartir mas contexto antes de la revision, responda a este correo.",
+    sign: "Fill System",
+  },
+  "ru-US": {
+    subject: "Мы получили вашу заявку на диагностику | Fill System",
+    heading: "Ваша заявка подтверждена",
+    body: "Спасибо за обращение. Старший консультант рассмотрит вашу заявку и ответит в течение 2 рабочих дней с одним из трех результатов: подтверждение совместимости и предложение следующего шага, рекомендация более подходящего ресурса, или решение о несовместимости с честным объяснением.",
+    next: "Если хотите добавить детали до начала рассмотрения, ответьте на это письмо.",
+    sign: "Fill System",
+  },
+};
+
+function pickReply(locale: unknown) {
+  const k = typeof locale === "string" && AUTO_REPLY[locale] ? locale : "en-US";
+  return AUTO_REPLY[k];
+}
+
+function autoReplyHtml(locale: unknown): string {
+  const r = pickReply(locale);
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f5f7">
+<div style="max-width:560px;margin:0 auto;padding:24px">
+
+  <div style="text-align:center;padding:24px 0 16px">
+    <div style="display:inline-block;width:36px;height:36px;border-radius:50%;border:2.5px solid #222335;position:relative">
+      <div style="position:absolute;top:2px;right:2px;width:10px;height:10px;border-radius:50%;background:transparent;border-top:2.5px solid #2551D2;border-right:2.5px solid #2551D2;transform:rotate(45deg)"></div>
+    </div>
+  </div>
+
+  <div style="background:#fff;padding:32px;border-radius:8px;border:1px solid #e5e6ea">
+
+    <h1 style="margin:0 0 16px;font-size:22px;font-weight:600;color:#222335;letter-spacing:-0.02em">${esc(r.heading)}</h1>
+
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#2C2E38">${esc(r.body)}</p>
+
+    <p style="margin:0 0 24px;font-size:15px;line-height:1.6;color:#2C2E38">${esc(r.next)}</p>
+
+    <div style="border-top:1px solid #e5e6ea;padding-top:20px;margin-top:8px">
+      <div style="font-size:14px;font-weight:600;color:#222335">${esc(r.sign)}</div>
+      <div style="font-size:13px;color:#676B77;margin-top:4px">Diagnostic-first IT and business consulting</div>
+      <div style="margin-top:8px">
+        <a href="https://www.fillsystem.com" style="font-size:13px;color:#2551D2;text-decoration:none">www.fillsystem.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;padding:16px;font-size:11px;color:#999">
+    This is an automated confirmation. A human advisor will follow up separately.
+  </div>
+
+</div>
+</body></html>`;
+}
+
+function autoReplyText(locale: unknown): string {
+  const r = pickReply(locale);
+  return [
+    r.heading,
+    "",
+    r.body,
+    "",
+    r.next,
+    "",
+    "---",
+    r.sign,
+    "Diagnostic-first IT and business consulting",
+    "www.fillsystem.com",
+  ].join("\n");
 }
 
 export async function POST(request: Request) {
@@ -178,13 +314,10 @@ export async function POST(request: Request) {
     return json({ ok: false, error: "invalid_json" }, 400);
   }
 
-  // Honeypot — a filled hidden field means a bot. Accept silently, send nothing.
   if (str(body.website) !== "") {
     return json({ ok: true, delivered: false });
   }
 
-  // Cloudflare Turnstile verification — only when the secret key is configured.
-  // In dev (no key), verification is skipped so the form works without Turnstile.
   if (process.env.CF_TURNSTILE_SECRET_KEY) {
     const token = str(body.cfTurnstileToken);
     if (!token || !(await verifyTurnstile(token, ip))) {
@@ -192,7 +325,6 @@ export async function POST(request: Request) {
     }
   }
 
-  // Server-side validation (mandatory) — mirrors the client rules.
   const name = str(body.name);
   const email = str(body.email);
   const company = str(body.company);
@@ -206,7 +338,6 @@ export async function POST(request: Request) {
     return json({ ok: false, errors }, 422);
   }
 
-  // Backup capture first — mirror the lead so it survives an email failure.
   if (LEAD_WEBHOOK_URL) {
     try {
       await fetch(LEAD_WEBHOOK_URL, {
@@ -219,9 +350,6 @@ export async function POST(request: Request) {
     }
   }
 
-  // Delivery is gated on the API key, not SITE_MODE — leads can be captured on
-  // a noindex deploy. No key in preview = accept without sending; no key in
-  // production = misconfiguration → error so the client shows the email fallback.
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return siteConfig.isPreview
@@ -236,19 +364,19 @@ export async function POST(request: Request) {
       from: FROM,
       to: RECIPIENT,
       replyTo: email,
-      subject: `New diagnostic request: ${company}`,
+      subject: `New diagnostic request: ${company} (${name})`,
+      html: notificationHtml(body),
       text: notificationText(body),
     });
 
-    // Auto-reply is best-effort: a delivery failure here (e.g. no verified
-    // domain yet) must not fail the submission — the lead is already captured.
     try {
       await resend.emails.send({
         from: FROM,
         to: email,
         replyTo: RECIPIENT,
-        subject: pick(AUTO_REPLY_SUBJECT, locale),
-        text: pick(AUTO_REPLY_BODY, locale),
+        subject: pickReply(locale).subject,
+        html: autoReplyHtml(locale),
+        text: autoReplyText(locale),
       });
     } catch {
       /* auto-reply failure is non-fatal */
