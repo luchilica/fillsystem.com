@@ -69,12 +69,12 @@ const STEPS = [
   {
     label: "Profile assessment",
     description:
-      "We review your background against the 8 criteria and identify which 3+ are strongest.",
+      "We help you map your background to the 8 O-1A criteria and organize evidence for the ones your attorney recommends pursuing.",
   },
   {
     label: "Evidence building",
     description:
-      "We help create the missing pieces: publication strategy, speaking engagements, portfolio structure, recommendation coordination.",
+      "We help organize and present your existing achievements: publication planning, speaking visibility, portfolio structure, and recommendation coordination.",
   },
   {
     label: "Package handover",
@@ -250,7 +250,7 @@ export default async function O1VisaReadiness({
           </ol>
           <p className={styles.criteriaNote}>
             {t(
-              "You need to meet at least 3 of 8 criteria. We help identify which criteria are strongest for your profile and build the evidence for each.",
+              "You need to meet at least 3 of 8 criteria. Your immigration attorney determines which criteria to pursue. We help organize and present your evidence for each.",
             )}
           </p>
         </div>

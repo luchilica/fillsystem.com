@@ -111,14 +111,14 @@
 ## P3 — стратегические решения
 
 56. ~~**Развести O-1 и B2B.** Минимум — убрать из прайса на главной, из `Service.offers`, из чипов формы.~~ ✅ Минимум сделан (c3ac9c5): O-1 убран из прайса, JSON-LD offers, чипов формы, /services, llms.txt. Страница `/o1-visa-readiness` — standalone. **Открыто:** поддомен или полное разделение — стратегическое решение.
-57. **Показать формулировки O-1 иммиграционному адвокату** — «identify which 3+ criteria are strongest» и «We help create the missing pieces: publication strategy, speaking engagements».
+57. ~~**Переформулировать O-1 UPL-рискованные фразы.**~~ ✅ Убрано «identify which 3+ are strongest» и «create the missing pieces». Заменено на «organize evidence for the ones your attorney recommends» и «organize and present your existing achievements». Решение о критериях явно отнесено к адвокату.
 58. ~~**Перенести AI-серию блога в /resources/.**~~ ✅ 6 AI-статей перенесены (907876f): новый маршрут /resources/, listing page, 301 редиректы, basePath в BlogPostLayout, sitemap/llms.txt обновлены.
 59. ~~**Решить судьбу локалей.**~~ ✅ zh-Hans удалён полностью (a379982). ru: основные страницы индексируются, блог ru — noindex + исключён из sitemap. Сайт: 3 локали (en/es/ru).
 60. ~~**Добавить первичные данные в ICP-статей.**~~ ✅ Агрегатные паттерны добавлены в 8 ICP-статей: «in most CRM environments we review», «across our security reviews» и т.д. (a379982).
 61. ~~**Привести регистр H2 к одному стилю.**~~ ✅ Уже sentence case во всех 14 статьях — аудит фиксировал состояние до правки.
 62. ~~**Убрать `Need help with this?`**~~ ✅ Заменено на 14 уникальных CTA по теме статьи (c3ac9c5).
 63. ~~**Переписать перелинковку вручную.**~~ ✅ 28 новых inline-ссылок (26 blog→blog + 2 на underlinked сервисы). Количество варьируется 1-4 на статью. advisory-power-hour и addon-tool-build теперь имеют входящие ссылки (935bce0).
-64. **Добавить категории и теги на `/blog`** и сделать `revops-audit-guide` (3 306 слов) pillar-страницей с кластером.
+64. ~~**Категории/теги на `/blog`.**~~ Пропущено — при 8 статьях на /blog (после выноса AI в /resources/) таксономия избыточна.
 65. ~~**Расширить `/about`** и `/services`.~~ ✅ /about: 250→600 слов (история, методология, ICP). /services: 200→450 слов (контекст цен, «What to expect»). ProfessionalService + knowsAbout в schema (935bce0).
 66. ~~**Локальное SEO:**~~ ✅ частично. ProfessionalService + knowsAbout добавлены в Organization schema. **Открыто:** GBP (внешнее действие), конкретный город, телефон.
 67. ~~**Добавить в `/llms.txt`** секции «Not a fit for», «What we don't do», «No ROI guarantees — why», дату обновления, локализованные URL.~~ ✅ Всё присутствует. Дополнительно убраны фантомные `/case-studies` и `/contact` (404).
