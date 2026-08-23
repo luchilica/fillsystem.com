@@ -123,7 +123,7 @@
 66. ~~**Локальное SEO:**~~ ✅ частично. ProfessionalService + knowsAbout добавлены в Organization schema. **Открыто:** GBP (внешнее действие), конкретный город, телефон.
 67. ~~**Добавить в `/llms.txt`** секции «Not a fit for», «What we don't do», «No ROI guarantees — why», дату обновления, локализованные URL.~~ ✅ Всё присутствует. Дополнительно убраны фантомные `/case-studies` и `/contact` (404).
 68. ~~**Проставить реальные `dateModified`**~~ ✅ Добавлено поле `dateModified` в blogData.ts, прокинуто в JSON-LD и OG (c3ac9c5).
-69. **Переименовать проект в Vercel** — `opsfield-systems` торчит в публичном URL при бренде «Fill System».
+69. ~~**Переименовать проект в Vercel**~~ ✅ Проект уже `fillsystem`, URL = `fillsystem-*.vercel.app`.
 70. ~~**Прогнать Lighthouse + axe DevTools вручную**~~ ✅ Lighthouse: a11y 94, SEO 100, best-practices 100. Найдено и исправлено: контраст `.tabNum`/`.respLabel` (stone-400→500), подчёркивание ссылки Privacy Policy (13ebfe8).
 
 ---
