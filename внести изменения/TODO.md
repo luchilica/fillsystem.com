@@ -112,7 +112,7 @@
 
 56. ~~**Развести O-1 и B2B.** Минимум — убрать из прайса на главной, из `Service.offers`, из чипов формы.~~ ✅ Минимум сделан (c3ac9c5): O-1 убран из прайса, JSON-LD offers, чипов формы, /services, llms.txt. Страница `/o1-visa-readiness` — standalone. **Открыто:** поддомен или полное разделение — стратегическое решение.
 57. **Показать формулировки O-1 иммиграционному адвокату** — «identify which 3+ criteria are strongest» и «We help create the missing pieces: publication strategy, speaking engagements».
-58. **Перенести AI-серию блога в /resources/.** 6 статей (MCP/A2A, embeddings, agent eval, voice AI, AI governance). **В процессе:** решение принято, переезд следующим шагом.
+58. ~~**Перенести AI-серию блога в /resources/.**~~ ✅ 6 AI-статей перенесены (907876f): новый маршрут /resources/, listing page, 301 редиректы, basePath в BlogPostLayout, sitemap/llms.txt обновлены.
 59. ~~**Решить судьбу локалей.**~~ ✅ zh-Hans удалён полностью (a379982). ru: основные страницы индексируются, блог ru — noindex + исключён из sitemap. Сайт: 3 локали (en/es/ru).
 60. ~~**Добавить первичные данные в ICP-статей.**~~ ✅ Агрегатные паттерны добавлены в 8 ICP-статей: «in most CRM environments we review», «across our security reviews» и т.д. (a379982).
 61. ~~**Привести регистр H2 к одному стилю.**~~ ✅ Уже sentence case во всех 14 статьях — аудит фиксировал состояние до правки.
