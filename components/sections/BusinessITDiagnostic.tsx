@@ -113,18 +113,11 @@ export default function BusinessITDiagnostic() {
               </ul>
               <div className={styles.downloadLinks}>
                 <a
-                  href="/downloads/sample-diagnostic-report.pdf"
+                  href="/downloads/diagnostic-preview.pdf"
                   download
                   className={styles.downloadLink}
                 >
-                  {t("Download sample report (PDF)")}
-                </a>
-                <a
-                  href="/downloads/diagnostic-framework.pdf"
-                  download
-                  className={styles.downloadLink}
-                >
-                  {t("Download question framework (PDF)")}
+                  {t("Download: What a Diagnostic Looks Like (PDF)")}
                 </a>
               </div>
               <p className={styles.muted}>

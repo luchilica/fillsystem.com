@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a Fill System Diagnostic Looks Like</title>
+<style>
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #2551D2;
+  --blue-light: #EEF2FB;
+  --ink: #222335;
+  --stone: #2C2E38;
+  --stone-muted: #676B77;
+  --stone-faint: #9498A3;
+  --border: #E5E6EA;
+  --paper: #FFFFFF;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --margin: 28mm;
+}
+
+html { font-size: 11pt; }
+
+body {
+  font-family: 'Mulish', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--stone);
+  line-height: 1.55;
+  background: var(--paper);
+}
+
+/* ---- Page structure ---- */
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  padding: var(--margin);
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+.page-footer {
+  position: absolute;
+  bottom: 16mm;
+  left: var(--margin);
+  right: var(--margin);
+  display: flex;
+  justify-content: space-between;
+  font-size: 8.5pt;
+  color: var(--stone-faint);
+  border-top: 1px solid var(--border);
+  padding-top: 4mm;
+}
+
+/* ---- Cover page ---- */
+.cover {
+  background: var(--blue);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40mm var(--margin);
+}
+.cover-logo {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 24mm;
+}
+.cover h1 {
+  font-size: 32pt;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-bottom: 8mm;
+  max-width: 380px;
+}
+.cover-sub {
+  font-size: 13pt;
+  line-height: 1.5;
+  opacity: 0.88;
+  max-width: 360px;
+  margin-bottom: 40mm;
+}
+.cover-contact {
+  font-size: 10pt;
+  opacity: 0.7;
+  line-height: 1.8;
+}
+.cover-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4mm;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ---- Typography ---- */
+h2 {
+  font-size: 20pt;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 5mm;
+}
+h3 {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 3mm;
+}
+h4 {
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2mm;
+}
+p { margin-bottom: 3mm; }
+p:last-child { margin-bottom: 0; }
+
+.section-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 3mm;
+}
+.accent-line {
+  width: 32px;
+  height: 3px;
+  background: var(--blue);
+  margin-bottom: 5mm;
+}
+.lead {
+  font-size: 12pt;
+  line-height: 1.5;
+  color: var(--stone-muted);
+  margin-bottom: 6mm;
+}
+
+/* ---- Stat callouts ---- */
+.stats {
+  display: flex;
+  gap: 6mm;
+  margin: 6mm 0;
+}
+.stat {
+  flex: 1;
+  background: var(--blue-light);
+  padding: 5mm;
+  border-radius: 3px;
+}
+.stat-num {
+  font-size: 22pt;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 2mm;
+}
+.stat-label {
+  font-size: 8.5pt;
+  color: var(--stone-muted);
+  line-height: 1.3;
+}
+
+/* ---- Dimension cards ---- */
+.dim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4mm;
+  margin: 5mm 0;
+}
+.dim-card {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 4mm;
+}
+.dim-card h4 {
+  font-size: 10pt;
+  margin-bottom: 1mm;
+}
+.dim-card .count {
+  font-size: 9pt;
+  color: var(--stone-muted);
+}
+
+/* ---- Question list ---- */
+.question-item {
+  border-bottom: 1px solid var(--border);
+  padding: 4mm 0;
+}
+.question-item:last-child { border-bottom: none; }
+.q-num {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 1.5mm;
+}
+.q-text {
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 2mm;
+}
+.q-reveals {
+  font-size: 9.5pt;
+  color: var(--stone-muted);
+  line-height: 1.45;
+}
+.q-flag {
+  font-size: 9pt;
+  color: #C0392B;
+  margin-top: 1.5mm;
+  line-height: 1.4;
+}
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 4mm 0;
+}
+th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 8.5pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stone-muted);
+  padding: 3mm 3mm 2mm;
+  border-bottom: 2px solid var(--ink);
+}
+td {
+  padding: 2.5mm 3mm;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.4;
+}
+td:first-child { font-weight: 600; color: var(--ink); }
+.gap-neg { color: #C0392B; font-weight: 600; }
+
+/* ---- Callout box ---- */
+.callout {
+  background: var(--blue-light);
+  padding: 5mm 6mm;
+  border-left: 3px solid var(--blue);
+  margin: 5mm 0;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.callout strong { color: var(--ink); }
+
+/* ---- Priority matrix ---- */
+.matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  margin: 5mm 0;
+}
+.matrix-cell {
+  padding: 5mm;
+  border: 1px solid var(--border);
+}
+.matrix-cell h4 {
+  font-size: 9pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+}
+.matrix-cell.qw { background: #F0FAF0; }
+.matrix-cell.qw h4 { color: #1A7A3A; }
+.matrix-cell.sb { background: var(--blue-light); }
+.matrix-cell.sb h4 { color: var(--blue); }
+.matrix-cell.fi { background: #FAFAFA; }
+.matrix-cell.fi h4 { color: var(--stone-muted); }
+.matrix-cell.dp { background: #FAFAFA; }
+.matrix-cell.dp h4 { color: var(--stone-faint); }
+.matrix-item {
+  font-size: 9.5pt;
+  margin-bottom: 1.5mm;
+  line-height: 1.35;
+}
+
+/* ---- Two-column ---- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+}
+
+/* ---- CTA page ---- */
+.cta-page {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40mm var(--margin);
+}
+.cta-page h2 {
+  color: var(--paper);
+  font-size: 24pt;
+  margin-bottom: 6mm;
+}
+.cta-page p {
+  opacity: 0.85;
+  max-width: 380px;
+  font-size: 12pt;
+  line-height: 1.55;
+}
+.cta-contact {
+  margin-top: 16mm;
+  line-height: 2;
+  font-size: 11pt;
+}
+.cta-contact strong { color: var(--paper); opacity: 1; }
+.cta-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--blue);
+  margin: 12mm 0;
+}
+.cta-fit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10mm;
+  margin-top: 16mm;
+  padding-top: 8mm;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.cta-fit h3 { color: var(--paper); font-size: 11pt; margin-bottom: 3mm; }
+.cta-fit p { font-size: 9.5pt; opacity: 0.7; }
+
+/* ---- Flow boxes ---- */
+.flow {
+  display: flex;
+  gap: 2mm;
+  margin: 4mm 0;
+  flex-wrap: wrap;
+}
+.flow-step {
+  flex: 1;
+  min-width: 60px;
+  padding: 3mm;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 8.5pt;
+  text-align: center;
+  line-height: 1.3;
+}
+.flow-step.problem {
+  border-color: #C0392B;
+  color: #C0392B;
+}
+
+/* ---- Roadmap ---- */
+.phase {
+  margin-bottom: 5mm;
+}
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  margin-bottom: 2mm;
+}
+.phase-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--blue);
+  padding: 1mm 3mm;
+  border-radius: 2px;
+}
+.phase-time {
+  font-size: 9pt;
+  color: var(--stone-muted);
+}
+.phase-items {
+  font-size: 9.5pt;
+  line-height: 1.6;
+  padding-left: 4mm;
+  color: var(--stone);
+}
+
+/* ---- Scoring rubric (condensed) ---- */
+.rubric {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 1mm 3mm;
+  font-size: 9pt;
+  margin: 3mm 0;
+}
+.rubric-score {
+  font-weight: 700;
+  color: var(--blue);
+  text-align: right;
+}
+.rubric-desc { color: var(--stone-muted); }
+
+/* Axis labels for matrix */
+.matrix-wrap { position: relative; }
+.matrix-axis-y {
+  position: absolute;
+  left: -7mm;
+  top: 50%;
+  transform: rotate(-90deg) translateX(-50%);
+  font-size: 7.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-faint);
+  transform-origin: left center;
+  white-space: nowrap;
+}
+.matrix-axis-x {
+  text-align: center;
+  font-size: 7.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-faint);
+  margin-top: 2mm;
+}
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover -->
+<div class="page cover">
+  <div class="cover-bar"></div>
+  <div class="cover-logo">Fill System</div>
+  <h1>What a Diagnostic Looks Like</h1>
+  <p class="cover-sub">
+    The methodology behind every Fill System engagement.
+    Sample questions, a scored maturity profile, and an example
+    of what we typically find.
+  </p>
+  <div class="cover-contact">
+    www.fillsystem.com<br>
+    hello@fillsystem.com
+  </div>
+</div>
+
+<!-- PAGE 2: How the diagnostic works -->
+<div class="page">
+  <div class="section-label">Methodology</div>
+  <h2>How the diagnostic works</h2>
+  <div class="accent-line"></div>
+  <p class="lead">
+    Every engagement starts with the same structured review. We assess five
+    operational areas through direct observation, data analysis, and team
+    interviews. The output is a scored maturity profile, a prioritized list
+    of findings, and a concrete roadmap.
+  </p>
+
+  <p>
+    We score what your team actually does, not what it reports. A process that
+    is documented but not followed scores the same as one that was never
+    documented. A CRM that holds six months of clean data scores higher than
+    one with a hundred custom fields and no governance.
+  </p>
+
+  <h3>Five assessment dimensions</h3>
+  <div class="dim-grid">
+    <div class="dim-card">
+      <h4>Process and Workflow</h4>
+      <span class="count">10 questions</span>
+    </div>
+    <div class="dim-card">
+      <h4>Systems and Tools</h4>
+      <span class="count">8 questions</span>
+    </div>
+    <div class="dim-card">
+      <h4>Data and Reporting</h4>
+      <span class="count">6 questions</span>
+    </div>
+    <div class="dim-card">
+      <h4>Risk and Security</h4>
+      <span class="count">6 questions</span>
+    </div>
+    <div class="dim-card">
+      <h4>Automation and AI Readiness</h4>
+      <span class="count">5 questions</span>
+    </div>
+  </div>
+
+  <h3>How scoring works</h3>
+  <div class="rubric">
+    <span class="rubric-score">1</span><span class="rubric-desc">Ad hoc. No documented process. Outcomes vary by person.</span>
+    <span class="rubric-score">2</span><span class="rubric-desc">Emerging. Partial documentation. Followed inconsistently.</span>
+    <span class="rubric-score">3</span><span class="rubric-desc">Defined. Processes documented and mostly followed. Gaps known.</span>
+    <span class="rubric-score">4</span><span class="rubric-desc">Managed. Measured and reviewed regularly. Ownership clear.</span>
+    <span class="rubric-score">5</span><span class="rubric-desc">Optimized. Continuously improved. Automated where repeatable.</span>
+  </div>
+  <p style="font-size:9.5pt; color:var(--stone-muted); margin-top:3mm;">
+    Most B2B companies at 50 to 200 employees score between 2.0 and 3.0
+    overall. A score above 3.0 across all dimensions puts the company in the
+    top quartile for operational maturity at this stage. The goal is not to reach
+    5.0 everywhere. The goal is to find which dimensions need to move one level
+    up to unlock the most business value.
+  </p>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- PAGE 3: Questions 1-5 -->
+<div class="page">
+  <div class="section-label">Diagnostic questions</div>
+  <h2>Ten questions from the framework</h2>
+  <div class="accent-line"></div>
+  <p class="lead">
+    A typical diagnostic uses 20 to 25 questions from our full set of 35,
+    selected based on company size, industry, and the stated reason for the
+    engagement. These ten represent the questions that surface the most
+    actionable findings.
+  </p>
+
+  <div class="question-item">
+    <div class="q-num">Process and Workflow</div>
+    <div class="q-text">Who owns the lead-to-close handoff, and when was ownership last confirmed?</div>
+    <div class="q-reveals">We are looking for a named individual with a documented SLA, not a team or department label.</div>
+    <div class="q-flag">Red flag: no named owner, or ownership assigned but never verified.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Process and Workflow</div>
+    <div class="q-text">Where does work stall when someone is on PTO?</div>
+    <div class="q-reveals">Single-person dependencies that create bottlenecks. If more than two processes stop when one person is unavailable, the operating model has a structural gap.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Process and Workflow</div>
+    <div class="q-text">When was the last time a process was retired or simplified?</div>
+    <div class="q-reveals">Evidence of active process management, not just process creation. Companies that only add processes accumulate complexity faster than they can manage it.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Systems and Tools</div>
+    <div class="q-text">How many systems hold customer contact records?</div>
+    <div class="q-reveals">Most companies undercount by two to three times on the first attempt. More than three systems with no designated single source of truth is a data quality risk.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Systems and Tools</div>
+    <div class="q-text">Who maintains your integration flows? Is there documentation?</div>
+    <div class="q-reveals">We need a named owner, version history, error handling, and monitoring. One person who built everything and left no documentation is the most common finding.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- PAGE 4: Questions 6-10 -->
+<div class="page">
+  <div class="question-item">
+    <div class="q-num">Data and Reporting</div>
+    <div class="q-text">How many definitions of "qualified lead" exist across teams?</div>
+    <div class="q-reveals">Most companies have two to four competing versions. When Marketing and Sales define "qualified" differently, every pipeline report tells a different story.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Data and Reporting</div>
+    <div class="q-text">Which dashboards does the CEO actually open?</div>
+    <div class="q-reveals">The real reporting surface versus the intended one. If the CEO asks for custom reports over email instead of using existing dashboards, the reporting infrastructure has failed.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Risk and Security</div>
+    <div class="q-text">Who has admin access to the CRM, and when was the list last reviewed?</div>
+    <div class="q-reveals">A current access list reviewed in the past 90 days. In our reviews, the most common finding is admin accounts that belong to people who left months ago.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Risk and Security</div>
+    <div class="q-text">When was the last time someone tested restoring data from a backup?</div>
+    <div class="q-reveals">Configured backups are not the same as tested backups. An untested backup is an assumption, not a safety net.</div>
+  </div>
+
+  <div class="question-item">
+    <div class="q-num">Automation and AI</div>
+    <div class="q-text">Which decisions currently require a human that could be rule-based?</div>
+    <div class="q-reveals">Approval or routing decisions with clear, documentable criteria. If the criteria are simple enough to write down, they are simple enough to automate.</div>
+  </div>
+
+  <div class="callout">
+    These are 10 of 35 questions in the full framework. We select and weight
+    questions based on company size, industry, and the problem that prompted
+    the engagement. A typical diagnostic runs 20 to 25 questions plus
+    follow-ups specific to what we find.
+  </div>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>4</span>
+  </div>
+</div>
+
+<!-- PAGE 5: Sample maturity scorecard -->
+<div class="page">
+  <div class="section-label">Sample output</div>
+  <h2>Maturity scorecard</h2>
+  <div class="accent-line"></div>
+  <p class="lead">
+    This is a redacted example from a diagnostic engagement with a B2B SaaS
+    company at approximately 100 employees. Scores are based on field
+    observations and data analysis, not self-reported assessments.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Score</th>
+        <th>Benchmark</th>
+        <th>Gap</th>
+        <th>Key observation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Process Maturity</td>
+        <td>2.0</td>
+        <td>3.5</td>
+        <td class="gap-neg">-1.5</td>
+        <td>4 of 7 critical workflows had no documented owner</td>
+      </tr>
+      <tr>
+        <td>Data Quality</td>
+        <td>2.0</td>
+        <td>3.5</td>
+        <td class="gap-neg">-1.5</td>
+        <td>23% of CRM contact records missing required fields</td>
+      </tr>
+      <tr>
+        <td>Tool Utilization</td>
+        <td>3.0</td>
+        <td>3.5</td>
+        <td class="gap-neg">-0.5</td>
+        <td>HubSpot at 34% feature adoption versus 80% paid tier</td>
+      </tr>
+      <tr>
+        <td>Team Alignment</td>
+        <td>2.5</td>
+        <td>3.5</td>
+        <td class="gap-neg">-1.0</td>
+        <td>Sales and Marketing disagreed on lead qualification criteria</td>
+      </tr>
+      <tr>
+        <td>Risk Management</td>
+        <td>2.5</td>
+        <td>3.0</td>
+        <td class="gap-neg">-0.5</td>
+        <td>8 employees retained admin CRM access with no review cycle</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">2.4</div>
+      <div class="stat-label">Overall maturity score (out of 5.0)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3.4</div>
+      <div class="stat-label">Industry benchmark for this company stage</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">90 days</div>
+      <div class="stat-label">Timeline to close the gap in Process and Data</div>
+    </div>
+  </div>
+
+  <p style="font-size:9.5pt; color:var(--stone-muted); margin-top:4mm;">
+    The 1.0-point gap between this company's score and the benchmark was
+    concentrated in Process Maturity and Data Quality. Both are addressable
+    within 90 days without new tooling. The three highest-impact findings
+    from this engagement are on the next page.
+  </p>
+
+  <div class="callout" style="margin-top:5mm; font-size:9pt;">
+    <strong>Illustrative example.</strong> This is not a specific client engagement.
+    Data points are representative of patterns we observe in B2B companies
+    at 50 to 200 employees. The structure and format shown here match what
+    a real diagnostic report contains.
+  </div>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>5</span>
+  </div>
+</div>
+
+<!-- PAGE 6: Sample finding -->
+<div class="page">
+  <div class="section-label">Sample finding</div>
+  <h2>Revenue leaking through handoff gaps</h2>
+  <div class="accent-line"></div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Undocumented handoffs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3-7 days</div>
+      <div class="stat-label">Average lead idle time</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$180-240K</div>
+      <div class="stat-label">Annual revenue at risk</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>What we found</h3>
+      <p>
+        Leads passed through four handoff points between first touch and sales
+        assignment. None of these transitions had a documented owner, SLA, or
+        escalation path.
+      </p>
+      <p>
+        At two points, leads sat in a shared inbox for three to seven days.
+        During that window, 18% of leads went cold based on six months of CRM
+        data. The revenue estimate uses the company's own average deal size
+        ($42K) multiplied by leads lost to inaction (4.3 to 5.7 per month).
+      </p>
+
+      <h3 style="margin-top:4mm;">The handoff chain</h3>
+      <div class="flow">
+        <div class="flow-step">Website form</div>
+        <div class="flow-step">Auto-assign</div>
+        <div class="flow-step problem">Shared inbox (3-7d)</div>
+        <div class="flow-step">SDR outreach</div>
+        <div class="flow-step problem">Email handoff</div>
+        <div class="flow-step">AE assignment</div>
+      </div>
+      <p style="font-size:8.5pt; color:var(--stone-faint);">
+        Red borders mark undocumented handoff points with no SLA or ownership.
+      </p>
+    </div>
+
+    <div>
+      <h3>Why this costs money</h3>
+      <p>
+        Response within five minutes converts at eight times the rate of
+        response after 24 hours. The company paid $38 per lead in marketing
+        spend. Leads that idled for three or more days converted at 4% versus
+        22% for same-day contact.
+      </p>
+
+      <h3 style="margin-top:4mm;">The fix</h3>
+      <p>
+        Round-robin auto-assignment in HubSpot, already available in the
+        current plan. A four-hour SLA with a Slack notification on miss.
+        Estimated implementation: two to three days. No new tooling required.
+      </p>
+
+      <div class="callout" style="margin-top:4mm;">
+        <strong>Combined exposure across all three findings in this
+        engagement exceeded $500K annually.</strong> The highest-return fix
+        (this one) required no new tooling and was implemented within 30 days.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>6</span>
+  </div>
+</div>
+
+<!-- PAGE 7: Priority matrix + roadmap -->
+<div class="page">
+  <div class="section-label">Prioritization</div>
+  <h2>How we decide what to fix first</h2>
+  <div class="accent-line"></div>
+  <p>
+    Every diagnostic ends with a priority matrix. Findings are plotted by
+    business impact against implementation effort. The matrix drives a phased
+    roadmap so the team starts with changes that deliver measurable results
+    in the first 30 days.
+  </p>
+
+  <div class="matrix-wrap" style="margin-left:8mm;">
+    <div class="matrix">
+      <div class="matrix-cell qw">
+        <h4>Quick wins</h4>
+        <div class="matrix-item">CRM handoff SLAs (Finding 1)</div>
+        <div class="matrix-item">Admin access audit (8 accounts)</div>
+        <div class="matrix-item">Lead routing round-robin</div>
+      </div>
+      <div class="matrix-cell sb">
+        <h4>Strategic bets</h4>
+        <div class="matrix-item">Approval workflow redesign (Finding 3)</div>
+        <div class="matrix-item">Metric dictionary and field lockdown (Finding 2)</div>
+        <div class="matrix-item">Dashboard consolidation</div>
+      </div>
+      <div class="matrix-cell fi">
+        <h4>Fill-ins</h4>
+        <div class="matrix-item">CRM field cleanup (empty records)</div>
+        <div class="matrix-item">Slack channel consolidation</div>
+      </div>
+      <div class="matrix-cell dp">
+        <h4>Deprioritize</h4>
+        <div class="matrix-item">Full tool stack replacement</div>
+        <div class="matrix-item">Custom BI platform build</div>
+      </div>
+    </div>
+    <div class="matrix-axis-x">Effort</div>
+  </div>
+
+  <h3 style="margin-top:8mm;">Sample 90-day roadmap</h3>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 1</span>
+      <span class="phase-time">Days 1 to 30</span>
+    </div>
+    <div class="phase-items">
+      CRM round-robin auto-assignment. Handoff SLAs with four-hour response.
+      Admin access audit (8 accounts reduced to 3). CRM required field cleanup
+      (23% gap to under 5%).
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 2</span>
+      <span class="phase-time">Days 31 to 60</span>
+    </div>
+    <div class="phase-items">
+      Single metric dictionary ratified across three teams. HubSpot calculated
+      fields locked to dictionary. Unified executive dashboard replacing three
+      spreadsheets.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 3</span>
+      <span class="phase-time">Days 61 to 90</span>
+    </div>
+    <div class="phase-items">
+      Approval workflow consolidation (11 steps to 4). Digital signature for VP
+      approval. Auto-provisioning triggers for new accounts. Automation
+      candidates identified for the following quarter.
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:4mm;">
+    <strong>Expected outcomes by day 90:</strong> Lead response time from 3-7
+    days to under 4 hours. Reporting reconciliation from 40+ hours per month
+    to 2. Approval cycle from 14 days to 4. Estimated annual savings: $414K
+    to $474K combined.
+  </div>
+
+  <div class="page-footer">
+    <span>Fill System</span>
+    <span>7</span>
+  </div>
+</div>
+
+<!-- PAGE 8: CTA -->
+<div class="page cta-page">
+  <h2>Start with a free diagnostic</h2>
+  <div class="accent-line" style="background:var(--blue);"></div>
+  <p>
+    The initial diagnostic call takes 30 to 45 minutes. No pitch, no
+    obligation. We spend that time understanding your situation. If we
+    see a fit, we propose a structured engagement. If we do not, we tell
+    you that too.
+  </p>
+
+  <div class="cta-contact">
+    <strong>Email:</strong> hello@fillsystem.com<br>
+    <strong>Web:</strong> www.fillsystem.com<br>
+    <strong>Request a diagnostic:</strong> www.fillsystem.com/#diagnostic-request-form
+  </div>
+
+  <div class="cta-divider"></div>
+
+  <div class="cta-fit">
+    <div>
+      <h3>Built for</h3>
+      <p>
+        B2B companies at 50 to 250 employees. SaaS, professional services,
+        logistics, manufacturing, multi-location operators. Teams that have
+        outgrown their initial tooling and processes but have not built the
+        operational layer for the next stage.
+      </p>
+    </div>
+    <div>
+      <h3>Not built for</h3>
+      <p>
+        Pre-revenue startups. Enterprise companies with established PMO and
+        process teams. Companies looking for a specific tool implementation
+        without diagnostic context first.
+      </p>
+    </div>
+  </div>
+
+  <p style="position:absolute; bottom:20mm; left:var(--margin); font-size:8pt; opacity:0.4;">
+    Fill System LLC. California, USA. www.fillsystem.com
+  </p>
+</div>
+
+</body>
+</html>
