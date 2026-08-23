@@ -63,7 +63,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   "o1-readiness": Award,
 };
 
-const SERVICES = SERVICE_DEFS.filter((def) => !def.standalone).map((def) => ({
+const SERVICES = SERVICE_DEFS.map((def) => ({
   id: def.id,
   title: def.title,
   description: def.description,
@@ -255,30 +255,7 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      {/* 5 — O-1 standalone */}
-      <section className={`section ${styles.o1Section}`}>
-        <div className="container">
-          <div className={styles.o1Card}>
-            <div className={styles.o1Content}>
-              <span className={styles.o1Badge}>{t("Standalone Service")}</span>
-              <h2 className={styles.o1Title}>{t("O-1 Visa Readiness Support")}</h2>
-              <p className={styles.o1Desc}>
-                {t(
-                  "Structured preparation for O-1A/O-1B extraordinary ability visa petitions. We help organize evidence of sustained achievement, map it to USCIS criteria, and identify documentation gaps before you engage an immigration attorney.",
-                )}
-              </p>
-              <p className={styles.o1Price}>{t("from $2,700")}</p>
-            </div>
-            <div className={styles.o1Actions}>
-              <Button href="/o1-visa-readiness" variant="primary">
-                {t("Learn More")}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 — CTA */}
+      {/* 5 — CTA */}
       <section className={`section ${styles.ctaDark}`}>
         <PlusMark size={180} className={styles.ctaPlusTop} />
         <PlusMark size={100} className={styles.ctaPlusBottom} />

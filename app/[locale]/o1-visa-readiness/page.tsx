@@ -6,6 +6,7 @@ import { LOCALE_META, type Locale } from "@/i18n/locales";
 import { alternatesFor, robotsFor, localizedUrl } from "@/lib/i18n";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 import { Check, X } from "lucide-react";
 import PlusMark from "@/components/ui/PlusMark";
 import { Link } from "@/i18n/navigation";
@@ -292,19 +293,13 @@ export default async function O1VisaReadiness({
       {/* 6 -- FAQ */}
       <section className="section">
         <div className="container">
-          <div className={styles.faqSection}>
-            <PlusMark size={160} className={styles.faqPlusTop} />
-            <PlusMark size={90} className={styles.faqPlusBottom} />
-            <h2>{t("O-1 Readiness FAQ")}</h2>
-            <div className={styles.faqList}>
-              {FAQ.map((item) => (
-                <div key={item.question} className={styles.faqItem}>
-                  <h3 className={styles.faqQuestion}>{t(item.question)}</h3>
-                  <p className={styles.faqAnswer}>{t(item.answer)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2>{t("O-1 Readiness FAQ")}</h2>
+          <FaqAccordion
+            items={FAQ.map((faq) => ({
+              question: t(faq.question),
+              answer: t(faq.answer),
+            }))}
+          />
         </div>
       </section>
 
