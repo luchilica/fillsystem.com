@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -51,10 +51,11 @@ export default async function EvaluateAIAgent({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -127,7 +128,7 @@ export default async function EvaluateAIAgent({
         <strong>{t("completed business task")}</strong>
         {t(", not the quality of a single model response. Before evaluation begins, the company should confirm that the eight readiness conditions described in our guide to")}
         {" "}
-        <Link href="/blog/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
+        <Link href="/resources/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
         {t(" are in place -process clarity, ownership, data access, permissions, decision boundaries, approval rules, logging, and rollback.")}
       </p>
 
@@ -763,7 +764,7 @@ export default async function EvaluateAIAgent({
       </p>
       <p>
         {t("The operating system is not. Continuous monitoring at this level is one of the ten minimum governance controls described in our guide to")}{" "}
-        <Link href="/blog/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
+        <Link href="/resources/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
       </p>
 
       {/* -- A production-readiness scorecard ---------------------- */}

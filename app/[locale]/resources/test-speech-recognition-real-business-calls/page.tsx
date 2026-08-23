@@ -25,7 +25,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -53,10 +53,11 @@ export default async function TestSpeechRecognition({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -635,7 +636,7 @@ export default async function TestSpeechRecognition({
         {t(
           "Only then decide whether the system should remain assistive or receive limited automation authority. The controls needed to manage that transition -inventory, ownership, risk classification, data rules, and monitoring -are covered in our guide to"
         )}{" "}
-        <Link href="/blog/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
+        <Link href="/resources/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
       </p>
 
       {/* -- Acceptance criteria should match the workflow ---------- */}

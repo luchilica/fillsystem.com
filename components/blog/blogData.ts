@@ -6,6 +6,8 @@ export interface BlogPost {
   dateModified?: string;
   readTime: string;
   category: string;
+  /** URL base path: "/blog" (default) or "/resources" */
+  basePath?: string;
   heroImage?: string;
   heroAlt?: string;
   seoTitle?: string;
@@ -17,6 +19,7 @@ export interface BlogPost {
     linkedin?: string;
   };
 }
+
 
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -73,6 +76,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "15 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Evaluating voice AI for your team?",
     heroImage: "/blog/voice-ai.jpg",
     heroAlt: "Professional audio recording setup with microphone and monitoring equipment.",
@@ -92,6 +96,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "14 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Choosing the right AI infrastructure?",
     heroImage: "/blog/rag-pipeline.jpg",
     heroAlt: "Data visualization screens displaying analytics and information architecture.",
@@ -131,6 +136,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "11 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Considering AI agents for your operations?",
     heroImage: "/blog/ai-agent-readiness.jpg",
     heroAlt: "Abstract blue glass shapes representing AI and robotic automation.",
@@ -151,6 +157,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "16 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Ready to evaluate your AI stack?",
     heroImage: "/blog/ai-agent-eval.jpg",
     heroAlt: "Developer reviewing code on a laptop in a dark workspace.",
@@ -170,6 +177,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "14 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Planning your AI integration architecture?",
     heroImage: "/blog/mcp-a2a.jpg",
     heroAlt: "Collaborative workspace with laptops and devices on a desk, representing technology integration.",
@@ -189,6 +197,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-08-23",
     readTime: "15 min read",
     category: "AI",
+    basePath: "/resources",
     ctaHeading: "Building AI governance for your team?",
     heroImage: "/blog/ai-governance.jpg",
     heroAlt: "Developer workstation with multiple monitors and code in blue-lit environment.",
@@ -298,3 +307,6 @@ export const BLOG_POSTS: BlogPost[] = [
     },
   },
 ];
+
+export const POST_BLOG = BLOG_POSTS.filter((p) => (p.basePath ?? "/blog") === "/blog");
+export const POST_RESOURCES = BLOG_POSTS.filter((p) => p.basePath === "/resources");

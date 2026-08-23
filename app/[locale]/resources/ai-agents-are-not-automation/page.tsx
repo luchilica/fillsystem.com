@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -51,10 +51,11 @@ export default async function AIAgentsNotAutomation({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -565,7 +566,7 @@ export default async function AIAgentsNotAutomation({
         {t(
           "A company can begin at Level 1 and increase autonomy only after collecting evidence. Our guide to"
         )}{" "}
-        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating an AI agent before production")}</Link>
+        <Link href="/resources/evaluate-ai-agent-before-production">{t("evaluating an AI agent before production")}</Link>
         {t(" provides a concrete framework for what that evidence should include and how to measure it.")}
       </p>
       <p>
@@ -657,7 +658,7 @@ export default async function AIAgentsNotAutomation({
       <p>
         {t("An agent should earn its complexity. If your company is introducing AI systems at scale, our guide to")}
         {" "}
-        <Link href="/blog/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B")}</Link>
+        <Link href="/resources/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B")}</Link>
         {t(" covers the practical controls needed to manage the full lifecycle.")}
       </p>
       <p>

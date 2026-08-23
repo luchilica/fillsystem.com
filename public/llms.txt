@@ -65,24 +65,28 @@ Prices are base prices for teams of ~50 employees. Larger teams may see adjusted
 
 - Process Debt Is Real: Why Growing B2B Teams Break at 50 Employees -- /blog/process-debt-growing-b2b
 - The IT Risks No One Owns: What B2B Companies Must Audit Before Something Breaks -- /blog/it-risk-b2b-what-to-check
-- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
-- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /blog/choose-embedding-model-enterprise-rag
 - Investors Don't Fund Ideas. They Fund Operating Evidence. -- /blog/investor-readiness-operating-evidence
-- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /blog/ai-agents-are-not-automation
-- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /blog/evaluate-ai-agent-before-production
-- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /blog/mcp-vs-a2a-enterprise-ai-agents
-- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /blog/ai-governance-mid-market-b2b
 - The Complete RevOps Audit Guide for B2B Teams -- /blog/revops-audit-guide
 - How to Migrate from Salesforce to HubSpot Without Losing Data -- /blog/salesforce-to-hubspot-migration
 - 7 Signs Your CRM Pipeline Is Leaking Revenue -- /blog/crm-pipeline-leaking-revenue
 - RevOps for 50-Person Teams: Where to Start -- /blog/revops-for-small-teams
 - HubSpot vs Salesforce for B2B Services: An Honest Comparison -- /blog/hubspot-vs-salesforce-b2b
 
+## Technical Resources
+
+- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /resources/test-speech-recognition-real-business-calls
+- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /resources/choose-embedding-model-enterprise-rag
+- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /resources/ai-agents-are-not-automation
+- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /resources/evaluate-ai-agent-before-production
+- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /resources/mcp-vs-a2a-enterprise-ai-agents
+- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /resources/ai-governance-mid-market-b2b
+
 ## Pages
 
 - About -- /about
 - Services & Pricing -- /services
 - Blog -- /blog
+- Technical Resources -- /resources
 
 ## Localized Versions
 

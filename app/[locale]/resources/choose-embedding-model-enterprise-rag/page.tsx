@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -51,10 +51,11 @@ export default async function ChooseEmbeddingModel({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -696,7 +697,7 @@ export default async function ChooseEmbeddingModel({
       </p>
       <p>
         {t("This end-to-end validation follows the same principles we describe in our guide to")}{" "}
-        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
+        <Link href="/resources/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
         {t(" -task-level success, trace inspection, policy compliance, and economics should all be measured before committing to full-corpus indexing.")}
       </p>
 

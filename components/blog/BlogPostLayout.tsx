@@ -17,6 +17,7 @@ interface BlogPostLayoutProps {
   heroImage?: string;
   heroAlt?: string;
   locale?: string;
+  basePath?: string;
   author: {
     name: string;
     title: string;
@@ -76,6 +77,7 @@ function ArticleJsonLd({
   author,
   heroImage,
   locale,
+  basePath,
 }: {
   slug: string;
   title: string;
@@ -84,11 +86,13 @@ function ArticleJsonLd({
   author: { name: string; title: string; linkedin?: string };
   heroImage?: string;
   locale?: string;
+  basePath?: string;
 }) {
   const loc = (locale ?? "en-US") as Locale;
   const prefix = LOCALE_META[loc]?.prefix ?? "";
   const lang = LOCALE_META[loc]?.htmlLang ?? "en-US";
-  const articleUrl = `${siteConfig.url}${prefix}/blog/${slug}`;
+  const base = basePath ?? "/blog";
+  const articleUrl = `${siteConfig.url}${prefix}${base}/${slug}`;
   const home = siteConfig.url;
 
   const post = BLOG_POSTS.find((p) => p.slug === slug);
@@ -146,19 +150,22 @@ export default async function BlogPostLayout({
   heroAlt,
   author,
   locale,
+  basePath,
   children,
 }: BlogPostLayoutProps) {
   const t = await getT();
+  const base = basePath ?? "/blog";
   const displayDate = new Date(date + "T00:00:00").toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
   });
-  const postIndex = BLOG_POSTS.findIndex((p) => p.slug === slug);
-  const currentPost = postIndex >= 0 ? BLOG_POSTS[postIndex] : null;
+  const sectionPosts = BLOG_POSTS.filter((p) => (p.basePath ?? "/blog") === base);
+  const postIndex = sectionPosts.findIndex((p) => p.slug === slug);
+  const currentPost = postIndex >= 0 ? sectionPosts[postIndex] : null;
   const prevPost =
-    postIndex < BLOG_POSTS.length - 1 ? BLOG_POSTS[postIndex + 1] : null;
-  const nextPost = postIndex > 0 ? BLOG_POSTS[postIndex - 1] : null;
+    postIndex < sectionPosts.length - 1 ? sectionPosts[postIndex + 1] : null;
+  const nextPost = postIndex > 0 ? sectionPosts[postIndex - 1] : null;
 
   return (
     <>
@@ -170,15 +177,16 @@ export default async function BlogPostLayout({
         author={author}
         heroImage={heroImage}
         locale={locale}
+        basePath={base}
       />
 
       <article>
         <section className="section">
           <div className="container">
             <div className={styles.articleWrap}>
-              <Link href="/blog" className={styles.backLink}>
+              <Link href={base} className={styles.backLink}>
                 <ArrowIcon direction="left" />
-                {t("Back to Blog")}
+                {t(base === "/resources" ? "Back to Resources" : "Back to Blog")}
               </Link>
 
               {heroImage && (
@@ -238,7 +246,7 @@ export default async function BlogPostLayout({
                 >
                   {prevPost ? (
                     <Link
-                      href={`/blog/${prevPost.slug}`}
+                      href={`${base}/${prevPost.slug}`}
                       className={styles.paginationLink}
                     >
                       <span className={styles.paginationLabel}>
@@ -253,7 +261,7 @@ export default async function BlogPostLayout({
                   )}
                   {nextPost ? (
                     <Link
-                      href={`/blog/${nextPost.slug}`}
+                      href={`${base}/${nextPost.slug}`}
                       className={`${styles.paginationLink} ${styles.paginationNext}`}
                     >
                       <span className={styles.paginationLabel}>

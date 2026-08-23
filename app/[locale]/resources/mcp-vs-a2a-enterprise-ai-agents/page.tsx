@@ -25,7 +25,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -53,10 +53,11 @@ export default async function McpVsA2a({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -327,7 +328,7 @@ Orchestrating agent
         {t(
           "A standardized tool can still execute a poorly defined business process. The"
         )}{" "}
-        <Link href="/blog/ai-agents-are-not-automation">{t("distinction between AI agents and automation")}</Link>
+        <Link href="/resources/ai-agents-are-not-automation">{t("distinction between AI agents and automation")}</Link>
         {t(" matters here: the more autonomy a system has, the more clearly the underlying process must be defined before any protocol connects it to production data.")}
       </p>
 
@@ -473,7 +474,7 @@ Orchestrating agent
         {t(
           "Skipping the upper layers and starting with servers, SDKs, and protocols creates integration without control. Our guide to"
         )}{" "}
-        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating an AI agent before production")}</Link>
+        <Link href="/resources/evaluate-ai-agent-before-production">{t("evaluating an AI agent before production")}</Link>
         {t(" provides a structured approach to building the evidence and acceptance criteria that should exist before any agent architecture goes live.")}
       </p>
 

@@ -9,8 +9,8 @@ import { Link } from "@/i18n/navigation";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import Button from "@/components/ui/Button";
 import PlusMark from "@/components/ui/PlusMark";
-import { POST_BLOG } from "@/components/blog/blogData";
-import styles from "./BlogListing.module.css";
+import { POST_RESOURCES } from "@/components/blog/blogData";
+import styles from "../blog/BlogListing.module.css";
 
 export async function generateMetadata({
   params,
@@ -20,20 +20,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const loc = locale as Locale;
   return {
-    title: "B2B Operations & IT Consulting Blog",
+    title: "Technical Resources: AI, Automation & Integration",
     description:
-      "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
-    alternates: blogAlternatesFor(loc, "/blog"),
+      "Technical reference material on AI agents, embedding models, voice AI benchmarks, MCP/A2A protocols, and AI governance for B2B operations teams.",
+    alternates: blogAlternatesFor(loc, "/resources"),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
-      title: "B2B Operations & IT Consulting Blog",
+      title: "Technical Resources | Fill System",
       description:
-        "Expert insights on B2B operations, CRM audits, RevOps, process optimization, and IT diagnostics from the Fill System team.",
-      url: localizedUrl(loc, "/blog"),
+        "Technical reference material on AI agents, embedding models, voice AI, and AI governance for B2B operations teams.",
+      url: localizedUrl(loc, "/resources"),
       type: "website",
       siteName: siteConfig.name,
       locale: LOCALE_META[loc].ogLocale,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Fill System Blog - IT & Operations Insights" }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Fill System Technical Resources" }],
     },
   };
 }
@@ -47,7 +47,7 @@ function formatDate(iso: string): string {
   });
 }
 
-export default async function BlogPage({
+export default async function ResourcesPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -58,15 +58,15 @@ export default async function BlogPage({
 
   return (
     <>
-      <BreadcrumbJsonLd title="Blog" path="/blog" locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t("Technical Resources")} path="/resources" locale={locale as Locale} />
 
       {/* Hero */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <h1>{t("B2B Operations & IT Consulting Blog")}</h1>
+          <h1>{t("Technical Resources")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
-              "Practical guides on RevOps, CRM, and IT diagnostics for B2B teams."
+              "Technical reference material on AI infrastructure, automation protocols, and evaluation frameworks. Written for teams assessing AI solutions for B2B operations."
             )}
           </p>
         </div>
@@ -78,11 +78,11 @@ export default async function BlogPage({
         <PlusMark size={110} className={styles.darkPlusBottom} />
         <div className="container">
           <div className={styles.grid}>
-            {POST_BLOG.map((post) => (
+            {POST_RESOURCES.map((post) => (
               <article key={post.slug} className={styles.card}>
                 {post.heroImage && (
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/resources/${post.slug}`}
                     className={styles.cardImageLink}
                   >
                     <Image
@@ -98,7 +98,7 @@ export default async function BlogPage({
                 <div className={styles.cardBody}>
                   <h2 className={styles.cardTitle}>
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={`/resources/${post.slug}`}
                       className={styles.cardTitleLink}
                     >
                       {t(post.title)}
@@ -128,11 +128,11 @@ export default async function BlogPage({
         <PlusMark size={100} className={styles.ctaPlusBottom} />
         <div className="container">
           <h2 className={styles.ctaHeading}>
-            {t("Have a Question About Your Systems?")}
+            {t("Evaluating AI for Your Operations?")}
           </h2>
           <p className={styles.ctaLead}>
             {t(
-              "The first conversation is free. We find the bottlenecks and tell you if a paid engagement makes sense."
+              "We start every AI engagement with a diagnostic to separate the hype from what actually pays off."
             )}
           </p>
           <div className={styles.ctaActions}>

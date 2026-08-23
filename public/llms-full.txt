@@ -148,26 +148,8 @@ A RevOps audit covers CRM structure, pipeline stages, reporting definitions, dat
 - The IT Risks No One Owns: What B2B Companies Must Audit Before Something Breaks -- /blog/it-risk-b2b-what-to-check
   Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.
 
-- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /blog/test-speech-recognition-real-business-calls
-  Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.
-
-- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /blog/choose-embedding-model-enterprise-rag
-  Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.
-
 - Investors Don't Fund Ideas. They Fund Operating Evidence. -- /blog/investor-readiness-operating-evidence
   Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.
-
-- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /blog/ai-agents-are-not-automation
-  Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.
-
-- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /blog/evaluate-ai-agent-before-production
-  Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.
-
-- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /blog/mcp-vs-a2a-enterprise-ai-agents
-  Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.
-
-- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /blog/ai-governance-mid-market-b2b
-  Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.
 
 - The Complete RevOps Audit Guide for B2B Teams -- /blog/revops-audit-guide
   A step-by-step framework for auditing your CRM, pipeline, reporting, and data flow. Includes a checklist you can use today.
@@ -184,11 +166,32 @@ A RevOps audit covers CRM structure, pipeline stages, reporting definitions, dat
 - HubSpot vs Salesforce for B2B Services: An Honest Comparison -- /blog/hubspot-vs-salesforce-b2b
   Neither CRM is universally better. How to choose based on your team size, deal complexity, and what you actually need.
 
+## Technical Resources
+
+- Voice AI Benchmarks Lie by Omission: How to Test Speech Recognition on Your Calls -- /resources/test-speech-recognition-real-business-calls
+  Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.
+
+- The Best Embedding Model for RAG Is the One That Wins on Your Data -- /resources/choose-embedding-model-enterprise-rag
+  Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.
+
+- AI Agents Are Not Automation: What Must Exist Before You Let Software Act -- /resources/ai-agents-are-not-automation
+  Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.
+
+- How to Evaluate an AI Agent Before Production: A Practical B2B Framework -- /resources/evaluate-ai-agent-before-production
+  Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.
+
+- MCP vs. A2A: What Enterprise Teams Must Standardize Before Connecting AI Agents -- /resources/mcp-vs-a2a-enterprise-ai-agents
+  Learn how MCP and A2A connect AI agents to tools and other agents and what identity, permissions, approvals, and controls enterprises must design themselves.
+
+- AI Governance for Mid-Market B2B: The Minimum Controls Before Production -- /resources/ai-governance-mid-market-b2b
+  Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes without enterprise bureaucracy.
+
 ## Pages
 
 - About -- /about
 - Services & Pricing -- /services
 - Blog -- /blog
+- Technical Resources -- /resources
 - Terms of Use -- /terms-of-use
 - Privacy Policy -- /privacy-policy
 - Cookie Policy -- /cookie-policy

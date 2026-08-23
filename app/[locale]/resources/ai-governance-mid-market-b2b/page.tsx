@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: blogAlternatesFor(loc, `/blog/${post.slug}`),
+    alternates: blogAlternatesFor(loc, `/resources/${post.slug}`),
     robots: robotsFor(loc, { blog: true }),
     openGraph: {
       type: "article",
@@ -51,10 +51,11 @@ export default async function AIGovernanceMidMarket({
 
   return (
     <>
-      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/blog/${post.slug}`} parent={{ title: "Blog", path: "/blog" }} locale={locale as Locale} />
+      <BreadcrumbJsonLd title={t(post.seoTitle ?? post.title)} path={`/resources/${post.slug}`} parent={{ title: "Technical Resources", path: "/resources" }} locale={locale as Locale} />
     <BlogPostLayout
       slug={post.slug}
       locale={locale}
+      basePath="/resources"
       title={t(post.title)}
       description={t(post.description)}
       date={post.date}
@@ -441,7 +442,7 @@ export default async function AIGovernanceMidMarket({
         {t(
           "None of these statements supports a production decision. Our guide to"
         )}{" "}
-        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
+        <Link href="/resources/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
         {t(" provides concrete metrics and test-suite design for turning pilot impressions into measurable evidence.")}
       </p>
       <p>
@@ -529,7 +530,7 @@ export default async function AIGovernanceMidMarket({
 
       <p>
         {t("Our analysis of")}{" "}
-        <Link href="/blog/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
+        <Link href="/resources/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
         {t(" describes in detail what decision boundaries and approval interfaces should look like when an agent can choose its own actions.")}
       </p>
 

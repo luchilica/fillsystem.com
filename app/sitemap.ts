@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { BLOG_POSTS } from "@/components/blog/blogData";
+import { BLOG_POSTS, POST_BLOG, POST_RESOURCES } from "@/components/blog/blogData";
 import {
   INDEXABLE_LOCALES,
   BLOG_LOCALES,
@@ -52,6 +52,7 @@ const PAGE_DATES: Record<string, string> = {
   "/contact":                         "2026-08-22",
   "/case-studies":                    "2026-08-22",
   "/blog":                            "2026-08-22",
+  "/resources":                       "2026-08-23",
   "/privacy-policy":                  "2026-08-22",
   "/terms-of-use":                    "2026-08-22",
   "/cookie-policy":                   "2026-08-22",
@@ -69,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (path) => multilingualEntry(path, pageDate(path)),
   );
 
-  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) =>
+  const blogEntries: MetadataRoute.Sitemap = POST_BLOG.flatMap((post) =>
     multilingualEntry(
       `/blog/${post.slug}`,
       new Date((post.dateModified ?? post.date) + "T00:00:00"),
@@ -77,5 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  return [...pages, ...blogEntries];
+  const resourceEntries: MetadataRoute.Sitemap = POST_RESOURCES.flatMap((post) =>
+    multilingualEntry(
+      `/resources/${post.slug}`,
+      new Date((post.dateModified ?? post.date) + "T00:00:00"),
+      BLOG_LOCALES,
+    ),
+  );
+
+  return [...pages, ...blogEntries, ...resourceEntries];
 }
