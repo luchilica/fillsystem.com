@@ -12,6 +12,24 @@
   margin-top: var(--space-2);
 }
 
+.heroBody {
+  max-width: var(--text-max);
+  margin-top: var(--space-3);
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ----- Prose section on paper bg (how it works, ICP) ----- */
+.proseSection p {
+  max-width: var(--text-max);
+  margin-bottom: var(--space-3);
+  line-height: 1.6;
+}
+.proseSection h3 {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+
 /* ----- Dark ink approach section ----- */
 .approachSection {
   position: relative;

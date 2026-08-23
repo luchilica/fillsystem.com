@@ -190,7 +190,7 @@ export default async function About({
       </section>
 
       {/* 3 - How the diagnostic works */}
-      <section className="section">
+      <section className={`section ${styles.proseSection}`}>
         <div className="container">
           <h2>{t("How the diagnostic works")}</h2>
           <p className={`lead ${styles.lead}`}>

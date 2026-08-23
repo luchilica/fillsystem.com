@@ -172,14 +172,6 @@ export default async function CaseStudies({
       {/* 1 — Hero (paper) */}
       <section className={`section ${styles.heroSection}`}>
         <div className="container">
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/">{t("Home")}</Link>
-            <span className={styles.breadcrumbSep} aria-hidden="true">
-              /
-            </span>
-            <span aria-current="page">{t("Case Studies")}</span>
-          </nav>
-
           <h1>{t("Diagnostic Results: B2B Case Examples")}</h1>
           <p className={`lead ${styles.lead}`}>
             {t(
