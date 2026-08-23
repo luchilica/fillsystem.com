@@ -216,6 +216,10 @@
   border-top: 1px solid var(--border-hair);
 }
 
+.privacy a {
+  text-decoration: underline;
+}
+
 .submitRow {
   display: flex;
   flex-direction: column;

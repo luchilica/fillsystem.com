@@ -122,7 +122,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--stone-400);
+  color: var(--stone-500);
   transition: color var(--dur-med) var(--ease-out);
 }
 
