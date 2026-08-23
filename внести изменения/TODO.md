@@ -112,15 +112,15 @@
 
 56. ~~**Развести O-1 и B2B.** Минимум — убрать из прайса на главной, из `Service.offers`, из чипов формы.~~ ✅ Минимум сделан (c3ac9c5): O-1 убран из прайса, JSON-LD offers, чипов формы, /services, llms.txt. Страница `/o1-visa-readiness` — standalone. **Открыто:** поддомен или полное разделение — стратегическое решение.
 57. **Показать формулировки O-1 иммиграционному адвокату** — «identify which 3+ criteria are strongest» и «We help create the missing pieces: publication strategy, speaking engagements».
-58. **Решить судьбу AI-серии блога** (MCP/A2A, embeddings, agent eval, voice AI, AI governance) — 6 из 14 статей для ML-инженеров, а не для ICP. Вынести в отдельный раздел или депубликовать.
-59. **Решить судьбу локалей.** Либо `en` + `es`, а `ru`/`zh` только под O-1. Либо оставить 4, но признать два разных продукта. Сейчас 84 URL машинного перевода B2B-контента с фантомными авторами — профиль под политику Scaled Content Abuse.
-60. **Добавить первичные данные в 6 ICP-статей.** Сейчас 0 вхождений «we found / in our audits / one client / we measured» на 34 420 слов. Минимум: одна таблица «что мы находим в N аудитах», один анонимизированный разбор.
+58. **Перенести AI-серию блога в /resources/.** 6 статей (MCP/A2A, embeddings, agent eval, voice AI, AI governance). **В процессе:** решение принято, переезд следующим шагом.
+59. ~~**Решить судьбу локалей.**~~ ✅ zh-Hans удалён полностью (a379982). ru: основные страницы индексируются, блог ru — noindex + исключён из sitemap. Сайт: 3 локали (en/es/ru).
+60. ~~**Добавить первичные данные в ICP-статей.**~~ ✅ Агрегатные паттерны добавлены в 8 ICP-статей: «in most CRM environments we review», «across our security reviews» и т.д. (a379982).
 61. ~~**Привести регистр H2 к одному стилю.**~~ ✅ Уже sentence case во всех 14 статьях — аудит фиксировал состояние до правки.
 62. ~~**Убрать `Need help with this?`**~~ ✅ Заменено на 14 уникальных CTA по теме статьи (c3ac9c5).
-63. **Переписать перелинковку вручную.** Сейчас 0 ссылок статья→статья + 1-2 на услуги в каждой. `/services/addon-tool-build`, `/services/advisory-power-hour` не получают ни одной ссылки из блога.
+63. ~~**Переписать перелинковку вручную.**~~ ✅ 28 новых inline-ссылок (26 blog→blog + 2 на underlinked сервисы). Количество варьируется 1-4 на статью. advisory-power-hour и addon-tool-build теперь имеют входящие ссылки (935bce0).
 64. **Добавить категории и теги на `/blog`** и сделать `revops-audit-guide` (3 306 слов) pillar-страницей с кластером.
-65. **Расширить `/about`** (сейчас 330 слов) и `/services` (360 слов на 9 услуг).
-66. **Локальное SEO с нуля:** выбрать город, завести Google Business Profile (service-area business), добавить `ProfessionalService` с `addressLocality` и `telephone`. Сейчас `areaServed` = вся страна, адрес = «California, USA».
+65. ~~**Расширить `/about`** и `/services`.~~ ✅ /about: 250→600 слов (история, методология, ICP). /services: 200→450 слов (контекст цен, «What to expect»). ProfessionalService + knowsAbout в schema (935bce0).
+66. ~~**Локальное SEO:**~~ ✅ частично. ProfessionalService + knowsAbout добавлены в Organization schema. **Открыто:** GBP (внешнее действие), конкретный город, телефон.
 67. ~~**Добавить в `/llms.txt`** секции «Not a fit for», «What we don't do», «No ROI guarantees — why», дату обновления, локализованные URL.~~ ✅ Всё присутствует. Дополнительно убраны фантомные `/case-studies` и `/contact` (404).
 68. ~~**Проставить реальные `dateModified`**~~ ✅ Добавлено поле `dateModified` в blogData.ts, прокинуто в JSON-LD и OG (c3ac9c5).
 69. **Переименовать проект в Vercel** — `opsfield-systems` торчит в публичном URL при бренде «Fill System».
