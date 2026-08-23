@@ -47,5 +47,18 @@ next-env.d.ts
 /_*.mjs
 /_*.js
 
+# temporary screenshots and test artifacts
+screenshot*.png
+pdf-*.png
+test-*.png
+lighthouse-report.json
+nul
+
+# test results (regenerated on each run)
+test-results/
+
+# claude code workflows (session-specific)
+.claude/workflows/
+
 .vercel
 .env*
