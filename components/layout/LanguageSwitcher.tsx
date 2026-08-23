@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
-import { LOCALES, LOCALE_META, type Locale } from "@/i18n/locales";
+import { usePathname } from "@/i18n/navigation";
+import { LOCALES, LOCALE_META, DEFAULT_LOCALE, type Locale } from "@/i18n/locales";
 import styles from "./LanguageSwitcher.module.css";
 
 // Compact circular toggle showing the current locale's short code (EN / ES /
@@ -53,12 +53,13 @@ export default function LanguageSwitcher() {
         <ul className={styles.menu} role="menu">
           {shown.map((l) => {
             const isActive = l === active;
+            const prefix = LOCALE_META[l].prefix;
+            const href = l === DEFAULT_LOCALE ? (pathname || "/") : `${prefix}${pathname}`;
             return (
               <li key={l} role="none">
-                <Link
+                <a
                   role="menuitem"
-                  href={pathname}
-                  locale={l}
+                  href={href}
                   hrefLang={LOCALE_META[l].htmlLang}
                   aria-current={isActive ? "true" : undefined}
                   className={`${styles.item} ${isActive ? styles.itemActive : ""}`}
@@ -66,7 +67,7 @@ export default function LanguageSwitcher() {
                 >
                   <span className={styles.code}>{LOCALE_META[l].short}</span>
                   <span className={styles.name}>{LOCALE_META[l].label}</span>
-                </Link>
+                </a>
               </li>
             );
           })}
