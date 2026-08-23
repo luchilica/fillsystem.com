@@ -63,7 +63,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   "o1-readiness": Award,
 };
 
-const SERVICES = SERVICE_DEFS.map((def) => ({
+const SERVICES = SERVICE_DEFS.filter((def) => !def.standalone).map((def) => ({
   id: def.id,
   title: def.title,
   description: def.description,

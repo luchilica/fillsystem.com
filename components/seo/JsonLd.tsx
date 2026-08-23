@@ -82,7 +82,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         provider: { "@id": organizationId },
         areaServed: { "@type": "Country", name: "United States" },
         url: `${home}/services/business-diagnostic`,
-        offers: SERVICE_DEFS.map((def) => {
+        offers: SERVICE_DEFS.filter((def) => !def.standalone).map((def) => {
           if (def.free || def.fixed) {
             return {
               "@type": "Offer" as const,

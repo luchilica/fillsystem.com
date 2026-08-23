@@ -3,16 +3,14 @@
 // Areas of Work — the priced "what we implement after the diagnostic" section.
 // Diagnostic-first funnel is preserved: the hero card is the FREE primary
 // diagnostic (→ #diagnostic-request-form) and every paid card routes back to the
-// same form. Six uniform cards (O-1 Readiness Support is a full card too, not a
-// strip). Only the free diagnostic carries a category badge. Photos are
+// same form. Only the free diagnostic carries a category badge. Photos are
 // illustrative (decorative alt) and lightly duotone-treated in CSS. Expand
 // pattern mirrors FAQ.tsx (button + aria-expanded + hidden panel, content stays
 // in HTML for SEO).
 //
 // Prices are base prices for 50 employees (bottom of ICP); a team-size
 // calculator scales them live: factor = clamp(1 + (employees − 50) × 0.02, 1,
-// 2.5), rounded to $100. O-1 has a fixed price (per-case, not headcount-based).
-// The exact sum is always deferred to the free diagnostic.
+// 2.5), rounded to $100. The exact sum is always deferred to the free diagnostic.
 
 import { useState } from "react";
 import Image from "next/image";
@@ -124,9 +122,8 @@ function shared(
 
 // Ordered as a journey: understand & advise (free → power hour → extended
 // diagnostic), then build & implement ascending in price (add-on → IT risk →
-// process → automation → RevOps), then O-1 as the special case at the very end.
-// The free diagnostic is deliberately a light fit call; the deep, documented
-// diagnosis is the paid Extended Diagnostic so the team never gives it away free.
+// process → automation → RevOps). Standalone services (O-1) have their own
+// pages and are excluded from the B2B pricing grid.
 const SERVICES: Service[] = [
   {
     ...shared("primary-diagnostic"),
@@ -272,24 +269,6 @@ const SERVICES: Service[] = [
     result: "A CRM and reporting setup you can trust",
     timeline: "3-6 weeks",
     cta: "Discuss this in your diagnostic",
-  },
-  {
-    ...shared("o1-readiness"),
-    image: "/services/o1.jpg",
-    blur: "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAYEAADAQEAAAAAAAAAAAAAAAAAARFBYf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlJqaKugFH//Z",
-    imageAlt: "O-1 visa readiness evidence preparation",
-    lede: "Structure the evidence behind an O-1 extraordinary-ability case the right way.",
-    context:
-      "For IT professionals and founders exploring the O-1 visa path, we help structure evidence of extraordinary ability: publication strategy, portfolio architecture, recommendation coordination, and expert profile positioning. We work alongside qualified immigration counsel. We do not provide legal advice or file petitions.",
-    includes: [
-      "Evidence & criteria mapping",
-      "Publication & visibility strategy",
-      "Portfolio & profile architecture",
-      "Recommendation coordination",
-    ],
-    result: "An organized evidence package for counsel",
-    timeline: "Ongoing, case-dependent",
-    cta: "Ask about O-1 readiness",
   },
 ];
 

@@ -2,7 +2,7 @@
 
 > Diagnostic-first IT and operations consulting for B2B companies with 50-250 employees.
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 ## Founder
 
@@ -52,7 +52,6 @@ Prices are base prices for teams of ~50 employees. Larger teams may see adjusted
 - Process & Operations (from $3,700) -- Redesign handoffs, approvals, and ownership for growing teams. /services/process-operations
 - AI & Process Automation (from $4,100) -- Workflow automation where it pays off: tool connections, decision logic, documentation. /services/ai-process-automation
 - RevOps: CRM, Data & Reporting (from $5,100) -- CRM structure cleanup, reporting rules, and revenue data flow. /services/revops-crm-consulting
-- O-1 Readiness Support (from $2,700) -- Evidence structuring for O-1 extraordinary-ability visa cases. /o1-visa-readiness
 
 ## Team
 
@@ -83,10 +82,7 @@ Prices are base prices for teams of ~50 employees. Larger teams may see adjusted
 
 - About -- /about
 - Services & Pricing -- /services
-- Case Studies -- /case-studies
 - Blog -- /blog
-- Contact -- /contact
-- O-1 Visa Readiness -- /o1-visa-readiness
 
 ## Localized Versions
 

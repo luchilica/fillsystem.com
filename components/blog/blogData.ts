@@ -3,12 +3,14 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
+  dateModified?: string;
   readTime: string;
   category: string;
   heroImage?: string;
   heroAlt?: string;
   seoTitle?: string;
   metaDescription?: string;
+  ctaHeading?: string;
   author: {
     name: string;
     title: string;
@@ -24,8 +26,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Undocumented handoffs, unclear ownership, and duplicated work compound silently as B2B teams grow. Here is how to find process debt before it stalls execution.",
     date: "2026-07-29",
+    dateModified: "2026-08-23",
     readTime: "13 min read",
     category: "Operations",
+    ctaHeading: "Ready to diagnose your process debt?",
     heroImage: "/blog/process-audit.jpg",
     heroAlt:
       "Team reviewing workflow diagrams and operational processes on a whiteboard.",
@@ -45,8 +49,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Shadow IT, access sprawl, single points of failure, and undocumented systems. A practical IT risk audit guide for B2B teams with 50-250 employees.",
     date: "2026-07-28",
+    dateModified: "2026-08-23",
     readTime: "14 min read",
     category: "IT Risk",
+    ctaHeading: "Time to audit your IT risks?",
     heroImage: "/blog/it-risk.jpg",
     heroAlt:
       "Server infrastructure with security monitoring displays in a modern office.",
@@ -64,8 +70,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Build a business-specific voice AI benchmark for noise, accents, overlapping speech, diarization, critical entities, latency, hallucinations, and review cost.",
     date: "2026-07-27",
+    dateModified: "2026-08-23",
     readTime: "15 min read",
     category: "AI",
+    ctaHeading: "Evaluating voice AI for your team?",
     heroImage: "/blog/voice-ai.jpg",
     heroAlt: "Professional audio recording setup with microphone and monitoring equipment.",
     seoTitle: "How to Test Speech Recognition on Real Business Calls",
@@ -81,8 +89,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Compare embedding models for enterprise RAG by retrieval quality, cost, latency, multilingual support, governance, and migration risk before re-indexing your data.",
     date: "2026-07-26",
+    dateModified: "2026-08-23",
     readTime: "14 min read",
     category: "AI",
+    ctaHeading: "Choosing the right AI infrastructure?",
     heroImage: "/blog/rag-pipeline.jpg",
     heroAlt: "Data visualization screens displaying analytics and information architecture.",
     seoTitle: "How to Choose an Embedding Model for Enterprise RAG",
@@ -98,8 +108,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Before approaching investors, validate your revenue data, sales process, operating model, systems, risks, and use-of-funds plan.",
     date: "2026-07-25",
+    dateModified: "2026-08-23",
     readTime: "13 min read",
     category: "Strategy",
+    ctaHeading: "Preparing your operating evidence?",
     heroImage: "/blog/investor-readiness.jpg",
     heroAlt: "Business team in a modern conference room during a strategy presentation.",
     seoTitle: "Investor Readiness Checklist for Scaling B2B Companies",
@@ -116,8 +128,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Learn what processes, permissions, controls, data, and approval rules must exist before an AI agent can safely act inside your business.",
     date: "2026-07-23",
+    dateModified: "2026-08-23",
     readTime: "11 min read",
     category: "AI",
+    ctaHeading: "Considering AI agents for your operations?",
     heroImage: "/blog/ai-agent-readiness.jpg",
     heroAlt: "Abstract blue glass shapes representing AI and robotic automation.",
     seoTitle: "AI Agents Are Not Automation: A B2B Readiness Framework",
@@ -134,8 +148,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Test AI agents for task success, tool use, safety, cost, resilience, and operational control before allowing them to act in production.",
     date: "2026-07-21",
+    dateModified: "2026-08-23",
     readTime: "16 min read",
     category: "AI",
+    ctaHeading: "Ready to evaluate your AI stack?",
     heroImage: "/blog/ai-agent-eval.jpg",
     heroAlt: "Developer reviewing code on a laptop in a dark workspace.",
     seoTitle: "How to Evaluate an AI Agent Before Production",
@@ -151,8 +167,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Learn how MCP and A2A connect AI agents to tools and other agents - and what identity, permissions, approvals, and controls enterprises must design themselves.",
     date: "2026-07-19",
+    dateModified: "2026-08-23",
     readTime: "14 min read",
     category: "AI",
+    ctaHeading: "Planning your AI integration architecture?",
     heroImage: "/blog/mcp-a2a.jpg",
     heroAlt: "Collaborative workspace with laptops and devices on a desk, representing technology integration.",
     seoTitle: "MCP vs. A2A for Enterprise AI Agents",
@@ -168,8 +186,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Build a practical AI governance model covering ownership, data, vendors, evaluation, approvals, incidents, and model changes - without enterprise bureaucracy.",
     date: "2026-07-17",
+    dateModified: "2026-08-23",
     readTime: "15 min read",
     category: "AI",
+    ctaHeading: "Building AI governance for your team?",
     heroImage: "/blog/ai-governance.jpg",
     heroAlt: "Developer workstation with multiple monitors and code in blue-lit environment.",
     seoTitle: "AI Governance for Mid-Market B2B Companies",
@@ -186,8 +206,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "A step-by-step framework for auditing your CRM, pipeline, reporting, and data flow. Includes a checklist you can use today.",
     date: "2026-07-14",
+    dateModified: "2026-08-23",
     readTime: "12 min read",
     category: "RevOps",
+    ctaHeading: "Ready to audit your revenue operations?",
     heroImage: "/blog/revops-audit.jpg",
     heroAlt: "Business analytics dashboard with charts and data visualizations.",
     seoTitle: "The Complete RevOps Audit Guide for B2B Teams",
@@ -204,8 +226,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "A practical migration roadmap: what to map first, what to clean, what to rebuild, and the mistakes that cost B2B teams months.",
     date: "2026-07-10",
+    dateModified: "2026-08-23",
     readTime: "10 min read",
     category: "CRM",
+    ctaHeading: "Planning a CRM migration?",
     heroImage: "/blog/crm-migration.jpg",
     heroAlt: "Data visualization charts representing CRM data migration process.",
     seoTitle: "How to Migrate from Salesforce to HubSpot Without Losing Data",
@@ -221,8 +245,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Most B2B teams lose deals not because of bad sales, but because of CRM pipeline gaps. Here are the 7 patterns we find in every audit.",
     date: "2026-07-04",
+    dateModified: "2026-08-23",
     readTime: "8 min read",
     category: "CRM",
+    ctaHeading: "Ready to fix your pipeline?",
     heroImage: "/blog/crm-pipeline.jpg",
     heroAlt: "Financial charts and graphs showing sales pipeline analysis.",
     seoTitle: "7 Signs Your CRM Pipeline Is Leaking Revenue",
@@ -238,8 +264,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "You don't need a dedicated RevOps hire to fix your revenue operations. Here's a practical starting point for small B2B teams.",
     date: "2026-06-26",
+    dateModified: "2026-08-23",
     readTime: "7 min read",
     category: "RevOps",
+    ctaHeading: "Ready to start your RevOps?",
     heroImage: "/blog/small-team.jpg",
     heroAlt: "Small team collaborating around a table in a modern office.",
     seoTitle: "RevOps for 50-Person Teams: Where to Start",
@@ -256,8 +284,10 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Neither CRM is universally better. Here's how to choose based on your team size, deal complexity, and what you actually need.",
     date: "2026-06-18",
+    dateModified: "2026-08-23",
     readTime: "9 min read",
     category: "CRM",
+    ctaHeading: "Need help choosing the right CRM?",
     heroImage: "/blog/crm-comparison.jpg",
     heroAlt: "Person working with software interface on a laptop screen.",
     seoTitle: "HubSpot vs Salesforce for B2B Services: Honest Comparison",

@@ -30,7 +30,6 @@ const SERVICE_OPTIONS = [
   "Extended Diagnostic",
   "Advisory Power Hour",
   "Add-on Tool Build",
-  "O-1 Readiness Support",
   "Not sure yet",
 ];
 

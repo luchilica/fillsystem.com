@@ -25,6 +25,8 @@ export interface ServiceDef {
   fixed: boolean;
   /** true = complimentary / no charge */
   free: boolean;
+  /** true = standalone offering, excluded from B2B pricing grid and JSON-LD */
+  standalone?: boolean;
 }
 
 export const SERVICE_DEFS: ServiceDef[] = [
@@ -126,6 +128,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     basePrice: 2700,
     fixed: true,
     free: false,
+    standalone: true,
   },
 ];
 

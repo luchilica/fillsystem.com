@@ -32,7 +32,7 @@ export async function generateMetadata({
       title: `${title} | Fill System`,
       description,
       publishedTime: post.date,
-      modifiedTime: post.date,
+      modifiedTime: post.dateModified || post.date,
       authors: [post.author.name],
       tags: [post.category],
       images: post.heroImage

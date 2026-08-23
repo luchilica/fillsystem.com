@@ -2,7 +2,7 @@
 
 > Diagnostic-first IT and operations consulting for B2B companies with 50-250 employees.
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 ## Founder
 
@@ -87,10 +87,6 @@ Workflow automation where it pays off: tool connections, decision logic, documen
 CRM structure cleanup, reporting rules, and revenue data flow. Make your CRM, pipeline, and reporting trustworthy again.
 /services/revops-crm-consulting
 
-### O-1 Readiness Support -- from $2,700
-Evidence structuring for O-1 extraordinary-ability visa cases. Helps IT professionals and founders build the evidence portfolio that demonstrates extraordinary ability: publications, speaking, expert positioning, and recommendation strategy. Petition filing and legal counsel are provided by qualified immigration attorneys.
-/o1-visa-readiness
-
 ## Systems We Work With
 
 HubSpot, Salesforce, Pipedrive, Asana, Monday, Notion, QuickBooks, Zapier, Make, and related business tools.
@@ -144,9 +140,6 @@ The diagnostic is a structured, time-boxed review that identifies what is broken
 **What does a typical RevOps audit include?**
 A RevOps audit covers CRM structure, pipeline stages, reporting definitions, data sources, key integrations, and automation rules. The output is a prioritized fix list with estimated effort and impact for each item.
 
-**Do you handle O-1 visa petitions?**
-We do not provide legal advice or file immigration petitions. What we offer is O-1 readiness support: helping IT professionals and founders build the evidence portfolio that demonstrates extraordinary ability: publications, speaking, expert positioning, and recommendation strategy. Petition filing and legal counsel are provided by qualified immigration attorneys we coordinate with.
-
 ## Blog
 
 - Process Debt Is Real: Why Growing B2B Teams Break at 50 Employees -- /blog/process-debt-growing-b2b
@@ -195,9 +188,7 @@ We do not provide legal advice or file immigration petitions. What we offer is O
 
 - About -- /about
 - Services & Pricing -- /services
-- Case Studies -- /case-studies
 - Blog -- /blog
-- O-1 Visa Readiness -- /o1-visa-readiness
 - Terms of Use -- /terms-of-use
 - Privacy Policy -- /privacy-policy
 - Cookie Policy -- /cookie-policy

@@ -91,6 +91,8 @@ function ArticleJsonLd({
   const articleUrl = `${siteConfig.url}${prefix}/blog/${slug}`;
   const home = siteConfig.url;
 
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+
   const isRoleAsName = author.title === "Fill System" || author.title === siteConfig.name;
   const authorJobTitle = isRoleAsName ? `${author.name} at ${siteConfig.name}` : author.title;
 
@@ -111,7 +113,7 @@ function ArticleJsonLd({
         headline: title,
         description,
         datePublished: date,
-        dateModified: date,
+        dateModified: post?.dateModified ?? date,
         inLanguage: lang,
         ...(heroImage ? { image: `${siteConfig.url}${heroImage}` } : {}),
         author: {
@@ -153,6 +155,7 @@ export default async function BlogPostLayout({
     year: "numeric",
   });
   const postIndex = BLOG_POSTS.findIndex((p) => p.slug === slug);
+  const currentPost = postIndex >= 0 ? BLOG_POSTS[postIndex] : null;
   const prevPost =
     postIndex < BLOG_POSTS.length - 1 ? BLOG_POSTS[postIndex + 1] : null;
   const nextPost = postIndex > 0 ? BLOG_POSTS[postIndex - 1] : null;
@@ -288,7 +291,7 @@ export default async function BlogPostLayout({
               </aside>
 
               <div className={styles.cta}>
-                <h2>{t("Need help with this?")}</h2>
+                <h2>{t(currentPost?.ctaHeading ?? "Need help with this?")}</h2>
                 <p className={styles.ctaText}>
                   {t(
                     "Request a free diagnostic and get a clear picture of what to fix first - no commitment, no sales pitch."
