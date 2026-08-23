@@ -200,30 +200,21 @@ export default async function About({
           </p>
           <p>
             {t(
-              "In the first 30-45 minutes, we review your workflows, systems, CRM usage, reporting, automation, and decision bottlenecks. We then map likely root causes and score fixes by impact, effort, risk, dependency, and business value. You receive a clear next step: audit, assessment, roadmap, advisory, implementation support, pause, or no-fit.",
+              "In the first 30-45 minutes, we review your workflows, systems, CRM usage, reporting, automation, and decision bottlenecks. We map root causes and score fixes by impact, effort, risk, and business value. If the diagnostic shows no engagement is needed, we say so. A no-fit decision is a valid outcome.",
             )}
           </p>
           <p>
             {t(
-              "A no-fit decision is a valid outcome. If the diagnostic shows that the problem does not justify a paid engagement, or that you need a different kind of help, we say so. The diagnostic is complimentary because we need to understand the problem before we can estimate whether we are the right team to solve it.",
-            )}
-          </p>
-          <h3>{t("Who we work with")}</h3>
-          <p>
-            {t(
-              "Our strongest fit is a B2B company with 50-250 employees facing cross-functional process or system complexity, weak visibility across CRM or SaaS tools, unclear automation or AI priorities, or a high-impact migration or integration decision that needs independent review. We work across industries including SaaS, professional services, logistics, manufacturing, and multi-location operators.",
-            )}
-          </p>
-          <p>
-            {t(
-              "We are usually not the right fit for pre-revenue startups, companies under 30 employees, engagements that need a full-time embedded team, or implementation-only work without a diagnostic phase.",
+              "Our strongest fit is a B2B company with 50-250 employees facing cross-functional process complexity, weak visibility across CRM or SaaS tools, unclear automation priorities, or a migration decision that needs independent review. We work across SaaS, professional services, logistics, manufacturing, and multi-location operators.",
             )}
           </p>
         </div>
       </section>
 
       {/* 4 - Team */}
-      <section className="section">
+      <section className={`section ${styles.teamSection}`}>
+        <PlusMark size={160} className={styles.teamPlusTop} />
+        <PlusMark size={90} className={styles.teamPlusBottom} />
         <div className="container">
           <h2>{t("Team")}</h2>
           <div className={styles.teamGrid}>
