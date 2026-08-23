@@ -135,7 +135,7 @@ export default async function Footer() {
         {/* Copyright + direct contact */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2026 Fill System. California, USA.
+            © 2026 Fill System LLC. California, USA.
           </p>
           <p className={styles.contact}>
             {t("Questions or issues?")}{" "}

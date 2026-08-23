@@ -53,7 +53,6 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
     prefix: "/ru",
     indexable: true,
     enabled: true,
-    blogIndexable: false,
   },
 };
 

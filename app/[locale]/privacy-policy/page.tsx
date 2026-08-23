@@ -34,7 +34,7 @@ export default async function PrivacyPolicy({
     <BreadcrumbJsonLd title="Privacy Policy" path="/privacy-policy" locale={locale as Locale} />
     <LegalPageLayout title="Privacy Policy" lastUpdated="August 22, 2026">
       <p>
-        Fill System (“Fill System,” “we,” “us,” or “our”) operates this
+        Fill System LLC (“Fill System,” “we,” “us,” or “our”) operates this
         website and provides diagnostic-first IT and business consulting
         services. This Privacy Policy explains what personal information we
         collect through the website, how we use it, when we disclose it, and the
