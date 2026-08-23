@@ -122,6 +122,11 @@ export default async function RevOpsForSmallTeams({
           "Fixing this does not require new software. It requires a decision. Pick one system as the source of truth for pipeline data -- usually your CRM -- and make it the only system that matters for revenue reporting. Define what counts as a \"deal\" in your pipeline, what the stages mean, and when a deal is real versus aspirational. Write it down. Make sure everyone who touches pipeline data understands and follows the same definitions. This is not glamorous work, but it is the single most impactful thing you can do for revenue visibility."
         )}
       </p>
+      <p>
+        {t("When your team is ready for a more thorough review, our")}{" "}
+        <Link href="/blog/revops-audit-guide">{t("complete RevOps audit guide")}</Link>
+        {t(" walks through the six pillars of a full audit and provides a checklist you can start using immediately.")}
+      </p>
 
       <h3>{t("2. One Clear Handoff Process Between Marketing and Sales")}</h3>
       <p>
@@ -155,6 +160,10 @@ export default async function RevOpsForSmallTeams({
         {t(
           "A weekly 30-minute CRM hygiene review catches more problems than a quarterly \"cleanup project\" ever will. The goal is not perfection. The goal is that when someone pulls a pipeline report, the numbers reflect reality within a reasonable margin. If your CRM data is more than a week old in any material way, your reports are fiction."
         )}
+      </p>
+      <p>
+        {t("Without this discipline, small data quality issues compound into structural leaks. If you suspect your pipeline numbers are already unreliable, read our breakdown of the")}{" "}
+        <Link href="/blog/crm-pipeline-leaking-revenue">{t("seven signs your CRM pipeline is leaking revenue")}</Link>{t(".")}
       </p>
 
       {/* -- What You Can Skip (For Now) --------------------------- */}
@@ -202,8 +211,10 @@ export default async function RevOpsForSmallTeams({
       </p>
       <p>
         {t(
-          "An external advisor brings two things your team does not have: dedicated focus and pattern recognition from working across multiple companies. They have seen what \"good\" looks like at your stage. They know which fixes stick and which ones require ongoing enforcement. And they can make recommendations without the internal politics that make it hard for a team member to say \"this process is broken and here is why.\""
-        )}
+          "An external advisor brings two things your team does not have: dedicated focus and pattern recognition from working across multiple companies. They have seen what \"good\" looks like at your stage. They know which fixes stick and which ones require ongoing enforcement. And they can make recommendations without the internal politics that make it hard for a team member to say \"this process is broken and here is why.\" If you are not ready for a full engagement, a single"
+        )}{" "}
+        <Link href="/services/advisory-power-hour">{t("Advisory Power Hour")}</Link>
+        {t(" can validate your approach and identify the highest-priority fix.")}
       </p>
       <p>
         <Link href="/services/revops-crm-consulting">

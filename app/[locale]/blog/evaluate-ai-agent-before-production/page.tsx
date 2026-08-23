@@ -125,7 +125,10 @@ export default async function EvaluateAIAgent({
           "The unit of evaluation should be the"
         )}{" "}
         <strong>{t("completed business task")}</strong>
-        {t(", not the quality of a single model response.")}
+        {t(", not the quality of a single model response. Before evaluation begins, the company should confirm that the eight readiness conditions described in our guide to")}
+        {" "}
+        <Link href="/blog/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
+        {t(" are in place -process clarity, ownership, data access, permissions, decision boundaries, approval rules, logging, and rollback.")}
       </p>
 
       {/* -- Why standard LLM evaluation is not enough ------------- */}
@@ -759,7 +762,8 @@ export default async function EvaluateAIAgent({
         {t("The aggregate number looks healthy.")}
       </p>
       <p>
-        {t("The operating system is not.")}
+        {t("The operating system is not. Continuous monitoring at this level is one of the ten minimum governance controls described in our guide to")}{" "}
+        <Link href="/blog/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
       </p>
 
       {/* -- A production-readiness scorecard ---------------------- */}

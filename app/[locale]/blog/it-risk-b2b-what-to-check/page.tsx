@@ -121,8 +121,10 @@ export default async function ITRiskB2BWhatToCheck({
       <h3>{t("2. Single Points of Failure")}</h3>
       <p>
         {t(
-          "A single point of failure is any system, process, or person whose absence would disrupt operations with no immediate fallback. In growing B2B companies, the most dangerous single points of failure are not technical. They are human."
+          "A single point of failure is any system, process, or person whose absence would disrupt operations with no immediate fallback. In growing B2B companies, the most dangerous single points of failure are not technical. They are human. This overlaps with a broader operational problem -"
         )}
+        <Link href="/blog/process-debt-growing-b2b">{t("process debt in growing B2B companies")}</Link>
+        {t(" -where undocumented knowledge and person-dependent workflows create fragility that extends well beyond IT.")}
       </p>
       <p>
         {t(
@@ -148,8 +150,10 @@ export default async function ITRiskB2BWhatToCheck({
       </p>
       <p>
         {t(
-          "The audit approach: ask every department head to list the tools their team uses. Then compare against your official SaaS inventory and corporate card statements. The gap between those two lists is your shadow IT footprint. It is usually larger than anyone expects."
-        )}
+          "The audit approach: ask every department head to list the tools their team uses. Then compare against your official SaaS inventory and corporate card statements. The gap between those two lists is your shadow IT footprint. It is usually larger than anyone expects. In some cases, the right response is not to ban the unapproved tool but to build a supported version -our"
+        )}{" "}
+        <Link href="/services/addon-tool-build">{t("Add-on & Tool Build service")}</Link>
+        {t(" helps teams replace shadow IT with purpose-built solutions that meet both the user need and the security requirement.")}
       </p>
 
       <h3>{t("4. Data Handling and Backup Verification")}</h3>

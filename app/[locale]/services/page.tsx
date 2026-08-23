@@ -132,7 +132,7 @@ export default async function ServicesPage({
         provider: { "@id": `${home}#organization` },
         areaServed: { "@type": "Country", name: "United States" },
         url: pageUrl,
-        offers: SERVICE_DEFS.map((def) => {
+        offers: SERVICE_DEFS.filter((def) => !def.standalone).map((def) => {
           if (def.free || def.fixed) {
             return {
               "@type": "Offer" as const,
@@ -172,6 +172,11 @@ export default async function ServicesPage({
           <p className={`lead ${styles.lead}`}>
             {t(
               "Every engagement starts with a free diagnostic. You only pay once scope is agreed in writing.",
+            )}
+          </p>
+          <p>
+            {t(
+              "We work with B2B companies between 50 and 250 employees - SaaS, professional services, logistics, manufacturing, and multi-location operators. All prices below are base prices for teams of approximately 50 employees. Larger teams may see adjusted pricing based on the number of systems, workflows, and stakeholders involved.",
             )}
           </p>
         </div>
@@ -228,7 +233,29 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      {/* 4 — CTA */}
+      {/* 4 — What to expect */}
+      <section className="section">
+        <div className="container">
+          <h2>{t("What to expect")}</h2>
+          <p>
+            {t(
+              "The initial diagnostic conversation takes 30-45 minutes and is complimentary. If the diagnostic identifies a clear next step, we provide a fixed-scope proposal with defined deliverables and pricing before any commitment. Paid engagements are scoped individually based on what the diagnostic uncovers.",
+            )}
+          </p>
+          <p>
+            {t(
+              "Most diagnostic and advisory work is remote-first. We work with environments using HubSpot, Salesforce, Pipedrive, Asana, Monday, Notion, QuickBooks, Zapier, Make, and related business tools. On-site work in California is available when the scope requires it.",
+            )}
+          </p>
+          <p>
+            {t(
+              "We do not offer guaranteed ROI projections, staff augmentation, SaaS license reselling, or implementation-only work without a diagnostic phase. If the diagnostic shows no engagement is needed, we say so - a no-fit decision is a valid outcome.",
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* 5 — CTA */}
       <section className={`section ${styles.ctaDark}`}>
         <PlusMark size={180} className={styles.ctaPlusTop} />
         <PlusMark size={100} className={styles.ctaPlusBottom} />

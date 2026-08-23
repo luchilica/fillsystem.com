@@ -439,8 +439,10 @@ export default async function AIGovernanceMidMarket({
       </p>
       <p>
         {t(
-          "None of these statements supports a production decision."
-        )}
+          "None of these statements supports a production decision. Our guide to"
+        )}{" "}
+        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
+        {t(" provides concrete metrics and test-suite design for turning pilot impressions into measurable evidence.")}
       </p>
       <p>
         {t(
@@ -523,6 +525,12 @@ export default async function AIGovernanceMidMarket({
           {t("OWASP Cheat Sheet Series")}
         </a>
         )
+      </p>
+
+      <p>
+        {t("Our analysis of")}{" "}
+        <Link href="/blog/ai-agents-are-not-automation">{t("why AI agents are not automation")}</Link>
+        {t(" describes in detail what decision boundaries and approval interfaces should look like when an agent can choose its own actions.")}
       </p>
 
       <h3>{t("Oversight that exists only on paper")}</h3>
@@ -769,8 +777,10 @@ export default async function AIGovernanceMidMarket({
       </p>
       <p>
         {t(
-          "At minimum, ownership, data restrictions, evaluation, credentials, and shutdown must exist before the pilot begins."
-        )}
+          "At minimum, ownership, data restrictions, evaluation, credentials, and shutdown must exist before the pilot begins. The credential and access hygiene requirements overlap directly with standard"
+        )}{" "}
+        <Link href="/blog/it-risk-b2b-what-to-check">{t("IT risk controls")}</Link>
+        {t(" -especially around account sprawl, MFA, and shadow IT.")}
       </p>
 
       <h3>

@@ -150,7 +150,9 @@ export default async function CrmPipelineLeakingRevenuePage({
       </p>
       <p>
         <strong>{t("Fix direction:")}</strong>{" "}
-        {t("Simplify CRM views ruthlessly. Reduce required fields to the minimum that actually drives reporting. Match stage definitions to how your reps describe their own sales process - not how the VP of Sales imagines it should work. If the CRM is harder to use than a spreadsheet, the spreadsheet will always win.")}
+        {t("Simplify CRM views ruthlessly. Reduce required fields to the minimum that actually drives reporting. Match stage definitions to how your reps describe their own sales process - not how the VP of Sales imagines it should work. If the CRM is harder to use than a spreadsheet, the spreadsheet will always win. If the usability problem runs deep enough that you are considering switching platforms, our")}{" "}
+        <Link href="/blog/hubspot-vs-salesforce-b2b">{t("HubSpot vs. Salesforce comparison")}</Link>
+        {t(" provides a framework for that decision.")}
       </p>
 
       {/* ----- Sign 3 ----- */}
@@ -267,7 +269,9 @@ export default async function CrmPipelineLeakingRevenuePage({
         {t("These are not isolated issues. They compound. Leads that sit too long feed into a forecast nobody trusts. Spreadsheet workarounds mean loss reasons never get captured. Misaligned qualification criteria cause deals to stall in stages that are too broad. The leaks connect.")}
       </p>
       <p>
-        {t("A structured CRM audit maps all seven areas systematically: lead routing, adoption, qualification alignment, stage design, pipeline architecture, forecast accuracy, and loss-reason capture. It identifies which leaks are costing you the most, in what order to fix them, and what the expected impact of each fix is.")}
+        {t("A structured CRM audit maps all seven areas systematically: lead routing, adoption, qualification alignment, stage design, pipeline architecture, forecast accuracy, and loss-reason capture. It identifies which leaks are costing you the most, in what order to fix them, and what the expected impact of each fix is. Our")}{" "}
+        <Link href="/blog/revops-audit-guide">{t("RevOps audit guide")}</Link>
+        {t(" walks through the six pillars of that audit and provides a checklist you can start using today.")}
       </p>
       <p>
         {t("At Fill System, our")}{" "}

@@ -170,8 +170,10 @@ export default async function ProcessDebtGrowingB2B({
       <h3>{t("5. The Company Runs Differently When One Person Is Absent")}</h3>
       <p>
         {t(
-          "If operations degrade noticeably when a specific individual is on vacation, sick, or in a full-day offsite, that individual is a single point of failure. This is not a testament to their importance. It is a structural risk. Their knowledge, their decision-making authority, or their informal coordination role has not been distributed or documented."
-        )}
+          "If operations degrade noticeably when a specific individual is on vacation, sick, or in a full-day offsite, that individual is a single point of failure. This is not a testament to their importance. It is a structural risk. Their knowledge, their decision-making authority, or their informal coordination role has not been distributed or documented. Person-dependent processes are also a significant IT risk -our guide to"
+        )}{" "}
+        <Link href="/blog/it-risk-b2b-what-to-check">{t("IT risk areas every B2B company should audit")}</Link>
+        {t(" covers how to identify and mitigate these single points of failure across systems and credentials.")}
       </p>
       <p>
         {t(
@@ -213,8 +215,10 @@ export default async function ProcessDebtGrowingB2B({
       <p>
         <strong>{t("Tool adoption without process redesign.")}</strong>{" "}
         {t(
-          "Buying a project management tool does not fix a broken process. It digitizes it. If the approval workflow is unclear in person, moving it to Asana does not make it clearer. It makes it unclear in Asana. Most tool-first implementations fail not because the tool is wrong but because the process it automates was never designed correctly in the first place."
-        )}
+          "Buying a project management tool does not fix a broken process. It digitizes it. If the approval workflow is unclear in person, moving it to Asana does not make it clearer. It makes it unclear in Asana. Most tool-first implementations fail not because the tool is wrong but because the process it automates was never designed correctly in the first place. The same principle applies to CRM -if your revenue operations processes are broken, a"
+        )}{" "}
+        <Link href="/blog/revops-audit-guide">{t("structured RevOps audit")}</Link>
+        {t(" should come before any tool migration.")}
       </p>
 
       {/* -- What to Do ------------------------------------------- */}

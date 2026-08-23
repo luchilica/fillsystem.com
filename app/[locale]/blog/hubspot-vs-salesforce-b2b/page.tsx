@@ -183,8 +183,10 @@ export default async function HubSpotVsSalesforceB2B({
       <p>
         <strong>{t("Data quality issues that follow you.")}</strong>{" "}
         {t(
-          "Duplicate records, incomplete contact information, inconsistent naming conventions, stale deals sitting in the pipeline -- these problems are portable. They will move with you to any platform because they are caused by a lack of data governance, not by a software limitation. If you migrate without fixing the underlying governance issues, you are paying migration costs to achieve the same mess in a new interface."
-        )}
+          "Duplicate records, incomplete contact information, inconsistent naming conventions, stale deals sitting in the pipeline -- these problems are portable. They will move with you to any platform because they are caused by a lack of data governance, not by a software limitation. If you migrate without fixing the underlying governance issues, you are paying migration costs to achieve the same mess in a new interface. If these symptoms sound familiar, our guide to the"
+        )}{" "}
+        <Link href="/blog/crm-pipeline-leaking-revenue">{t("seven signs your CRM pipeline is leaking revenue")}</Link>
+        {t(" can help you diagnose whether the issue is the platform or the process.")}
       </p>
       <p>
         {t(
@@ -198,6 +200,11 @@ export default async function HubSpotVsSalesforceB2B({
         {t(
           "If you are seriously considering a switch, answer these five questions before making a decision. Write down the answers. Share them with your team. The exercise itself is often more valuable than the conclusion."
         )}
+      </p>
+      <p>
+        {t("If you have already decided to move from Salesforce to HubSpot, our")}{" "}
+        <Link href="/blog/salesforce-to-hubspot-migration">{t("Salesforce-to-HubSpot migration guide")}</Link>
+        {t(" covers the full lifecycle: pre-migration audit, five-phase execution, and the five mistakes that consistently cost teams months of rework.")}
       </p>
       <p>
         <strong>{t("1. What does your team actually use?")}</strong>{" "}

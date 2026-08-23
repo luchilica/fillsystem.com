@@ -191,8 +191,10 @@ export default async function InvestorReadiness({
       </p>
       <p>
         {t(
-          "If CRM, billing, accounting, and management reporting produce conflicting numbers, investors may not know which version of the business to trust."
-        )}
+          "If CRM, billing, accounting, and management reporting produce conflicting numbers, investors may not know which version of the business to trust. A"
+        )}{" "}
+        <Link href="/blog/revops-audit-guide">{t("structured RevOps audit")}</Link>
+        {t(" can identify exactly where metric definitions diverge and produce the reconciliation an investor will expect.")}
       </p>
       <p>
         {t(
@@ -278,8 +280,10 @@ export default async function InvestorReadiness({
       </p>
       <p>
         {t(
-          "Common signs of founder-dependent operations include approvals waiting for one person; undocumented customer commitments; employees asking the founder how standard work should be handled; critical information stored in private messages; different teams following different versions of the same process; and no clear owner for cross-functional handoffs."
-        )}
+          "Common signs of founder-dependent operations include approvals waiting for one person; undocumented customer commitments; employees asking the founder how standard work should be handled; critical information stored in private messages; different teams following different versions of the same process; and no clear owner for cross-functional handoffs. These are symptoms of"
+        )}{" "}
+        <Link href="/blog/process-debt-growing-b2b">{t("process debt that accumulates in scaling B2B companies")}</Link>
+        {t(" -and they become harder to explain during diligence the longer they persist.")}
       </p>
       <p>{t("Capital does not automatically solve this problem.")}</p>
       <p>

@@ -325,8 +325,10 @@ Orchestrating agent
       </p>
       <p>
         {t(
-          "A standardized tool can still execute a poorly defined business process."
-        )}
+          "A standardized tool can still execute a poorly defined business process. The"
+        )}{" "}
+        <Link href="/blog/ai-agents-are-not-automation">{t("distinction between AI agents and automation")}</Link>
+        {t(" matters here: the more autonomy a system has, the more clearly the underlying process must be defined before any protocol connects it to production data.")}
       </p>
 
       <h3>{t("Accountability")}</h3>
@@ -469,8 +471,10 @@ Orchestrating agent
 
       <p>
         {t(
-          "Skipping the upper layers and starting with servers, SDKs, and protocols creates integration without control."
-        )}
+          "Skipping the upper layers and starting with servers, SDKs, and protocols creates integration without control. Our guide to"
+        )}{" "}
+        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating an AI agent before production")}</Link>
+        {t(" provides a structured approach to building the evidence and acceptance criteria that should exist before any agent architecture goes live.")}
       </p>
 
       {/* -- MCP security ------------------------------------------ */}

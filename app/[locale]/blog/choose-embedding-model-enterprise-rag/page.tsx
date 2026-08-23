@@ -695,7 +695,9 @@ export default async function ChooseEmbeddingModel({
         )}
       </p>
       <p>
-        {t("Only then should the team approve full-corpus indexing.")}
+        {t("This end-to-end validation follows the same principles we describe in our guide to")}{" "}
+        <Link href="/blog/evaluate-ai-agent-before-production">{t("evaluating AI agents before production")}</Link>
+        {t(" -task-level success, trace inspection, policy compliance, and economics should all be measured before committing to full-corpus indexing.")}
       </p>
 
       {/* ── Which model class fits which situation? ───────────── */}

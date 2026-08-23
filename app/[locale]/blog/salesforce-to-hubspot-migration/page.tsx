@@ -91,8 +91,10 @@ export default async function SalesforceToHubspotMigration({
       </p>
       <p>
         {t(
-          "The pre-migration audit produces the document that governs every subsequent decision. It is not optional. Here is what it covers."
-        )}
+          "The pre-migration audit produces the document that governs every subsequent decision. It is not optional. If you are not sure how to structure one, our"
+        )}{" "}
+        <Link href="/blog/revops-audit-guide">{t("RevOps audit guide")}</Link>
+        {t(" provides a six-pillar framework and a checklist that applies directly to pre-migration analysis. Here is what it covers.")}
       </p>
 
       <h3>{t("Map Your Current Salesforce Data Model")}</h3>
@@ -280,6 +282,11 @@ export default async function SalesforceToHubspotMigration({
         {t(
           "Not every team should migrate. The decision depends on your team's size, complexity, and operational priorities. Here is an honest breakdown."
         )}
+      </p>
+
+      <p>
+        {t("For a deeper comparison of when each platform is the right fit, see our")}{" "}
+        <Link href="/blog/hubspot-vs-salesforce-b2b">{t("HubSpot vs. Salesforce decision framework for B2B teams")}</Link>{t(".")}
       </p>
 
       <h3>{t("HubSpot Wins")}</h3>

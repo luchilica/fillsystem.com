@@ -633,8 +633,9 @@ export default async function TestSpeechRecognition({
       </p>
       <p>
         {t(
-          "Only then decide whether the system should remain assistive or receive limited automation authority."
-        )}
+          "Only then decide whether the system should remain assistive or receive limited automation authority. The controls needed to manage that transition -inventory, ownership, risk classification, data rules, and monitoring -are covered in our guide to"
+        )}{" "}
+        <Link href="/blog/ai-governance-mid-market-b2b">{t("AI governance for mid-market B2B companies")}</Link>{t(".")}
       </p>
 
       {/* -- Acceptance criteria should match the workflow ---------- */}

@@ -79,6 +79,11 @@ export default async function RevOpsAuditGuide({
           "This guide walks you through a complete RevOps audit framework. It covers the six areas you need to inspect, gives you a practical checklist you can start using today, and explains what to do with the findings. If you have ever suspected that your revenue operations are held together by a combination of Zapier, spreadsheets, and one person who remembers how things work -this is where you start."
         )}
       </p>
+      <p>
+        {t("If your team is closer to 50 people and you are wondering whether RevOps even applies at your scale, start with our guide to")}{" "}
+        <Link href="/blog/revops-for-small-teams">{t("RevOps for small teams")}</Link>
+        {t(" -it covers the fundamentals to get right before a full audit becomes necessary.")}
+      </p>
 
       {/* ── What Is a RevOps Audit? ──────────────────────────── */}
       <h2>{t("What is a RevOps audit?")}</h2>
@@ -140,6 +145,11 @@ export default async function RevOpsAuditGuide({
         {t(
           "The audit should verify: Are stage definitions documented anywhere? Can a new sales rep read the definition and correctly assign a deal to a stage without asking a colleague? Are there deals that have been in the same stage for more than twice the average cycle time? Do reps skip stages or move deals backward, and if so, is that tracked?"
         )}
+      </p>
+      <p>
+        {t("If your pipeline stages are unclear or inconsistent, you may recognize the patterns described in our analysis of")}{" "}
+        <Link href="/blog/crm-pipeline-leaking-revenue">{t("signs your CRM pipeline is leaking revenue")}</Link>
+        {t(" -the same structural issues show up in nearly every audit.")}
       </p>
 
       {/* Pillar 3 */}
@@ -318,8 +328,10 @@ export default async function RevOpsAuditGuide({
       <p>
         <strong>{t("Undocumented handoffs.")}</strong>{" "}
         {t(
-          "The process for moving a lead from marketing to sales exists in someone's head but not in any written document or system configuration. When that person goes on vacation, the handoff breaks. When they leave the company, the handoff disappears. Even when they are present, the lack of documentation means there is no way to measure SLA compliance or identify where leads are getting stuck."
-        )}
+          "The process for moving a lead from marketing to sales exists in someone's head but not in any written document or system configuration. When that person goes on vacation, the handoff breaks. When they leave the company, the handoff disappears. Even when they are present, the lack of documentation means there is no way to measure SLA compliance or identify where leads are getting stuck. This is a symptom of"
+        )}{" "}
+        <Link href="/blog/process-debt-growing-b2b">{t("process debt that accumulates as B2B companies scale")}</Link>
+        {t(" -and it compounds well beyond the revenue team.")}
       </p>
       <p>
         <strong>{t("Shadow pipelines.")}</strong>{" "}

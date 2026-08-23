@@ -24,7 +24,7 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": organizationId,
         name: siteConfig.name,
         url: home,
@@ -35,6 +35,15 @@ export default function JsonLd({ locale = "en-US" }: { locale?: Locale }) {
         disambiguatingDescription:
           "B2B IT and operations consulting firm based in California, USA. Not affiliated with fillsystems.it (Italy) or Fill System HVAC (South Korea).",
         founder: { "@id": `${home}#igor-saevets` },
+        knowsAbout: [
+          "Revenue Operations",
+          "CRM Consulting",
+          "Business Process Optimization",
+          "IT Risk Assessment",
+          "AI Process Automation",
+          "HubSpot",
+          "Salesforce",
+        ],
         sameAs: [
           "https://www.linkedin.com/in/igorsaevets",
           "https://www.linkedin.com/company/fillsystem",

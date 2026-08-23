@@ -161,6 +161,11 @@ export default async function About({
               "Diagnostic-first IT and business development for B2B companies dealing with process, CRM, data flow, and automation problems.",
             )}
           </p>
+          <p className={styles.heroBody}>
+            {t(
+              "Fill System was founded in 2021 in California by Igor Saevets after a decade of building and advising technology companies across the US and Europe. The pattern was always the same: companies between 50 and 250 employees hit a wall where the processes that worked at 20 people start breaking - undocumented handoffs, CRM data nobody trusts, automation layered on top of broken workflows. We built Fill System to diagnose those problems before anyone commits budget to fixing them.",
+            )}
+          </p>
         </div>
       </section>
 
@@ -184,7 +189,40 @@ export default async function About({
         </div>
       </section>
 
-      {/* 3 - Team */}
+      {/* 3 - How the diagnostic works */}
+      <section className="section">
+        <div className="container">
+          <h2>{t("How the diagnostic works")}</h2>
+          <p className={`lead ${styles.lead}`}>
+            {t(
+              "Every engagement begins with a structured review, not a sales pitch. The diagnostic separates problem definition from solution delivery so you never pay for implementation before the problem is validated.",
+            )}
+          </p>
+          <p>
+            {t(
+              "In the first 30-45 minutes, we review your workflows, systems, CRM usage, reporting, automation, and decision bottlenecks. We then map likely root causes and score fixes by impact, effort, risk, dependency, and business value. You receive a clear next step: audit, assessment, roadmap, advisory, implementation support, pause, or no-fit.",
+            )}
+          </p>
+          <p>
+            {t(
+              "A no-fit decision is a valid outcome. If the diagnostic shows that the problem does not justify a paid engagement, or that you need a different kind of help, we say so. The diagnostic is complimentary because we need to understand the problem before we can estimate whether we are the right team to solve it.",
+            )}
+          </p>
+          <h3>{t("Who we work with")}</h3>
+          <p>
+            {t(
+              "Our strongest fit is a B2B company with 50-250 employees facing cross-functional process or system complexity, weak visibility across CRM or SaaS tools, unclear automation or AI priorities, or a high-impact migration or integration decision that needs independent review. We work across industries including SaaS, professional services, logistics, manufacturing, and multi-location operators.",
+            )}
+          </p>
+          <p>
+            {t(
+              "We are usually not the right fit for pre-revenue startups, companies under 30 employees, engagements that need a full-time embedded team, or implementation-only work without a diagnostic phase.",
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* 4 - Team */}
       <section className="section">
         <div className="container">
           <h2>{t("Team")}</h2>
