@@ -187,6 +187,14 @@ export default async function ProcessOperations({
               "Redesign the handoffs, approvals, and ownership that slow a growing team down.",
             )}
           </p>
+          <div className={styles.heroCta}>
+            <Button href="/#diagnostic-request-form" variant="primary" icon data-request-type="Process & Operations">
+              {t("Request a Process Diagnostic")}
+            </Button>
+            <p className={styles.heroReassurance}>
+              {t("30-45 minute fit review. No system access required.")}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -224,6 +232,16 @@ export default async function ProcessOperations({
         </div>
       </section>
 
+      {/* mid-CTA after deliverables */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="Process & Operations">
+            {t("Start With a Free Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("A senior advisor will respond within 2 business days.")}</p>
+        </div>
+      </div>
+
       {/* 4 -- Who It's For */}
       <section className={`section ${styles.brandSection}`}>
         <PlusMark className={styles.brandPlusTop} size={120} />
@@ -254,6 +272,16 @@ export default async function ProcessOperations({
           </div>
         </div>
       </section>
+
+      {/* mid-CTA after pricing */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="Process & Operations">
+            {t("Scope and Pricing After Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("You never pay before scope is agreed in writing.")}</p>
+        </div>
+      </div>
 
       {/* 6 -- FAQ */}
       <section className="section">

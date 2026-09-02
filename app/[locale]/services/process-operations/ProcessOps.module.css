@@ -13,6 +13,27 @@
   margin-top: var(--space-2);
 }
 
+.heroCta {
+  margin-top: var(--space-4);
+}
+
+.heroReassurance {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--stone-500);
+}
+
+.midCta {
+  padding-block: var(--space-4);
+  text-align: center;
+}
+
+.midCtaNote {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--stone-500);
+}
+
 /* ----- Problem grid ----- */
 .problemGrid {
   display: grid;

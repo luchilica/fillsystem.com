@@ -193,6 +193,14 @@ export default async function ITRiskSecurity({
               "See where your data, access, and systems put the business at risk. A focused review scaled to a small company, not an enterprise compliance framework.",
             )}
           </p>
+          <div className={styles.heroCta}>
+            <Button href="/#diagnostic-request-form" variant="primary" icon data-request-type="IT Risk & Security">
+              {t("Request a Free IT Risk Review")}
+            </Button>
+            <p className={styles.heroReassurance}>
+              {t("30-45 minute fit review. No system access required.")}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -229,6 +237,16 @@ export default async function ITRiskSecurity({
           </ul>
         </div>
       </section>
+
+      {/* mid-CTA after deliverables */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="IT Risk & Security">
+            {t("Start With a Free Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("A senior advisor will respond within 2 business days.")}</p>
+        </div>
+      </div>
 
       {/* 4 -- Who This Is For */}
       <section className={`section ${styles.brandSection}`}>
@@ -272,6 +290,16 @@ export default async function ITRiskSecurity({
           </div>
         </div>
       </section>
+
+      {/* mid-CTA after pricing */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="IT Risk & Security">
+            {t("Scope and Pricing After Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("You never pay before scope is agreed in writing.")}</p>
+        </div>
+      </div>
 
       {/* 6 -- FAQ */}
       <section className="section">

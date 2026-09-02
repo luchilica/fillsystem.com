@@ -213,6 +213,14 @@ export default async function AIProcessAutomation({
               "Remove the manual, repetitive work - but only where it actually pays off. Starting from the diagnostic, we automate the workflows with real payback.",
             )}
           </p>
+          <div className={styles.heroCta}>
+            <Button href="/#diagnostic-request-form" variant="primary" icon data-request-type="AI & Process Automation">
+              {t("Assess Your Automation Opportunities")}
+            </Button>
+            <p className={styles.heroReassurance}>
+              {t("30-45 minute fit review. No system access required.")}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -247,6 +255,16 @@ export default async function AIProcessAutomation({
           </div>
         </div>
       </section>
+
+      {/* mid-CTA after process steps */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="AI & Process Automation">
+            {t("Start With a Free Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("A senior advisor will respond within 2 business days.")}</p>
+        </div>
+      </div>
 
       {/* 4 -- Tools & Environments */}
       <section className={`section ${styles.brandSection}`}>
@@ -283,6 +301,16 @@ export default async function AIProcessAutomation({
           </div>
         </div>
       </section>
+
+      {/* mid-CTA after pricing */}
+      <div className={styles.midCta}>
+        <div className="container">
+          <Button href="/#diagnostic-request-form" variant="secondary" data-request-type="AI & Process Automation">
+            {t("Scope and Pricing After Diagnostic")}
+          </Button>
+          <p className={styles.midCtaNote}>{t("You never pay before scope is agreed in writing.")}</p>
+        </div>
+      </div>
 
       {/* 6 -- FAQ */}
       <section className="section">
