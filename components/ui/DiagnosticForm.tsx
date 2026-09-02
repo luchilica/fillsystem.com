@@ -11,7 +11,8 @@ import { ChevronDown, ChevronUp, Plus, CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackConversion } from "@/lib/analytics";
+import { getAdsTrackingParams } from "@/lib/ads-tracking";
 import { useT } from "@/i18n/useT";
 import styles from "./DiagnosticForm.module.css";
 
@@ -264,18 +265,28 @@ export default function DiagnosticForm() {
     setStatus("loading");
     const slowTimer = setTimeout(() => setSlow(true), 3000);
     try {
-      const params = new URLSearchParams(window.location.search);
+      const urlParams = new URLSearchParams(window.location.search);
+      const ads = getAdsTrackingParams();
       const context = {
         locale,
         page_url: window.location.href,
         page_section: "business-it-diagnostic",
         cta_text: lastCtaRef.current,
         referrer: document.referrer,
-        utm_source: params.get("utm_source") ?? "",
-        utm_medium: params.get("utm_medium") ?? "",
-        utm_campaign: params.get("utm_campaign") ?? "",
-        utm_content: params.get("utm_content") ?? "",
-        utm_term: params.get("utm_term") ?? "",
+        gclid: ads.gclid || urlParams.get("gclid") || "",
+        gbraid: ads.gbraid || urlParams.get("gbraid") || "",
+        wbraid: ads.wbraid || urlParams.get("wbraid") || "",
+        utm_source: ads.utm_source || urlParams.get("utm_source") || "",
+        utm_medium: ads.utm_medium || urlParams.get("utm_medium") || "",
+        utm_campaign: ads.utm_campaign || urlParams.get("utm_campaign") || "",
+        utm_adgroup: ads.utm_adgroup || urlParams.get("utm_adgroup") || "",
+        utm_term: ads.utm_term || urlParams.get("utm_term") || "",
+        utm_content: ads.utm_content || urlParams.get("utm_content") || "",
+        matchtype: ads.matchtype || urlParams.get("matchtype") || "",
+        device: ads.device || urlParams.get("device") || "",
+        network: ads.network || urlParams.get("network") || "",
+        landing_page: ads.landing_page || "",
+        first_touch: ads.first_touch || "",
         timestamp: new Date().toISOString(),
       };
       const res = await fetch("/api/submit", {
@@ -318,6 +329,7 @@ export default function DiagnosticForm() {
       trackEvent("form_submit_success", {
         request_type: values.services.join(", ") || "not_specified",
       });
+      trackConversion(values.email);
     } catch {
       setStatus("error");
       trackEvent("form_submit_error", { error_type: "network_error" });

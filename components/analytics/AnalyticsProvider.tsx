@@ -1,25 +1,52 @@
 "use client";
 
 import { useEffect } from "react";
-import { isAnalyticsReady, loadGA4, unloadGA4 } from "@/lib/analytics";
-import { ANALYTICS_ENABLED, CONSENT_CHANGE_EVENT } from "@/lib/consent";
+import {
+  isAnalyticsReady,
+  loadGA4,
+  loadGoogleAds,
+  unloadGA4,
+  setConsentDefaults,
+  updateConsentGranted,
+  updateConsentDenied,
+} from "@/lib/analytics";
+import {
+  ANALYTICS_ENABLED,
+  CONSENT_CHANGE_EVENT,
+  hasAnalyticsConsent,
+} from "@/lib/consent";
+import { captureAdsParams } from "@/lib/ads-tracking";
 
-// Side-effect-only component: loads GA4 when consent is granted and unloads it
-// when revoked. Renders nothing. While ANALYTICS_ENABLED is false it does
-// nothing at all (no listeners, no script).
 export default function AnalyticsProvider() {
   useEffect(() => {
+    // Consent Mode v2 defaults must be set before any Google script loads
+    setConsentDefaults();
+
+    // Persist gclid / UTM / ad params from landing URL into sessionStorage
+    captureAdsParams();
+
     if (!ANALYTICS_ENABLED) return;
 
-    if (isAnalyticsReady()) loadGA4();
+    if (hasAnalyticsConsent()) {
+      updateConsentGranted();
+      if (isAnalyticsReady()) loadGA4();
+      loadGoogleAds();
+    }
 
     const onConsentChange = () => {
-      if (isAnalyticsReady()) loadGA4();
-      else unloadGA4();
+      if (hasAnalyticsConsent()) {
+        updateConsentGranted();
+        if (isAnalyticsReady()) loadGA4();
+        loadGoogleAds();
+      } else {
+        updateConsentDenied();
+        unloadGA4();
+      }
     };
 
     window.addEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
-    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
+    return () =>
+      window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
   }, []);
 
   return null;

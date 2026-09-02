@@ -125,14 +125,29 @@ function notificationHtml(b: SubmitBody): string {
     str(ctx.utm_source) ? `source=${esc(str(ctx.utm_source))}` : "",
     str(ctx.utm_medium) ? `medium=${esc(str(ctx.utm_medium))}` : "",
     str(ctx.utm_campaign) ? `campaign=${esc(str(ctx.utm_campaign))}` : "",
+    str(ctx.utm_adgroup) ? `adgroup=${esc(str(ctx.utm_adgroup))}` : "",
+    str(ctx.utm_term) ? `term=${esc(str(ctx.utm_term))}` : "",
+    str(ctx.utm_content) ? `content=${esc(str(ctx.utm_content))}` : "",
+  ].filter(Boolean).join(", ");
+
+  const adsParts = [
+    str(ctx.matchtype) ? `match=${esc(str(ctx.matchtype))}` : "",
+    str(ctx.device) ? `device=${esc(str(ctx.device))}` : "",
+    str(ctx.network) ? `network=${esc(str(ctx.network))}` : "",
   ].filter(Boolean).join(", ");
 
   const contextRows = [
     row("Language", ctx.locale),
     row("Page", ctx.page_url),
+    row("Landing page", ctx.landing_page),
     row("CTA clicked", ctx.cta_text),
     row("Referrer", ctx.referrer),
+    row("GCLID", ctx.gclid),
+    row("GBRAID", ctx.gbraid),
+    row("WBRAID", ctx.wbraid),
     utmParts ? row("UTM", utmParts) : "",
+    adsParts ? row("Ads", adsParts) : "",
+    row("First touch", ctx.first_touch),
     row("Submitted", ctx.timestamp),
   ].filter(Boolean).join("");
 
@@ -207,11 +222,22 @@ function notificationText(b: SubmitBody): string {
     "--- Context ---",
     line("Language", ctx.locale),
     line("Page", ctx.page_url),
+    line("Landing page", ctx.landing_page),
     line("CTA", ctx.cta_text),
     line("Referrer", ctx.referrer),
+    line("GCLID", ctx.gclid),
+    line("GBRAID", ctx.gbraid),
+    line("WBRAID", ctx.wbraid),
     line("utm_source", ctx.utm_source),
     line("utm_medium", ctx.utm_medium),
     line("utm_campaign", ctx.utm_campaign),
+    line("utm_adgroup", ctx.utm_adgroup),
+    line("utm_term", ctx.utm_term),
+    line("utm_content", ctx.utm_content),
+    line("Match type", ctx.matchtype),
+    line("Device", ctx.device),
+    line("Network", ctx.network),
+    line("First touch", ctx.first_touch),
     line("Timestamp", ctx.timestamp),
   ]
     .filter((l) => l !== null)

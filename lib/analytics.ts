@@ -1,18 +1,22 @@
-// Analytics abstraction. GA4 loads ONLY after consent, never in preview, and
-// only when a Measurement ID is provided. Until all gates pass, every export is
-// a no-op. No analytics library is bundled — gtag.js loads from the CDN at
-// activation. Spec: docs/optimization.md (Analytics), docs/development-plan.md
-// (Этап 12). Analytics must never throw into the app — all failures are silent.
+// Analytics and ads tracking abstraction.
+//
+// GA4 and Google Ads load ONLY after consent, never in preview, and only when
+// their respective env vars are set. Until all gates pass, every export is a
+// no-op. No analytics library is bundled — gtag.js loads from the CDN.
+//
+// Consent Mode v2: defaults are set to "denied" for all four signals before any
+// Google script loads, then updated to "granted" when the visitor accepts.
 
 import { ANALYTICS_ENABLED, hasAnalyticsConsent } from "./consent";
 
-// The only NEXT_PUBLIC_ value — gtag.js runs client-side. EMPTY in preview
-// (env var unset), which keeps the gate closed. Never hardcode an ID.
 const GA4_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || "";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
+const GOOGLE_ADS_CONVERSION_LABEL =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "";
 
 const GA4_SCRIPT_ID = "ga4-script";
+const GADS_SCRIPT_ID = "gads-script";
 
-// Param keys containing any of these substrings are dropped before sending.
 const PII_KEY_FRAGMENTS = [
   "email",
   "name",
@@ -40,9 +44,59 @@ export type AnalyticsEvent =
   | "form_submit_success"
   | "form_submit_error";
 
-// All gates must pass before GA4 may load or any event may be sent.
-// Preview check: GA4_MEASUREMENT_ID is empty in preview (env var unset),
-// so the empty-string gate handles it without needing the server-only siteConfig.
+// ---------------------------------------------------------------------------
+// gtag bootstrap — creates the dataLayer stub without loading any script
+// ---------------------------------------------------------------------------
+
+function ensureGtag(): void {
+  if (typeof window === "undefined") return;
+  if (window.gtag) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function (...args: unknown[]) {
+    window.dataLayer!.push(args);
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Consent Mode v2
+// ---------------------------------------------------------------------------
+
+export function setConsentDefaults(): void {
+  if (typeof window === "undefined") return;
+  ensureGtag();
+  window.gtag!("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_personalization: "denied",
+    ad_user_data: "denied",
+    wait_for_update: 500,
+  });
+}
+
+export function updateConsentGranted(): void {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "granted",
+    ad_personalization: "granted",
+    ad_user_data: "granted",
+  });
+}
+
+export function updateConsentDenied(): void {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("consent", "update", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_personalization: "denied",
+    ad_user_data: "denied",
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Gate checks
+// ---------------------------------------------------------------------------
+
 export function isAnalyticsReady(): boolean {
   return (
     ANALYTICS_ENABLED &&
@@ -51,10 +105,20 @@ export function isAnalyticsReady(): boolean {
   );
 }
 
+export function isAdsConfigured(): boolean {
+  return GOOGLE_ADS_ID !== "" && GOOGLE_ADS_CONVERSION_LABEL !== "";
+}
+
+// ---------------------------------------------------------------------------
+// GA4
+// ---------------------------------------------------------------------------
+
 export function loadGA4(): void {
   if (!isAnalyticsReady()) return;
   if (typeof window === "undefined") return;
-  if (window.gtag) return; // already loaded
+  if (document.getElementById(GA4_SCRIPT_ID)) return;
+
+  ensureGtag();
 
   const script = document.createElement("script");
   script.id = GA4_SCRIPT_ID;
@@ -62,37 +126,80 @@ export function loadGA4(): void {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
   document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  const gtag = (...args: unknown[]) => {
-    window.dataLayer?.push(args);
-  };
-  window.gtag = gtag;
-
-  gtag("js", new Date());
-  gtag("config", GA4_MEASUREMENT_ID, {
+  window.gtag!("js", new Date());
+  window.gtag!("config", GA4_MEASUREMENT_ID, {
     send_page_view: true,
     cookie_flags: "SameSite=Lax;Secure",
   });
-
-  // Basic Consent Mode. This function only runs after consent is confirmed, so
-  // default-denied is updated to granted immediately.
-  gtag("consent", "default", { analytics_storage: "denied" });
-  gtag("consent", "update", { analytics_storage: "granted" });
 }
 
 export function unloadGA4(): void {
-  if (typeof window === "undefined" || !window.gtag) return;
-
-  try {
-    window.gtag("consent", "update", { analytics_storage: "denied" });
-  } catch {
-    /* silent — analytics must never break the site */
-  }
+  if (typeof window === "undefined") return;
 
   document.getElementById(GA4_SCRIPT_ID)?.remove();
+  document.getElementById(GADS_SCRIPT_ID)?.remove();
+
+  if (window.gtag) {
+    try {
+      updateConsentDenied();
+    } catch {
+      /* silent */
+    }
+  }
+
   window.dataLayer = [];
   delete window.gtag;
 }
+
+// ---------------------------------------------------------------------------
+// Google Ads
+// ---------------------------------------------------------------------------
+
+export function loadGoogleAds(): void {
+  if (!GOOGLE_ADS_ID) return;
+  if (typeof window === "undefined") return;
+  if (!hasAnalyticsConsent()) return;
+
+  ensureGtag();
+
+  // gtag.js is shared — only load a second script if GA4 didn't already load one
+  if (
+    !document.getElementById(GA4_SCRIPT_ID) &&
+    !document.getElementById(GADS_SCRIPT_ID)
+  ) {
+    const script = document.createElement("script");
+    script.id = GADS_SCRIPT_ID;
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
+    document.head.appendChild(script);
+    window.gtag!("js", new Date());
+  }
+
+  window.gtag!("config", GOOGLE_ADS_ID, {
+    allow_enhanced_conversions: true,
+  });
+}
+
+// Fire a Google Ads conversion. Enhanced Conversions: gtag hashes the email
+// client-side before sending it to Google.
+export function trackConversion(email?: string): void {
+  if (!GOOGLE_ADS_ID || !GOOGLE_ADS_CONVERSION_LABEL) return;
+  if (typeof window === "undefined" || !window.gtag) return;
+
+  if (email) {
+    window.gtag("set", "user_data", {
+      email: email.trim().toLowerCase(),
+    });
+  }
+
+  window.gtag("event", "conversion", {
+    send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
+  });
+}
+
+// ---------------------------------------------------------------------------
+// GA4 event tracking
+// ---------------------------------------------------------------------------
 
 function sanitizeParams(
   params: Record<string, string>,
@@ -112,10 +219,10 @@ export function trackEvent(
 ): void {
   try {
     if (!isAnalyticsReady() || typeof window === "undefined" || !window.gtag) {
-      return; // no-op until activated + consented
+      return;
     }
     window.gtag("event", event, params ? sanitizeParams(params) : {});
   } catch {
-    /* silent — analytics must never break the site */
+    /* silent */
   }
 }
